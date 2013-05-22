@@ -1,4 +1,5 @@
-package andes2.model.java;
+package Andes2.model.java;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;

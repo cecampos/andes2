@@ -16,9 +16,12 @@ import javax.faces.validator.ValidatorException;
 
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
 import oracle.adf.view.rich.component.rich.output.RichOutputText;
-import Andes2.model.common.*;
-
 import org.apache.myfaces.trinidad.model.UploadedFile;
+
+import Andes2.model.java.FileUploader;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class FilUpdateBean {
     UploadedFile empleado,skill;
@@ -34,10 +37,14 @@ public class FilUpdateBean {
     public void FileChange(ValueChangeEvent event) {
         // Add event code here...
         
-        //empleado = (UploadedFile)event.getNewValue();
+        UploadedFile aux = (UploadedFile)event.getNewValue();
         //System.out.println("subido:"+empleado.getFilename());
-        filesMap.put(event.getComponent().getId(), (UploadedFile)event.getNewValue());
         //Buscar si el archivo ha sido subido antes, mostrar fecha del ultimo submit si es asi
+        try {
+            filesMap.put(event.getComponent().getId(), aux.getInputStream());
+        } catch (IOException e) {
+            System.out.println("Error al obtener stream fileChanged");
+        }
         ((RichOutputText)outputMap.get(event.getComponent().getId()+"OT")).setValue("ASDF");
     
     }
@@ -69,17 +76,16 @@ public class FilUpdateBean {
     public String Submit() {
         // Add event code here...
         System.out.println("estoy en el submit, archivos:");
-        /*
-        System.out.println(empleado.getFilename());
-        System.out.println(skill.getFilename());
-        */
+        FileUploader uploader = new FileUploader();
         Set set = filesMap.entrySet(); 
         // Get an iterator 
         Iterator i = set.iterator(); 
         // Display elements 
         while(i.hasNext()) { 
-        Map.Entry me = (Map.Entry)i.next(); 
-        System.out.println(((UploadedFile)me.getValue()).getFilename()); 
+        Map.Entry me = (Map.Entry)i.next();
+    
+        uploader.uploadFileToDb((String)me.getKey(),(InputStream)me.getValue());
+
         } 
         return null;
     }
@@ -100,5 +106,34 @@ public class FilUpdateBean {
 
     public RichOutputText getSkillOT() {
         return (RichOutputText)outputMap.get("skillOT");
+    }
+    public void setGrupoOT(RichOutputText grupoOT) {
+        outputMap.put("grupoOT", grupoOT);
+    }
+
+    public RichOutputText getGrupoOT() {
+        return (RichOutputText)outputMap.get("grupoOT");
+    }
+    
+    public void setCapacityOT(RichOutputText capacityOT) {
+        outputMap.put("capacityOT", capacityOT);
+    }
+
+    public RichOutputText getCapacityOT() {
+        return (RichOutputText)outputMap.get("capacityOT");
+    }
+    public void setCapacitacionOT(RichOutputText capacitacionesOT) {
+        outputMap.put("capacitacionOT", capacitacionesOT);
+    }
+
+    public RichOutputText getCapacitacionOT() {
+        return (RichOutputText)outputMap.get("capacitacionOT");
+    }
+    public void setDemSkillOT(RichOutputText demSkillOT) {
+        outputMap.put("demSkillOT", demSkillOT);
+    }
+
+    public RichOutputText getDemSkillOT() {
+        return (RichOutputText)outputMap.get("demSkillOT");
     }
 }
