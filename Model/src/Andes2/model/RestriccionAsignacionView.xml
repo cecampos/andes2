@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RestriccionAsignacionView"
+  Version="11.1.2.62.76"
+  SelectList="RestriccionAsignacion.EMPL_RUT, 
+       RestriccionAsignacion.RTAG_DIA, 
+       RestriccionAsignacion.TURN_SEQ_CDG, 
+       RestriccionAsignacion.RTAG_MES, 
+       RestriccionAsignacion.RTAG_VERSION, 
+       RestriccionAsignacion.ROWID"
+  FromList="RESTRICCION_ASIGNACION RestriccionAsignacion"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="RestriccionAsignacion"
+    Entity="Andes2.model.RestriccionAsignacion"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="RestriccionAsignacion"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="RtagDia"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RtagDia"
+    EntityUsage="RestriccionAsignacion"
+    AliasName="RTAG_DIA"/>
+  <ViewAttribute
+    Name="TurnSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TurnSeqCdg"
+    EntityUsage="RestriccionAsignacion"
+    AliasName="TURN_SEQ_CDG"/>
+  <ViewAttribute
+    Name="RtagMes"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RtagMes"
+    EntityUsage="RestriccionAsignacion"
+    AliasName="RTAG_MES"/>
+  <ViewAttribute
+    Name="RtagVersion"
+    PrecisionRule="true"
+    EntityAttrName="RtagVersion"
+    EntityUsage="RestriccionAsignacion"
+    AliasName="RTAG_VERSION"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="RestriccionAsignacion"
+    AliasName="ROWID"/>
+</ViewObject>

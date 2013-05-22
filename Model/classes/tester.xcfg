@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="Andes2.model.andes2">
+      <AppModuleConfig name="13ECD59D632" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DBconnection="java:comp/env/jdbc/devDS" IsLazyLoadingTrue="true" JDBCName="dev" jbo.project="Andes2.model.Model" BC4JConfigName="andes2Local" DeployPlatform="LOCAL" ApplicationName="Andes2.model.andes2">
+         <Database jbo.SQLBuilder="Oracle" jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="Andes2.model.andes2"/>
+         <Tester FullProxyInterfaceName="Andes2.model.common.andes2"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/devDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

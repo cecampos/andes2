@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TurnosView"
+  Version="11.1.2.62.76"
+  SelectList="Turnos.TURN_SEQ_CDG, 
+       Turnos.TURN_NOMBRE, 
+       Turnos.TURN_TIPO, 
+       Turnos.TURN_HORA_INGRESO, 
+       Turnos.TURN_HORA_SALIDA"
+  FromList="TURNOS Turnos"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Turnos"
+    Entity="Andes2.model.Turnos"/>
+  <ViewAttribute
+    Name="TurnSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TurnSeqCdg"
+    EntityUsage="Turnos"
+    AliasName="TURN_SEQ_CDG"/>
+  <ViewAttribute
+    Name="TurnNombre"
+    PrecisionRule="true"
+    EntityAttrName="TurnNombre"
+    EntityUsage="Turnos"
+    AliasName="TURN_NOMBRE"/>
+  <ViewAttribute
+    Name="TurnTipo"
+    PrecisionRule="true"
+    EntityAttrName="TurnTipo"
+    EntityUsage="Turnos"
+    AliasName="TURN_TIPO"/>
+  <ViewAttribute
+    Name="TurnHoraIngreso"
+    PrecisionRule="true"
+    EntityAttrName="TurnHoraIngreso"
+    EntityUsage="Turnos"
+    AliasName="TURN_HORA_INGRESO"/>
+  <ViewAttribute
+    Name="TurnHoraSalida"
+    PrecisionRule="true"
+    EntityAttrName="TurnHoraSalida"
+    EntityUsage="Turnos"
+    AliasName="TURN_HORA_SALIDA"/>
+  <ViewLinkAccessor
+    Name="FijarAsignacionView"
+    ViewLink="Andes2.model.FjagFkTurnLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="RestriccionAsignacionView"
+    ViewLink="Andes2.model.RtagAsignacionFkTurnLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CapacityTurnoView"
+    ViewLink="Andes2.model.CptnFkTurnLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

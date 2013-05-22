@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.62.76" id="DataBindings"
+             SeparateXMLFiles="false" Package="Andes2.view" ClientType="Generic">
+  <pageMap>
+    <page path="/CargaArchivos.jsf" usageId="Andes2_view_CargaArchivosPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="Andes2_view_CargaArchivosPageDef" path="Andes2.view.pageDefs.CargaArchivosPageDef"/>
+  </pageDefinitionUsages>
+</Application>

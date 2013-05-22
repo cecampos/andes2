@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="FileUpload.jsf" id="d1">
+        <af:form id="f1" usesUpload="true">
+            <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
+                <f:facet name="content">
+                    <af:panelGridLayout id="pgl1">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" width="34%" id="gc1">
+                                <af:selectBooleanCheckbox text="Empleados" id="sbc1" simple="true"/>
+                                <af:outputText value="Ultima carga:" id="empleadosOT"
+                                               inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                               binding="#{FilUpdBean.empleadoOT}"
+                                               partialTriggers="empleado"/>
+                                <af:inputFile label="Empleados" id="empleado" autoSubmit="true"
+                                              valueChangeListener="#{FilUpdBean.FileChange}"
+                                              validator="#{FilUpdBean.FileValidator}"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="33%" id="gc2">
+                                <af:selectBooleanCheckbox text="Skills" label="Label 1" id="sbc2"
+                                                          simple="true"/>
+                                <af:outputText id="ot1" binding="#{FilUpdBean.skillOT}" partialTriggers="skill"/>
+                                <af:inputFile label="Skills" id="skill" autoSubmit="true"
+                                              valueChangeListener="#{FilUpdBean.FileChange}"
+                                              validator="#{FilUpdBean.FileValidator}"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc3"/>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr2">
+                            <af:gridCell marginStart="5px" width="34%" id="gc4">
+                                <af:commandButton text="commandButton 1" id="cb1" action="#{FilUpdBean.Submit}"/>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="33%" id="gc5"/>
+                            <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc6"/>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                            <af:gridCell marginStart="5px" width="34%" id="gc7"/>
+                            <af:gridCell marginStart="5px" width="33%" id="gc8"/>
+                            <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9"/>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr4">
+                            <af:gridCell marginStart="5px" width="34%" id="gc10"/>
+                            <af:gridCell marginStart="5px" width="33%" id="gc11"/>
+                            <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc12"/>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

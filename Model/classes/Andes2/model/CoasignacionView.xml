@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CoasignacionView"
+  Version="11.1.2.62.76"
+  SelectList="Coasignacion.EMPL_RUT, 
+       Coasignacion.GRPO_SEQ_CDG, 
+       Coasignacion.ROWID"
+  FromList="COASIGNACION Coasignacion"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Coasignacion"
+    Entity="Andes2.model.Coasignacion"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="Coasignacion"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="GrpoSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GrpoSeqCdg"
+    EntityUsage="Coasignacion"
+    AliasName="GRPO_SEQ_CDG"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="Coasignacion"
+    AliasName="ROWID"/>
+</ViewObject>

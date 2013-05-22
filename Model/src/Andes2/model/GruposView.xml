@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GruposView"
+  Version="11.1.2.62.76"
+  SelectList="Grupos.GRPO_SEQ_CDG, 
+       Grupos.GRPO_NOMBRE, 
+       Grupos.GRPO_FECHA_INICIO, 
+       Grupos.GRPO_FECHA_TERMINO"
+  FromList="GRUPOS Grupos"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Grupos"
+    Entity="Andes2.model.Grupos"/>
+  <ViewAttribute
+    Name="GrpoSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GrpoSeqCdg"
+    EntityUsage="Grupos"
+    AliasName="GRPO_SEQ_CDG"/>
+  <ViewAttribute
+    Name="GrpoNombre"
+    PrecisionRule="true"
+    EntityAttrName="GrpoNombre"
+    EntityUsage="Grupos"
+    AliasName="GRPO_NOMBRE"/>
+  <ViewAttribute
+    Name="GrpoFechaInicio"
+    PrecisionRule="true"
+    EntityAttrName="GrpoFechaInicio"
+    EntityUsage="Grupos"
+    AliasName="GRPO_FECHA_INICIO"/>
+  <ViewAttribute
+    Name="GrpoFechaTermino"
+    PrecisionRule="true"
+    EntityAttrName="GrpoFechaTermino"
+    EntityUsage="Grupos"
+    AliasName="GRPO_FECHA_TERMINO"/>
+  <ViewLinkAccessor
+    Name="CoasignacionView"
+    ViewLink="Andes2.model.CoagFkGrpoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

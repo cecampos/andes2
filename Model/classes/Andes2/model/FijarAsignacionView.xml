@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FijarAsignacionView"
+  Version="11.1.2.62.76"
+  SelectList="FijarAsignacion.EMPL_RUT, 
+       FijarAsignacion.FJAG_DIA, 
+       FijarAsignacion.TURN_SEQ_CDG, 
+       FijarAsignacion.FJAG_MES, 
+       FijarAsignacion.FJAR_VERSION, 
+       FijarAsignacion.ROWID"
+  FromList="FIJAR_ASIGNACION FijarAsignacion"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="FijarAsignacion"
+    Entity="Andes2.model.FijarAsignacion"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="FijarAsignacion"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="FjagDia"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FjagDia"
+    EntityUsage="FijarAsignacion"
+    AliasName="FJAG_DIA"/>
+  <ViewAttribute
+    Name="TurnSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TurnSeqCdg"
+    EntityUsage="FijarAsignacion"
+    AliasName="TURN_SEQ_CDG"/>
+  <ViewAttribute
+    Name="FjagMes"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FjagMes"
+    EntityUsage="FijarAsignacion"
+    AliasName="FJAG_MES"/>
+  <ViewAttribute
+    Name="FjarVersion"
+    PrecisionRule="true"
+    EntityAttrName="FjarVersion"
+    EntityUsage="FijarAsignacion"
+    AliasName="FJAR_VERSION"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="FijarAsignacion"
+    AliasName="ROWID"/>
+</ViewObject>

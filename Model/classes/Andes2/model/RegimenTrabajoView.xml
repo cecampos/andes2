@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RegimenTrabajoView"
+  Version="11.1.2.62.76"
+  SelectList="RegimenTrabajo.RGTR_SEQ_CDG, 
+       RegimenTrabajo.RGTR_DIAS_TRABAJADOS, 
+       RegimenTrabajo.RGTR_DIAS_DESCANSADOS, 
+       RegimenTrabajo.RGTR_MAX_NOCHES, 
+       RegimenTrabajo.RGTR_LIBRES_POST_SALIENTES, 
+       RegimenTrabajo.RGTR_FINES_SEMANA_LIBRES"
+  FromList="REGIMEN_TRABAJO RegimenTrabajo"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="RegimenTrabajo"
+    Entity="Andes2.model.RegimenTrabajo"/>
+  <ViewAttribute
+    Name="RgtrSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RgtrSeqCdg"
+    EntityUsage="RegimenTrabajo"
+    AliasName="RGTR_SEQ_CDG"/>
+  <ViewAttribute
+    Name="RgtrDiasTrabajados"
+    PrecisionRule="true"
+    EntityAttrName="RgtrDiasTrabajados"
+    EntityUsage="RegimenTrabajo"
+    AliasName="RGTR_DIAS_TRABAJADOS"/>
+  <ViewAttribute
+    Name="RgtrDiasDescansados"
+    PrecisionRule="true"
+    EntityAttrName="RgtrDiasDescansados"
+    EntityUsage="RegimenTrabajo"
+    AliasName="RGTR_DIAS_DESCANSADOS"/>
+  <ViewAttribute
+    Name="RgtrMaxNoches"
+    PrecisionRule="true"
+    EntityAttrName="RgtrMaxNoches"
+    EntityUsage="RegimenTrabajo"
+    AliasName="RGTR_MAX_NOCHES"/>
+  <ViewAttribute
+    Name="RgtrLibresPostSalientes"
+    PrecisionRule="true"
+    EntityAttrName="RgtrLibresPostSalientes"
+    EntityUsage="RegimenTrabajo"
+    AliasName="RGTR_LIBRES_POST_SALIENTES"/>
+  <ViewAttribute
+    Name="RgtrFinesSemanaLibres"
+    PrecisionRule="true"
+    EntityAttrName="RgtrFinesSemanaLibres"
+    EntityUsage="RegimenTrabajo"
+    AliasName="RGTR_FINES_SEMANA_LIBRES"/>
+  <ViewLinkAccessor
+    Name="ContratoEmpleadosView"
+    ViewLink="Andes2.model.CntrFkRgtrLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

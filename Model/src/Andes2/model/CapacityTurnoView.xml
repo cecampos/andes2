@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CapacityTurnoView"
+  Version="11.1.2.62.76"
+  SelectList="CapacityTurno.CRGO_ID, 
+       CapacityTurno.TURN_SEQ_CDG, 
+       CapacityTurno.CAPT_FECHA, 
+       CapacityTurno.CAPT_REQUERIMIENTO, 
+       CapacityTurno.CAPT_MES, 
+       CapacityTurno.CAPT_VERSION, 
+       CapacityTurno.ROWID"
+  FromList="CAPACITY_TURNO CapacityTurno"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="CapacityTurno"
+    Entity="Andes2.model.CapacityTurno"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="CapacityTurno"
+    AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="TurnSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TurnSeqCdg"
+    EntityUsage="CapacityTurno"
+    AliasName="TURN_SEQ_CDG"/>
+  <ViewAttribute
+    Name="CaptFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptFecha"
+    EntityUsage="CapacityTurno"
+    AliasName="CAPT_FECHA"/>
+  <ViewAttribute
+    Name="CaptRequerimiento"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptRequerimiento"
+    EntityUsage="CapacityTurno"
+    AliasName="CAPT_REQUERIMIENTO"/>
+  <ViewAttribute
+    Name="CaptMes"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptMes"
+    EntityUsage="CapacityTurno"
+    AliasName="CAPT_MES"/>
+  <ViewAttribute
+    Name="CaptVersion"
+    PrecisionRule="true"
+    EntityAttrName="CaptVersion"
+    EntityUsage="CapacityTurno"
+    AliasName="CAPT_VERSION"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="CapacityTurno"
+    AliasName="ROWID"/>
+</ViewObject>

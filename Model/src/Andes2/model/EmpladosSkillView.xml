@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpladosSkillView"
+  Version="11.1.2.62.76"
+  SelectList="EmpladosSkill.EMPL_RUT, 
+       EmpladosSkill.SKLL_SEQ_CDG, 
+       EmpladosSkill.SKLL_FECHA, 
+       EmpladosSkill.SKILL_VERSION, 
+       EmpladosSkill.ROWID"
+  FromList="EMPLADOS_SKILL EmpladosSkill"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="EmpladosSkill"
+    Entity="Andes2.model.EmpladosSkill"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="EmpladosSkill"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="SkllSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkllSeqCdg"
+    EntityUsage="EmpladosSkill"
+    AliasName="SKLL_SEQ_CDG"/>
+  <ViewAttribute
+    Name="SkllFecha"
+    PrecisionRule="true"
+    EntityAttrName="SkllFecha"
+    EntityUsage="EmpladosSkill"
+    AliasName="SKLL_FECHA"/>
+  <ViewAttribute
+    Name="SkillVersion"
+    PrecisionRule="true"
+    EntityAttrName="SkillVersion"
+    EntityUsage="EmpladosSkill"
+    AliasName="SKILL_VERSION"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="EmpladosSkill"
+    AliasName="ROWID"/>
+</ViewObject>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContratoEmpleadosView"
+  Version="11.1.2.62.76"
+  SelectList="ContratoEmpleados.EMPL_RUT, 
+       ContratoEmpleados.RGTR_SEQ_CDG, 
+       ContratoEmpleados.CRGO_ID, 
+       ContratoEmpleados.CNTR_MES, 
+       ContratoEmpleados.CNTR_VERSION, 
+       ContratoEmpleados.ROWID"
+  FromList="CONTRATO_EMPLEADOS ContratoEmpleados"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="ContratoEmpleados"
+    Entity="Andes2.model.ContratoEmpleados"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="ContratoEmpleados"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="RgtrSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RgtrSeqCdg"
+    EntityUsage="ContratoEmpleados"
+    AliasName="RGTR_SEQ_CDG"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="ContratoEmpleados"
+    AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="CntrMes"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CntrMes"
+    EntityUsage="ContratoEmpleados"
+    AliasName="CNTR_MES"/>
+  <ViewAttribute
+    Name="CntrVersion"
+    PrecisionRule="true"
+    EntityAttrName="CntrVersion"
+    EntityUsage="ContratoEmpleados"
+    AliasName="CNTR_VERSION"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="ContratoEmpleados"
+    AliasName="ROWID"/>
+</ViewObject>

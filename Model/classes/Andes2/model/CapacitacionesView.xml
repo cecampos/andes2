@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CapacitacionesView"
+  Version="11.1.2.62.76"
+  SelectList="Capacitaciones.CAPT_ID, 
+       Capacitaciones.EMPL_RUT, 
+       Capacitaciones.CAPT_FECHA_INICIO, 
+       Capacitaciones.CAPT_FECHA_TERMINO, 
+       Capacitaciones.CAPT_HORA_INICIO, 
+       Capacitaciones.CAPT_HORA_TERMINO"
+  FromList="CAPACITACIONES Capacitaciones"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Capacitaciones"
+    Entity="Andes2.model.Capacitaciones"/>
+  <ViewAttribute
+    Name="CaptId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptId"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_ID"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="Capacitaciones"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="CaptFechaInicio"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptFechaInicio"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_FECHA_INICIO"/>
+  <ViewAttribute
+    Name="CaptFechaTermino"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptFechaTermino"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_FECHA_TERMINO"/>
+  <ViewAttribute
+    Name="CaptHoraInicio"
+    PrecisionRule="true"
+    EntityAttrName="CaptHoraInicio"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_HORA_INICIO"/>
+  <ViewAttribute
+    Name="CaptHoraTermino"
+    PrecisionRule="true"
+    EntityAttrName="CaptHoraTermino"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_HORA_TERMINO"/>
+</ViewObject>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ArchivosSubidosView"
+  Version="11.1.2.62.76"
+  SelectList="ArchivosSubidos.ARCH_SEQ_CDG, 
+       ArchivosSubidos.ARCH_NOMBRE, 
+       ArchivosSubidos.ARCH_MES, 
+       ArchivosSubidos.ARCH_FECHA_SUBIDA"
+  FromList="ARCHIVOS_SUBIDOS ArchivosSubidos"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="ArchivosSubidos"
+    Entity="Andes2.model.ArchivosSubidos"/>
+  <ViewAttribute
+    Name="ArchSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ArchSeqCdg"
+    EntityUsage="ArchivosSubidos"
+    AliasName="ARCH_SEQ_CDG"/>
+  <ViewAttribute
+    Name="ArchNombre"
+    PrecisionRule="true"
+    EntityAttrName="ArchNombre"
+    EntityUsage="ArchivosSubidos"
+    AliasName="ARCH_NOMBRE"/>
+  <ViewAttribute
+    Name="ArchMes"
+    PrecisionRule="true"
+    EntityAttrName="ArchMes"
+    EntityUsage="ArchivosSubidos"
+    AliasName="ARCH_MES"/>
+  <ViewAttribute
+    Name="ArchFechaSubida"
+    PrecisionRule="true"
+    EntityAttrName="ArchFechaSubida"
+    EntityUsage="ArchivosSubidos"
+    AliasName="ARCH_FECHA_SUBIDA"/>
+</ViewObject>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkillsView"
+  Version="11.1.2.62.76"
+  SelectList="Skills.SKLL_SEQ_CDG, 
+       Skills.CRGO_ID, 
+       Skills.SKLL_NOMBRE"
+  FromList="SKILLS Skills"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Skills"
+    Entity="Andes2.model.Skills"/>
+  <ViewAttribute
+    Name="SkllSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkllSeqCdg"
+    EntityUsage="Skills"
+    AliasName="SKLL_SEQ_CDG"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="Skills"
+    AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="SkllNombre"
+    PrecisionRule="true"
+    EntityAttrName="SkllNombre"
+    EntityUsage="Skills"
+    AliasName="SKLL_NOMBRE"/>
+  <ViewLinkAccessor
+    Name="DemandaSkillView"
+    ViewLink="Andes2.model.DdskFkSkllLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="EmpladosSkillView"
+    ViewLink="Andes2.model.EmskFkSkllLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CapacityHoraView"
+  Version="11.1.2.62.76"
+  SelectList="CapacityHora.CRGO_ID, 
+       CapacityHora.CAPH_FECHA, 
+       CapacityHora.CAPH_HORA, 
+       CapacityHora.CAPH_REQUERIMIENTO, 
+       CapacityHora.CAPH_MES, 
+       CapacityHora.CAPH_VERSION, 
+       CapacityHora.ROWID"
+  FromList="CAPACITY_HORA CapacityHora"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="CapacityHora"
+    Entity="Andes2.model.CapacityHora"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="CapacityHora"
+    AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="CaphFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaphFecha"
+    EntityUsage="CapacityHora"
+    AliasName="CAPH_FECHA"/>
+  <ViewAttribute
+    Name="CaphHora"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaphHora"
+    EntityUsage="CapacityHora"
+    AliasName="CAPH_HORA"/>
+  <ViewAttribute
+    Name="CaphRequerimiento"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaphRequerimiento"
+    EntityUsage="CapacityHora"
+    AliasName="CAPH_REQUERIMIENTO"/>
+  <ViewAttribute
+    Name="CaphMes"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaphMes"
+    EntityUsage="CapacityHora"
+    AliasName="CAPH_MES"/>
+  <ViewAttribute
+    Name="CaphVersion"
+    PrecisionRule="true"
+    EntityAttrName="CaphVersion"
+    EntityUsage="CapacityHora"
+    AliasName="CAPH_VERSION"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="CapacityHora"
+    AliasName="ROWID"/>
+</ViewObject>
