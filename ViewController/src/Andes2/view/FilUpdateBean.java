@@ -26,12 +26,9 @@ import Andes2.model.java.FileUploader;
 import java.io.IOException;
 import java.io.InputStream;
 
-<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 
-=======
 import java.util.StringTokenizer;
->>>>>>> nombres de archivo separado
 
 public class FilUpdateBean {
     UploadedFile empleado,skill;
