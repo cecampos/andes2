@@ -46,7 +46,7 @@ public class FilUpdateBean {
 
     public void FileChange(ValueChangeEvent event) {
         // Add event code here...
-        
+
         UploadedFile aux = (UploadedFile)event.getNewValue();
         //System.out.println("subido:"+empleado.getFilename());
         //Buscar si el archivo ha sido subido antes, mostrar fecha del ultimo submit si es asi
@@ -124,27 +124,27 @@ public class FilUpdateBean {
     //GETTERS Y SETTERS para los output text de que indican la existencia de una carga previa
     public void setEmpleadoOT(RichOutputText empleadoOT) {
         //this.empleadoOT = empleadoOT;
-        outputMap.put("empleadoOT", empleadoOT);
+        outputMap.put("empleadosOT", empleadoOT);
     }
 
     public RichOutputText getEmpleadoOT() {
         //return empleadoOT;
-        return (RichOutputText)outputMap.get("empleadoOT");
+        return (RichOutputText)outputMap.get("empleadosOT");
     }
 
     public void setSkillOT(RichOutputText skillOT) {
-        outputMap.put("skillOT", skillOT);
+        outputMap.put("skillsOT", skillOT);
     }
 
     public RichOutputText getSkillOT() {
-        return (RichOutputText)outputMap.get("skillOT");
+        return (RichOutputText)outputMap.get("skillsOT");
     }
     public void setGrupoOT(RichOutputText grupoOT) {
-        outputMap.put("grupoOT", grupoOT);
+        outputMap.put("gruposOT", grupoOT);
     }
 
     public RichOutputText getGrupoOT() {
-        return (RichOutputText)outputMap.get("grupoOT");
+        return (RichOutputText)outputMap.get("gruposOT");
     }
     
     public void setCapacityOT(RichOutputText capacityOT) {
@@ -155,11 +155,11 @@ public class FilUpdateBean {
         return (RichOutputText)outputMap.get("capacityOT");
     }
     public void setCapacitacionOT(RichOutputText capacitacionesOT) {
-        outputMap.put("capacitacionOT", capacitacionesOT);
+        outputMap.put("capacitacionesOT", capacitacionesOT);
     }
 
     public RichOutputText getCapacitacionOT() {
-        return (RichOutputText)outputMap.get("capacitacionOT");
+        return (RichOutputText)outputMap.get("capacitacionesOT");
     }
     public void setDemSkillOT(RichOutputText demSkillOT) {
         outputMap.put("demSkillOT", demSkillOT);

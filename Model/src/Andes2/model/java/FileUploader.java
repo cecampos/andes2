@@ -42,7 +42,7 @@ public class FileUploader {
         Connection con;
 	public FileUploader(){
             DbManager dbMan = new DbManager();
-            con = dbMan.getDb("dev", "dev", "xe");
+            con = dbMan.getDb("dev", "dev", "ORCL");
             }
 
         

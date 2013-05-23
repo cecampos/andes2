@@ -12,8 +12,8 @@
                                     <af:selectBooleanCheckbox text="Empleados" id="sbc1" simple="true"/>
                                     <af:outputText id="empleadosOT"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   binding="#{FilUpdBean.empleadoOT}" partialTriggers="empleado"/>
-                                    <af:inputFile label="Empleados" id="empleado" autoSubmit="true"
+                                                   binding="#{FilUpdBean.empleadoOT}" partialTriggers="empleados"/>
+                                    <af:inputFile label="Empleados" id="empleados" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>
@@ -121,4 +121,5 @@
             </af:pageTemplate>
         </af:form>
     </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:FilUpdateBean-->
 </f:view>
