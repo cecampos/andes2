@@ -12,7 +12,8 @@ public class CheckLastUpload {
     Connection con;
     public CheckLastUpload() {
         super();
-        con = new DbManager().getDb("dev", "dev", "xe");
+        //CAMBIAR SID si ocurren errores de null pointer
+        con = new DbManager().getDb("dev", "dev", "ORCL");
     }
     
     public Date check(String fileName){
