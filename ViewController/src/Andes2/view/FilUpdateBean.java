@@ -87,10 +87,10 @@ public class FilUpdateBean {
                 
         
         //System.out.println(aux.getFilename());
-        if( datosArchivos[0].equals(label)!=0){
+        if( !datosArchivos[0].equals(label)){
             ((RichInputFile) uIComponent).resetValue();
-            throw new ValidatorException(new FacesMessage("Archivo :"+aux.getFilename()+" no corresponde a un archivo valido" +
-                "para campo:"+label ));
+            throw new ValidatorException(new FacesMessage(" Archivo: "+aux.getFilename()+" no corresponde a un archivo valido" +
+                 "para campo: "+label ));
         }
         /*
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"error","Hola");
