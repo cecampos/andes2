@@ -50,92 +50,15 @@ public class FileUploader {
         
             InputStreamReader aux = new InputStreamReader(str);
             BufferedReader reader = new BufferedReader(aux);
+            
+            //Router, cada archivo tiene su propio metodo que lo carga en la BD
+            if(fileCase.equals("empleado"))
+                uploadEmpleado(reader);
+            else if(fileCase.equals("vacacion"))
+                uploadVacacion(reader);
+            else if(fileCase.equals("capacitacion"))
+                uploadCapacitacion(reader);
 
-            /*HARDCODED: la estructura para realizar una nueva insercion
-             * */
-            if(!fileCase.equals("empleado"))
-                return;
-            StringTokenizer separator = null;
-            try {
-            String actualLine;
-            //Nombre de la tabla:
-            String tableName = "Empleados";
-            //tableName = tableName.substring(1);
-            //Nombre de los campos:
-            // actualLine = reader.readLine();
-            // actualLine = actualLine.substring(1);
-            //separator = new StringTokenizer(actualLine,";");
-            int columns = 2;
-            String[] colNames = new String[columns];
-            colNames[0]="EMPL_RUT";
-            colNames[1]="EMPL_NOMBRE";
-            PreparedStatement SQL = prepareSQL(con,colNames,tableName);
-            //Tipos de campos:
-            //actualLine = reader.readLine();
-            //actualLine = actualLine.substring(1);
-            //separator = new StringTokenizer(actualLine,";");
-            String[] colTypes = new String[columns];
-            /*
-            for(int i=0;i<columns;i++){
-                    colTypes[i] = separator.nextToken();
-            }
-            */
-            colTypes[0]="String";
-            colTypes[1]="String";
-
-            
-            /*
-            System.out.println("nombre Tabla: "+tableName);
-            for(int i=0; i<colNames.length;i++){
-                    System.out.print(colNames[i]+"\t");
-            }
-            System.out.println("");
-            
-            */
-            //Datos de la tabla
-            String[] dataRow = null;                
-            while ((actualLine = reader.readLine()) != null)   {
-                    //Saltarse Lineas de comentarios:
-                    if(actualLine.startsWith("#") || actualLine.startsWith(";"))
-                            continue;
-                    separator = new StringTokenizer(actualLine,";");
-                    dataRow = new String[separator.countTokens()];
-                    for(int i=0;i<dataRow.length;i++){
-                        try{
-                            dataRow[i] = separator.nextToken();
-                            //System.out.print(dataRow[i]+"\t");
-                        } 
-                        catch(Exception e){
-                            //NoSuchElementException => dato vacio
-                            dataRow[i] = "";    
-                        }
-                    }
-                    //System.out.println("");
-                    //MAXIMO 1 CURSOR!!???
-                    //PreparedStatement SQL = prepareSQL(con,colNames,tableName);
-                    saveRecord(SQL,colTypes,dataRow);
-                    //SQL.close();
-                    /*
-                    if(tableName.equals("Empleados"))
-                        createHistoricRecord(dataRow,con);
-                    */
-                        
-            }
-            } catch (Exception e) {
-            // TODO Auto-generated catch block
-            System.out.println("Error al abrir el archivo de input");
-            e.printStackTrace();
-            }
-            try {
-                    reader.close();
-                    //fr.close();
-                    con.close();
-            } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-            }
-            
-            
             
     }
 
@@ -201,37 +124,155 @@ public class FileUploader {
 
 	}
 
-    private void createHistoricRecord(String[] empData, Connection con) {
-        //Crea un registro historico por defecto, de acuerdo al tipo de contrato del empleado
-        PreparedStatement st;
-
-        try {
-            st = con.prepareStatement("insert into datosHistoricos values (?,?,?,?,?,?)");
-            st.setString(1, empData[0]);
-            int typeContract= Integer.parseInt(empData[4]);
-            st.setInt(2, typeContract);
-            st.setInt(3,0);
-            st.setInt(4,0);
+    private void uploadEmpleado(BufferedReader reader) {
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="empleados";
+        String[] colNames ={"EMPL_RUT","EMPL_NOMBRE"};
+        String[] colTypes = {"String","String"};
         
-            java.util.Date today = new java.util.Date();             
-            Calendar calendar = Calendar.getInstance();  
-            calendar.setTime(today);  
-            calendar.set(Calendar.DAY_OF_MONTH, 1);  
-            java.util.Date firstDayOfMonth = calendar.getTime();  
-            Date aDate = new Date(firstDayOfMonth.getTime());
-            st.setDate(5, aDate);
-            st.setInt(6, 1);
-            
-            st.executeUpdate();
-            st.close();
-            
-        } catch (Exception e) {
+        PreparedStatement SQL = prepareSQL(con,colNames,tableName);
+        
+        //Datos para CONTRATO_EMPLEADOS
+        String table2 = "contrato_empleados";
+        String[] colNames2 = {"EMPL_RUT","RGTR_SEQ_CDG","CRGO_ID","CNTR_MES","CNTR_VERSION"};
+        String[] colTypes2 = {"String","int","String","date","int"};
+        PreparedStatement SQL2 = prepareSQL(con,colNames2,table2);
+        //Datos de la tabla
+        //String[] dataRow = new String[2];
+        //String[] dataRow2 = new String[5];
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                        continue;
+                String[] rowTokens = actualLine.split(";");
+                String[] dataRow = {rowTokens[0],rowTokens[2]};
+                String month = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
+                String[] dataRow2 = {rowTokens[0],rowTokens[3],rowTokens[1],month,"0"};
+                saveRecord(SQL,colTypes,dataRow);
+                saveRecord(SQL2,colTypes2,dataRow2);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
             e.printStackTrace();
         }
-        
-
+        try {
+                reader.close();
+                newUpldFileRecord("empleados");
+                con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }       
     }
 
+    private void uploadVacacion(BufferedReader reader) {
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="vacaciones";
+        String[] colNames ={"VCCN_ID","EMPL_RUT","VCCN_FECHA_INICIO","VCCN_FECHA_TERMINO"};
+        String[] colTypes = {"int","String","Date","Date"};
+        
+        PreparedStatement SQL = prepareSQL(con,colNames,tableName);
+        //Datos de la tabla
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                        continue;
+                System.out.println(actualLine);
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[separator.countTokens()];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("vacaciones");
+                con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }   
+        
+    }
 
+    private void uploadCapacitacion(BufferedReader reader) {
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="capacitaciones";
+        String[] colNames ={"CAPT_ID","EMPL_RUT","CAPT_FECHA_INICIO","CAPT_FECHA_TERMINO","CAPT_HORA_INICIO","CAPT_HORA_TERMINO"};
+        String[] colTypes = {"int","String","Date","Date","String","String"};
+        
+        PreparedStatement SQL = prepareSQL(con,colNames,tableName);
+        //Datos de la tabla
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[separator.countTokens()];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                        //System.out.print(dataRow[i]+"\t");
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("capacitaciones");
+                con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }   
+    }
+
+    private void newUpldFileRecord(String fileName) {
+        //Inserta en la tabla archivos subidos un nuevo registro para el archivo input
+        String tableName="archivos_subidos";
+        String[] colNames ={"ARCH_NOMBRE","ARCH_FECHA_SUBIDA"};
+        String[] colTypes = {"String","Date"};
+        PreparedStatement SQL = prepareSQL(con,colNames,tableName);
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("_MM_yyyy");
+        SimpleDateFormat aux2 = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date actualDate = Calendar.getInstance().getTime();
+        String dateString =formatter.format(actualDate);
+        String[] dataRow = {fileName+dateString+".csv",aux2.format(actualDate)};
+        saveRecord(SQL,colTypes,dataRow);
+    }
 }
 

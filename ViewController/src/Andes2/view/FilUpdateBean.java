@@ -1,11 +1,14 @@
 package Andes2.view;
 
 
+import Andes2.model.java.CheckLastUpload;
+
 import java.util.HashMap;
 
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.Date;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -23,15 +26,21 @@ import Andes2.model.java.FileUploader;
 import java.io.IOException;
 import java.io.InputStream;
 
+import java.text.SimpleDateFormat;
+
+
 public class FilUpdateBean {
     UploadedFile empleado,skill;
     HashMap filesMap;
     HashMap outputMap;
+    CheckLastUpload checker;
+    
 
 
     public FilUpdateBean(){
         filesMap = new HashMap();
         outputMap = new HashMap();
+        checker = new CheckLastUpload();
         }
 
     public void FileChange(ValueChangeEvent event) {
@@ -45,7 +54,13 @@ public class FilUpdateBean {
         } catch (IOException e) {
             System.out.println("Error al obtener stream fileChanged");
         }
-        ((RichOutputText)outputMap.get(event.getComponent().getId()+"OT")).setValue("ASDF");
+        
+        Date checkResult = checker.check(aux.getFilename());
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String toPrint = "No hay cargas previas";
+        if(checkResult!=null)
+            toPrint = "Ultima subida: "+formatter.format(checkResult);
+        ((RichOutputText)outputMap.get(event.getComponent().getId()+"OT")).setValue(toPrint);
     
     }
 
@@ -90,6 +105,7 @@ public class FilUpdateBean {
         return null;
     }
 
+    //GETTERS Y SETTERS para los output text de que indican la existencia de una carga previa
     public void setEmpleadoOT(RichOutputText empleadoOT) {
         //this.empleadoOT = empleadoOT;
         outputMap.put("empleadoOT", empleadoOT);
@@ -136,4 +152,35 @@ public class FilUpdateBean {
     public RichOutputText getDemSkillOT() {
         return (RichOutputText)outputMap.get("demSkillOT");
     }
+    public void setVacacionOT(RichOutputText demSkillOT) {
+        outputMap.put("vacacionOT", demSkillOT);
+    }
+
+    public RichOutputText getVacacionOT() {
+        return (RichOutputText)outputMap.get("vacacionOT");
+    }
+    public void setCapTurnoOT(RichOutputText demSkillOT) {
+        outputMap.put("capTurnoOT", demSkillOT);
+    }
+
+    public RichOutputText getCapTurnoOT() {
+        return (RichOutputText)outputMap.get("capTurnoOT");
+    }
+    
+    public void setTurnoNoPOT(RichOutputText demSkillOT) {
+        outputMap.put("turnoNoPOT", demSkillOT);
+    }
+
+    public RichOutputText getTurnoNoPOT() {
+        return (RichOutputText)outputMap.get("turnoNoPOT");
+    }
+    
+    public void setTurnoFijadoOT(RichOutputText demSkillOT) {
+        outputMap.put("turnoFijadoOT", demSkillOT);
+    }
+
+    public RichOutputText getTurnoFijadoOT() {
+        return (RichOutputText)outputMap.get("turnoFijadoOT");
+    }    
+
 }
