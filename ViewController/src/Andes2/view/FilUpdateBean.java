@@ -26,8 +26,12 @@ import Andes2.model.java.FileUploader;
 import java.io.IOException;
 import java.io.InputStream;
 
+<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 
+=======
+import java.util.StringTokenizer;
+>>>>>>> nombres de archivo separado
 
 public class FilUpdateBean {
     UploadedFile empleado,skill;
@@ -68,10 +72,25 @@ public class FilUpdateBean {
         // Add event code here...
         System.out.println("estoy validando");
         UploadedFile aux = (UploadedFile)object;
+        RichInputFile uiID= (RichInputFile) uIComponent;
+        String label= uiID.getId();
+        
+        StringTokenizer tokenizador= new StringTokenizer(aux.getFilename(),"_");
+        String[] datosArchivos = new String[tokenizador.countTokens()];
+        
+        //por definicion de formato, el archivo tiene el siguiente formato
+        //nombreArchivo_MM_YYYY
+        for(int i=0; i<datosArchivos.length;i++){
+            datosArchivos[i] = tokenizador.nextToken();    
+            //System.out.println(i+":"+datosArchivos[i]);
+        }
+                
+        
         //System.out.println(aux.getFilename());
-        if(aux.getFilename().equals("CWAE.rkt")){
+        if( datosArchivos[0].equals(label)!=0){
             ((RichInputFile) uIComponent).resetValue();
-            throw new ValidatorException(new FacesMessage("hola"));
+            throw new ValidatorException(new FacesMessage("Archivo :"+aux.getFilename()+" no corresponde a un archivo valido" +
+                "para campo:"+label ));
         }
         /*
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"error","Hola");
