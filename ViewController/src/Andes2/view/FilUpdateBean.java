@@ -86,7 +86,7 @@ public class FilUpdateBean {
         //System.out.println(aux.getFilename());
         if( !datosArchivos[0].equals(label)){
             ((RichInputFile) uIComponent).resetValue();
-            throw new ValidatorException(new FacesMessage(" Archivo: "+aux.getFilename()+" no corresponde a un archivo valido" +
+            throw new ValidatorException(new FacesMessage(" Archivo: "+aux.getFilename()+" no corresponde a un archivo valido " +
                  "para campo: "+label ));
         }
         /*
@@ -162,11 +162,11 @@ public class FilUpdateBean {
         return (RichOutputText)outputMap.get("capacitacionesOT");
     }
     public void setDemSkillOT(RichOutputText demSkillOT) {
-        outputMap.put("demSkillOT", demSkillOT);
+        outputMap.put("demandaSkillsOT", demSkillOT);
     }
 
     public RichOutputText getDemSkillOT() {
-        return (RichOutputText)outputMap.get("demSkillOT");
+        return (RichOutputText)outputMap.get("demandaSkillsOT");
     }
     public void setVacacionOT(RichOutputText demSkillOT) {
         outputMap.put("vacacionesOT", demSkillOT);
@@ -176,27 +176,27 @@ public class FilUpdateBean {
         return (RichOutputText)outputMap.get("vacacionesOT");
     }
     public void setCapTurnoOT(RichOutputText demSkillOT) {
-        outputMap.put("capTurnoOT", demSkillOT);
+        outputMap.put("capacityTurnoOT", demSkillOT);
     }
 
     public RichOutputText getCapTurnoOT() {
-        return (RichOutputText)outputMap.get("capTurnoOT");
+        return (RichOutputText)outputMap.get("capacityTurnoOT");
     }
     
     public void setTurnoNoPOT(RichOutputText demSkillOT) {
-        outputMap.put("turnoNoPOT", demSkillOT);
+        outputMap.put("turnosNoPermitidosOT", demSkillOT);
     }
 
     public RichOutputText getTurnoNoPOT() {
-        return (RichOutputText)outputMap.get("turnoNoPOT");
+        return (RichOutputText)outputMap.get("turnosNoPermitidosOT");
     }
     
     public void setTurnoFijadoOT(RichOutputText demSkillOT) {
-        outputMap.put("turnoFijadoOT", demSkillOT);
+        outputMap.put("turnosFijosOT", demSkillOT);
     }
 
     public RichOutputText getTurnoFijadoOT() {
-        return (RichOutputText)outputMap.get("turnoFijadoOT");
+        return (RichOutputText)outputMap.get("turnosFijosOT");
     }    
 
 }

@@ -86,9 +86,9 @@
                                                                                   simple="true"/>
                                                         <af:outputText id="ot5"
                                                                        inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                                       partialTriggers="demandaSkill"
+                                                                       partialTriggers="demandaSkills"
                                                                        binding="#{FilUpdBean.demSkillOT}"/>
-                                                        <af:inputFile label="DemandaSkills" id="demandaSkill"
+                                                        <af:inputFile label="DemandaSkills" id="demandaSkills"
                                                                       autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"/>
@@ -111,7 +111,7 @@
                                                         <af:selectBooleanCheckbox rendered="false" text="Capacity por Turno"
                                                                                   label="Label 1" id="sbc8"
                                                                                   simple="true"/>
-                                                        <af:outputText id="ot7"
+                                                        <af:outputText id="capacityTurnoOT"
                                                                        inlineStyle="text-align:right; font-weight:bold; padding:10px;"
                                                                        partialTriggers="capacityTurno"
                                                                        binding="#{FilUpdBean.capTurnoOT}"/>
@@ -124,7 +124,7 @@
                                                         <af:selectBooleanCheckbox rendered="false" text="Turnos no permitidos"
                                                                                   label="Label 1" id="sbc9"
                                                                                   simple="true"/>
-                                                        <af:outputText id="ot8"
+                                                        <af:outputText id="turnosNoPermitidosOP"
                                                                        inlineStyle="text-align:right; font-weight:bold; padding:10px;"
                                                                        partialTriggers="turnosNoPermitidos"
                                                                        binding="#{FilUpdBean.turnoNoPOT}"/>
@@ -138,7 +138,7 @@
                                                     <af:gridCell marginStart="5px" width="34%" id="gc10">
                                                         <af:selectBooleanCheckbox rendered="false" text="Turnos Fijados" label="Label 1"
                                                                                   id="sbc10" simple="true"/>
-                                                        <af:outputText id="ot9"
+                                                        <af:outputText id="turnosFijosOT"
                                                                        inlineStyle="text-align:right; font-weight:bold; padding:10px;"
                                                                        partialTriggers="turnosFijos"
                                                                        binding="#{FilUpdBean.turnoFijadoOT}"/>
