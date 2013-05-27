@@ -169,11 +169,11 @@ public class FilUpdateBean {
         return (RichOutputText)outputMap.get("demSkillOT");
     }
     public void setVacacionOT(RichOutputText demSkillOT) {
-        outputMap.put("vacacionOT", demSkillOT);
+        outputMap.put("vacacionesOT", demSkillOT);
     }
 
     public RichOutputText getVacacionOT() {
-        return (RichOutputText)outputMap.get("vacacionOT");
+        return (RichOutputText)outputMap.get("vacacionesOT");
     }
     public void setCapTurnoOT(RichOutputText demSkillOT) {
         outputMap.put("capTurnoOT", demSkillOT);

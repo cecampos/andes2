@@ -21,8 +21,8 @@
                                     <af:selectBooleanCheckbox text="Grupos" label="Label 1" id="sbc2" simple="true"/>
                                     <af:outputText id="ot1"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="grupo" binding="#{FilUpdBean.grupoOT}"/>
-                                    <af:inputFile label="Grupos" id="grupo" autoSubmit="true"
+                                                   partialTriggers="grupos" binding="#{FilUpdBean.grupoOT}"/>
+                                    <af:inputFile label="Grupos" id="grupos" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>
@@ -41,8 +41,8 @@
                                     <af:selectBooleanCheckbox text="Skills" label="Label 1" id="sbc4" simple="true"/>
                                     <af:outputText id="ot3"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="skill" binding="#{FilUpdBean.skillOT}"/>
-                                    <af:inputFile label="Skills" id="skill" autoSubmit="true"
+                                                   partialTriggers="skills" binding="#{FilUpdBean.skillOT}"/>
+                                    <af:inputFile label="Skills" id="skills" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>
@@ -51,9 +51,9 @@
                                                               simple="true"/>
                                     <af:outputText id="ot4"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="capacitacion"
+                                                   partialTriggers="capacitaciones"
                                                    binding="#{FilUpdBean.capacitacionOT}"/>
-                                    <af:inputFile label="Capacitacion" id="capacitacion" autoSubmit="true"
+                                    <af:inputFile label="Capacitaciones" id="capacitaciones" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>
@@ -62,8 +62,8 @@
                                                               simple="true"/>
                                     <af:outputText id="ot5"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="demSkill" binding="#{FilUpdBean.demSkillOT}"/>
-                                    <af:inputFile label="DemandaSkills" id="demSkill" autoSubmit="true"
+                                                   partialTriggers="demandaSkill" binding="#{FilUpdBean.demSkillOT}"/>
+                                    <af:inputFile label="DemandaSkills" id="demandaSkill" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>
@@ -74,8 +74,8 @@
                                                               simple="true"/>
                                     <af:outputText id="ot6"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="vacacion" binding="#{FilUpdBean.vacacionOT}"/>
-                                    <af:inputFile label="Vacaciones" id="vacacion" autoSubmit="true"
+                                                   partialTriggers="vacaciones" binding="#{FilUpdBean.vacacionOT}"/>
+                                    <af:inputFile label="Vacaciones" id="vacaciones" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>
@@ -84,8 +84,8 @@
                                                               simple="true"/>
                                     <af:outputText id="ot7"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="capTurno" binding="#{FilUpdBean.capTurnoOT}"/>
-                                    <af:inputFile label="CapacityTurno" id="capTurno" autoSubmit="true"
+                                                   partialTriggers="capacityTurno" binding="#{FilUpdBean.capTurnoOT}"/>
+                                    <af:inputFile label="CapacityTurno" id="capacityTurno" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>
@@ -94,8 +94,8 @@
                                                               simple="true"/>
                                     <af:outputText id="ot8"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="turnoNoP" binding="#{FilUpdBean.turnoNoPOT}"/>
-                                    <af:inputFile label="turnoNoP" id="turnoNoP" autoSubmit="true"
+                                                   partialTriggers="turnosNoPermitidos" binding="#{FilUpdBean.turnoNoPOT}"/>
+                                    <af:inputFile label="turnosNoPermitidos" id="turnosNoPermitidos" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>
@@ -106,8 +106,8 @@
                                                               simple="true"/>
                                     <af:outputText id="ot9"
                                                    inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="turnoFijado" binding="#{FilUpdBean.turnoFijadoOT}"/>
-                                    <af:inputFile label="TurnoFijado" id="turnoFijado" autoSubmit="true"
+                                                   partialTriggers="turnosFijos" binding="#{FilUpdBean.turnoFijadoOT}"/>
+                                    <af:inputFile label="TurnosFijos" id="turnosFijos" autoSubmit="true"
                                                   valueChangeListener="#{FilUpdBean.FileChange}"
                                                   validator="#{FilUpdBean.FileValidator}"/>
                                 </af:gridCell>

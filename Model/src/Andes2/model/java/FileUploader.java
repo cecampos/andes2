@@ -42,7 +42,7 @@ public class FileUploader {
         Connection con;
 	public FileUploader(){
             DbManager dbMan = new DbManager();
-            con = dbMan.getDb("dev", "dev", "ORCL");
+            con = dbMan.getDb("dev", "dev", "xe");
             }
 
         
@@ -52,15 +52,16 @@ public class FileUploader {
             BufferedReader reader = new BufferedReader(aux);
             
             //Router, cada archivo tiene su propio metodo que lo carga en la BD
-            if(fileCase.equals("empleado"))
+            if(fileCase.equals("empleados"))
                 uploadEmpleado(reader);
-            else if(fileCase.equals("vacacion"))
+            else if(fileCase.equals("vacaciones"))
                 uploadVacacion(reader);
-            else if(fileCase.equals("capacitacion"))
+            else if(fileCase.equals("capacitaciones"))
                 uploadCapacitacion(reader);
 
-            
-    }
+
+        }
+        
         private PreparedStatement prepareInsertSQL(Connection con, String[] colNames, String tableName){
                 String insertSQL = String.format("insert into %s (", tableName);
                 for(int i=0;i<colNames.length;i++){
@@ -198,7 +199,7 @@ public class FileUploader {
         try {
                 reader.close();
                 newUpldFileRecord("empleados");
-                con.close();
+                //con.close();
         } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -243,7 +244,7 @@ public class FileUploader {
         try {
                 reader.close();
                 newUpldFileRecord("vacaciones");
-                con.close();
+                //con.close();
         } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -289,7 +290,7 @@ public class FileUploader {
         try {
                 reader.close();
                 newUpldFileRecord("capacitaciones");
-                con.close();
+                //con.close();
         } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
