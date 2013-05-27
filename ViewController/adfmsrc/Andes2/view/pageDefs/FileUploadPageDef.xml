@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="FileUploadPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="andes2DataControl" Binds="UpdFilesFromMonth1.variablesMap.mes"
+                     Name="ExecuteWithParams_mes" IsQueriable="false"/>
+      <variableUsage DataControl="andes2DataControl" Binds="UpdFilesFromMonth1.variablesMap.year"
+                     Name="ExecuteWithParams_year" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="UpdFilesFromMonth1" RangeSize="25" DataControl="andes2DataControl"
+              id="UpdFilesFromMonth1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="UpdFilesFromMonth1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="mes" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_mes}"/>
+      <NamedData NDName="year" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_year}"/>
+    </action>
+    <list IterBinding="variables" id="mes" DTSupportsMRU="true" SelectItemValueMode="ListObject" StaticList="true">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_mes"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="1"/>
+        <Item Value="2"/>
+        <Item Value="3"/>
+        <Item Value="4"/>
+        <Item Value="5"/>
+        <Item Value="6"/>
+        <Item Value="7"/>
+        <Item Value="8"/>
+        <Item Value="9"/>
+        <Item Value="10"/>
+        <Item Value="11"/>
+        <Item Value="12"/>
+      </ValueList>
+    </list>
+    <list IterBinding="variables" id="year" DTSupportsMRU="true" SelectItemValueMode="ListObject" StaticList="true">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_mes"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="2013"/>
+        <Item Value="2012"/>
+        <Item Value="2011"/>
+      </ValueList>
+    </list>
+    <list IterBinding="UpdFilesFromMonth1Iterator" ListOperMode="multiSelect" ListIter="UpdFilesFromMonth1Iterator"
+          id="UpdFilesFromMonth1" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="ArchSeqCdg"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="ArchNombre"/>
+      </ListDisplayAttrNames>
+    </list>
+  </bindings>
+</pageDefinition>

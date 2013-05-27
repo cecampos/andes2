@@ -117,6 +117,9 @@
   <ViewUsage
     Name="CapacityTurnoView3"
     ViewObjectName="Andes2.model.CapacityTurnoView"/>
+  <ViewUsage
+    Name="UpdFilesFromMonth1"
+    ViewObjectName="Andes2.model.UpdFilesFromMonth"/>
   <ViewLinkUsage
     Name="CphrFkCrgoLink1"
     ViewLinkObjectName="Andes2.model.CphrFkCrgoLink"

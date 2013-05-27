@@ -2,120 +2,188 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="FileUpload.jsf" id="d1">
+        <af:messages id="m1"/>
         <af:form id="f1" usesUpload="true">
             <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
                 <f:facet name="content">
                     <af:group id="g1">
-                        <af:panelGridLayout id="pgl1">
-                            <af:gridRow marginTop="5px" height="auto" id="gr1">
-                                <af:gridCell marginStart="5px" width="34%" id="gc1">
-                                    <af:selectBooleanCheckbox text="Empleados" id="sbc1" simple="true"/>
-                                    <af:outputText id="empleadosOT"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   binding="#{FilUpdBean.empleadoOT}" partialTriggers="empleados"/>
-                                    <af:inputFile label="Empleados" id="empleados" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                                <af:gridCell marginStart="5px" width="33%" id="gc2">
-                                    <af:selectBooleanCheckbox text="Grupos" label="Label 1" id="sbc2" simple="true"/>
-                                    <af:outputText id="ot1"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="grupos" binding="#{FilUpdBean.grupoOT}"/>
-                                    <af:inputFile label="Grupos" id="grupos" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                                <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc3">
-                                    <af:selectBooleanCheckbox text="Capacity" label="Label 1" id="sbc3" simple="true"/>
-                                    <af:outputText id="ot2"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="capacity" binding="#{FilUpdBean.capacityOT}"/>
-                                    <af:inputFile label="Capacity" id="capacity" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                            </af:gridRow>
-                            <af:gridRow marginTop="5px" height="auto" id="gr2">
-                                <af:gridCell marginStart="5px" width="34%" id="gc4">
-                                    <af:selectBooleanCheckbox text="Skills" label="Label 1" id="sbc4" simple="true"/>
-                                    <af:outputText id="ot3"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="skills" binding="#{FilUpdBean.skillOT}"/>
-                                    <af:inputFile label="Skills" id="skills" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                                <af:gridCell marginStart="5px" width="33%" id="gc5">
-                                    <af:selectBooleanCheckbox text="Capacitaciones" label="Label 1" id="sbc5"
-                                                              simple="true"/>
-                                    <af:outputText id="ot4"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="capacitaciones"
-                                                   binding="#{FilUpdBean.capacitacionOT}"/>
-                                    <af:inputFile label="Capacitaciones" id="capacitaciones" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                                <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc6">
-                                    <af:selectBooleanCheckbox text="Demanda de Skills" label="Label 1" id="sbc6"
-                                                              simple="true"/>
-                                    <af:outputText id="ot5"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="demandaSkill" binding="#{FilUpdBean.demSkillOT}"/>
-                                    <af:inputFile label="DemandaSkills" id="demandaSkill" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                            </af:gridRow>
-                            <af:gridRow marginTop="5px" height="auto" id="gr3">
-                                <af:gridCell marginStart="5px" width="34%" id="gc7">
-                                    <af:selectBooleanCheckbox text="Vacaciones" label="Label 1" id="sbc7"
-                                                              simple="true"/>
-                                    <af:outputText id="ot6"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="vacaciones" binding="#{FilUpdBean.vacacionOT}"/>
-                                    <af:inputFile label="Vacaciones" id="vacaciones" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                                <af:gridCell marginStart="5px" width="33%" id="gc8">
-                                    <af:selectBooleanCheckbox text="Capacity por Turno" label="Label 1" id="sbc8"
-                                                              simple="true"/>
-                                    <af:outputText id="ot7"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="capacityTurno" binding="#{FilUpdBean.capTurnoOT}"/>
-                                    <af:inputFile label="CapacityTurno" id="capacityTurno" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                                <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
-                                    <af:selectBooleanCheckbox text="Turnos no permitidos" label="Label 1" id="sbc9"
-                                                              simple="true"/>
-                                    <af:outputText id="ot8"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="turnosNoPermitidos" binding="#{FilUpdBean.turnoNoPOT}"/>
-                                    <af:inputFile label="turnosNoPermitidos" id="turnosNoPermitidos" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                            </af:gridRow>
-                            <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr4">
-                                <af:gridCell marginStart="5px" width="34%" id="gc10">
-                                    <af:selectBooleanCheckbox text="Turnos Fijados" label="Label 1" id="sbc10"
-                                                              simple="true"/>
-                                    <af:outputText id="ot9"
-                                                   inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                   partialTriggers="turnosFijos" binding="#{FilUpdBean.turnoFijadoOT}"/>
-                                    <af:inputFile label="TurnosFijos" id="turnosFijos" autoSubmit="true"
-                                                  valueChangeListener="#{FilUpdBean.FileChange}"
-                                                  validator="#{FilUpdBean.FileValidator}"/>
-                                </af:gridCell>
-                                <af:gridCell marginStart="5px" width="33%" id="gc11"/>
-                                <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc12"/>
-                            </af:gridRow>
-                        </af:panelGridLayout>
-                        <af:commandButton text="Subir" id="cb1" action="#{FilUpdBean.Submit}"/>
+                        <af:panelTabbed id="pt2">
+                            <af:showDetailItem text="Carga de archivos" id="sdi1"
+                                               inlineStyle="margin:10px 0px 0px 0px;">
+                                <af:panelGroupLayout id="pgl5" layout="horizontal" inlineStyle="width:100%;">
+                                    <af:outputText value="Seleccione Archivos a cargar en el sistema" id="ot10"
+                                                   inlineStyle="font-size:14px; font-style:normal; font-weight:bolder; margin:10px;"/>
+                                    <af:outputText value="Mes: 05/2013" id="ot11"
+                                                   inlineStyle="text-align:right; color:MenuText; font-weight:bolder; font-size:12px;"/>
+                                </af:panelGroupLayout>
+                                <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="275"
+                                                  inlineStyle="width:inherit;">
+                                    <f:facet name="first">
+                                        <af:panelGroupLayout layout="scroll" id="pgl2">
+                                            <af:panelGridLayout id="pgl1">
+                                                <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                                    <af:gridCell marginStart="5px" width="34%" id="gc1">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Empleados" id="sbc1"
+                                                                                  simple="true"/>
+                                                        <af:outputText id="empleadosOT"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       binding="#{FilUpdBean.empleadoOT}"
+                                                                       partialTriggers="empleados"/>
+                                                        <af:inputFile label="Empleados" id="empleados" autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="33%" id="gc2">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Grupos" label="Label 1"
+                                                                                  id="sbc2" simple="true"/>
+                                                        <af:outputText id="ot1"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="grupos"
+                                                                       binding="#{FilUpdBean.grupoOT}"/>
+                                                        <af:inputFile label="Grupos" id="grupos" autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc3">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Capacity" label="Label 1"
+                                                                                  id="sbc3" simple="true"/>
+                                                        <af:outputText id="ot2"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="capacity"
+                                                                       binding="#{FilUpdBean.capacityOT}"/>
+                                                        <af:inputFile label="Capacity" id="capacity" autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="5px" height="auto" id="gr2">
+                                                    <af:gridCell marginStart="5px" width="34%" id="gc4">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Skills" label="Label 1"
+                                                                                  id="sbc4" simple="true"/>
+                                                        <af:outputText id="ot3"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="skills"
+                                                                       binding="#{FilUpdBean.skillOT}"/>
+                                                        <af:inputFile label="Skills" id="skills" autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="33%" id="gc5">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Capacitaciones" label="Label 1"
+                                                                                  id="sbc5" simple="true"/>
+                                                        <af:outputText id="ot4"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="capacitaciones"
+                                                                       binding="#{FilUpdBean.capacitacionOT}"/>
+                                                        <af:inputFile label="Capacitaciones" id="capacitaciones"
+                                                                      autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc6">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Demanda de Skills"
+                                                                                  label="Label 1" id="sbc6"
+                                                                                  simple="true"/>
+                                                        <af:outputText id="ot5"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="demandaSkill"
+                                                                       binding="#{FilUpdBean.demSkillOT}"/>
+                                                        <af:inputFile label="DemandaSkills" id="demandaSkill"
+                                                                      autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="5px" height="auto" id="gr3">
+                                                    <af:gridCell marginStart="5px" width="34%" id="gc7">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Vacaciones" label="Label 1"
+                                                                                  id="sbc7" simple="true"/>
+                                                        <af:outputText id="ot6"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="vacaciones"
+                                                                       binding="#{FilUpdBean.vacacionOT}"/>
+                                                        <af:inputFile label="Vacaciones" id="vacaciones"
+                                                                      autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="33%" id="gc8">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Capacity por Turno"
+                                                                                  label="Label 1" id="sbc8"
+                                                                                  simple="true"/>
+                                                        <af:outputText id="ot7"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="capacityTurno"
+                                                                       binding="#{FilUpdBean.capTurnoOT}"/>
+                                                        <af:inputFile label="CapacityTurno" id="capacityTurno"
+                                                                      autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Turnos no permitidos"
+                                                                                  label="Label 1" id="sbc9"
+                                                                                  simple="true"/>
+                                                        <af:outputText id="ot8"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="turnosNoPermitidos"
+                                                                       binding="#{FilUpdBean.turnoNoPOT}"/>
+                                                        <af:inputFile label="turnosNoPermitidos" id="turnosNoPermitidos"
+                                                                      autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                </af:gridRow>
+                                                <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr4">
+                                                    <af:gridCell marginStart="5px" width="34%" id="gc10">
+                                                        <af:selectBooleanCheckbox rendered="false" text="Turnos Fijados" label="Label 1"
+                                                                                  id="sbc10" simple="true"/>
+                                                        <af:outputText id="ot9"
+                                                                       inlineStyle="text-align:right; font-weight:bold; padding:10px;"
+                                                                       partialTriggers="turnosFijos"
+                                                                       binding="#{FilUpdBean.turnoFijadoOT}"/>
+                                                        <af:inputFile label="TurnosFijos" id="turnosFijos"
+                                                                      autoSubmit="true"
+                                                                      valueChangeListener="#{FilUpdBean.FileChange}"
+                                                                      validator="#{FilUpdBean.FileValidator}"/>
+                                                    </af:gridCell>
+                                                    <af:gridCell marginStart="5px" width="33%" id="gc11"/>
+                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="33%"
+                                                                 id="gc12"/>
+                                                </af:gridRow>
+                                            </af:panelGridLayout>
+                                            <af:commandButton text="Subir" id="cb1" action="#{FilUpdBean.Submit}"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                    <f:facet name="second">
+                                        <af:panelGroupLayout layout="scroll" id="pgl3" rendered="false">
+                                            <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                                <af:selectOneChoice value="#{bindings.mes.inputValue}" label="Mes"
+                                                                    required="#{bindings.mes.hints.mandatory}"
+                                                                    shortDesc="#{bindings.mes.hints.tooltip}" id="soc1">
+                                                    <f:selectItems value="#{bindings.mes.items}" id="si1"/>
+                                                </af:selectOneChoice>
+                                                <af:selectOneChoice value="#{bindings.year.inputValue}" label="Año"
+                                                                    required="#{bindings.year.hints.mandatory}"
+                                                                    shortDesc="#{bindings.year.hints.tooltip}"
+                                                                    id="soc2">
+                                                    <f:selectItems value="#{bindings.year.items}" id="si2"/>
+                                                </af:selectOneChoice>
+                                                <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}"
+                                                                  text="Buscar"
+                                                                  disabled="#{!bindings.ExecuteWithParams.enabled}"
+                                                                  id="cb2"/>
+                                            </af:panelGroupLayout>
+                                            <af:selectManyShuttle value="#{bindings.UpdFilesFromMonth1.inputValue}"
+                                                                  label="#{bindings.UpdFilesFromMonth1.label}"
+                                                                  id="sms1">
+                                                <f:selectItems value="#{bindings.UpdFilesFromMonth1.items}" id="si3"/>
+                                            </af:selectManyShuttle>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                </af:panelSplitter>
+                            </af:showDetailItem>
+                        </af:panelTabbed>
                     </af:group>
                 </f:facet>
             </af:pageTemplate>
