@@ -4,16 +4,23 @@
   <pageMap>
     <page path="/CargaArchivos.jsf" usageId="Andes2_view_CargaArchivosPageDef"/>
     <page path="/FileUpload.jsf" usageId="Andes2_view_FileUploadPageDef"/>
+    <page path="/Roster.jsf" usageId="Andes2_view_RosterPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="Andes2_view_CargaArchivosPageDef" path="Andes2.view.pageDefs.CargaArchivosPageDef"/>
     <page id="Andes2_view_FileUploadPageDef" path="Andes2.view.pageDefs.FileUploadPageDef"/>
+    <page id="Andes2_view_RosterPageDef" path="Andes2.view.pageDefs.RosterPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="andes2DataControl" Package="Andes2.model"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="andes2Local" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="dataSourceDataControl" Package="Andes2.model.vo"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="dataSourceLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>

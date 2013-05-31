@@ -3,12 +3,11 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="RosterView"
+  Name="FullRosterForMonth"
   Version="11.1.2.62.76"
-  SelectList="Roster.ROST_SEQ_CDG, 
-       Roster.EMPL_RUT, 
-       Roster.ROST_FECHA, 
-       Roster.ROST_VERSION, 
+  SelectList="Empleados.EMPL_NOMBRE, 
+       Empleados.EMPL_RUT, 
+       Roster.EMPL_RUT AS EMPL_RUT1, 
        Roster.ROST_D01, 
        Roster.ROST_D02, 
        Roster.ROST_D03, 
@@ -39,42 +38,121 @@
        Roster.ROST_D28, 
        Roster.ROST_D29, 
        Roster.ROST_D30, 
-       Roster.ROST_D31"
-  FromList="ROSTER Roster"
+       Roster.ROST_D31, 
+       Roster.ROST_FECHA, 
+       Roster.ROST_SEQ_CDG, 
+       Roster.ROST_VERSION, 
+       ContratoEmpleados.CRGO_ID, 
+       ContratoEmpleados.EMPL_RUT AS EMPL_RUT2, 
+       Cargo.CRGO_ID AS CRGO_ID1, 
+       Cargo.CRGO_NOMBRE, 
+       ContratoEmpleados.ROWID"
+  FromList="EMPLEADOS Empleados, DEV.ROSTER Roster, CONTRATO_EMPLEADOS ContratoEmpleados, CARGO Cargo"
+  Where="((Empleados.EMPL_RUT = Roster.EMPL_RUT) AND (Empleados.EMPL_RUT = ContratoEmpleados.EMPL_RUT)) AND (ContratoEmpleados.CRGO_ID = Cargo.CRGO_ID) AND (:mes = extract (MONTH FROM Roster.ROST_FECHA))"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
   UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.FullRosterForMonth_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="mes"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.FullRosterForMonth.mes_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <EntityUsage
+    Name="Empleados"
+    Entity="Andes2.model.Empleados"
+    ReadOnly="true"
+    DeleteParticipant="false"/>
   <EntityUsage
     Name="Roster"
-    Entity="Andes2.model.Roster"/>
+    Entity="Andes2.model.Roster"
+    Association="Andes2.model.RostFkEmplAssoc"
+    AssociationEnd="Andes2.model.RostFkEmplAssoc.Roster"
+    SourceUsage="Andes2.model.vo.FullRosterForMonth.Empleados"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Andes2.model.Empleados.EmplRut"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Andes2.model.Roster.EmplRut"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ContratoEmpleados"
+    Entity="Andes2.model.ContratoEmpleados"
+    Association="Andes2.model.CntrFkEmplAssoc"
+    AssociationEnd="Andes2.model.CntrFkEmplAssoc.ContratoEmpleados"
+    SourceUsage="Andes2.model.vo.FullRosterForMonth.Empleados"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Andes2.model.Empleados.EmplRut"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Andes2.model.ContratoEmpleados.EmplRut"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Cargo"
+    Entity="Andes2.model.Cargo"
+    Association="Andes2.model.CntrFkCrgoAssoc"
+    AssociationEnd="Andes2.model.CntrFkCrgoAssoc.Cargo"
+    SourceUsage="Andes2.model.vo.FullRosterForMonth.ContratoEmpleados"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Andes2.model.ContratoEmpleados.CrgoId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Andes2.model.Cargo.CrgoId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
-    Name="RostSeqCdg"
+    Name="EmplNombre"
+    IsUpdateable="false"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="RostSeqCdg"
-    EntityUsage="Roster"
-    AliasName="ROST_SEQ_CDG"/>
+    EntityAttrName="EmplNombre"
+    EntityUsage="Empleados"
+    AliasName="EMPL_NOMBRE"/>
   <ViewAttribute
     Name="EmplRut"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="EmplRut"
-    EntityUsage="Roster"
+    EntityUsage="Empleados"
     AliasName="EMPL_RUT"/>
   <ViewAttribute
-    Name="RostFecha"
+    Name="EmplRut1"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="RostFecha"
+    EntityAttrName="EmplRut"
     EntityUsage="Roster"
-    AliasName="ROST_FECHA"/>
-  <ViewAttribute
-    Name="RostVersion"
-    PrecisionRule="true"
-    EntityAttrName="RostVersion"
-    EntityUsage="Roster"
-    AliasName="ROST_VERSION"/>
+    AliasName="EMPL_RUT1"/>
   <ViewAttribute
     Name="RostD01"
     PrecisionRule="true"
@@ -261,4 +339,68 @@
     EntityAttrName="RostD31"
     EntityUsage="Roster"
     AliasName="ROST_D31"/>
+  <ViewAttribute
+    Name="RostFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RostFecha"
+    EntityUsage="Roster"
+    AliasName="ROST_FECHA"/>
+  <ViewAttribute
+    Name="RostSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RostSeqCdg"
+    EntityUsage="Roster"
+    AliasName="ROST_SEQ_CDG"/>
+  <ViewAttribute
+    Name="RostVersion"
+    PrecisionRule="true"
+    EntityAttrName="RostVersion"
+    EntityUsage="Roster"
+    AliasName="ROST_VERSION"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="ContratoEmpleados"
+    AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="EmplRut2"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="ContratoEmpleados"
+    AliasName="EMPL_RUT2"/>
+  <ViewAttribute
+    Name="CrgoId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="Cargo"
+    AliasName="CRGO_ID1"/>
+  <ViewAttribute
+    Name="CrgoNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoNombre"
+    EntityUsage="Cargo"
+    AliasName="CRGO_NOMBRE"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="ContratoEmpleados"
+    AliasName="ROWID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="EmplRut"/>
+    <Item Value="RostSeqCdg"/>
+    <Item Value="Rowid"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

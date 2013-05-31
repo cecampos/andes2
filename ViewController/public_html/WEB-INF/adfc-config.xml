@@ -15,4 +15,9 @@
     <managed-bean-class>Andes2.view.FilUpdateBean</managed-bean-class>
     <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name>AuxBean</managed-bean-name>
+    <managed-bean-class>Andes2.view.AuxBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

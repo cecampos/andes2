@@ -299,6 +299,31 @@ public class FileUploader {
         
     }    
     */
+    
+    private void uploadSkills(BufferedReader reader){
+        /*TODO: Carga en empleados skills,
+         * */
+        }
+    
+    private void uploadGrupos(BufferedReader reader){
+        /*TODO : De este archivo sale CoAsignacion y Grupos
+         * Avergiaur como realizarlo :S
+         * */
+        }
+    
+    private void uploadTurnosNoPermitidos(BufferedReader reader){
+        /*TODO : Archivo genera Restriccion asignacion, requiere 
+         * logica compleja : iterador entre fechas, condicional
+         * entre dias
+         */
+        }
+    
+    private void uploadFijarAsignacion(BufferedReader reader){
+        /* TODO:  que es Fjag dia y mes
+         * Logica compleja (iterador entre fechas
+         * */
+        }
+    
     private void uploadCapacityTurno(BufferedReader reader){
         //TODO Revisar estructura
         String actualLine;

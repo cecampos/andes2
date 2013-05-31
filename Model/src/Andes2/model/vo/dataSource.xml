@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="dataSource"
+  Version="11.1.2.62.76"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="RosterView1"
+    ViewObjectName="Andes2.model.vo.RosterView"/>
+  <ViewUsage
+    Name="FullRosterForMonth1"
+    ViewObjectName="Andes2.model.vo.FullRosterForMonth"/>
+  <ViewUsage
+    Name="MonthRosterForCargo1"
+    ViewObjectName="Andes2.model.vo.MonthRosterForCargo"/>
+</AppModule>
