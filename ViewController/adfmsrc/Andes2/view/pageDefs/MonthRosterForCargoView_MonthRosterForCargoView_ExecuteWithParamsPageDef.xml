@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76"
+                id="MonthRosterForCargoView_MonthRosterForCargoView_ExecuteWithParamsPageDef"
+                Package="Andes2.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="MonthRosterForCargo1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="MonthRosterForCargo1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MonthRosterForCargo1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="mes" NDValue="6" NDType="java.lang.String"/>
+      <NamedData NDName="cargoId" NDValue="R23" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.62.76" id="DataBindings"
              SeparateXMLFiles="false" Package="Andes2.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/CargaArchivos.jsf" usageId="Andes2_view_CargaArchivosPageDef"/>
     <page path="/FileUpload.jsf" usageId="Andes2_view_FileUploadPageDef"/>
     <page path="/Roster.jsf" usageId="Andes2_view_RosterPageDef"/>
+    <page path="/WEB-INF/rosterForMonth.xml#rosterForMonth@ExecuteWithParams"
+          usageId="Andes2_view_rosterForMonth_rosterForMonth_ExecuteWithParamsPageDef"/>
+    <page path="/RosterMonthView.jsff" usageId="Andes2_view_RosterMonthViewPageDef"/>
+    <page path="/WEB-INF/MonthRosterForCargoView.xml#MonthRosterForCargoView@ExecuteWithParams"
+          usageId="Andes2_view_MonthRosterForCargoView_MonthRosterForCargoView_ExecuteWithParamsPageDef"/>
+    <page path="/RosterForCargoFragment.jsff" usageId="Andes2_view_RosterForCargoFragmentPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="Andes2_view_CargaArchivosPageDef" path="Andes2.view.pageDefs.CargaArchivosPageDef"/>
     <page id="Andes2_view_FileUploadPageDef" path="Andes2.view.pageDefs.FileUploadPageDef"/>
     <page id="Andes2_view_RosterPageDef" path="Andes2.view.pageDefs.RosterPageDef"/>
+    <page id="Andes2_view_rosterForMonth_rosterForMonth_ExecuteWithParamsPageDef"
+          path="Andes2.view.pageDefs.rosterForMonth_rosterForMonth_ExecuteWithParamsPageDef"/>
+    <page id="Andes2_view_RosterMonthViewPageDef" path="Andes2.view.pageDefs.RosterMonthViewPageDef"/>
+    <page id="Andes2_view_MonthRosterForCargoView_MonthRosterForCargoView_ExecuteWithParamsPageDef"
+          path="Andes2.view.pageDefs.MonthRosterForCargoView_MonthRosterForCargoView_ExecuteWithParamsPageDef"/>
+    <page id="Andes2_view_RosterForCargoFragmentPageDef" path="Andes2.view.pageDefs.RosterForCargoFragmentPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="andes2DataControl" Package="Andes2.model"

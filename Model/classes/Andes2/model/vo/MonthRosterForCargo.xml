@@ -49,7 +49,8 @@
        ContratoEmpleados.RGTR_SEQ_CDG, 
        ContratoEmpleados.ROWID"
   FromList="CARGO Cargo, EMPLEADOS Empleados, DEV.ROSTER Roster, CONTRATO_EMPLEADOS ContratoEmpleados"
-  Where="(Empleados.EMPL_RUT = Roster.EMPL_RUT) AND (Cargo.CRGO_ID = ContratoEmpleados.CRGO_ID) AND (:mes = extract (MONTH FROM Roster.ROST_FECHA)) AND (Cargo.CRGO_ID = :cargoId)"
+  Where="(Empleados.EMPL_RUT = Roster.EMPL_RUT) AND (Empleados.EMPL_RUT = ContratoEmpleados.EMPL_RUT) AND
+(Cargo.CRGO_ID = ContratoEmpleados.CRGO_ID) AND (:mes = extract (MONTH FROM Roster.ROST_FECHA)) AND (Cargo.CRGO_ID = :cargoId)"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
@@ -129,21 +130,42 @@
     PrecisionRule="true"
     EntityAttrName="CrgoNombre"
     EntityUsage="Cargo"
-    AliasName="CRGO_NOMBRE"/>
+    AliasName="CRGO_NOMBRE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.CrgoNombre_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmplNombre"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="EmplNombre"
     EntityUsage="Empleados"
-    AliasName="EMPL_NOMBRE"/>
+    AliasName="EMPL_NOMBRE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.EmplNombre_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmplRut"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="EmplRut"
     EntityUsage="Empleados"
-    AliasName="EMPL_RUT"/>
+    AliasName="EMPL_RUT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.EmplRut_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmplRut1"
     IsNotNull="true"
@@ -156,187 +178,404 @@
     PrecisionRule="true"
     EntityAttrName="RostD01"
     EntityUsage="Roster"
-    AliasName="ROST_D01"/>
+    AliasName="ROST_D01">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD01_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD02"
     PrecisionRule="true"
     EntityAttrName="RostD02"
     EntityUsage="Roster"
-    AliasName="ROST_D02"/>
+    AliasName="ROST_D02">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD02_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD03"
     PrecisionRule="true"
     EntityAttrName="RostD03"
     EntityUsage="Roster"
-    AliasName="ROST_D03"/>
+    AliasName="ROST_D03">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD03_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD04"
     PrecisionRule="true"
     EntityAttrName="RostD04"
     EntityUsage="Roster"
-    AliasName="ROST_D04"/>
+    AliasName="ROST_D04">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD04_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD05"
     PrecisionRule="true"
     EntityAttrName="RostD05"
     EntityUsage="Roster"
-    AliasName="ROST_D05"/>
+    AliasName="ROST_D05">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD05_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD06"
     PrecisionRule="true"
     EntityAttrName="RostD06"
     EntityUsage="Roster"
-    AliasName="ROST_D06"/>
+    AliasName="ROST_D06">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD06_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD07"
     PrecisionRule="true"
     EntityAttrName="RostD07"
     EntityUsage="Roster"
-    AliasName="ROST_D07"/>
+    AliasName="ROST_D07">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD07_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD08"
     PrecisionRule="true"
     EntityAttrName="RostD08"
     EntityUsage="Roster"
-    AliasName="ROST_D08"/>
+    AliasName="ROST_D08">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD08_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD09"
     PrecisionRule="true"
     EntityAttrName="RostD09"
     EntityUsage="Roster"
-    AliasName="ROST_D09"/>
+    AliasName="ROST_D09">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD09_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD10"
     PrecisionRule="true"
     EntityAttrName="RostD10"
     EntityUsage="Roster"
-    AliasName="ROST_D10"/>
+    AliasName="ROST_D10">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD10_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD11"
     PrecisionRule="true"
     EntityAttrName="RostD11"
     EntityUsage="Roster"
-    AliasName="ROST_D11"/>
+    AliasName="ROST_D11">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD11_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD12"
     PrecisionRule="true"
     EntityAttrName="RostD12"
     EntityUsage="Roster"
-    AliasName="ROST_D12"/>
+    AliasName="ROST_D12">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD12_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD13"
     PrecisionRule="true"
     EntityAttrName="RostD13"
     EntityUsage="Roster"
-    AliasName="ROST_D13"/>
+    AliasName="ROST_D13">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD13_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD14"
     PrecisionRule="true"
     EntityAttrName="RostD14"
     EntityUsage="Roster"
-    AliasName="ROST_D14"/>
+    AliasName="ROST_D14">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD14_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD15"
     PrecisionRule="true"
     EntityAttrName="RostD15"
     EntityUsage="Roster"
-    AliasName="ROST_D15"/>
+    AliasName="ROST_D15">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD15_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD16"
     PrecisionRule="true"
     EntityAttrName="RostD16"
     EntityUsage="Roster"
-    AliasName="ROST_D16"/>
+    AliasName="ROST_D16">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD16_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD17"
     PrecisionRule="true"
     EntityAttrName="RostD17"
     EntityUsage="Roster"
-    AliasName="ROST_D17"/>
+    AliasName="ROST_D17">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD17_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD18"
     PrecisionRule="true"
     EntityAttrName="RostD18"
     EntityUsage="Roster"
-    AliasName="ROST_D18"/>
+    AliasName="ROST_D18">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD18_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD19"
     PrecisionRule="true"
     EntityAttrName="RostD19"
     EntityUsage="Roster"
-    AliasName="ROST_D19"/>
+    AliasName="ROST_D19">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD19_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD20"
     PrecisionRule="true"
     EntityAttrName="RostD20"
     EntityUsage="Roster"
-    AliasName="ROST_D20"/>
+    AliasName="ROST_D20">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD20_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD21"
     PrecisionRule="true"
     EntityAttrName="RostD21"
     EntityUsage="Roster"
-    AliasName="ROST_D21"/>
+    AliasName="ROST_D21">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD21_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD22"
     PrecisionRule="true"
     EntityAttrName="RostD22"
     EntityUsage="Roster"
-    AliasName="ROST_D22"/>
+    AliasName="ROST_D22">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD22_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD23"
     PrecisionRule="true"
     EntityAttrName="RostD23"
     EntityUsage="Roster"
-    AliasName="ROST_D23"/>
+    AliasName="ROST_D23">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD23_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD24"
     PrecisionRule="true"
     EntityAttrName="RostD24"
     EntityUsage="Roster"
-    AliasName="ROST_D24"/>
+    AliasName="ROST_D24">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD24_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD25"
     PrecisionRule="true"
     EntityAttrName="RostD25"
     EntityUsage="Roster"
-    AliasName="ROST_D25"/>
+    AliasName="ROST_D25">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD25_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD26"
     PrecisionRule="true"
     EntityAttrName="RostD26"
     EntityUsage="Roster"
-    AliasName="ROST_D26"/>
+    AliasName="ROST_D26">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD26_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD27"
     PrecisionRule="true"
     EntityAttrName="RostD27"
     EntityUsage="Roster"
-    AliasName="ROST_D27"/>
+    AliasName="ROST_D27">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD27_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD28"
     PrecisionRule="true"
     EntityAttrName="RostD28"
     EntityUsage="Roster"
-    AliasName="ROST_D28"/>
+    AliasName="ROST_D28">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD28_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD29"
     PrecisionRule="true"
     EntityAttrName="RostD29"
     EntityUsage="Roster"
-    AliasName="ROST_D29"/>
+    AliasName="ROST_D29">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD29_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD30"
     PrecisionRule="true"
     EntityAttrName="RostD30"
     EntityUsage="Roster"
-    AliasName="ROST_D30"/>
+    AliasName="ROST_D30">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD30_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostD31"
     PrecisionRule="true"
     EntityAttrName="RostD31"
     EntityUsage="Roster"
-    AliasName="ROST_D31"/>
+    AliasName="ROST_D31">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.MonthRosterForCargo.RostD31_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RostFecha"
     IsUpdateable="false"

@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">ExecuteWithParams</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">221.5</property>
+      <property
+         name="x">219.35156</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">RosterForCargo</property>
+      <property
+         name="page">/RosterForCargoFragment.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RosterForCargo&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">254.59766</property>
+      <property
+         name="x">463.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">setMonthAndCargo</property>
+      <property
+         name="sdm:polyPoints">R50,260.35156,221.14941,422.0,254.24707,L50</property>
+   </ControlFlowCase>
+</SDM>
