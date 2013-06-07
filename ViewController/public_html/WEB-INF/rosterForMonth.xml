@@ -2,6 +2,11 @@
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="rosterForMonth">
     <default-activity>ExecuteWithParams</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name>RosterQueryBean</managed-bean-name>
+      <managed-bean-class>Andes2.view.managedBeans.RosterCustomQueryBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
     <method-call id="ExecuteWithParams">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>

@@ -15,4 +15,7 @@
   <ViewUsage
     Name="MonthRosterForCargo1"
     ViewObjectName="Andes2.model.vo.MonthRosterForCargo"/>
+  <ViewUsage
+    Name="CargoView1"
+    ViewObjectName="Andes2.model.CargoView"/>
 </AppModule>

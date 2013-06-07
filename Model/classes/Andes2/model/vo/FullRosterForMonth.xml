@@ -617,7 +617,14 @@
     PrecisionRule="true"
     EntityAttrName="CrgoNombre"
     EntityUsage="Cargo"
-    AliasName="CRGO_NOMBRE"/>
+    AliasName="CRGO_NOMBRE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.vo.FullRosterForMonth.CrgoNombre_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Rowid"
     IsUpdateable="false"

@@ -2,7 +2,7 @@
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="RosterPageDef"
                 Package="Andes2.view.pageDefs">
   <executables>
-    <iterator Binds="FullRosterForMonth1" RangeSize="25" DataControl="dataSourceDataControl"
+    <iterator Binds="FullRosterForMonth1" RangeSize="-1" DataControl="dataSourceDataControl"
               id="FullRosterForMonth1Iterator"/>
     <taskFlow id="rosterForMonth1" taskFlowId="/WEB-INF/rosterForMonth.xml#rosterForMonth" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
@@ -14,5 +14,12 @@
             Action="executeWithParams">
       <NamedData NDName="mes" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_mes}"/>
     </action>
+    <tree IterBinding="FullRosterForMonth1Iterator" id="FullRosterForMonth11">
+      <nodeDefinition DefName="Andes2.model.vo.FullRosterForMonth" Name="FullRosterForMonth110">
+        <AttrNames>
+          <Item Value="CrgoNombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
