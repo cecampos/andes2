@@ -2,4 +2,94 @@
 <SDM>
    <OverallProperties
       id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">Roster</property>
+      <property
+         name="page">/Roster.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Roster&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">290.39648</property>
+      <property
+         name="x">838.5</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">Login</property>
+      <property
+         name="page">/Login.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Login&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">302.09766</property>
+      <property
+         name="x">151.5</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">FileUpload</property>
+      <property
+         name="page">/FileUpload.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>FileUpload&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">284.29297</property>
+      <property
+         name="x">410.5</property>
+   </View>
+   <View
+      id="View5">
+      <property
+         name="activityId">MenuInicial</property>
+      <property
+         name="page">/MenuInicial.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>MenuInicial&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">290.0918</property>
+      <property
+         name="x">276.0</property>
+   </View>
+   <View
+      id="View6">
+      <property
+         name="activityId">EditarDatos</property>
+      <property
+         name="page">/EditarDatos.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EditarDatos&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">282.49414</property>
+      <property
+         name="x">553.0</property>
+   </View>
+   <View
+      id="View7">
+      <property
+         name="activityId">RevisarDatos</property>
+      <property
+         name="page">/RevisarDatos.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RevisarDatos&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">288.1953</property>
+      <property
+         name="x">702.0</property>
+   </View>
 </SDM>

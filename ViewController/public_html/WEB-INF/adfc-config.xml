@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <metadata-resource id="__5">/WEB-INF/RosterViewMenu.xml</metadata-resource>
+  <view id="Roster">
+    <page>/Roster.jsf</page>
+  </view>
+  <view id="Login">
+    <page>/Login.jsf</page>
+  </view>
+  <view id="FileUpload">
+    <page>/FileUpload.jsf</page>
+  </view>
+  <view id="MenuInicial">
+    <page>/MenuInicial.jsf</page>
+  </view>
+  <view id="EditarDatos">
+    <page>/EditarDatos.jsf</page>
+  </view>
+  <view id="RevisarDatos">
+    <page>/RevisarDatos.jsf</page>
+  </view>
   <managed-bean id="__1">
     <managed-bean-name>FileChargerAndValidator</managed-bean-name>
     <managed-bean-class>Andes2.view.FileChargerAndValidator</managed-bean-class>
