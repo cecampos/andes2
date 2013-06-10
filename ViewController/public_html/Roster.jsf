@@ -6,16 +6,30 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
                 <f:facet name="content">
-                    <af:panelTabbed id="pt2">
-                        <af:showDetailItem text="Roster" id="sdi1">
-                            <af:panelGroupLayout id="pgl1" inlineStyle="width:inherit;">
-                                <af:outputText value="Mes: Junio 2013" id="ot1"
-                                               inlineStyle="font-weight:bolder; font-size:15px;"/>
-                            </af:panelGroupLayout>
-                            <af:region value="#{bindings.rosterForMonth1.regionModel}" id="r1"
-                                       inlineStyle="width:inherit;"/>
-                        </af:showDetailItem>
-                    </af:panelTabbed>
+                    <af:group id="g1">
+                        <af:panelTabbed id="pt2">
+                            <af:showDetailItem text="Menu Inicial" id="sdi4" disabled="true"/>
+                            <af:showDetailItem text="Cargar Datos" id="sdi5" disabled="true"/>
+                            <af:showDetailItem text="Editar Datos" id="sdi6" disabled="true"/>
+                            <af:showDetailItem text="Revisar Datos" id="sdi7" disabled="true"/>
+                            <af:showDetailItem text="Revisar Roster" id="sdi1">
+                                <af:panelGroupLayout id="pgl1" inlineStyle="width:inherit;">
+                                    <af:outputText value="Mes: Junio 2013" id="ot1"
+                                                   inlineStyle="font-weight:bolder; font-size:15px;"/>
+                                </af:panelGroupLayout>
+                                <af:region value="#{bindings.rosterForMonth1.regionModel}" id="r1"
+                                           inlineStyle="width:inherit;"/>
+                                <af:panelGroupLayout id="pgl6">
+                                    <af:goButton text="Menu Inicial" id="gb2" destination="/faces/MenuInicial.jsf"
+                                                 inlineStyle="font-size:medium;"/>
+                                    <af:goButton text="Editar Datos" id="gb1" destination="/faces/EditarDatos.jsf"
+                                                 inlineStyle="font-size:medium;"/>
+                                    <af:goButton text="Revisar Datos" id="gb3" destination="/faces/RevisarDatos.jsf"
+                                                 inlineStyle="font-size:medium;"/>
+                                </af:panelGroupLayout>
+                            </af:showDetailItem>
+                        </af:panelTabbed>
+                    </af:group>
                 </f:facet>
             </af:pageTemplate>
         </af:form>

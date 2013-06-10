@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Login.jsf" id="d1">
+        <af:form id="f1">
+            <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
+                <f:facet name="content">
+                    <af:panelGroupLayout id="pgl1">
+                        <af:decorativeBox id="db1">
+                            <f:facet name="center">
+                                <af:panelGroupLayout layout="scroll" id="pgl2" halign="center">
+                                    <af:inputText label="Usuario" id="it1" shortDesc="Nombre de Usuario"/>
+                                    <af:inputText label="Clave  " id="it2" secret="true" shortDesc="Clave de Usuario"
+                                                  helpTopicId="Clave de Usuario?"/>
+                                    <af:goButton text="Entrar" id="gb1" destination="/faces/MenuInicial.jsf"/>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                            <f:facet name="top">
+                                <af:outputText value="Sistema rostering Andes" id="ot1" inlineStyle="font-size:large;">
+                                    
+                                </af:outputText>
+                            </f:facet>
+                        </af:decorativeBox>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
