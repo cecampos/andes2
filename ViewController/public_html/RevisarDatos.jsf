@@ -10,7 +10,10 @@
                         <af:showDetailItem text="Cargar Datos" id="sdi2" disabled="true"/>
                         <af:showDetailItem text="Editar Datos" id="sdi3" disabled="true"/>
                         <af:showDetailItem text="Revisar Datos" id="sdi4" disabled="false">
-                            <af:goButton text="Siguiente Paso" id="gb1" destination="/faces/Roster.jsf"/>
+                            <af:panelGroupLayout id="pgl6">
+                                <af:goButton text="Paso Anterior" id="gb2" destination="/faces/EditarDatos.jsf"/>
+                                <af:goButton text="Siguiente Paso" id="gb1" destination="/faces/Roster.jsf"/>
+                            </af:panelGroupLayout>
                         </af:showDetailItem>
                         <af:showDetailItem text="Revisar Rol" id="sdi5" disabled="true"/>
                     </af:panelTabbed>

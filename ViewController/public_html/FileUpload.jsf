@@ -33,9 +33,9 @@
                                                         <af:inputFile label="Empleados" id="empleados" autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 60px"/>
+                                                                      labelStyle="width: 60px; font-size: small;"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="33%" id="gc2">
+                                                    <af:gridCell marginStart="5px" width="auto" id="gc2">
                                                         <af:selectBooleanCheckbox rendered="false" text="Grupos"
                                                                                   label="Label 1" id="sbc2"
                                                                                   simple="true"/>
@@ -46,9 +46,10 @@
                                                         <af:inputFile label="Grupos" id="grupos" autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 80px"/>
+                                                                      labelStyle="width: 80px; font-size: small;"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc3">
+                                                    <af:gridCell marginStart="5px" marginEnd="5px" id="gc3"
+                                                                 width="auto">
                                                         <af:selectBooleanCheckbox rendered="false" text="Capacity"
                                                                                   label="Label 1" id="sbc3"
                                                                                   simple="true"/>
@@ -59,7 +60,7 @@
                                                         <af:inputFile label="Capacity" id="capacity" autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 100px"/>
+                                                                      labelStyle="width: 100px; font-size: small;"/>
                                                     </af:gridCell>
                                                 </af:gridRow>
                                                 <af:gridRow marginTop="5px" height="auto" id="gr2">
@@ -74,9 +75,9 @@
                                                         <af:inputFile label="Skills" id="skills" autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 60px"/>
+                                                                      labelStyle="width: 60px; font-size: small;"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="33%" id="gc5">
+                                                    <af:gridCell marginStart="5px" width="auto" id="gc5">
                                                         <af:selectBooleanCheckbox rendered="false" text="Capacitaciones"
                                                                                   label="Label 1" id="sbc5"
                                                                                   simple="true"/>
@@ -88,9 +89,9 @@
                                                                       autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 80px"/>
+                                                                      labelStyle="width: 80px; font-size: small;"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc6">
+                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="auto" id="gc6">
                                                         <af:selectBooleanCheckbox rendered="false"
                                                                                   text="Demanda de Skills"
                                                                                   label="Label 1" id="sbc6"
@@ -103,7 +104,7 @@
                                                                       autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 100px"/>
+                                                                      labelStyle="width: 100px; font-size: small;"/>
                                                     </af:gridCell>
                                                 </af:gridRow>
                                                 <af:gridRow marginTop="5px" height="auto" id="gr3">
@@ -119,9 +120,9 @@
                                                                       autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 60px"/>
+                                                                      labelStyle="width: 60px; font-size: small;"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="33%" id="gc8">
+                                                    <af:gridCell marginStart="5px" width="auto" id="gc8">
                                                         <af:selectBooleanCheckbox rendered="false"
                                                                                   text="Capacity por Turno"
                                                                                   label="Label 1" id="sbc8"
@@ -134,9 +135,9 @@
                                                                       autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 80px"/>
+                                                                      labelStyle="width: 80px; font-size: small;"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
+                                                    <af:gridCell marginStart="5px" marginEnd="5px" width="auto" id="gc9">
                                                         <af:selectBooleanCheckbox rendered="false"
                                                                                   text="Turnos no permitidos"
                                                                                   label="Label 1" id="sbc9"
@@ -149,7 +150,7 @@
                                                                       autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 80px"/>
+                                                                      labelStyle="width: 100px; font-size: small;"/>
                                                     </af:gridCell>
                                                 </af:gridRow>
                                                 <af:gridRow marginTop="5px" marginBottom="5px" height="auto" id="gr4">
@@ -165,15 +166,24 @@
                                                                       autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
-                                                                      labelStyle="width: 60px"/>
+                                                                      labelStyle="width: 60px; font-size: small;"/>
                                                     </af:gridCell>
-                                                    <af:gridCell marginStart="5px" width="33%" id="gc11"/>
+                                                    <af:gridCell marginStart="5px" width="auto" id="gc11"/>
                                                     <af:gridCell marginStart="5px" marginEnd="5px" width="33%"
                                                                  id="gc12"/>
                                                 </af:gridRow>
                                             </af:panelGridLayout>
-                                            <af:commandButton text="Subir Archivos" id="cb1" action="#{FilUpdBean.Submit}"
-                                                              inlineStyle="font-size:medium;"/>
+                                            <af:panelGroupLayout id="pgl6">
+                                                <af:goButton text="Paso Anterior" id="gb2"
+                                                             destination="/faces/MenuInicial.jsf"
+                                                             inlineStyle="font-size:medium;"/>
+                                                <af:commandButton text="Subir Archivos" id="cb1"
+                                                                  action="#{FilUpdBean.Submit}"
+                                                                  inlineStyle="font-size:medium;"/>
+                                                <af:goButton text="Siguiente Paso" id="gb1"
+                                                             destination="/faces/EditarDatos.jsf"
+                                                             inlineStyle="font-size:medium;"/>
+                                            </af:panelGroupLayout>
                                         </af:panelGroupLayout>
                                     </f:facet>
                                     <f:facet name="second">

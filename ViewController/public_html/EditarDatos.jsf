@@ -9,7 +9,12 @@
                         <af:showDetailItem text="Menu Inicial" id="sdi2" disclosed="false" disabled="true"/>
                         <af:showDetailItem text="Carga de Datos" id="sdi1" inlineStyle="margin:10px 0px 0px 0px;"
                                            immediate="true" disabled="true"/>
-                        <af:showDetailItem text="Editar Datos" id="sdi4" disabled="false"/>
+                        <af:showDetailItem text="Editar Datos" id="sdi4" disabled="false">
+                            <af:panelGroupLayout id="pgl6">
+                                <af:goButton text="Paso Anterior" id="gb2" destination="/faces/FileUpload.jsf"/>
+                                <af:goButton text="Siguiente Paso" id="gb1" destination="/faces/RevisarDatos.jsf"/>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
                         <af:showDetailItem text="Revisar Datos" id="sdi5" disabled="true"/>
                         <af:showDetailItem text="Cargar Datos" id="sdi3" disabled="true"/>
                     </af:panelTabbed>

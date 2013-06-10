@@ -2,6 +2,9 @@
 .adf/
 *.class
 *.javac
+deploy
+deploy/*
+
 
 #################
 ## Eclipse

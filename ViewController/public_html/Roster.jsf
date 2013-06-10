@@ -27,6 +27,14 @@
                                                    inlineStyle="width:inherit;"/>
                                     </af:showDetailItem>
                                 </af:panelTabbed>
+                                <af:panelGroupLayout id="pgl6">
+                                    <af:goButton text="Menu Inicial" id="gb2" destination="/faces/MenuInicial.jsf"
+                                                 inlineStyle="font-size:medium;"/>
+                                    <af:goButton text="Editar Datos" id="gb1" destination="/faces/EditarDatos.jsf"
+                                                 inlineStyle="font-size:medium;"/>
+                                    <af:goButton text="Revisar Datos" id="gb3" destination="/faces/RevisarDatos.jsf"
+                                                 inlineStyle="font-size:medium;"/>
+                                </af:panelGroupLayout>
                             </af:showDetailItem>
                         </af:panelTabbed>
                     </af:group>
