@@ -13,6 +13,44 @@
   CustomQuery="false"
   PageIterMode="Full"
   UseGlueCode="false">
+  <ViewAccessor
+    Name="CargoView1"
+    ViewObjectName="Andes2.model.CargoView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="cargoNombre"
+    ListVOName="CargoView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CrgoId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CrgoNombre"
+    ListVOName="CargoView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Cargo"
     Entity="Andes2.model.Cargo"/>
@@ -22,14 +60,30 @@
     PrecisionRule="true"
     EntityAttrName="CrgoId"
     EntityUsage="Cargo"
-    AliasName="CRGO_ID"/>
+    AliasName="CRGO_ID"
+    LOVName="cargoNombre">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CrgoNombre"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CrgoNombre"
     EntityUsage="Cargo"
-    AliasName="CRGO_NOMBRE"/>
+    AliasName="CRGO_NOMBRE"
+    LOVName="LOV_CrgoNombre">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CrgoMetaCargo"
     PrecisionRule="true"

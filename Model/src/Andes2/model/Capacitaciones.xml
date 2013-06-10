@@ -14,9 +14,9 @@
     Name="CaptId"
     IsNotNull="true"
     ColumnName="CAPT_ID"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
     TableName="CAPACITACIONES"
     PrimaryKey="true"/>
   <Attribute
@@ -37,7 +37,7 @@
     IsNotNull="true"
     ColumnName="CAPT_FECHA_INICIO"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="CAPACITACIONES"/>
   <Attribute
@@ -45,7 +45,7 @@
     IsNotNull="true"
     ColumnName="CAPT_FECHA_TERMINO"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="CAPACITACIONES"/>
   <Attribute

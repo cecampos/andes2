@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="vacacionesPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="vacacionesFullview1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="vacacionesFullview1Iterator"/>
+    <searchRegion Binds="vacacionesFullview1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="vacacionesFullview1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="vacacionesFullview1Iterator" id="vacacionesFullview1">
+      <nodeDefinition DefName="Andes2.model.vo.vacacionesFullview" Name="vacacionesFullview10">
+        <AttrNames>
+          <Item Value="EmplRut1"/>
+          <Item Value="EmplNombre"/>
+          <Item Value="CrgoNombre"/>
+          <Item Value="VccnFechaInicio"/>
+          <Item Value="VccnFechaTermino"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="dataSourceDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="dataSourceDataControl"/>
+  </bindings>
+</pageDefinition>

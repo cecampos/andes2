@@ -26,8 +26,7 @@ public class RosterCustomQueryBean {
         StringBuffer cargoNameFilterString = new StringBuffer();
         StringBuffer nombreFilterString = new StringBuffer();
         ArrayList<String> cargosArray = null;
-        String nombreFilter = (String)_criteriaMap.get("EmplNombre");
-        
+        //String nombreFilter = (String)_criteriaMap.get("EmplNombre");
         if(_criteriaMap.get("CrgoNombre")!=null){
             cargosArray = (ArrayList<String>)_criteriaMap.get("CrgoNombre");
             for(int i=0; i<cargosArray.size();i++){
@@ -41,7 +40,7 @@ public class RosterCustomQueryBean {
                 }
             cargoNameFilterString.append(" OR -1"); 
             _criteriaMap.put("CrgoNombre", cargoNameFilterString.toString());
-            _criteriaMap.put("EmplNombre",nombreFilter);
+          //  _criteriaMap.put("EmplNombre",nombreFilter);
             fqd.setFilterCriteria(_criteriaMap);
         }/*
         if(!_criteriaMap.get("EmplNombre").equals("")){

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="pruebas.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:selectOneChoice value="#{bindings.CrgoNombre1.inputValue}" label="#{bindings.CrgoNombre1.label}"
+                                required="#{bindings.CrgoNombre1.hints.mandatory}"
+                                shortDesc="#{bindings.CrgoNombre1.hints.tooltip}" id="soc1">
+                <f:selectItems value="#{bindings.CrgoNombre1.items}" id="si2"/>
+            </af:selectOneChoice>
+            <af:selectManyChoice label="Label 1" id="smc1">
+                <f:selectItems value="#{bindings.CrgoNombre1.items}" id="si1"/>
+            </af:selectManyChoice>
+        </af:form>
+    </af:document>
+</f:view>
