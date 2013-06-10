@@ -18,4 +18,10 @@
   <ViewUsage
     Name="CargoView1"
     ViewObjectName="Andes2.model.CargoView"/>
+  <ViewUsage
+    Name="vacacionesFullview1"
+    ViewObjectName="Andes2.model.vo.vacacionesFullview"/>
+  <ViewUsage
+    Name="CapacitacionesFullView1"
+    ViewObjectName="Andes2.model.vo.CapacitacionesFullView"/>
 </AppModule>

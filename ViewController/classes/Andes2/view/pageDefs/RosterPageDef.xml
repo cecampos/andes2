@@ -6,8 +6,6 @@
               id="FullRosterForMonth1Iterator"/>
     <taskFlow id="rosterForMonth1" taskFlowId="/WEB-INF/rosterForMonth.xml#rosterForMonth" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <taskFlow id="MonthRosterForCargoView1" taskFlowId="/WEB-INF/MonthRosterForCargoView.xml#MonthRosterForCargoView"
-              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <action IterBinding="FullRosterForMonth1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"

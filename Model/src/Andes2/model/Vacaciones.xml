@@ -37,7 +37,7 @@
     IsNotNull="true"
     ColumnName="VCCN_FECHA_INICIO"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VACACIONES"/>
   <Attribute
@@ -45,7 +45,7 @@
     IsNotNull="true"
     ColumnName="VCCN_FECHA_TERMINO"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VACACIONES"/>
   <AccessorAttribute

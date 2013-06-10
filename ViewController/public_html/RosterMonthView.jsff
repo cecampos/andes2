@@ -46,7 +46,8 @@
         <f:validator binding="#{row.bindings.CrgoNombre.validator}"/>
       </af:inputText>
       <f:facet name="filter">
-        <af:selectManyChoice label="Label 2" id="smc2" value="#{vs.filterCriteria.CrgoNombre}">
+        <af:selectManyChoice label="Label 2" id="smc2" value="#{vs.filterCriteria.CrgoNombre}"
+                             inlineStyle="width:250px;">
           <f:selectItems value="#{bindings.CrgoNombre.items}" id="si3"/>
         </af:selectManyChoice>
       </f:facet>

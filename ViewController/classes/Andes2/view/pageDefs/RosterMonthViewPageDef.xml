@@ -53,7 +53,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <listOfValues StaticList="false" Uses="LOV_CrgoNombre" IterBinding="CargoView1Iterator" id="nombres"/>
     <list IterBinding="CargoView1Iterator" StaticList="false" Uses="LOV_CrgoNombre" id="CrgoNombre"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
