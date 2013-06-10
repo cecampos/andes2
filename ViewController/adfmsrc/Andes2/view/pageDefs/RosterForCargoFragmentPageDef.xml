@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="RosterForCargoFragmentPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MonthRosterForCargo1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="MonthRosterForCargo1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MonthRosterForCargo1Iterator" id="MonthRosterForCargo1">
+      <nodeDefinition DefName="Andes2.model.vo.MonthRosterForCargo" Name="MonthRosterForCargo10">
+        <AttrNames>
+          <Item Value="EmplRut"/>
+          <Item Value="EmplNombre"/>
+          <Item Value="RostD01"/>
+          <Item Value="RostD02"/>
+          <Item Value="RostD03"/>
+          <Item Value="RostD04"/>
+          <Item Value="RostD05"/>
+          <Item Value="RostD06"/>
+          <Item Value="RostD07"/>
+          <Item Value="RostD08"/>
+          <Item Value="RostD09"/>
+          <Item Value="RostD10"/>
+          <Item Value="RostD11"/>
+          <Item Value="RostD12"/>
+          <Item Value="RostD13"/>
+          <Item Value="RostD14"/>
+          <Item Value="RostD15"/>
+          <Item Value="RostD16"/>
+          <Item Value="RostD17"/>
+          <Item Value="RostD18"/>
+          <Item Value="RostD19"/>
+          <Item Value="RostD20"/>
+          <Item Value="RostD21"/>
+          <Item Value="RostD22"/>
+          <Item Value="RostD23"/>
+          <Item Value="RostD24"/>
+          <Item Value="RostD25"/>
+          <Item Value="RostD26"/>
+          <Item Value="RostD27"/>
+          <Item Value="RostD28"/>
+          <Item Value="RostD29"/>
+          <Item Value="RostD30"/>
+          <Item Value="RostD31"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

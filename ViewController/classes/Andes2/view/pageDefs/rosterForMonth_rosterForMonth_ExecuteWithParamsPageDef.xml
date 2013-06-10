@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76"
+                id="rosterForMonth_rosterForMonth_ExecuteWithParamsPageDef" Package="Andes2.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="FullRosterForMonth1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="FullRosterForMonth1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="FullRosterForMonth1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="mes" NDValue="6" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

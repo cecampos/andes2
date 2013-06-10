@@ -42,7 +42,7 @@ public class FileUploader {
         Connection con;
 	public FileUploader(){
             DbManager dbMan = new DbManager();
-            con = dbMan.getDb("dev", "dev", "ORCL");
+            con = dbMan.getDb("dev", "dev", "xe");
             }
 
         
@@ -52,15 +52,16 @@ public class FileUploader {
             BufferedReader reader = new BufferedReader(aux);
             
             //Router, cada archivo tiene su propio metodo que lo carga en la BD
-            if(fileCase.equals("empleado"))
+            if(fileCase.equals("empleados"))
                 uploadEmpleado(reader);
-            else if(fileCase.equals("vacacion"))
+            else if(fileCase.equals("vacaciones"))
                 uploadVacacion(reader);
-            else if(fileCase.equals("capacitacion"))
+            else if(fileCase.equals("capacitaciones"))
                 uploadCapacitacion(reader);
 
-            
-    }
+
+        }
+        
         private PreparedStatement prepareInsertSQL(Connection con, String[] colNames, String tableName){
                 String insertSQL = String.format("insert into %s (", tableName);
                 for(int i=0;i<colNames.length;i++){
@@ -198,11 +199,176 @@ public class FileUploader {
         try {
                 reader.close();
                 newUpldFileRecord("empleados");
-                con.close();
+                //con.close();
         } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
         }       
+    }
+
+    private void uploadCapacity(BufferedReader reader){
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="capacity_hora";
+        String[] colNames ={"CAPH_FECHA","CRGO_ID","CAPH_HORA","CAPH_REQUERIMIENTO","CAPH_VERSION"};
+        String[] colTypes = {"date","String","String","int","int"};
+        
+        PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
+
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[5];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                dataRow[4] = "0";
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("capacity");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+        
+    }
+    /*
+     * TODO : revisar estructura archivos de entrada y BD antes de implementar
+    private void uploadDemandaSkills(BufferedReader reader){
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="demanda_skill";
+        String[] colNames ={"CAPH_FECHA","CRGO_ID","","CAPH_HORA","CAPH_REQUERIMIENTO","CAPH_VERSION"};
+        String[] colTypes = {"date","String","String","int","int"};
+        
+        PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
+
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[5];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                dataRow[4] = "0";
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("capacity");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+        
+    }    
+    */
+    
+    private void uploadSkills(BufferedReader reader){
+        /*TODO: Carga en empleados skills,
+         * */
+        }
+    
+    private void uploadGrupos(BufferedReader reader){
+        /*TODO : De este archivo sale CoAsignacion y Grupos
+         * Avergiaur como realizarlo :S
+         * */
+        }
+    
+    private void uploadTurnosNoPermitidos(BufferedReader reader){
+        /*TODO : Archivo genera Restriccion asignacion, requiere 
+         * logica compleja : iterador entre fechas, condicional
+         * entre dias
+         */
+        }
+    
+    private void uploadFijarAsignacion(BufferedReader reader){
+        /* TODO:  que es Fjag dia y mes
+         * Logica compleja (iterador entre fechas
+         * */
+        }
+    
+    private void uploadCapacityTurno(BufferedReader reader){
+        //TODO Revisar estructura
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="capacity_turno";
+        String[] colNames ={"CAPH_FECHA","CRGO_ID","TURN_NOMBRE","CAPT_REQUERIMIENTO","CAPT_VERSION"};
+        String[] colTypes = {"date","String","String","int","int"};
+        
+        PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
+
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[5];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                dataRow[4] = "0";
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("capacityTurno");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+                  
     }
 
     private void uploadVacacion(BufferedReader reader) {
@@ -243,7 +409,7 @@ public class FileUploader {
         try {
                 reader.close();
                 newUpldFileRecord("vacaciones");
-                con.close();
+                //con.close();
         } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -289,7 +455,7 @@ public class FileUploader {
         try {
                 reader.close();
                 newUpldFileRecord("capacitaciones");
-                con.close();
+                //con.close();
         } catch (Exception e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

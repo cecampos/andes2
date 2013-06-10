@@ -5,10 +5,7 @@
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="RosterView"
   Version="11.1.2.62.76"
-  SelectList="Roster.ROST_SEQ_CDG, 
-       Roster.EMPL_RUT, 
-       Roster.ROST_FECHA, 
-       Roster.ROST_VERSION, 
+  SelectList="Roster.EMPL_RUT, 
        Roster.ROST_D01, 
        Roster.ROST_D02, 
        Roster.ROST_D03, 
@@ -39,22 +36,24 @@
        Roster.ROST_D28, 
        Roster.ROST_D29, 
        Roster.ROST_D30, 
-       Roster.ROST_D31"
-  FromList="ROSTER Roster"
+       Roster.ROST_D31, 
+       Roster.ROST_FECHA, 
+       Roster.ROST_SEQ_CDG, 
+       Roster.ROST_VERSION"
+  FromList="DEV.ROSTER Roster"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
   UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.RosterView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
   <EntityUsage
     Name="Roster"
     Entity="Andes2.model.Roster"/>
-  <ViewAttribute
-    Name="RostSeqCdg"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="RostSeqCdg"
-    EntityUsage="Roster"
-    AliasName="ROST_SEQ_CDG"/>
   <ViewAttribute
     Name="EmplRut"
     IsNotNull="true"
@@ -62,19 +61,6 @@
     EntityAttrName="EmplRut"
     EntityUsage="Roster"
     AliasName="EMPL_RUT"/>
-  <ViewAttribute
-    Name="RostFecha"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="RostFecha"
-    EntityUsage="Roster"
-    AliasName="ROST_FECHA"/>
-  <ViewAttribute
-    Name="RostVersion"
-    PrecisionRule="true"
-    EntityAttrName="RostVersion"
-    EntityUsage="Roster"
-    AliasName="ROST_VERSION"/>
   <ViewAttribute
     Name="RostD01"
     PrecisionRule="true"
@@ -261,4 +247,28 @@
     EntityAttrName="RostD31"
     EntityUsage="Roster"
     AliasName="ROST_D31"/>
+  <ViewAttribute
+    Name="RostFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RostFecha"
+    EntityUsage="Roster"
+    AliasName="ROST_FECHA"/>
+  <ViewAttribute
+    Name="RostSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RostSeqCdg"
+    EntityUsage="Roster"
+    AliasName="ROST_SEQ_CDG"/>
+  <ViewAttribute
+    Name="RostVersion"
+    PrecisionRule="true"
+    EntityAttrName="RostVersion"
+    EntityUsage="Roster"
+    AliasName="ROST_VERSION"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

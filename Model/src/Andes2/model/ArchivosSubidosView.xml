@@ -7,7 +7,6 @@
   Version="11.1.2.62.76"
   SelectList="ArchivosSubidos.ARCH_SEQ_CDG, 
        ArchivosSubidos.ARCH_NOMBRE, 
-       ArchivosSubidos.ARCH_MES, 
        ArchivosSubidos.ARCH_FECHA_SUBIDA"
   FromList="ARCHIVOS_SUBIDOS ArchivosSubidos"
   BindingStyle="OracleName"
@@ -30,12 +29,6 @@
     EntityAttrName="ArchNombre"
     EntityUsage="ArchivosSubidos"
     AliasName="ARCH_NOMBRE"/>
-  <ViewAttribute
-    Name="ArchMes"
-    PrecisionRule="true"
-    EntityAttrName="ArchMes"
-    EntityUsage="ArchivosSubidos"
-    AliasName="ARCH_MES"/>
   <ViewAttribute
     Name="ArchFechaSubida"
     PrecisionRule="true"

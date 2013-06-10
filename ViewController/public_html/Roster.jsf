@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Roster.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
+                <f:facet name="content">
+                    <af:panelTabbed id="pt2">
+                        <af:showDetailItem text="Roster" id="sdi1">
+                            <af:panelGroupLayout id="pgl1" inlineStyle="width:inherit;">
+                                <af:outputText value="Mes: Junio 2013" id="ot1"
+                                               inlineStyle="font-weight:bolder; font-size:15px;"/>
+                            </af:panelGroupLayout>
+                            <af:panelTabbed id="pt3" inlineStyle="width:inherit; height:500px;">
+                                <af:showDetailItem text="TODOS" id="sdi2">
+                                    <af:region value="#{bindings.rosterForMonth1.regionModel}" id="r1"
+                                               inlineStyle="width:inherit;"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="CARGOLOADERISTA" id="sdi3">
+                                    <af:region value="#{bindings.MonthRosterForCargoView1.regionModel}" id="r2"
+                                               inlineStyle="width:inherit;"/>
+                                </af:showDetailItem>
+                            </af:panelTabbed>
+                        </af:showDetailItem>
+                    </af:panelTabbed>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

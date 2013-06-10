@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <metadata-resource id="__5">/WEB-INF/RosterViewMenu.xml</metadata-resource>
   <managed-bean id="__1">
     <managed-bean-name>FileChargerAndValidator</managed-bean-name>
     <managed-bean-class>Andes2.view.FileChargerAndValidator</managed-bean-class>
@@ -13,6 +14,11 @@
   <managed-bean id="__3">
     <managed-bean-name>FilUpdBean</managed-bean-name>
     <managed-bean-class>Andes2.view.FilUpdateBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name>AuxBean</managed-bean-name>
+    <managed-bean-class>Andes2.view.AuxBean</managed-bean-class>
     <managed-bean-scope>session</managed-bean-scope>
   </managed-bean>
 </adfc-config>

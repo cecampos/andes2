@@ -32,17 +32,10 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="ArchMes"
-    ColumnName="ARCH_MES"
-    SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
-    TableName="ARCHIVOS_SUBIDOS"/>
-  <Attribute
     Name="ArchFechaSubida"
     ColumnName="ARCH_FECHA_SUBIDA"
     SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ARCHIVOS_SUBIDOS"/>
   <Key

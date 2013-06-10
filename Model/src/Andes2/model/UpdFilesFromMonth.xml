@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UpdFilesFromMonth"
+  Version="11.1.2.62.76"
+  SelectList="ArchivosSubidos.ARCH_FECHA_SUBIDA, 
+       ArchivosSubidos.ARCH_NOMBRE, 
+       ArchivosSubidos.ARCH_SEQ_CDG"
+  FromList="ARCHIVOS_SUBIDOS ArchivosSubidos"
+  Where=":mes = EXTRACT (MONTH FROM ARCH_FECHA_SUBIDA) AND
+:year = EXTRACT (YEAR FROM ARCH_FECHA_SUBIDA)"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.UpdFilesFromMonth_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="mes"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="Andes2.model.UpdFilesFromMonth.mes_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="year"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="ArchivosSubidos"
+    Entity="Andes2.model.ArchivosSubidos"/>
+  <ViewAttribute
+    Name="ArchFechaSubida"
+    PrecisionRule="true"
+    EntityAttrName="ArchFechaSubida"
+    EntityUsage="ArchivosSubidos"
+    AliasName="ARCH_FECHA_SUBIDA"/>
+  <ViewAttribute
+    Name="ArchNombre"
+    PrecisionRule="true"
+    EntityAttrName="ArchNombre"
+    EntityUsage="ArchivosSubidos"
+    AliasName="ARCH_NOMBRE"/>
+  <ViewAttribute
+    Name="ArchSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ArchSeqCdg"
+    EntityUsage="ArchivosSubidos"
+    AliasName="ARCH_SEQ_CDG"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

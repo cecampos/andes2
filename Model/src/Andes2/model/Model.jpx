@@ -12,6 +12,7 @@
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="dev"/>
     <Attr Name="_appModuleNames0" Value="Andes2.model.andes2"/>
+    <Attr Name="_appModuleNames1" Value="Andes2.model.vo.dataSource"/>
   </DesignTime>
   <Containee
     Name="model"
@@ -23,6 +24,15 @@
       <Attr Name="_VO" Value="true"/>
       <Attr Name="_VL" Value="true"/>
       <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vo"
+    PackageName="Andes2.model.vo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+      <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
 </JboProject>
