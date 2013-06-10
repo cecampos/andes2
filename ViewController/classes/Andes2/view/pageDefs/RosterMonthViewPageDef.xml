@@ -10,6 +10,7 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="FullRosterForMonth1Query"/>
     <iterator Binds="FullRosterForMonth1" RangeSize="25" DataControl="dataSourceDataControl"
               id="FullRosterForMonth1Iterator1"/>
+    <iterator Binds="CargoView1" RangeSize="-1" DataControl="dataSourceDataControl" id="CargoView1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="FullRosterForMonth1Iterator" id="FullRosterForMonth1">
@@ -52,5 +53,8 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <listOfValues StaticList="false" Uses="LOV_CrgoNombre" IterBinding="CargoView1Iterator" id="nombres"/>
+    <list IterBinding="CargoView1Iterator" StaticList="false" Uses="LOV_CrgoNombre" id="CrgoNombre"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

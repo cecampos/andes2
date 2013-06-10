@@ -12,16 +12,8 @@
                                 <af:outputText value="Mes: Junio 2013" id="ot1"
                                                inlineStyle="font-weight:bolder; font-size:15px;"/>
                             </af:panelGroupLayout>
-                            <af:panelTabbed id="pt3" inlineStyle="width:inherit; height:500px;">
-                                <af:showDetailItem text="TODOS" id="sdi2">
-                                    <af:region value="#{bindings.rosterForMonth1.regionModel}" id="r1"
-                                               inlineStyle="width:inherit;"/>
-                                </af:showDetailItem>
-                                <af:showDetailItem text="CARGOLOADERISTA" id="sdi3">
-                                    <af:region value="#{bindings.MonthRosterForCargoView1.regionModel}" id="r2"
-                                               inlineStyle="width:inherit;"/>
-                                </af:showDetailItem>
-                            </af:panelTabbed>
+                            <af:region value="#{bindings.rosterForMonth1.regionModel}" id="r1"
+                                       inlineStyle="width:inherit;"/>
                         </af:showDetailItem>
                     </af:panelTabbed>
                 </f:facet>

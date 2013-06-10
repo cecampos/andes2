@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="pruebasPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CargoView1" RangeSize="-1" DataControl="dataSourceDataControl" id="CargoView1Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false" Uses="LOV_CrgoNombre" IterBinding="CargoView1Iterator" id="CrgoNombre"/>
+    <list IterBinding="CargoView1Iterator" StaticList="false" Uses="LOV_CrgoNombre" id="CrgoNombre1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

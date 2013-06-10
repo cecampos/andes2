@@ -16,6 +16,7 @@
     <page path="/WEB-INF/MonthRosterForCargoView.xml#MonthRosterForCargoView@ExecuteWithParams"
           usageId="Andes2_view_MonthRosterForCargoView_MonthRosterForCargoView_ExecuteWithParamsPageDef"/>
     <page path="/RosterForCargoFragment.jsff" usageId="Andes2_view_RosterForCargoFragmentPageDef"/>
+    <page path="/pruebas.jsf" usageId="Andes2_view_pruebasPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="Andes2_view_CargaArchivosPageDef" path="Andes2.view.pageDefs.CargaArchivosPageDef"/>
@@ -27,6 +28,7 @@
     <page id="Andes2_view_MonthRosterForCargoView_MonthRosterForCargoView_ExecuteWithParamsPageDef"
           path="Andes2.view.pageDefs.MonthRosterForCargoView_MonthRosterForCargoView_ExecuteWithParamsPageDef"/>
     <page id="Andes2_view_RosterForCargoFragmentPageDef" path="Andes2.view.pageDefs.RosterForCargoFragmentPageDef"/>
+    <page id="Andes2_view_pruebasPageDef" path="Andes2.view.pageDefs.pruebasPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="andes2DataControl" Package="Andes2.model"
