@@ -4,7 +4,27 @@
     <af:document title="MenuInicial.jsf" id="d1">
         <af:form id="f1">
             <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
-                <f:facet name="content"/>
+                <f:facet name="content">
+                    <af:panelTabbed id="pt2">
+                        <af:showDetailItem text="Menu Inicial" id="sdi1">
+                            <af:decorativeBox id="db1">
+                                <f:facet name="center">
+                                    <af:panelGroupLayout layout="scroll" id="pgl1">
+                                        <af:goButton text="Siguiente Paso" id="gb1"
+                                                     destination="/faces/FileUpload.jsf"/>
+                                    </af:panelGroupLayout>
+                                </f:facet>
+                                <f:facet name="top">
+                                    <af:outputText value="Menu Inicial" id="ot1"/>
+                                </f:facet>
+                            </af:decorativeBox>
+                        </af:showDetailItem>
+                        <af:showDetailItem text="Cargar Datos" id="sdi2" disabled="true"/>
+                        <af:showDetailItem text="Editar Datos" id="sdi3" disabled="true"/>
+                        <af:showDetailItem text="Revisar Datos" id="sdi4" disabled="true"/>
+                        <af:showDetailItem text="Revisar Rol" id="sdi5" disabled="true"/>
+                    </af:panelTabbed>
+                </f:facet>
             </af:pageTemplate>
         </af:form>
     </af:document>
