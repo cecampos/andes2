@@ -24,4 +24,7 @@
   <ViewUsage
     Name="CapacitacionesFullView1"
     ViewObjectName="Andes2.model.vo.CapacitacionesFullView"/>
+  <ViewUsage
+    Name="RequerimientosSkills1"
+    ViewObjectName="Andes2.model.vo.RequerimientosSkills"/>
 </AppModule>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="GeneradorArchivosPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RequerimientosSkills1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="RequerimientosSkills1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RequerimientosSkills1Iterator" id="RequerimientosSkills1">
+      <nodeDefinition DefName="Andes2.model.vo.RequerimientosSkills" Name="RequerimientosSkills10">
+        <AttrNames>
+          <Item Value="SkllId"/>
+          <Item Value="DdskFecha"/>
+          <Item Value="TurnNombre"/>
+          <Item Value="DdskRequerimiento"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

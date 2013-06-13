@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="GeneradorArchivos.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
+                <f:facet name="content">
+                    <af:group id="g1">
+                        <af:table value="#{bindings.RequerimientosSkills1.collectionModel}" var="row"
+                                  rows="#{bindings.RequerimientosSkills1.rangeSize}"
+                                  emptyText="#{bindings.RequerimientosSkills1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.RequerimientosSkills1.rangeSize}" rowBandingInterval="0" id="t1"
+                                  binding="#{backingBeanScope.backing_FileGenerator.table}">
+                            <af:column sortProperty="#{bindings.RequerimientosSkills1.hints.SkllId.name}"
+                                       sortable="false"
+                                       headerText="#{bindings.RequerimientosSkills1.hints.SkllId.label}" id="c1">
+                                <af:outputText value="#{row.SkllId}" id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.RequerimientosSkills1.hints.DdskFecha.name}"
+                                       sortable="false"
+                                       headerText="#{bindings.RequerimientosSkills1.hints.DdskFecha.label}" id="c2">
+                                <af:outputText value="#{row.DdskFecha}" id="ot2">
+                                    <af:convertDateTime pattern="#{bindings.RequerimientosSkills1.hints.DdskFecha.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.RequerimientosSkills1.hints.TurnNombre.name}"
+                                       sortable="false"
+                                       headerText="#{bindings.RequerimientosSkills1.hints.TurnNombre.label}" id="c3">
+                                <af:outputText value="#{row.TurnNombre}" id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.RequerimientosSkills1.hints.DdskRequerimiento.name}"
+                                       sortable="false"
+                                       headerText="#{bindings.RequerimientosSkills1.hints.DdskRequerimiento.label}"
+                                       id="c4">
+                                <af:outputText value="#{row.DdskRequerimiento}" id="ot4"/>
+                            </af:column>
+                        </af:table>
+                        <af:commandButton text="exportar" id="cb1"
+                                          action="#{backingBeanScope.backing_FileGenerator.exportToExcel}"/>
+                    </af:group>
+                </f:facet>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:preferred-managed-bean-name:backing_FileGenerator-->
+</f:view>

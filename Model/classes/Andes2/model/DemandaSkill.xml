@@ -11,14 +11,6 @@
   BindingStyle="OracleName"
   UseGlueCode="false">
   <Attribute
-    Name="SkllSeqCdg"
-    IsNotNull="true"
-    ColumnName="SKLL_SEQ_CDG"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="DEMANDA_SKILL"/>
-  <Attribute
     Name="DdskFecha"
     IsNotNull="true"
     ColumnName="DDSK_FECHA"
@@ -27,33 +19,12 @@
     ColumnType="DATE"
     TableName="DEMANDA_SKILL"/>
   <Attribute
-    Name="DdskHora"
-    IsNotNull="true"
-    Precision="10"
-    ColumnName="DDSK_HORA"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="DEMANDA_SKILL">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="DdskRequerimiento"
     IsNotNull="true"
     ColumnName="DDSK_REQUERIMIENTO"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="DEMANDA_SKILL"/>
-  <Attribute
-    Name="DdskMes"
-    IsNotNull="true"
-    ColumnName="DDSK_MES"
-    SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
     TableName="DEMANDA_SKILL"/>
   <Attribute
     Name="DdskVersion"
@@ -71,6 +42,32 @@
     ColumnType="ROWID"
     TableName="DEMANDA_SKILL"
     PrimaryKey="true"/>
+  <Attribute
+    Name="SkllId"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="SKLL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEMANDA_SKILL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TurnNombre"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TURN_NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEMANDA_SKILL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Skills"
     Association="Andes2.model.DdskFkSkllAssoc"
@@ -85,8 +82,17 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="DDSK_FK_SKLL"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="TurnFkDdsk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TURNOS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TURN_FK_DDSK"/>
+    </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.DemandaSkill.SkllSeqCdg"/>
+      <Item Value="Andes2.model.DemandaSkill.TurnNombre"/>
     </AttrArray>
   </Key>
 </Entity>
