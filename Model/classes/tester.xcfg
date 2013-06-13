@@ -9,7 +9,7 @@
       </AppModuleConfig>
    </AppModuleConfigBag>
    <AppModuleConfigBag ApplicationName="Andes2.model.vo.dataSource">
-      <AppModuleConfig name="13F3EECB820" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DBconnection="java:comp/env/jdbc/devDS" IsLazyLoadingTrue="true" JDBCName="dev" jbo.project="Andes2.model.Model" BC4JConfigName="dataSourceLocal" DeployPlatform="LOCAL" ApplicationName="Andes2.model.vo.dataSource">
+      <AppModuleConfig name="13F3F47A1FC" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DBconnection="java:comp/env/jdbc/devDS" IsLazyLoadingTrue="true" JDBCName="dev" jbo.project="Andes2.model.Model" BC4JConfigName="dataSourceLocal" DeployPlatform="LOCAL" ApplicationName="Andes2.model.vo.dataSource">
          <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="Andes2.model.vo.dataSource"/>
          <Tester FullProxyInterfaceName="Andes2.model.vo.common.dataSource"/>

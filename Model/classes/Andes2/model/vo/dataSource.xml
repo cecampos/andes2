@@ -27,4 +27,7 @@
   <ViewUsage
     Name="RequerimientosSkills1"
     ViewObjectName="Andes2.model.vo.RequerimientosSkills"/>
+  <ViewUsage
+    Name="Vacaciones1"
+    ViewObjectName="Andes2.model.vo.Vacaciones"/>
 </AppModule>

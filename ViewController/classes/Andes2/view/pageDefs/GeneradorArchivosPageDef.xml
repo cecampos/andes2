@@ -6,6 +6,7 @@
     <variableIterator id="variables"/>
     <iterator Binds="RequerimientosSkills1" RangeSize="25" DataControl="dataSourceDataControl"
               id="RequerimientosSkills1Iterator"/>
+    <iterator Binds="Vacaciones1" RangeSize="25" DataControl="dataSourceDataControl" id="Vacaciones1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="RequerimientosSkills1Iterator" id="RequerimientosSkills1">
@@ -15,6 +16,16 @@
           <Item Value="DdskFecha"/>
           <Item Value="TurnNombre"/>
           <Item Value="DdskRequerimiento"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Vacaciones1Iterator" id="Vacaciones1">
+      <nodeDefinition DefName="Andes2.model.vo.Vacaciones" Name="Vacaciones10">
+        <AttrNames>
+          <Item Value="EmplRut"/>
+          <Item Value="VccnFechaInicio"/>
+          <Item Value="VccnFechaTermino"/>
+          <Item Value="VccnId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
