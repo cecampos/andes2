@@ -1,6 +1,10 @@
 package Andes2.view.backingBeans;
 
+import com.sun.faces.util.CollectionsUtils;
+
+
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -9,6 +13,7 @@ import java.io.PrintWriter;
 
 import java.util.Arrays;
 
+import java.util.Collections;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -26,6 +31,7 @@ import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.uicli.binding.JUCtrlHierBinding;
 
+
 import org.apache.myfaces.trinidad.model.CollectionModel;
 
 public class fileGeneratorBean {
@@ -42,6 +48,24 @@ public class fileGeneratorBean {
         return table;
     }
 
+    private void generateCSV(Row[] input, String fileName) throws IOException {
+        //Crea un archivos filename.csv parseando el contenido de input en el
+        
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+".csv")); 
+        
+        for(Row row:input){
+            Object[] rowValues = row.getAttributeValues();
+            StringBuffer line = new StringBuffer();
+            line.append(rowValues[0]);
+            for(int i=1; i< rowValues.length;i++){
+                line.append(";"+rowValues[i]);
+                }
+            writer.write(line.toString());
+        }   
+        writer.close();
+        }
+    
+    
     public String exportToExcel() throws IOException {
         // Generar todos los archivos necesarios para el modelo
 
@@ -51,34 +75,18 @@ public class fileGeneratorBean {
         JUCtrlHierBinding treeBinding = (JUCtrlHierBinding) model.getWrappedData();
         DCIteratorBinding iterator = treeBinding.getIteratorBinding();
         RowSetIterator rsi = iterator.getRowSetIterator();
-        
+        Row[] rows = iterator.getAllRowsInRange();
         
         /*Obtener binding programaticamente*/
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
         DCIteratorBinding dcIteratorBindings = bindings.findIteratorBinding("Vacaciones1Iterator");
+        
         Row[] vacasRows = dcIteratorBindings.getAllRowsInRange();
         
+        generateCSV(rows,"file1");
+        generateCSV(vacasRows,"file2");
+        
 
-        
-        //crear 1 archivo:
-        BufferedWriter writer = new BufferedWriter(new FileWriter("file1.csv"));
-
-        Row[] rows = iterator.getAllRowsInRange();
-        for(Row row:rows){
-            Object[] attValues = row.getAttributeValues();
-            writer.write(Arrays.toString(attValues));
-        }   
-        writer.close();
-        
-        //crear segundo archivo
-        
-        BufferedWriter writer2 = new BufferedWriter(new FileWriter("file2.csv"));
-        rows = iterator.getAllRowsInRange();
-        for(Row row:rows){
-            Object[] attValues = row.getAttributeValues();
-            writer2.write(Arrays.toString(attValues));
-        }   
-        writer2.close();
                 
         
         //Generar archivo zip
