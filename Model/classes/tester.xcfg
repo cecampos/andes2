@@ -9,8 +9,8 @@
       </AppModuleConfig>
    </AppModuleConfigBag>
    <AppModuleConfigBag ApplicationName="Andes2.model.vo.dataSource">
-      <AppModuleConfig name="13F3F47A1FC" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DBconnection="java:comp/env/jdbc/devDS" IsLazyLoadingTrue="true" JDBCName="dev" jbo.project="Andes2.model.Model" BC4JConfigName="dataSourceLocal" DeployPlatform="LOCAL" ApplicationName="Andes2.model.vo.dataSource">
-         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="OracleApps"/>
+      <AppModuleConfig name="13F631F1EE7" DBconnection="java:comp/env/jdbc/devDS" ApplicationName="Andes2.model.vo.dataSource" DeployPlatform="LOCAL" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="dev" BC4JConfigName="dataSourceLocal" jbo.project="Andes2.model.Model">
+         <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps" jbo.SQLBuilder="Oracle"/>
          <Security AppModuleJndiName="Andes2.model.vo.dataSource"/>
          <Tester FullProxyInterfaceName="Andes2.model.vo.common.dataSource"/>
          <Custom LastUsedConfiguration="dataSourceLocal" JDBCDataSource="java:comp/env/jdbc/devDS"/>

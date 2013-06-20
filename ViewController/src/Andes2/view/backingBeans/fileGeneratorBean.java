@@ -29,6 +29,7 @@ import oracle.adf.view.rich.component.rich.data.RichTable;
 
 import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.uicli.binding.JUCtrlHierBinding;
 
 
@@ -60,7 +61,7 @@ public class fileGeneratorBean {
             for(int i=1; i< rowValues.length;i++){
                 line.append(";"+rowValues[i]);
                 }
-            writer.write(line.toString());
+            writer.write(line.toString()+"\n");
         }   
         writer.close();
         }
@@ -69,22 +70,16 @@ public class fileGeneratorBean {
     public String exportToExcel() throws IOException {
         // Generar todos los archivos necesarios para el modelo
 
-
-        
-        CollectionModel model  = (CollectionModel)table.getValue();
-        JUCtrlHierBinding treeBinding = (JUCtrlHierBinding) model.getWrappedData();
-        DCIteratorBinding iterator = treeBinding.getIteratorBinding();
-        RowSetIterator rsi = iterator.getRowSetIterator();
-        Row[] rows = iterator.getAllRowsInRange();
-        
         /*Obtener binding programaticamente*/
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
-        DCIteratorBinding dcIteratorBindings = bindings.findIteratorBinding("Vacaciones1Iterator");
-        
-        Row[] vacasRows = dcIteratorBindings.getAllRowsInRange();
-        
-        generateCSV(rows,"file1");
-        generateCSV(vacasRows,"file2");
+        DCIteratorBinding reqIterator = bindings.findIteratorBinding("RequerimientoSkills1Iterator");
+        ViewObject vo = reqIterator.getViewObject();
+        vo.ensureVariableManager().setVariableValue("elCargo", "R20");
+        vo.executeQuery();
+        Row[] vacasRows = reqIterator.getAllRowsInRange();
+                        
+
+        generateCSV(vacasRows,"file1");
         
 
                 
@@ -104,15 +99,6 @@ public class fileGeneratorBean {
             zip.write(buf, 0, len);
         
         reader.close();
-        zip.closeEntry();
-        
-        ZipEntry entry2 = new ZipEntry("file2.csv");
-        FileInputStream reader3 = new FileInputStream("file2.csv");
-        
-        zip.putNextEntry(entry2);
-        while((len = reader3.read(buf)) > 0)
-            zip.write(buf, 0, len);
-        reader3.close();
         zip.closeEntry();
         zip.close();
         

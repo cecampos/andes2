@@ -7,64 +7,8 @@
             <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
                 <f:facet name="content">
                     <af:group id="g1">
-                        <af:table value="#{bindings.RequerimientosSkills1.collectionModel}" var="row"
-                                  rows="#{bindings.RequerimientosSkills1.rangeSize}"
-                                  emptyText="#{bindings.RequerimientosSkills1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  fetchSize="#{bindings.RequerimientosSkills1.rangeSize}" rowBandingInterval="0" id="t1"
-                                  binding="#{backingBeanScope.backing_FileGenerator.table}">
-                            <af:column sortProperty="#{bindings.RequerimientosSkills1.hints.SkllId.name}"
-                                       sortable="false"
-                                       headerText="#{bindings.RequerimientosSkills1.hints.SkllId.label}" id="c1">
-                                <af:outputText value="#{row.SkllId}" id="ot1"/>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.RequerimientosSkills1.hints.DdskFecha.name}"
-                                       sortable="false"
-                                       headerText="#{bindings.RequerimientosSkills1.hints.DdskFecha.label}" id="c2">
-                                <af:outputText value="#{row.DdskFecha}" id="ot2">
-                                    <af:convertDateTime pattern="#{bindings.RequerimientosSkills1.hints.DdskFecha.format}"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.RequerimientosSkills1.hints.TurnNombre.name}"
-                                       sortable="false"
-                                       headerText="#{bindings.RequerimientosSkills1.hints.TurnNombre.label}" id="c3">
-                                <af:outputText value="#{row.TurnNombre}" id="ot3"/>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.RequerimientosSkills1.hints.DdskRequerimiento.name}"
-                                       sortable="false"
-                                       headerText="#{bindings.RequerimientosSkills1.hints.DdskRequerimiento.label}"
-                                       id="c4">
-                                <af:outputText value="#{row.DdskRequerimiento}" id="ot4"/>
-                            </af:column>
-                        </af:table>
                         <af:commandButton text="exportar" id="cb1"
                                           action="#{backingBeanScope.backing_FileGenerator.exportToExcel}"/>
-                        <af:table value="#{bindings.Vacaciones1.collectionModel}" var="row"
-                                  rows="#{bindings.Vacaciones1.rangeSize}"
-                                  emptyText="#{bindings.Vacaciones1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  fetchSize="#{bindings.Vacaciones1.rangeSize}" rowBandingInterval="0" id="t2">
-                            <af:column sortProperty="#{bindings.Vacaciones1.hints.EmplRut.name}" sortable="false"
-                                       headerText="#{bindings.Vacaciones1.hints.EmplRut.label}" id="c5">
-                                <af:outputText value="#{row.EmplRut}" id="ot5"/>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnFechaInicio.name}"
-                                       sortable="false" headerText="#{bindings.Vacaciones1.hints.VccnFechaInicio.label}"
-                                       id="c6">
-                                <af:outputText value="#{row.VccnFechaInicio}" id="ot6">
-                                    <af:convertDateTime pattern="#{bindings.Vacaciones1.hints.VccnFechaInicio.format}"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnFechaTermino.name}"
-                                       sortable="false"
-                                       headerText="#{bindings.Vacaciones1.hints.VccnFechaTermino.label}" id="c7">
-                                <af:outputText value="#{row.VccnFechaTermino}" id="ot7">
-                                    <af:convertDateTime pattern="#{bindings.Vacaciones1.hints.VccnFechaTermino.format}"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnId.name}" sortable="false"
-                                       headerText="#{bindings.Vacaciones1.hints.VccnId.label}" id="c8">
-                                <af:outputText value="#{row.VccnId}" id="ot8"/>
-                            </af:column>
-                        </af:table>
                     </af:group>
                 </f:facet>
             </af:pageTemplate>

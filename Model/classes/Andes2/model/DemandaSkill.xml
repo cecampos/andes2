@@ -22,10 +22,11 @@
     Name="DdskRequerimiento"
     IsNotNull="true"
     ColumnName="DDSK_REQUERIMIENTO"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="DEMANDA_SKILL"/>
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEMANDA_SKILL"
+    Precision="255"/>
   <Attribute
     Name="DdskVersion"
     ColumnName="DDSK_VERSION"
