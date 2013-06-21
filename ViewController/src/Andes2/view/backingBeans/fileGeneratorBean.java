@@ -6,6 +6,7 @@ import com.sun.faces.util.CollectionsUtils;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -66,11 +67,57 @@ public class fileGeneratorBean {
         writer.close();
         }
     
+    public void generateFile(String fileName) throws IOException {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding reqIterator = bindings.findIteratorBinding(fileName+"Iterator");
+        
+        
+        String[] needsCargo = {"RequerimientoSkills", "Requerimientos"};
+        
+        if(fileName.equals("RequerimientoSkills") || fileName.equals("Requerimientos") || fileName.equals("Capacitaciones")){
+                ViewObject vo = reqIterator.getViewObject();
+                vo.ensureVariableManager().setVariableValue("elCargo", "R20");
+                vo.executeQuery();    
+            }
+        Row[] result = reqIterator.getAllRowsInRange();
+        
+        generateCSV(result,fileName);
+        
+        
+    }
+    
+    public void generateZipFile(String[] filesNames, String output) throws FileNotFoundException, IOException {
+            FileOutputStream fos = new FileOutputStream(output);
+            ZipOutputStream zip = new ZipOutputStream(fos);
+            for(String fileName:filesNames){        
+                byte[] buf = new byte[1024];
+                ZipEntry entry = new ZipEntry(fileName+".csv");
+                FileInputStream reader = new FileInputStream(fileName+".csv");
+                zip.putNextEntry(entry);    
+                int len;
+                while((len = reader.read(buf)) > 0)
+                    zip.write(buf, 0, len);
+                reader.close();
+                zip.closeEntry();
+            }
+            zip.close();        
+        } 
     
     public String exportToExcel() throws IOException {
         // Generar todos los archivos necesarios para el modelo
-
+        /*Para cada caso (archivo) 
+         * Obtener su iterador
+         * Setear variables de consulta (si corresponde)
+         * Executar consulta con variables seteades (si corresponde)
+         * Obtener todos las filas y copiarlas en un archivo csv
+         * Generar un .zip con todos los archivos generados
+         *    
+         * */
+        String[] filesNames = {"Turnos","RequerimientoSkills","Requerimientos","Capacitaciones"};
+        for(String file:filesNames)
+            generateFile(file);
         /*Obtener binding programaticamente*/
+        /*
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
         DCIteratorBinding reqIterator = bindings.findIteratorBinding("RequerimientoSkills1Iterator");
         ViewObject vo = reqIterator.getViewObject();
@@ -80,27 +127,10 @@ public class fileGeneratorBean {
                         
 
         generateCSV(vacasRows,"file1");
-        
-
-                
-        
+        */
         //Generar archivo zip
-        
-        FileOutputStream fos = new FileOutputStream("archivos.zip");
-        ZipOutputStream zip = new ZipOutputStream(fos);
-        byte[] buf = new byte[1024];
-        ZipEntry entry = new ZipEntry("file1.csv");
-        FileInputStream reader = new FileInputStream("file1.csv");
-        
-        int len;
-        
-        zip.putNextEntry(entry);
-        while((len = reader.read(buf)) > 0)
-            zip.write(buf, 0, len);
-        
-        reader.close();
-        zip.closeEntry();
-        zip.close();
+        String outputFileName = "archivos.zip";
+        generateZipFile(filesNames,outputFileName);
         
         
         //Descargar archivo zip:
@@ -109,12 +139,13 @@ public class fileGeneratorBean {
         FacesContext fc = FacesContext.getCurrentInstance();
         HttpServletResponse response =
             (HttpServletResponse)fc.getExternalContext().getResponse();
-        response.setHeader("Content-disposition", "attachment; filename=archivos.zip");
+        response.setHeader("Content-disposition", "attachment; filename="+outputFileName);
         response.setContentType(contentType);
         ServletOutputStream responseStream = response.getOutputStream();
 
-        FileInputStream reader2 = new FileInputStream("archivos.zip");
-        
+        FileInputStream reader2 = new FileInputStream(outputFileName);
+        byte[] buf = new byte[1024];
+        int len;
         while((len = reader2.read(buf)) > 0)
             responseStream.write(buf, 0, len);
         

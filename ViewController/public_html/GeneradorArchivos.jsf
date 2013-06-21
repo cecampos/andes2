@@ -8,7 +8,8 @@
                 <f:facet name="content">
                     <af:group id="g1">
                         <af:commandButton text="exportar" id="cb1"
-                                          action="#{backingBeanScope.backing_FileGenerator.exportToExcel}"/>
+                                          action="#{backingBeanScope.backing_FileGenerator.exportToExcel}"
+                                          inlineStyle="font-size:100px;"/>
                     </af:group>
                 </f:facet>
             </af:pageTemplate>
