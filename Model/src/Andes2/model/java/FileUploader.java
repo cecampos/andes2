@@ -34,9 +34,10 @@ public class FileUploader {
             }
 
         
-        public void uploadFileToDb(String fileCase, InputStream str){
+        public void uploadFileToDb(String fileCase, Object[] dataPair){
+            //dataPair es el par (inputStream oinput, String mes)
         
-            InputStreamReader aux = new InputStreamReader(str);
+            InputStreamReader aux = new InputStreamReader((InputStream)dataPair[0]);
             BufferedReader reader = new BufferedReader(aux);
             
             //Router, cada archivo tiene su propio metodo que lo carga en la BD
@@ -50,7 +51,7 @@ public class FileUploader {
             else if(fileCase.equals("skills"))
                 uploadSkills(reader);
             else if(fileCase.equals("demandaSkills"))
-                uploadDemandaSkills(reader);
+                uploadDemandaSkills(reader,(String)dataPair[1]);
                 
 
 
@@ -250,8 +251,25 @@ public class FileUploader {
         
     }
     
+    private void deleteAllFromMonth(String tableName, String monthColumn, String month){
+        /*Realiza un delete de todas las filas que hallan sido ingresadas en el mes month,
+         * usando monthColumn como criterio de filtrado
+         * */
+        String sqlQuery = "delete from "+tableName+" where extract(month from "+monthColumn+") = '"+month+"'";
+        
+        PreparedStatement st;
+
+
+        try {
+            st = con.prepareStatement(sqlQuery);
+            boolean b = st.execute();
+            st.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
    
-    private void uploadDemandaSkills(BufferedReader reader){
+    private void uploadDemandaSkills(BufferedReader reader,String mes){
         String actualLine;
         StringTokenizer separator = null;
         String tableName="demanda_skill";
@@ -259,6 +277,8 @@ public class FileUploader {
         String[] colTypes = {"String","String","Date","int","int"};
         
         /*TODO: Borrar todos los registros de la base de datos de este mes*/
+        deleteAllFromMonth(tableName,"DDSK_FECHA",mes);
+        
         
         PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
 
