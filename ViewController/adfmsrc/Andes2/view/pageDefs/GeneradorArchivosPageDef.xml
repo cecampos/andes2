@@ -11,6 +11,7 @@
     <iterator id="CapacitacionesIterator" Binds="Capacitaciones1" DataControl="dataSourceDataControl" RangeSize="-1"/>
     <iterator id="RestriccionAsignacionIterator" Binds="RestriccionAsignacion1" DataControl="dataSourceDataControl"
               RangeSize="-1"/>
+    <iterator id="DatosSkillsIterator" Binds="DatosSkills1" DataControl="dataSourceDataControl" RangeSize="-1"/>
   </executables>
   <bindings/>
 </pageDefinition>

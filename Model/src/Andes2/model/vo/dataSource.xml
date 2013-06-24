@@ -42,4 +42,7 @@
   <ViewUsage
     Name="RestriccionAsignacion1"
     ViewObjectName="Andes2.model.vo.RestriccionAsignacion"/>
+  <ViewUsage
+    Name="DatosSkills1"
+    ViewObjectName="Andes2.model.vo.DatosSkills"/>
 </AppModule>

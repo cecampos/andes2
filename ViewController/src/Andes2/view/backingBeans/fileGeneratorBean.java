@@ -79,7 +79,7 @@ public class fileGeneratorBean {
         String[] needsCargo = {"RequerimientoSkills", "Requerimientos"};
         
         if(fileName.equals("RequerimientoSkills") || fileName.equals("Requerimientos") || fileName.equals("Capacitaciones")
-            || fileName.equals("RestriccionAsignacion")){
+            || fileName.equals("RestriccionAsignacion") || fileName.equals("DatosSkills")){
                 ViewObject vo = reqIterator.getViewObject();
                 vo.ensureVariableManager().setVariableValue("elCargo", cargo.getValue());
                 vo.executeQuery();    
@@ -121,7 +121,8 @@ public class fileGeneratorBean {
          * */
         
         //Generar archivos csv:
-        String[] filesNames = {"Turnos","RequerimientoSkills","Requerimientos","Capacitaciones","RestriccionAsignacion"};
+        String[] filesNames = {"Turnos","RequerimientoSkills","Requerimientos","Capacitaciones","RestriccionAsignacion",
+                               "DatosSkills"};
         for(String file:filesNames)
             generateFile(file);
 

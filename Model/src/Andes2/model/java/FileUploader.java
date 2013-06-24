@@ -52,6 +52,8 @@ public class FileUploader {
                 uploadSkills(reader);
             else if(fileCase.equals("demandaSkills"))
                 uploadDemandaSkills(reader,(String)dataPair[1]);
+            else if(fileCase.equals("grupos"))
+                uploadGrupos(reader);
                 
 
 
@@ -331,6 +333,56 @@ public class FileUploader {
         /*TODO : De este archivo sale CoAsignacion y Grupos
          * Avergiaur como realizarlo :S
          * */
+        String actualLine;
+        StringTokenizer separator = null;
+        
+
+        
+        String tableName="coasignacion";
+        String[] colNames ={"EMPL_RUT","GRPO_NOMBRE","COAG_FECHA","COAG_VERSION"};
+        String[] colTypes = {"String","String","Date","int"};
+        
+        PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                        continue;
+                //System.out.println(actualLine);
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[4];
+                for(int i=0;i<2;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                SimpleDateFormat formatAux = new SimpleDateFormat("dd/MM/yyyy");
+                dataRow[2]=formatAux.format(Calendar.getInstance().getTime());
+                dataRow[3]="0"; 
+                    
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("vacaciones");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }   
+                
+        
         }
     
     private void uploadTurnosNoPermitidos(BufferedReader reader){
@@ -396,13 +448,15 @@ public class FileUploader {
         String actualLine;
         StringTokenizer separator = null;
         
-        /*TODO: Borrar todos los registros de la base de datos correspondientes al mes a ser actualizado
-         * 
-         * */
+
         
         String tableName="vacaciones";
         String[] colNames ={"VCCN_ID","EMPL_RUT","VCCN_FECHA_INICIO","VCCN_FECHA_TERMINO"};
         String[] colTypes = {"int","String","Date","Date"};
+ 
+        /*TODO: Borrar todos los registros de la base de datos correspondientes al mes a ser actualizado
+         * 
+         * */
         
         PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
         String[] dataRow = null;
