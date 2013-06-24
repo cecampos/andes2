@@ -7,8 +7,12 @@
             <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
                 <f:facet name="content">
                     <af:group id="g1">
-                        <af:commandButton text="exportar" id="cb1"
-                                          action="#{backingBeanScope.backing_FileGenerator.exportToExcel}"/>
+                        <af:panelGroupLayout id="pgl1">
+                            <af:inputText label="Cargo" id="cargoInput"
+                                          binding="#{backingBeanScope.backing_FileGenerator.cargo}"/>
+                            <af:commandButton text="exportar" id="cb1"
+                                              action="#{backingBeanScope.backing_FileGenerator.exportToExcel}"/>
+                        </af:panelGroupLayout>
                     </af:group>
                 </f:facet>
             </af:pageTemplate>

@@ -28,9 +28,21 @@
     Name="Vacaciones1"
     ViewObjectName="Andes2.model.vo.Vacaciones"/>
   <ViewUsage
-    Name="Turnos1"
-    ViewObjectName="Andes2.model.vo.Turnos"/>
-  <ViewUsage
     Name="RequerimientoSkills1"
     ViewObjectName="Andes2.model.vo.RequerimientoSkills"/>
+  <ViewUsage
+    Name="Requerimientos1"
+    ViewObjectName="Andes2.model.vo.Requerimientos"/>
+  <ViewUsage
+    Name="Turnos2"
+    ViewObjectName="Andes2.model.vo.Turnos"/>
+  <ViewUsage
+    Name="Capacitaciones1"
+    ViewObjectName="Andes2.model.vo.Capacitaciones"/>
+  <ViewUsage
+    Name="RestriccionAsignacion1"
+    ViewObjectName="Andes2.model.vo.RestriccionAsignacion"/>
+  <ViewUsage
+    Name="DatosSkills1"
+    ViewObjectName="Andes2.model.vo.DatosSkills"/>
 </AppModule>

@@ -38,10 +38,7 @@ FROM TURNOS Turnos]]></SQLQuery>
     EntityUsage="Turnos"
     AliasName="TURN_NOMBRE">
     <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
+      <SchemaBasedProperties/>
     </Properties>
   </ViewAttribute>
   <ResourceBundle>

@@ -50,11 +50,23 @@ public class FilUpdateBean {
         UploadedFile aux = (UploadedFile)event.getNewValue();
         //System.out.println("subido:"+empleado.getFilename());
         //Buscar si el archivo ha sido subido antes, mostrar fecha del ultimo submit si es asi
+        
+        /*En el hash guardamos par (inputStream,mes), este ultimo se usa en algunas consultas para 
+        eliminar datos */
+        Object[] dataPair = new Object[2];
+        
+        
         try {
-            filesMap.put(event.getComponent().getId(), aux.getInputStream());
+            dataPair[0] = aux.getInputStream();
+            //filesMap.put(event.getComponent().getId(), aux.getInputStream());
         } catch (IOException e) {
             System.out.println("Error al obtener stream fileChanged");
         }
+        String fileName = aux.getFilename();
+        String month = fileName.substring(fileName.indexOf("_")+1, fileName.indexOf("_")+3);
+        dataPair[1] = month;
+        
+        filesMap.put(event.getComponent().getId(), dataPair);
         
         Date checkResult = checker.check(aux.getFilename());
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -114,8 +126,8 @@ public class FilUpdateBean {
         // Display elements 
         while(i.hasNext()) { 
         Map.Entry me = (Map.Entry)i.next();
-    
-        uploader.uploadFileToDb((String)me.getKey(),(InputStream)me.getValue());
+        System.out.println(me.getKey());
+        uploader.uploadFileToDb((String)me.getKey(), (Object[])me.getValue());
 
         } 
         return null;

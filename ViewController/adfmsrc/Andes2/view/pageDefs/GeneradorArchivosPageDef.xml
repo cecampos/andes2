@@ -4,9 +4,14 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator id="Turnos1Iterator" Binds="Turnos1" DataControl="dataSourceDataControl" RangeSize="-1"/>
-    <iterator id="RequerimientoSkills1Iterator" Binds="RequerimientoSkills1" DataControl="dataSourceDataControl"
-              RangeSize="25"/>
+    <iterator id="RequerimientoSkillsIterator" Binds="RequerimientoSkills1" DataControl="dataSourceDataControl"
+              RangeSize="-1"/>
+    <iterator id="TurnosIterator" Binds="Turnos2" DataControl="dataSourceDataControl" RangeSize="-1"/>
+    <iterator id="RequerimientosIterator" Binds="Requerimientos1" DataControl="dataSourceDataControl" RangeSize="-1"/>
+    <iterator id="CapacitacionesIterator" Binds="Capacitaciones1" DataControl="dataSourceDataControl" RangeSize="-1"/>
+    <iterator id="RestriccionAsignacionIterator" Binds="RestriccionAsignacion1" DataControl="dataSourceDataControl"
+              RangeSize="-1"/>
+    <iterator id="DatosSkillsIterator" Binds="DatosSkills1" DataControl="dataSourceDataControl" RangeSize="-1"/>
   </executables>
   <bindings/>
 </pageDefinition>

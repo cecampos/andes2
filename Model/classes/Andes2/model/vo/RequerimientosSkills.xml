@@ -5,28 +5,25 @@
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="RequerimientosSkills"
   Version="11.1.2.62.76"
+  SelectList="Skills.CRGO_ID, 
+       Skills.SKLL_ID, 
+       DemandaSkill.SKLL_ID AS SKLL_ID1, 
+       DemandaSkill.ROWID, 
+       DemandaSkill.DDSK_FECHA, 
+       DemandaSkill.TURN_NOMBRE, 
+       DemandaSkill.DDSK_REQUERIMIENTO"
+  FromList="DEMANDA_SKILL DemandaSkill, SKILLS Skills"
+  Where="DemandaSkill.SKLL_ID = Skills.SKLL_ID"
   BindingStyle="OracleName"
-  CustomQuery="true"
+  CustomQuery="false"
   PageIterMode="Full"
   UseGlueCode="false">
-  <DesignTime>
-    <Attr Name="_isExpertMode" Value="true"/>
-  </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
         ResId="Andes2.model.vo.RequerimientosSkills_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT Skills.SKLL_ID,
-       extract(day FROM DemandaSkill.DDSK_FECHA),
-       DemandaSkill.TURN_NOMBRE,   
-       DemandaSkill.DDSK_REQUERIMIENTO,    
-       Skills.CRGO_ID, 
-       DemandaSkill.SKLL_ID AS SKLL_ID1, 
-       DemandaSkill.ROWID        
-FROM DEMANDA_SKILL DemandaSkill, SKILLS Skills
-WHERE DemandaSkill.SKLL_ID = Skills.SKLL_ID]]></SQLQuery>
   <EntityUsage
     Name="DemandaSkill"
     Entity="Andes2.model.DemandaSkill"/>
@@ -50,36 +47,6 @@ WHERE DemandaSkill.SKLL_ID = Skills.SKLL_ID]]></SQLQuery>
     </DesignTime>
   </EntityUsage>
   <ViewAttribute
-    Name="SkllId"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="SkllId"
-    EntityUsage="Skills"
-    AliasName="SKLL_ID"/>
-  <ViewAttribute
-    Name="NoName"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    SQLType="VARCHAR"
-    Precision="255"/>
-  <ViewAttribute
-    Name="TurnNombre"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="TurnNombre"
-    EntityUsage="DemandaSkill"
-    AliasName="TURN_NOMBRE"/>
-  <ViewAttribute
-    Name="DdskRequerimiento"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="DdskRequerimiento"
-    EntityUsage="DemandaSkill"
-    AliasName="DDSK_REQUERIMIENTO"/>
-  <ViewAttribute
     Name="CrgoId"
     IsUpdateable="false"
     IsNotNull="true"
@@ -87,6 +54,13 @@ WHERE DemandaSkill.SKLL_ID = Skills.SKLL_ID]]></SQLQuery>
     EntityAttrName="CrgoId"
     EntityUsage="Skills"
     AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="SkllId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkllId"
+    EntityUsage="Skills"
+    AliasName="SKLL_ID"/>
   <ViewAttribute
     Name="SkllId1"
     IsNotNull="true"
@@ -101,6 +75,27 @@ WHERE DemandaSkill.SKLL_ID = Skills.SKLL_ID]]></SQLQuery>
     EntityAttrName="Rowid"
     EntityUsage="DemandaSkill"
     AliasName="ROWID"/>
+  <ViewAttribute
+    Name="DdskFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DdskFecha"
+    EntityUsage="DemandaSkill"
+    AliasName="DDSK_FECHA"/>
+  <ViewAttribute
+    Name="TurnNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TurnNombre"
+    EntityUsage="DemandaSkill"
+    AliasName="TURN_NOMBRE"/>
+  <ViewAttribute
+    Name="DdskRequerimiento"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DdskRequerimiento"
+    EntityUsage="DemandaSkill"
+    AliasName="DDSK_REQUERIMIENTO"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="Rowid"/>
   </AttrArray>
