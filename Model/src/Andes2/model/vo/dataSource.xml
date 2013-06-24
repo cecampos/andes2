@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="dataSource"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   ClearCacheOnRollback="true">
   <ViewUsage
     Name="RosterView1"
@@ -15,9 +15,6 @@
   <ViewUsage
     Name="MonthRosterForCargo1"
     ViewObjectName="Andes2.model.vo.MonthRosterForCargo"/>
-  <ViewUsage
-    Name="CargoView1"
-    ViewObjectName="Andes2.model.CargoView"/>
   <ViewUsage
     Name="vacacionesFullview1"
     ViewObjectName="Andes2.model.vo.vacacionesFullview"/>
