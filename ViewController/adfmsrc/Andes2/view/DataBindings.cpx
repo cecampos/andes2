@@ -19,6 +19,7 @@
     <page path="/pruebas.jsf" usageId="Andes2_view_pruebasPageDef"/>
     <page path="/vacaciones.jsf" usageId="Andes2_view_vacacionesPageDef"/>
     <page path="/capacitaciones.jsf" usageId="Andes2_view_capacitacionesPageDef"/>
+    <page path="/GeneradorArchivos.jsf" usageId="Andes2_view_GeneradorArchivosPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="Andes2_view_CargaArchivosPageDef" path="Andes2.view.pageDefs.CargaArchivosPageDef"/>
@@ -33,6 +34,7 @@
     <page id="Andes2_view_pruebasPageDef" path="Andes2.view.pageDefs.pruebasPageDef"/>
     <page id="Andes2_view_vacacionesPageDef" path="Andes2.view.pageDefs.vacacionesPageDef"/>
     <page id="Andes2_view_capacitacionesPageDef" path="Andes2.view.pageDefs.capacitacionesPageDef"/>
+    <page id="Andes2_view_GeneradorArchivosPageDef" path="Andes2.view.pageDefs.GeneradorArchivosPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="andes2DataControl" Package="Andes2.model"

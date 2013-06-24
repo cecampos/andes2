@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Vacaciones"
+  Version="11.1.2.62.76"
+  SelectList="Vacaciones.EMPL_RUT, 
+       Vacaciones.VCCN_FECHA_INICIO, 
+       Vacaciones.VCCN_FECHA_TERMINO, 
+       Vacaciones.VCCN_ID"
+  FromList="VACACIONES Vacaciones"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.Vacaciones_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="Vacaciones"
+    Entity="Andes2.model.Vacaciones"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="Vacaciones"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="VccnFechaInicio"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VccnFechaInicio"
+    EntityUsage="Vacaciones"
+    AliasName="VCCN_FECHA_INICIO"/>
+  <ViewAttribute
+    Name="VccnFechaTermino"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VccnFechaTermino"
+    EntityUsage="Vacaciones"
+    AliasName="VCCN_FECHA_TERMINO"/>
+  <ViewAttribute
+    Name="VccnId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VccnId"
+    EntityUsage="Vacaciones"
+    AliasName="VCCN_ID"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

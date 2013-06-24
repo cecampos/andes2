@@ -39,4 +39,9 @@
     <managed-bean-class>Andes2.view.AuxBean</managed-bean-class>
     <managed-bean-scope>session</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__6">
+    <managed-bean-name>backing_FileGenerator</managed-bean-name>
+    <managed-bean-class>Andes2.view.backingBeans.fileGeneratorBean</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

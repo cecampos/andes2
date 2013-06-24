@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RequerimientosSkills"
+  Version="11.1.2.62.76"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.RequerimientosSkills_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT Skills.SKLL_ID,
+       extract(day FROM DemandaSkill.DDSK_FECHA),
+       DemandaSkill.TURN_NOMBRE,   
+       DemandaSkill.DDSK_REQUERIMIENTO,    
+       Skills.CRGO_ID, 
+       DemandaSkill.SKLL_ID AS SKLL_ID1, 
+       DemandaSkill.ROWID        
+FROM DEMANDA_SKILL DemandaSkill, SKILLS Skills
+WHERE DemandaSkill.SKLL_ID = Skills.SKLL_ID]]></SQLQuery>
+  <EntityUsage
+    Name="DemandaSkill"
+    Entity="Andes2.model.DemandaSkill"/>
+  <EntityUsage
+    Name="Skills"
+    Entity="Andes2.model.Skills"
+    Association="Andes2.model.DdskFkSkllAssoc"
+    AssociationEnd="Andes2.model.DdskFkSkllAssoc.Skills"
+    SourceUsage="Andes2.model.vo.RequerimientosSkills.DemandaSkill"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Andes2.model.DemandaSkill.SkllId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Andes2.model.Skills.SkllId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="SkllId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkllId"
+    EntityUsage="Skills"
+    AliasName="SKLL_ID"/>
+  <ViewAttribute
+    Name="NoName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    Precision="255"/>
+  <ViewAttribute
+    Name="TurnNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TurnNombre"
+    EntityUsage="DemandaSkill"
+    AliasName="TURN_NOMBRE"/>
+  <ViewAttribute
+    Name="DdskRequerimiento"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DdskRequerimiento"
+    EntityUsage="DemandaSkill"
+    AliasName="DDSK_REQUERIMIENTO"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsUpdateable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="Skills"
+    AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="SkllId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkllId"
+    EntityUsage="DemandaSkill"
+    AliasName="SKLL_ID1"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="DemandaSkill"
+    AliasName="ROWID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Rowid"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

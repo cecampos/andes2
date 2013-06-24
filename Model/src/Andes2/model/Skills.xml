@@ -11,15 +11,6 @@
   BindingStyle="OracleName"
   UseGlueCode="false">
   <Attribute
-    Name="SkllSeqCdg"
-    IsNotNull="true"
-    ColumnName="SKLL_SEQ_CDG"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="SKILLS"
-    PrimaryKey="true"/>
-  <Attribute
     Name="CrgoId"
     IsNotNull="true"
     Precision="10"
@@ -42,6 +33,20 @@
     TableName="SKILLS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SkllId"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="SKLL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SKILLS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
   </Attribute>
   <AccessorAttribute
@@ -71,9 +76,7 @@
     <DesignTime>
       <Attr Name="_DBObjectName" Value="SKLL_PK"/>
     </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.Skills.SkllSeqCdg"/>
-    </AttrArray>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="SkllFkCrgo">

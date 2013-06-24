@@ -16,12 +16,11 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="Skills"/>
-      <Attr Name="_foreignKey" Value="Andes2.model.Skills.SkllPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.Skills.SkllSeqCdg"/>
+      <Item Value="Andes2.model.Skills.SkllId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -31,11 +30,10 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="DemandaSkill"/>
-      <Attr Name="_foreignKey" Value="Andes2.model.DemandaSkill.DdskFkSkll"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.DemandaSkill.SkllSeqCdg"/>
+      <Item Value="Andes2.model.DemandaSkill.SkllId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

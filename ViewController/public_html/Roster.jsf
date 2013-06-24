@@ -13,12 +13,12 @@
                             <af:showDetailItem text="Editar Datos" id="sdi6" disabled="true"/>
                             <af:showDetailItem text="Revisar Datos" id="sdi7" disabled="true"/>
                             <af:showDetailItem text="Revisar Roster" id="sdi1">
+                                <af:region value="#{bindings.rosterForMonth1.regionModel}" id="r1"
+                                           inlineStyle="width:inherit;"/>
                                 <af:panelGroupLayout id="pgl1" inlineStyle="width:inherit;">
                                     <af:outputText value="Mes: Junio 2013" id="ot1"
                                                    inlineStyle="font-weight:bolder; font-size:15px;"/>
                                 </af:panelGroupLayout>
-                                <af:region value="#{bindings.rosterForMonth1.regionModel}" id="r1"
-                                           inlineStyle="width:inherit;"/>
                                 <af:panelGroupLayout id="pgl6">
                                     <af:goButton text="Menu Inicial" id="gb2" destination="/faces/MenuInicial.jsf"
                                                  inlineStyle="font-size:medium;"/>
