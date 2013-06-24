@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.vacacionesFullview1.collectionModel}" var="row"
+            rows="#{bindings.vacacionesFullview1.rangeSize}"
+            emptyText="#{bindings.vacacionesFullview1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.vacacionesFullview1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.vacacionesFullview1Query.queryDescriptor}"
+            queryListener="#{bindings.vacacionesFullview1Query.processQuery}" filterVisible="true" varStatus="vs"
+            id="t1">
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.EmplRut.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.EmplRut.label}" id="c1">
+      <af:inputText value="#{row.bindings.EmplRut.inputValue}"
+                    label="#{bindings.vacacionesFullview1.hints.EmplRut.label}"
+                    required="#{bindings.vacacionesFullview1.hints.EmplRut.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.EmplRut.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.EmplRut.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.EmplRut.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.EmplRut.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.VccnFechaInicio.name}" filterable="true"
+               sortable="false" headerText="#{bindings.vacacionesFullview1.hints.VccnFechaInicio.label}" id="c2">
+      <f:facet name="filter">
+        <af:inputDate value="#{vs.filterCriteria.VccnFechaInicio}" id="id1">
+          <af:convertDateTime pattern="#{bindings.vacacionesFullview1.hints.VccnFechaInicio.format}"/>
+        </af:inputDate>
+      </f:facet>
+      <af:inputDate value="#{row.bindings.VccnFechaInicio.inputValue}"
+                    label="#{bindings.vacacionesFullview1.hints.VccnFechaInicio.label}"
+                    required="#{bindings.vacacionesFullview1.hints.VccnFechaInicio.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.VccnFechaInicio.displayWidth}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.VccnFechaInicio.tooltip}" id="id2">
+        <f:validator binding="#{row.bindings.VccnFechaInicio.validator}"/>
+        <af:convertDateTime pattern="#{bindings.vacacionesFullview1.hints.VccnFechaInicio.format}"/>
+      </af:inputDate>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.VccnFechaTermino.name}" filterable="true"
+               sortable="false" headerText="#{bindings.vacacionesFullview1.hints.VccnFechaTermino.label}" id="c3">
+      <f:facet name="filter">
+        <af:inputDate value="#{vs.filterCriteria.VccnFechaTermino}" id="id3">
+          <af:convertDateTime pattern="#{bindings.vacacionesFullview1.hints.VccnFechaTermino.format}"/>
+        </af:inputDate>
+      </f:facet>
+      <af:inputDate value="#{row.bindings.VccnFechaTermino.inputValue}"
+                    label="#{bindings.vacacionesFullview1.hints.VccnFechaTermino.label}"
+                    required="#{bindings.vacacionesFullview1.hints.VccnFechaTermino.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.VccnFechaTermino.displayWidth}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.VccnFechaTermino.tooltip}" id="id4">
+        <f:validator binding="#{row.bindings.VccnFechaTermino.validator}"/>
+        <af:convertDateTime pattern="#{bindings.vacacionesFullview1.hints.VccnFechaTermino.format}"/>
+      </af:inputDate>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.VccnId.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.VccnId.label}" id="c4">
+      <af:inputText value="#{row.bindings.VccnId.inputValue}" label="#{bindings.vacacionesFullview1.hints.VccnId.label}"
+                    required="#{bindings.vacacionesFullview1.hints.VccnId.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.VccnId.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.VccnId.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.VccnId.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.VccnId.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.EmplNombre.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.EmplNombre.label}" id="c5">
+      <af:inputText value="#{row.bindings.EmplNombre.inputValue}"
+                    label="#{bindings.vacacionesFullview1.hints.EmplNombre.label}"
+                    required="#{bindings.vacacionesFullview1.hints.EmplNombre.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.EmplNombre.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.EmplNombre.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.EmplNombre.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.EmplNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.EmplRut1.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.EmplRut1.label}" id="c6">
+      <af:inputText value="#{row.bindings.EmplRut1.inputValue}"
+                    label="#{bindings.vacacionesFullview1.hints.EmplRut1.label}"
+                    required="#{bindings.vacacionesFullview1.hints.EmplRut1.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.EmplRut1.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.EmplRut1.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.EmplRut1.tooltip}" id="it4">
+        <f:validator binding="#{row.bindings.EmplRut1.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.EmplRut2.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.EmplRut2.label}" id="c7">
+      <af:inputText value="#{row.bindings.EmplRut2.inputValue}"
+                    label="#{bindings.vacacionesFullview1.hints.EmplRut2.label}"
+                    required="#{bindings.vacacionesFullview1.hints.EmplRut2.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.EmplRut2.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.EmplRut2.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.EmplRut2.tooltip}" id="it5">
+        <f:validator binding="#{row.bindings.EmplRut2.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.CrgoId.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.CrgoId.label}" id="c8">
+      <af:inputText value="#{row.bindings.CrgoId.inputValue}" label="#{bindings.vacacionesFullview1.hints.CrgoId.label}"
+                    required="#{bindings.vacacionesFullview1.hints.CrgoId.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.CrgoId.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.CrgoId.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.CrgoId.tooltip}" id="it6">
+        <f:validator binding="#{row.bindings.CrgoId.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.Rowid.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.Rowid.label}" id="c9">
+      <af:inputText value="#{row.bindings.Rowid.inputValue}" label="#{bindings.vacacionesFullview1.hints.Rowid.label}"
+                    required="#{bindings.vacacionesFullview1.hints.Rowid.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.Rowid.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.Rowid.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.Rowid.tooltip}" id="it7">
+        <f:validator binding="#{row.bindings.Rowid.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.CrgoId1.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.CrgoId1.label}" id="c10">
+      <af:inputText value="#{row.bindings.CrgoId1.inputValue}"
+                    label="#{bindings.vacacionesFullview1.hints.CrgoId1.label}"
+                    required="#{bindings.vacacionesFullview1.hints.CrgoId1.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.CrgoId1.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.CrgoId1.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.CrgoId1.tooltip}" id="it8">
+        <f:validator binding="#{row.bindings.CrgoId1.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.vacacionesFullview1.hints.CrgoNombre.name}" filterable="true" sortable="false"
+               headerText="#{bindings.vacacionesFullview1.hints.CrgoNombre.label}" id="c11">
+      <af:inputText value="#{row.bindings.CrgoNombre.inputValue}"
+                    label="#{bindings.vacacionesFullview1.hints.CrgoNombre.label}"
+                    required="#{bindings.vacacionesFullview1.hints.CrgoNombre.mandatory}"
+                    columns="#{bindings.vacacionesFullview1.hints.CrgoNombre.displayWidth}"
+                    maximumLength="#{bindings.vacacionesFullview1.hints.CrgoNombre.precision}"
+                    shortDesc="#{bindings.vacacionesFullview1.hints.CrgoNombre.tooltip}" id="it9">
+        <f:validator binding="#{row.bindings.CrgoNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

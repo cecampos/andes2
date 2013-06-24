@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="editViews">
+    <default-activity>methodCall1</default-activity>
+    <view id="editVacaciones">
+      <page>/editVacaciones.jsff</page>
+    </view>
+    <method-call id="methodCall1">
+      <method>#{EditarBean.getSelectedTable}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>methodCall1</from-activity-id>
+      <control-flow-case id="__2">
+        <to-activity-id>editVacaciones</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
