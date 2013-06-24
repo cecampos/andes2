@@ -114,7 +114,7 @@ public class FilUpdateBean {
         // Display elements 
         while(i.hasNext()) { 
         Map.Entry me = (Map.Entry)i.next();
-    
+        System.out.println(me.getKey());
         uploader.uploadFileToDb((String)me.getKey(),(InputStream)me.getValue());
 
         } 

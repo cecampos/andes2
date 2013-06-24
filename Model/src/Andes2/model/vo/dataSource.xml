@@ -39,4 +39,7 @@
   <ViewUsage
     Name="Capacitaciones1"
     ViewObjectName="Andes2.model.vo.Capacitaciones"/>
+  <ViewUsage
+    Name="RestriccionAsignacion1"
+    ViewObjectName="Andes2.model.vo.RestriccionAsignacion"/>
 </AppModule>
