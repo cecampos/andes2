@@ -2,6 +2,19 @@
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="editViews">
     <default-activity>methodCall1</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__9">
+      <name>inputParameter1</name>
+      <value>#{editBean.selected}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <managed-bean id="__8">
+      <managed-bean-name>editBean</managed-bean-name>
+      <managed-bean-class>Andes2.view.managedBeans.EditBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
     <view id="editVacaciones">
       <page>/editVacaciones.jsff</page>
     </view>
@@ -12,8 +25,19 @@
       </outcome>
     </method-call>
     <router id="router1">
+      <case id="__7">
+        <expression>#{editBean.selected == 'Vacaciones'}</expression>
+        <outcome>Vacaciones</outcome>
+      </case>
       <default-outcome>default</default-outcome>
     </router>
+    <view id="otroCaso">
+      <page>/otroCaso.jsff</page>
+      <input-page-parameter id="__10">
+        <from-value>#{pageFlowScope.inputParameter1}</from-value>
+        <to-value>#{pageFlowScope.inputParameter1}</to-value>
+      </input-page-parameter>
+    </view>
     <control-flow-rule id="__1">
       <from-activity-id>methodCall1</from-activity-id>
       <control-flow-case id="__3">
@@ -23,8 +47,12 @@
     <control-flow-rule id="__4">
       <from-activity-id>router1</from-activity-id>
       <control-flow-case id="__5">
-        <from-outcome>default</from-outcome>
+        <from-outcome>Vacaciones</from-outcome>
         <to-activity-id>editVacaciones</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>default</from-outcome>
+        <to-activity-id>otroCaso</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

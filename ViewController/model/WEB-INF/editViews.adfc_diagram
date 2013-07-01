@@ -15,11 +15,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">146.19531</property>
+         name="y">143.49414</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">553.0</property>
+         name="x">513.0</property>
    </View>
    <MethodCall
       id="MethodCall3">
@@ -32,9 +32,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">267.29883</property>
+         name="y">202.59766</property>
       <property
-         name="x">133.0</property>
+         name="x">120.0</property>
    </MethodCall>
    <Router
       id="Router5">
@@ -45,9 +45,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">115.29883</property>
+         name="y">202.89648</property>
       <property
-         name="x">232.0</property>
+         name="x">288.0</property>
    </Router>
    <ControlFlowCase
       islink="true"
@@ -57,7 +57,7 @@
       <property
          name="fromOutcome">*</property>
       <property
-         name="sdm:polyPoints">T50,133.0,212.94824,232.0,168.94824,B50</property>
+         name="sdm:polyPoints">R50,161.0,202.24707,247.0,202.5459,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -65,8 +65,35 @@
       from="Router5"
       to="View2">
       <property
+         name="fromOutcome">Vacaciones</property>
+      <property
+         name="sdm:polyPoints">R46,329.0,199.0459,472.0,143.14355,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View8">
+      <property
+         name="activityId">otroCaso</property>
+      <property
+         name="page">/otroCaso.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>otroCaso&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">300.09766</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">516.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="Router5"
+      to="View8">
+      <property
          name="fromOutcome">default</property>
       <property
-         name="sdm:polyPoints">R50,273.0,114.94824,512.0,145.84473,L50</property>
+         name="sdm:polyPoints">R54,329.0,206.0459,475.5,299.74707,L50</property>
    </ControlFlowCase>
 </SDM>
