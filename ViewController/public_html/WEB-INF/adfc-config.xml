@@ -44,9 +44,9 @@
     <managed-bean-class>Andes2.view.backingBeans.fileGeneratorBean</managed-bean-class>
     <managed-bean-scope>backingBean</managed-bean-scope>
   </managed-bean>
-  <managed-bean id="__7">
-    <managed-bean-name>EditarBean</managed-bean-name>
-    <managed-bean-class>Andes2.view.managedBeans.EditarBean</managed-bean-class>
+  <managed-bean id="__8">
+    <managed-bean-name>editBean</managed-bean-name>
+    <managed-bean-class>Andes2.view.managedBeans.EditBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
 </adfc-config>
