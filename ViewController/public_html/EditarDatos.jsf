@@ -17,6 +17,7 @@
                                     <af:selectItem label="Vacaciones" value="Vacaciones" id="si1"/>
                                     <af:selectItem label="Capacitaciones" id="si2" value="Capacitaciones"/>
                                 </af:selectOneChoice>
+                                <af:region value="#{bindings.editViews1.regionModel}" id="r1"/>
                                 <af:outputText id="ot1"
                                                partialTriggers="soc1" binding="#{editBean.selectedOption}"/>
                                 <af:goButton text="Paso Anterior" id="gb2" destination="/faces/FileUpload.jsf"/>

@@ -6,14 +6,24 @@
       <page>/editVacaciones.jsff</page>
     </view>
     <method-call id="methodCall1">
-      <method>#{EditarBean.getSelectedTable}</method>
+      <method>#{editBean.getSelected}</method>
       <outcome>
         <to-string/>
       </outcome>
     </method-call>
+    <router id="router1">
+      <default-outcome>default</default-outcome>
+    </router>
     <control-flow-rule id="__1">
       <from-activity-id>methodCall1</from-activity-id>
-      <control-flow-case id="__2">
+      <control-flow-case id="__3">
+        <to-activity-id>router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>default</from-outcome>
         <to-activity-id>editVacaciones</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

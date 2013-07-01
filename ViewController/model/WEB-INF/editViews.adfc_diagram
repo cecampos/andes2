@@ -15,11 +15,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">156.89648</property>
-      <property
-         name="x">401.0</property>
+         name="y">146.19531</property>
       <property
          name="pageFragment">true</property>
+      <property
+         name="x">553.0</property>
    </View>
    <MethodCall
       id="MethodCall3">
@@ -36,14 +36,37 @@
       <property
          name="x">133.0</property>
    </MethodCall>
+   <Router
+      id="Router5">
+      <property
+         name="activityId">router1</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>router1&lt;/b>&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">115.29883</property>
+      <property
+         name="x">232.0</property>
+   </Router>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase4"
+      id="ControlFlowCase6"
       from="MethodCall3"
-      to="View2">
+      to="Router5">
       <property
          name="fromOutcome">*</property>
       <property
-         name="sdm:polyPoints">R50,174.0,266.94824,360.0,156.5459,L50</property>
+         name="sdm:polyPoints">T50,133.0,212.94824,232.0,168.94824,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="Router5"
+      to="View2">
+      <property
+         name="fromOutcome">default</property>
+      <property
+         name="sdm:polyPoints">R50,273.0,114.94824,512.0,145.84473,L50</property>
    </ControlFlowCase>
 </SDM>
