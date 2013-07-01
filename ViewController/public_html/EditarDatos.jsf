@@ -11,10 +11,15 @@
                                            immediate="true" disabled="true"/>
                         <af:showDetailItem text="Editar Datos" id="sdi4" disabled="false">
                             <af:panelGroupLayout id="pgl6">
-                                <af:selectOneChoice label="Tablas" id="soc1" binding="#{EditarBean.asdf}">
+                                <af:selectOneChoice label="Tablas" id="soc1"
+                                                    autoSubmit="true"
+                                                    valueChangeListener="#{editBean.prueba}">
                                     <af:selectItem label="Vacaciones" value="Vacaciones" id="si1"/>
+                                    <af:selectItem label="Capacitaciones" id="si2" value="Capacitaciones"/>
                                 </af:selectOneChoice>
-                                <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"/>
+                                <af:region value="#{bindings.editViews1.regionModel}" id="r1"/>
+                                <af:outputText id="ot1"
+                                               partialTriggers="soc1" binding="#{editBean.selectedOption}"/>
                                 <af:goButton text="Paso Anterior" id="gb2" destination="/faces/FileUpload.jsf"/>
                                 <af:goButton text="Siguiente Paso" id="gb1" destination="/faces/RevisarDatos.jsf"/>
                             </af:panelGroupLayout>

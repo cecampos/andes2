@@ -4,10 +4,11 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="dynamicRegion1" taskFlowId="${EditarBean.dynamicTaskFlowId}" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+    <taskFlow id="editViews1" taskFlowId="/WEB-INF/editViews.xml#editViews"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              RefreshCondition="#{editBean.selected != 'asdf'}">
       <parameters>
-        <parameter id="selected"/>
+        <parameter id="inputParameter1" value="#{editBean.selected}"/>
       </parameters>
     </taskFlow>
   </executables>
