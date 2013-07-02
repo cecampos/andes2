@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CargoList"
+  Version="11.1.2.62.76"
+  SelectList="Cargo.CRGO_ID, 
+       Cargo.CRGO_NOMBRE"
+  FromList="CARGO Cargo"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  OrderBy="Cargo.CRGO_NOMBRE">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.CargoList_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="CargoList1"
+    ViewObjectName="Andes2.model.vo.CargoList"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CrgoId"
+    ListVOName="CargoList1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CrgoId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CrgoId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CrgoNombre"
+    ListVOName="CargoList1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CrgoNombre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Cargo"
+    Entity="Andes2.model.Cargo"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="Cargo"
+    AliasName="CRGO_ID"
+    LOVName="LOV_CrgoId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CrgoNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoNombre"
+    EntityUsage="Cargo"
+    AliasName="CRGO_NOMBRE"
+    LOVName="LOV_CrgoNombre">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

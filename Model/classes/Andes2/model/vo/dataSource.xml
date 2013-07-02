@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="dataSource"
-  Version="11.1.2.64.36"
+  Version="11.1.2.62.76"
   ClearCacheOnRollback="true">
   <ViewUsage
     Name="RosterView1"
@@ -43,30 +43,6 @@
     Name="DatosSkills1"
     ViewObjectName="Andes2.model.vo.DatosSkills"/>
   <ViewUsage
-    Name="Capacitaciones2Edit"
-    ViewObjectName="Andes2.model.vo.Capacitaciones"/>
-  <ViewUsage
-    Name="GruposEOView1"
-    ViewObjectName="Andes2.model.vo.GruposEOView"/>
-  <ViewUsage
-    Name="RegimenDeTrabajoView1"
-    ViewObjectName="Andes2.model.vo.RegimenDeTrabajoView"/>
-  <ViewUsage
-    Name="CargosView1"
-    ViewObjectName="Andes2.model.vo.CargosView"/>
-  <ViewUsage
-    Name="TurnosEditView1"
-    ViewObjectName="Andes2.model.vo.TurnosEditView"/>
-  <ViewUsage
-    Name="ListaSkillEditView1"
-    ViewObjectName="Andes2.model.vo.ListaSkillEditView"/>
-  <ViewUsage
-    Name="TurnosFijadosView1"
-    ViewObjectName="Andes2.model.vo.TurnosFijadosView"/>
-  <ViewUsage
-    Name="TurnosRestriccionesView1"
-    ViewObjectName="Andes2.model.vo.TurnosRestriccionesView"/>
-  <ViewUsage
-    Name="CoAsignacionEditView1"
-    ViewObjectName="Andes2.model.vo.CoAsignacionEditView"/>
+    Name="CargoList1"
+    ViewObjectName="Andes2.model.vo.CargoList"/>
 </AppModule>

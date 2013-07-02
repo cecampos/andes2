@@ -39,18 +39,9 @@ import oracle.jbo.uicli.binding.JUCtrlHierBinding;
 import org.apache.myfaces.trinidad.model.CollectionModel;
 
 public class fileGeneratorBean {
-    private RichTable table;
     private RichInputText cargo;
 
     public fileGeneratorBean() {
-    }
-
-    public void setTable(RichTable table) {
-        this.table = table;
-    }
-
-    public RichTable getTable() {
-        return table;
     }
 
     private void generateCSV(Row[] input, String fileName) throws IOException {

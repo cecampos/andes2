@@ -48,7 +48,14 @@
       <f:facet name="filter">
         <af:selectManyChoice label="Label 2" id="smc2" value="#{vs.filterCriteria.CrgoNombre}"
                              inlineStyle="width:250px;">
-          <f:selectItems value="#{bindings.CrgoNombre.items}" id="si3"/>
+            <af:forEach var="listrow" 
+                items="#{bindings.CargoList1.rangeSet}">
+                <f:selectItem id="si1" 
+                     itemValue="#{listrow.CrgoNombre}" 
+                    itemLabel="#{listrow.CrgoNombre}"
+                />
+            </af:forEach>
+          
         </af:selectManyChoice>
       </f:facet>
     </af:column>
