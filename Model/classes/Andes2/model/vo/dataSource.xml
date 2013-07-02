@@ -45,4 +45,7 @@
   <ViewUsage
     Name="CargoList1"
     ViewObjectName="Andes2.model.vo.CargoList"/>
+  <ViewUsage
+    Name="CargosView1"
+    ViewObjectName="Andes2.model.vo.CargosView"/>
 </AppModule>
