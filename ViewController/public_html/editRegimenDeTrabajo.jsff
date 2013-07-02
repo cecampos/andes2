@@ -9,7 +9,7 @@
             queryListener="#{bindings.RegimenDeTrabajoView1Query.processQuery}" filterVisible="true" varStatus="vs"
             selectedRowKeys="#{bindings.RegimenDeTrabajoView1.collectionModel.selectedRow}"
             selectionListener="#{bindings.RegimenDeTrabajoView1.collectionModel.makeCurrent}" rowSelection="single"
-            id="t1">
+            id="t1" inlineStyle="width:inherit; height:inherit;">
     <af:column sortProperty="#{bindings.RegimenDeTrabajoView1.hints.RgtrNombre.name}" filterable="true" sortable="true"
                headerText="Nombre" id="c1">
       <af:inputText value="#{row.bindings.RgtrNombre.inputValue}"

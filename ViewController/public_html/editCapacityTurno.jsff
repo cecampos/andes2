@@ -7,7 +7,8 @@
             filterModel="#{bindings.Requerimientos1Query.queryDescriptor}"
             queryListener="#{bindings.Requerimientos1Query.processQuery}" filterVisible="true" varStatus="vs"
             selectedRowKeys="#{bindings.Requerimientos1.collectionModel.selectedRow}"
-            selectionListener="#{bindings.Requerimientos1.collectionModel.makeCurrent}" rowSelection="single" id="t1">
+            selectionListener="#{bindings.Requerimientos1.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+            inlineStyle="width:inherit; height:inherit;">
     <af:column sortProperty="#{bindings.Requerimientos1.hints.Dia.name}" filterable="true" sortable="true"
                headerText="Dia" id="c1">
       <af:inputText value="#{row.bindings.Dia.inputValue}" label="#{bindings.Requerimientos1.hints.Dia.label}"

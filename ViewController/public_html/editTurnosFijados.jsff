@@ -9,9 +9,9 @@
             queryListener="#{bindings.TurnosFijadosView1Query.processQuery}" filterVisible="true" varStatus="vs"
             selectedRowKeys="#{bindings.TurnosFijadosView1.collectionModel.selectedRow}"
             selectionListener="#{bindings.TurnosFijadosView1.collectionModel.makeCurrent}" rowSelection="single"
-            id="t1">
+            id="t1" inlineStyle="width:inherit; height:inherit;">
     <af:column sortProperty="#{bindings.TurnosFijadosView1.hints.EmplRut.name}" filterable="true" sortable="true"
-               headerText="Rut" id="c1">
+               headerText="Rut" id="c1" width="105">
       <af:inputText value="#{row.bindings.EmplRut.inputValue}"
                     label="#{bindings.TurnosFijadosView1.hints.EmplRut.label}"
                     required="#{bindings.TurnosFijadosView1.hints.EmplRut.mandatory}"
@@ -22,7 +22,7 @@
       </af:inputText>
     </af:column>
     <af:column sortProperty="#{bindings.TurnosFijadosView1.hints.TurnNombre.name}" filterable="true" sortable="true"
-               headerText="Nombre Turno" id="c2">
+               headerText="Nombre Turno" id="c2" width="105">
       <af:inputText value="#{row.bindings.TurnNombre.inputValue}"
                     label="#{bindings.TurnosFijadosView1.hints.TurnNombre.label}"
                     required="#{bindings.TurnosFijadosView1.hints.TurnNombre.mandatory}"
@@ -33,7 +33,7 @@
       </af:inputText>
     </af:column>
     <af:column sortProperty="#{bindings.TurnosFijadosView1.hints.FjagDia.name}" filterable="true" sortable="true"
-               headerText="Dia Fijado" id="c3">
+               headerText="Dia Fijado" id="c3" width="106">
       <f:facet name="filter">
         <af:inputDate value="#{vs.filterCriteria.FjagDia}" id="id1">
           <af:convertDateTime pattern="#{bindings.TurnosFijadosView1.hints.FjagDia.format}"/>

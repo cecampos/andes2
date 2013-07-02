@@ -8,7 +8,7 @@ import oracle.adf.view.rich.component.rich.output.RichOutputText;
 public class EditBean {
     private RichSelectOneChoice tableName;
     private RichOutputText selectedOption;
-    private String selected="asdf";
+    private String selected="  ";
 
     public EditBean() {
     }

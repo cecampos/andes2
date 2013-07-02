@@ -7,7 +7,8 @@
             filterModel="#{bindings.TurnosEditView1Query.queryDescriptor}"
             queryListener="#{bindings.TurnosEditView1Query.processQuery}" filterVisible="true" varStatus="vs"
             selectedRowKeys="#{bindings.TurnosEditView1.collectionModel.selectedRow}"
-            selectionListener="#{bindings.TurnosEditView1.collectionModel.makeCurrent}" rowSelection="single" id="t1">
+            selectionListener="#{bindings.TurnosEditView1.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+            inlineStyle="width:inherit; height:inherit;">
     <af:column sortProperty="#{bindings.TurnosEditView1.hints.TurnNombre.name}" filterable="true" sortable="true"
                headerText="Nombre" id="c2" width="40">
       <af:inputText value="#{row.bindings.TurnNombre.inputValue}"

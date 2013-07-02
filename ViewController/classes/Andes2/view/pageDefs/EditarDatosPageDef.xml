@@ -6,7 +6,7 @@
     <variableIterator id="variables"/>
     <taskFlow id="editViews1" taskFlowId="/WEB-INF/editViews.xml#editViews"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"
-              RefreshCondition="#{editBean.selected != 'asdf'}">
+              RefreshCondition="#{editBean.selected != '  '}">
       <parameters>
         <parameter id="inputParameter1" value="#{editBean.selected}"/>
       </parameters>

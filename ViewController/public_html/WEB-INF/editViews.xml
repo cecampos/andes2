@@ -77,6 +77,10 @@
         <expression>#{editBean.selected == 'TurnosFijados'}</expression>
         <outcome>turnosFijados</outcome>
       </case>
+      <case id="__38">
+        <expression>#{editBean.selected == 'CapacitySkills'}</expression>
+        <outcome>CapacitySkills</outcome>
+      </case>
       <default-outcome>default</default-outcome>
     </router>
     <view id="Default">
@@ -121,6 +125,9 @@
     </view>
     <view id="editTurnosFijados">
       <page>/editTurnosFijados.jsff</page>
+    </view>
+    <view id="editCapacitySkills">
+      <page>/editCapacitySkills.jsff</page>
     </view>
     <control-flow-rule id="__1">
       <from-activity-id>methodCall1</from-activity-id>
@@ -185,6 +192,10 @@
       <control-flow-case id="__32">
         <from-outcome>turnosFijados</from-outcome>
         <to-activity-id>editTurnosFijados</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__37">
+        <from-outcome>CapacitySkills</from-outcome>
+        <to-activity-id>editCapacitySkills</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

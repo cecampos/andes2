@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.RequerimientoSkills1.collectionModel}" var="row"
+            rows="#{bindings.RequerimientoSkills1.rangeSize}"
+            emptyText="#{bindings.RequerimientoSkills1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.RequerimientoSkills1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.RequerimientoSkills1Query.queryDescriptor}"
+            queryListener="#{bindings.RequerimientoSkills1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.RequerimientoSkills1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.RequerimientoSkills1.collectionModel.makeCurrent}" rowSelection="single"
+            id="t1" inlineStyle="width:inherit; height:inherit;">
+    <af:column sortProperty="#{bindings.RequerimientoSkills1.hints.Skill.name}" filterable="true" sortable="true"
+               headerText="Skill" id="c1">
+      <af:inputText value="#{row.bindings.Skill.inputValue}" label="#{bindings.RequerimientoSkills1.hints.Skill.label}"
+                    required="#{bindings.RequerimientoSkills1.hints.Skill.mandatory}"
+                    columns="#{bindings.RequerimientoSkills1.hints.Skill.displayWidth}"
+                    maximumLength="#{bindings.RequerimientoSkills1.hints.Skill.precision}"
+                    shortDesc="#{bindings.RequerimientoSkills1.hints.Skill.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.Skill.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RequerimientoSkills1.hints.Dia.name}" filterable="true" sortable="true"
+               headerText="Dia" id="c2">
+      <af:inputText value="#{row.bindings.Dia.inputValue}" label="#{bindings.RequerimientoSkills1.hints.Dia.label}"
+                    required="#{bindings.RequerimientoSkills1.hints.Dia.mandatory}"
+                    columns="#{bindings.RequerimientoSkills1.hints.Dia.displayWidth}"
+                    maximumLength="#{bindings.RequerimientoSkills1.hints.Dia.precision}"
+                    shortDesc="#{bindings.RequerimientoSkills1.hints.Dia.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.Dia.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RequerimientoSkills1.hints.TurnNombre.name}" filterable="true" sortable="true"
+               headerText="Nombre Turno" id="c3">
+      <af:inputText value="#{row.bindings.TurnNombre.inputValue}"
+                    label="#{bindings.RequerimientoSkills1.hints.TurnNombre.label}"
+                    required="#{bindings.RequerimientoSkills1.hints.TurnNombre.mandatory}"
+                    columns="#{bindings.RequerimientoSkills1.hints.TurnNombre.displayWidth}"
+                    maximumLength="#{bindings.RequerimientoSkills1.hints.TurnNombre.precision}"
+                    shortDesc="#{bindings.RequerimientoSkills1.hints.TurnNombre.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.TurnNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RequerimientoSkills1.hints.DdskRequerimiento.name}" filterable="true"
+               sortable="true" headerText="Requerimiento" id="c4">
+      <af:inputText value="#{row.bindings.DdskRequerimiento.inputValue}"
+                    label="#{bindings.RequerimientoSkills1.hints.DdskRequerimiento.label}"
+                    required="#{bindings.RequerimientoSkills1.hints.DdskRequerimiento.mandatory}"
+                    columns="#{bindings.RequerimientoSkills1.hints.DdskRequerimiento.displayWidth}"
+                    maximumLength="#{bindings.RequerimientoSkills1.hints.DdskRequerimiento.precision}"
+                    shortDesc="#{bindings.RequerimientoSkills1.hints.DdskRequerimiento.tooltip}" id="it4">
+        <f:validator binding="#{row.bindings.DdskRequerimiento.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

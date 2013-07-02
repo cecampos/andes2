@@ -34,6 +34,7 @@
     <page path="/editTurnosFijados.jsff" usageId="Andes2_view_editTurnosFijadosPageDef"/>
     <page path="/editTurnosProhibidos.jsff" usageId="Andes2_view_editTurnosProhibidosPageDef"/>
     <page path="/editCoasignacion.jsff" usageId="Andes2_view_editCoasignacionPageDef"/>
+    <page path="/editCapacitySkills.jsff" usageId="Andes2_view_editCapacitySkillsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="Andes2_view_CargaArchivosPageDef" path="Andes2.view.pageDefs.CargaArchivosPageDef"/>
@@ -63,6 +64,7 @@
     <page id="Andes2_view_editTurnosFijadosPageDef" path="Andes2.view.pageDefs.editTurnosFijadosPageDef"/>
     <page id="Andes2_view_editTurnosProhibidosPageDef" path="Andes2.view.pageDefs.editTurnosProhibidosPageDef"/>
     <page id="Andes2_view_editCoasignacionPageDef" path="Andes2.view.pageDefs.editCoasignacionPageDef"/>
+    <page id="Andes2_view_editCapacitySkillsPageDef" path="Andes2.view.pageDefs.editCapacitySkillsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="andes2DataControl" Package="Andes2.model"
