@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editCargosPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CargosView1" RangeSize="25" DataControl="dataSourceDataControl" id="CargosView1Iterator"/>
+    <searchRegion Binds="CargosView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CargosView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CargosView1Iterator" id="CargosView1">
+      <nodeDefinition DefName="Andes2.model.vo.CargosView" Name="CargosView10">
+        <AttrNames>
+          <Item Value="CrgoId"/>
+          <Item Value="CrgoNombre"/>
+          <Item Value="CrgoMetaCargo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

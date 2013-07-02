@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CoAsignacionEditView"
+  Version="11.1.2.64.36"
+  SelectList="coAsignacionEdit.EMPL_RUT, 
+       coAsignacionEdit.GRPO_NOMBRE, 
+       coAsignacionEdit.COAG_FECHA, 
+       coAsignacionEdit.COAG_VERSION, 
+       coAsignacionEdit.ROWID"
+  FromList="DEV.COASIGNACION coAsignacionEdit"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="coAsignacionEdit"
+    Entity="Andes2.model.vo.coAsignacionEdit"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="coAsignacionEdit"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="GrpoNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GrpoNombre"
+    EntityUsage="coAsignacionEdit"
+    AliasName="GRPO_NOMBRE"/>
+  <ViewAttribute
+    Name="CoagFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CoagFecha"
+    EntityUsage="coAsignacionEdit"
+    AliasName="COAG_FECHA"/>
+  <ViewAttribute
+    Name="CoagVersion"
+    PrecisionRule="true"
+    EntityAttrName="CoagVersion"
+    EntityUsage="coAsignacionEdit"
+    AliasName="COAG_VERSION"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="coAsignacionEdit"
+    AliasName="ROWID"/>
+</ViewObject>

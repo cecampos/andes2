@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CargosView"
+  Version="11.1.2.64.36"
+  SelectList="Cargos.CRGO_ID, 
+       Cargos.CRGO_NOMBRE, 
+       Cargos.CRGO_META_CARGO"
+  FromList="DEV.CARGO Cargos"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Cargos"
+    Entity="Andes2.model.vo.Cargos"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="Cargos"
+    AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="CrgoNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoNombre"
+    EntityUsage="Cargos"
+    AliasName="CRGO_NOMBRE"/>
+  <ViewAttribute
+    Name="CrgoMetaCargo"
+    PrecisionRule="true"
+    EntityAttrName="CrgoMetaCargo"
+    EntityUsage="Cargos"
+    AliasName="CRGO_META_CARGO"/>
+  <ViewLinkAccessor
+    Name="ListaSkillEditView"
+    ViewLink="Andes2.model.vo.SkllFkCrgoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

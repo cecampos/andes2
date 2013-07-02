@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editCapacityTurnoPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Requerimientos1" RangeSize="25" DataControl="dataSourceDataControl" id="Requerimientos1Iterator"/>
+    <searchRegion Binds="Requerimientos1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Requerimientos1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Requerimientos1Iterator" id="Requerimientos1">
+      <nodeDefinition DefName="Andes2.model.vo.Requerimientos" Name="Requerimientos10">
+        <AttrNames>
+          <Item Value="Dia"/>
+          <Item Value="Turno"/>
+          <Item Value="Demanda"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

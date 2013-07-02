@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.TurnosFijadosView1.collectionModel}" var="row"
+            rows="#{bindings.TurnosFijadosView1.rangeSize}"
+            emptyText="#{bindings.TurnosFijadosView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.TurnosFijadosView1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.TurnosFijadosView1Query.queryDescriptor}"
+            queryListener="#{bindings.TurnosFijadosView1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.TurnosFijadosView1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.TurnosFijadosView1.collectionModel.makeCurrent}" rowSelection="single"
+            id="t1">
+    <af:column sortProperty="#{bindings.TurnosFijadosView1.hints.EmplRut.name}" filterable="true" sortable="true"
+               headerText="Rut" id="c1">
+      <af:inputText value="#{row.bindings.EmplRut.inputValue}"
+                    label="#{bindings.TurnosFijadosView1.hints.EmplRut.label}"
+                    required="#{bindings.TurnosFijadosView1.hints.EmplRut.mandatory}"
+                    columns="#{bindings.TurnosFijadosView1.hints.EmplRut.displayWidth}"
+                    maximumLength="#{bindings.TurnosFijadosView1.hints.EmplRut.precision}"
+                    shortDesc="#{bindings.TurnosFijadosView1.hints.EmplRut.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.EmplRut.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.TurnosFijadosView1.hints.TurnNombre.name}" filterable="true" sortable="true"
+               headerText="Nombre Turno" id="c2">
+      <af:inputText value="#{row.bindings.TurnNombre.inputValue}"
+                    label="#{bindings.TurnosFijadosView1.hints.TurnNombre.label}"
+                    required="#{bindings.TurnosFijadosView1.hints.TurnNombre.mandatory}"
+                    columns="#{bindings.TurnosFijadosView1.hints.TurnNombre.displayWidth}"
+                    maximumLength="#{bindings.TurnosFijadosView1.hints.TurnNombre.precision}"
+                    shortDesc="#{bindings.TurnosFijadosView1.hints.TurnNombre.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.TurnNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.TurnosFijadosView1.hints.FjagDia.name}" filterable="true" sortable="true"
+               headerText="Dia Fijado" id="c3">
+      <f:facet name="filter">
+        <af:inputDate value="#{vs.filterCriteria.FjagDia}" id="id1">
+          <af:convertDateTime pattern="#{bindings.TurnosFijadosView1.hints.FjagDia.format}"/>
+        </af:inputDate>
+      </f:facet>
+      <af:inputDate value="#{row.bindings.FjagDia.inputValue}"
+                    label="#{bindings.TurnosFijadosView1.hints.FjagDia.label}"
+                    required="#{bindings.TurnosFijadosView1.hints.FjagDia.mandatory}"
+                    columns="#{bindings.TurnosFijadosView1.hints.FjagDia.displayWidth}"
+                    shortDesc="#{bindings.TurnosFijadosView1.hints.FjagDia.tooltip}" id="id2">
+        <f:validator binding="#{row.bindings.FjagDia.validator}"/>
+        <af:convertDateTime pattern="#{bindings.TurnosFijadosView1.hints.FjagDia.format}"/>
+      </af:inputDate>
+    </af:column>
+  </af:table>
+</ui:composition>

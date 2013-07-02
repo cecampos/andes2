@@ -15,11 +15,11 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">143.49414</property>
+         name="y">-104.71289</property>
+      <property
+         name="x">111.0</property>
       <property
          name="pageFragment">true</property>
-      <property
-         name="x">513.0</property>
    </View>
    <MethodCall
       id="MethodCall3">
@@ -32,9 +32,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">202.59766</property>
+         name="y">59.844727</property>
       <property
-         name="x">120.0</property>
+         name="x">-411.0</property>
    </MethodCall>
    <Router
       id="Router5">
@@ -45,9 +45,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">202.89648</property>
+         name="y">96.79297</property>
       <property
-         name="x">288.0</property>
+         name="x">-129.0</property>
    </Router>
    <ControlFlowCase
       islink="true"
@@ -57,7 +57,7 @@
       <property
          name="fromOutcome">*</property>
       <property
-         name="sdm:polyPoints">R50,161.0,202.24707,247.0,202.5459,L50</property>
+         name="sdm:polyPoints">R50,-370.0,59.49414,-170.0,92.94238,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -67,24 +67,24 @@
       <property
          name="fromOutcome">Vacaciones</property>
       <property
-         name="sdm:polyPoints">R46,329.0,199.0459,472.0,143.14355,L50</property>
+         name="sdm:polyPoints">R34,-88.0,82.44238,111.0,-51.063477,B50</property>
    </ControlFlowCase>
    <View
       id="View8">
       <property
-         name="activityId">otroCaso</property>
+         name="activityId">Default</property>
       <property
          name="page">/otroCaso.jsff</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>otroCaso&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>Default&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">300.09766</property>
+         name="y">199.24121</property>
+      <property
+         name="x">-325.5</property>
       <property
          name="pageFragment">true</property>
-      <property
-         name="x">516.5</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -94,6 +94,330 @@
       <property
          name="fromOutcome">default</property>
       <property
-         name="sdm:polyPoints">R54,329.0,206.0459,475.5,299.74707,L50</property>
+         name="sdm:polyPoints">L54,-170.0,99.94238,-284.5,199.24121,R50</property>
+   </ControlFlowCase>
+   <View
+      id="View10">
+      <property
+         name="activityId">editCapacitaciones</property>
+      <property
+         name="page">/editCapacitaciones.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editCapacitaciones&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-100.25879</property>
+      <property
+         name="x">-11.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="Router5"
+      to="View10">
+      <property
+         name="fromOutcome">Capacitaciones</property>
+      <property
+         name="sdm:polyPoints">T56,-125.5,42.442383,-11.0,-46.609375,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View12">
+      <property
+         name="activityId">editCapacityHora</property>
+      <property
+         name="page">/editCapacityHora.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editCapacityHora&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-95.01172</property>
+      <property
+         name="x">246.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="Router5"
+      to="View12">
+      <property
+         name="fromOutcome">CapacityHora</property>
+      <property
+         name="sdm:polyPoints">R42,-85.923134,89.44238,205.0,-95.362305,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View14">
+      <property
+         name="activityId">editRegimenDeTrabajo</property>
+      <property
+         name="page">/editRegimenDeTrabajo.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editRegimenDeTrabajo&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-107.66113</property>
+      <property
+         name="x">384.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View15">
+      <property
+         name="activityId">editCargos</property>
+      <property
+         name="page">/editCargos.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editCargos&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">357.79297</property>
+      <property
+         name="x">340.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View16">
+      <property
+         name="activityId">editGrupos</property>
+      <property
+         name="page">/editGrupos.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editGrupos&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">1.4941406</property>
+      <property
+         name="x">595.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View17">
+      <property
+         name="activityId">editListaSkills</property>
+      <property
+         name="page">/editListaSkills.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editListaSkills&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">20.143555</property>
+      <property
+         name="x">441.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View18">
+      <property
+         name="activityId">editTurnos</property>
+      <property
+         name="page">/editTurnos.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editTurnos&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-103.20703</property>
+      <property
+         name="x">513.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase19"
+      from="Router5"
+      to="View14">
+      <property
+         name="fromOutcome">RegimenDeTrabajo</property>
+      <property
+         name="sdm:polyPoints">R58,-83.13068,103.44238,384.0,-54.01172,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase20"
+      from="Router5"
+      to="View18">
+      <property
+         name="fromOutcome">Turnos</property>
+      <property
+         name="sdm:polyPoints">R50,-84.30531,96.44238,472.0,-103.55762,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase21"
+      from="Router5"
+      to="View17">
+      <property
+         name="fromOutcome">ListaSkills</property>
+      <property
+         name="sdm:polyPoints">R66,-82.239975,110.44238,400.0,19.792969,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase22"
+      from="Router5"
+      to="View16">
+      <property
+         name="fromOutcome">Grupos</property>
+      <property
+         name="sdm:polyPoints">B79,-111.5,150.44238,595.0,55.143555,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View23">
+      <property
+         name="activityId">editEmpleados</property>
+      <property
+         name="page">/editEmpleados.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editEmpleados&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-109.20703</property>
+      <property
+         name="x">-94.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase24"
+      from="Router5"
+      to="View23">
+      <property
+         name="fromOutcome">Empleados</property>
+      <property
+         name="sdm:polyPoints">T44,-132.5,40.067703,-94.0,-55.557617,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase25"
+      from="Router5"
+      to="View15">
+      <property
+         name="fromOutcome">Cargos</property>
+      <property
+         name="sdm:polyPoints">B67,-118.5,156.61745,299.0,357.44238,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View26">
+      <property
+         name="activityId">editCapacityTurno</property>
+      <property
+         name="page">/editCapacityTurno.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editCapacityTurno&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">396.5459</property>
+      <property
+         name="x">133.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase27"
+      from="Router5"
+      to="View26">
+      <property
+         name="fromOutcome">CapacityTurno</property>
+      <property
+         name="sdm:polyPoints">B56,-125.5,160.55025,133.0,342.1953,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View28">
+      <property
+         name="activityId">editCoasignacion</property>
+      <property
+         name="page">/editCoasignacion.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editCoasignacion&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">388.89648</property>
+      <property
+         name="x">16.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View29">
+      <property
+         name="activityId">editTurnosProhibidos</property>
+      <property
+         name="page">/editTurnosProhibidos.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editTurnosProhibidos&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">381.1953</property>
+      <property
+         name="x">-125.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View30">
+      <property
+         name="activityId">editTurnosFijados</property>
+      <property
+         name="page">/editTurnosFijados.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editTurnosFijados&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">406.1953</property>
+      <property
+         name="x">-274.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase31"
+      from="Router5"
+      to="View28">
+      <property
+         name="fromOutcome">coAsignacion</property>
+      <property
+         name="sdm:polyPoints">B44,-132.5,163.54744,16.0,334.5459,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase32"
+      from="Router5"
+      to="View29">
+      <property
+         name="fromOutcome">turnosProhibidos</property>
+      <property
+         name="sdm:polyPoints">B33,-139.5,164.92668,-125.0,326.84473,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase33"
+      from="Router5"
+      to="View30">
+      <property
+         name="fromOutcome">turnosFijados</property>
+      <property
+         name="sdm:polyPoints">B21,-146.5,150.44238,-274.0,351.84473,T50</property>
    </ControlFlowCase>
 </SDM>

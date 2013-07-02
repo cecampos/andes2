@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editCoasignacionPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CoAsignacionEditView1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="CoAsignacionEditView1Iterator"/>
+    <searchRegion Binds="CoAsignacionEditView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CoAsignacionEditView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CoAsignacionEditView1Iterator" id="CoAsignacionEditView1">
+      <nodeDefinition DefName="Andes2.model.vo.CoAsignacionEditView" Name="CoAsignacionEditView10">
+        <AttrNames>
+          <Item Value="EmplRut"/>
+          <Item Value="GrpoNombre"/>
+          <Item Value="CoagFecha"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

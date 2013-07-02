@@ -29,14 +29,98 @@
         <expression>#{editBean.selected == 'Vacaciones'}</expression>
         <outcome>Vacaciones</outcome>
       </case>
+      <case id="__11">
+        <expression>#{editBean.selected == 'Capacitaciones'}</expression>
+        <outcome>Capacitaciones</outcome>
+      </case>
+      <case id="__13">
+        <expression>#{editBean.selected == 'CapacityHora'}</expression>
+        <outcome>CapacityHora</outcome>
+      </case>
+      <case id="__19">
+        <expression>#{editBean.selected == 'RegimenDeTrabajo'}</expression>
+        <outcome>RegimenDeTrabajo</outcome>
+      </case>
+      <case id="__20">
+        <expression>#{editBean.selected == 'Turnos'}</expression>
+        <outcome>Turnos</outcome>
+      </case>
+      <case id="__21">
+        <expression>#{editBean.selected == 'Grupos'}</expression>
+        <outcome>Grupos</outcome>
+      </case>
+      <case id="__22">
+        <expression>#{editBean.selected == 'ListaSkills'}</expression>
+        <outcome>ListaSkills</outcome>
+      </case>
+      <case id="__25">
+        <expression>#{editBean.selected == 'Empleados'}</expression>
+        <outcome>Empleados</outcome>
+      </case>
+      <case id="__27">
+        <expression>#{editBean.selected == 'Cargos'}</expression>
+        <outcome>Cargos</outcome>
+      </case>
+      <case id="__29">
+        <expression>#{editBean.selected == 'CapacityTurno'}</expression>
+        <outcome>CapacityTurno</outcome>
+      </case>
+      <case id="__34">
+        <expression>#{editBean.selected == 'CoAsignacion'}</expression>
+        <outcome>coAsignacion</outcome>
+      </case>
+      <case id="__35">
+        <expression>#{editBean.selected == 'TurnosProhibidos'}</expression>
+        <outcome>turnosProhibidos</outcome>
+      </case>
+      <case id="__36">
+        <expression>#{editBean.selected == 'TurnosFijados'}</expression>
+        <outcome>turnosFijados</outcome>
+      </case>
       <default-outcome>default</default-outcome>
     </router>
-    <view id="otroCaso">
+    <view id="Default">
       <page>/otroCaso.jsff</page>
       <input-page-parameter id="__10">
         <from-value>#{pageFlowScope.inputParameter1}</from-value>
         <to-value>#{pageFlowScope.inputParameter1}</to-value>
       </input-page-parameter>
+    </view>
+    <view id="editCapacitaciones">
+      <page>/editCapacitaciones.jsff</page>
+    </view>
+    <view id="editCapacityHora">
+      <page>/editCapacityHora.jsff</page>
+    </view>
+    <view id="editRegimenDeTrabajo">
+      <page>/editRegimenDeTrabajo.jsff</page>
+    </view>
+    <view id="editCargos">
+      <page>/editCargos.jsff</page>
+    </view>
+    <view id="editGrupos">
+      <page>/editGrupos.jsff</page>
+    </view>
+    <view id="editListaSkills">
+      <page>/editListaSkills.jsff</page>
+    </view>
+    <view id="editTurnos">
+      <page>/editTurnos.jsff</page>
+    </view>
+    <view id="editEmpleados">
+      <page>/editEmpleados.jsff</page>
+    </view>
+    <view id="editCapacityTurno">
+      <page>/editCapacityTurno.jsff</page>
+    </view>
+    <view id="editCoasignacion">
+      <page>/editCoasignacion.jsff</page>
+    </view>
+    <view id="editTurnosProhibidos">
+      <page>/editTurnosProhibidos.jsff</page>
+    </view>
+    <view id="editTurnosFijados">
+      <page>/editTurnosFijados.jsff</page>
     </view>
     <control-flow-rule id="__1">
       <from-activity-id>methodCall1</from-activity-id>
@@ -52,7 +136,55 @@
       </control-flow-case>
       <control-flow-case id="__6">
         <from-outcome>default</from-outcome>
-        <to-activity-id>otroCaso</to-activity-id>
+        <to-activity-id>Default</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__2">
+        <from-outcome>Capacitaciones</from-outcome>
+        <to-activity-id>editCapacitaciones</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>CapacityHora</from-outcome>
+        <to-activity-id>editCapacityHora</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>RegimenDeTrabajo</from-outcome>
+        <to-activity-id>editRegimenDeTrabajo</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>Turnos</from-outcome>
+        <to-activity-id>editTurnos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>ListaSkills</from-outcome>
+        <to-activity-id>editListaSkills</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>Grupos</from-outcome>
+        <to-activity-id>editGrupos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome>Empleados</from-outcome>
+        <to-activity-id>editEmpleados</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__26">
+        <from-outcome>Cargos</from-outcome>
+        <to-activity-id>editCargos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__28">
+        <from-outcome>CapacityTurno</from-outcome>
+        <to-activity-id>editCapacityTurno</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome>coAsignacion</from-outcome>
+        <to-activity-id>editCoasignacion</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__31">
+        <from-outcome>turnosProhibidos</from-outcome>
+        <to-activity-id>editTurnosProhibidos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>turnosFijados</from-outcome>
+        <to-activity-id>editTurnosFijados</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

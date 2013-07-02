@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.Requerimientos1.collectionModel}" var="row" rows="#{bindings.Requerimientos1.rangeSize}"
+            emptyText="#{bindings.Requerimientos1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.Requerimientos1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.Requerimientos1Query.queryDescriptor}"
+            queryListener="#{bindings.Requerimientos1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.Requerimientos1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.Requerimientos1.collectionModel.makeCurrent}" rowSelection="single" id="t1">
+    <af:column sortProperty="#{bindings.Requerimientos1.hints.Dia.name}" filterable="true" sortable="true"
+               headerText="Dia" id="c1">
+      <af:inputText value="#{row.bindings.Dia.inputValue}" label="#{bindings.Requerimientos1.hints.Dia.label}"
+                    required="#{bindings.Requerimientos1.hints.Dia.mandatory}"
+                    columns="#{bindings.Requerimientos1.hints.Dia.displayWidth}"
+                    maximumLength="#{bindings.Requerimientos1.hints.Dia.precision}"
+                    shortDesc="#{bindings.Requerimientos1.hints.Dia.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.Dia.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.Requerimientos1.hints.Turno.name}" filterable="true" sortable="true"
+               headerText="Turno" id="c2">
+      <af:inputText value="#{row.bindings.Turno.inputValue}" label="#{bindings.Requerimientos1.hints.Turno.label}"
+                    required="#{bindings.Requerimientos1.hints.Turno.mandatory}"
+                    columns="#{bindings.Requerimientos1.hints.Turno.displayWidth}"
+                    maximumLength="#{bindings.Requerimientos1.hints.Turno.precision}"
+                    shortDesc="#{bindings.Requerimientos1.hints.Turno.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.Turno.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.Requerimientos1.hints.Demanda.name}" filterable="true" sortable="true"
+               headerText="Demanda" id="c3">
+      <af:inputText value="#{row.bindings.Demanda.inputValue}" label="#{bindings.Requerimientos1.hints.Demanda.label}"
+                    required="#{bindings.Requerimientos1.hints.Demanda.mandatory}"
+                    columns="#{bindings.Requerimientos1.hints.Demanda.displayWidth}"
+                    maximumLength="#{bindings.Requerimientos1.hints.Demanda.precision}"
+                    shortDesc="#{bindings.Requerimientos1.hints.Demanda.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.Demanda.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

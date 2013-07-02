@@ -7,7 +7,7 @@
               emptyText="#{bindings.Vacaciones1.viewable ? 'No data to display.' : 'Access Denied.'}"
               fetchSize="#{bindings.Vacaciones1.rangeSize}" rowBandingInterval="0" id="t1">
       <af:column sortProperty="#{bindings.Vacaciones1.hints.EmplRut.name}" sortable="false"
-                 headerText="#{bindings.Vacaciones1.hints.EmplRut.label}" id="c1">
+                 headerText="Rut" id="c1">
         <af:inputText value="#{row.bindings.EmplRut.inputValue}" label="#{bindings.Vacaciones1.hints.EmplRut.label}"
                       required="#{bindings.Vacaciones1.hints.EmplRut.mandatory}"
                       columns="#{bindings.Vacaciones1.hints.EmplRut.displayWidth}"
@@ -17,7 +17,7 @@
         </af:inputText>
       </af:column>
       <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnFechaInicio.name}" sortable="false"
-                 headerText="#{bindings.Vacaciones1.hints.VccnFechaInicio.label}" id="c2">
+                 headerText="Fecha Inicio" id="c2">
         <af:inputDate value="#{row.bindings.VccnFechaInicio.inputValue}"
                       label="#{bindings.Vacaciones1.hints.VccnFechaInicio.label}"
                       required="#{bindings.Vacaciones1.hints.VccnFechaInicio.mandatory}"
@@ -28,7 +28,7 @@
         </af:inputDate>
       </af:column>
       <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnFechaTermino.name}" sortable="false"
-                 headerText="#{bindings.Vacaciones1.hints.VccnFechaTermino.label}" id="c3">
+                 headerText="Fecha Termino" id="c3">
         <af:inputDate value="#{row.bindings.VccnFechaTermino.inputValue}"
                       label="#{bindings.Vacaciones1.hints.VccnFechaTermino.label}"
                       required="#{bindings.Vacaciones1.hints.VccnFechaTermino.mandatory}"
@@ -39,7 +39,7 @@
         </af:inputDate>
       </af:column>
       <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnId.name}" sortable="false"
-                 headerText="#{bindings.Vacaciones1.hints.VccnId.label}" id="c4">
+                 headerText="ID Vacacion" id="c4">
         <af:inputText value="#{row.bindings.VccnId.inputValue}" label="#{bindings.Vacaciones1.hints.VccnId.label}"
                       required="#{bindings.Vacaciones1.hints.VccnId.mandatory}"
                       columns="#{bindings.Vacaciones1.hints.VccnId.displayWidth}"

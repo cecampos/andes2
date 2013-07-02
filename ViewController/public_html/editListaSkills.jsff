@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.ListaSkillEditView1.collectionModel}" var="row"
+            rows="#{bindings.ListaSkillEditView1.rangeSize}"
+            emptyText="#{bindings.ListaSkillEditView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.ListaSkillEditView1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.ListaSkillEditView1Query.queryDescriptor}"
+            queryListener="#{bindings.ListaSkillEditView1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.ListaSkillEditView1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.ListaSkillEditView1.collectionModel.makeCurrent}" rowSelection="single"
+            id="t1">
+    <af:column sortProperty="#{bindings.ListaSkillEditView1.hints.SkllId.name}" filterable="true" sortable="true"
+               headerText="ID Skill" id="c1">
+      <af:inputText value="#{row.bindings.SkllId.inputValue}" label="#{bindings.ListaSkillEditView1.hints.SkllId.label}"
+                    required="#{bindings.ListaSkillEditView1.hints.SkllId.mandatory}"
+                    columns="#{bindings.ListaSkillEditView1.hints.SkllId.displayWidth}"
+                    maximumLength="#{bindings.ListaSkillEditView1.hints.SkllId.precision}"
+                    shortDesc="#{bindings.ListaSkillEditView1.hints.SkllId.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.SkllId.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ListaSkillEditView1.hints.CrgoId.name}" filterable="true" sortable="true"
+               headerText="ID Cargo" id="c2">
+      <af:inputText value="#{row.bindings.CrgoId.inputValue}" label="#{bindings.ListaSkillEditView1.hints.CrgoId.label}"
+                    required="#{bindings.ListaSkillEditView1.hints.CrgoId.mandatory}"
+                    columns="#{bindings.ListaSkillEditView1.hints.CrgoId.displayWidth}"
+                    maximumLength="#{bindings.ListaSkillEditView1.hints.CrgoId.precision}"
+                    shortDesc="#{bindings.ListaSkillEditView1.hints.CrgoId.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.CrgoId.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ListaSkillEditView1.hints.SkllNombre.name}" filterable="true" sortable="true"
+               headerText="Nombre Skill" id="c3">
+      <af:inputText value="#{row.bindings.SkllNombre.inputValue}"
+                    label="#{bindings.ListaSkillEditView1.hints.SkllNombre.label}"
+                    required="#{bindings.ListaSkillEditView1.hints.SkllNombre.mandatory}"
+                    columns="#{bindings.ListaSkillEditView1.hints.SkllNombre.displayWidth}"
+                    maximumLength="#{bindings.ListaSkillEditView1.hints.SkllNombre.precision}"
+                    shortDesc="#{bindings.ListaSkillEditView1.hints.SkllNombre.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.SkllNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

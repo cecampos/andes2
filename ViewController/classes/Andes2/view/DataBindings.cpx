@@ -22,6 +22,18 @@
     <page path="/GeneradorArchivos.jsf" usageId="Andes2_view_GeneradorArchivosPageDef"/>
     <page path="/editVacaciones.jsff" usageId="Andes2_view_editVacacionesPageDef"/>
     <page path="/EditarDatos.jsf" usageId="Andes2_view_EditarDatosPageDef"/>
+    <page path="/editCapacitaciones.jsff" usageId="Andes2_view_editCapacitacionesPageDef"/>
+    <page path="/editCapacityHora.jsff" usageId="Andes2_view_editCapacityHoraPageDef"/>
+    <page path="/editGrupos.jsff" usageId="Andes2_view_editGruposPageDef"/>
+    <page path="/editEmpleados.jsff" usageId="Andes2_view_editEmpleadosPageDef"/>
+    <page path="/editRegimenDeTrabajo.jsff" usageId="Andes2_view_editRegimenDeTrabajoPageDef"/>
+    <page path="/editCargos.jsff" usageId="Andes2_view_editCargosPageDef"/>
+    <page path="/editTurnos.jsff" usageId="Andes2_view_editTurnosPageDef"/>
+    <page path="/editListaSkills.jsff" usageId="Andes2_view_editListaSkillsPageDef"/>
+    <page path="/editCapacityTurno.jsff" usageId="Andes2_view_editCapacityTurnoPageDef"/>
+    <page path="/editTurnosFijados.jsff" usageId="Andes2_view_editTurnosFijadosPageDef"/>
+    <page path="/editTurnosProhibidos.jsff" usageId="Andes2_view_editTurnosProhibidosPageDef"/>
+    <page path="/editCoasignacion.jsff" usageId="Andes2_view_editCoasignacionPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="Andes2_view_CargaArchivosPageDef" path="Andes2.view.pageDefs.CargaArchivosPageDef"/>
@@ -39,6 +51,18 @@
     <page id="Andes2_view_GeneradorArchivosPageDef" path="Andes2.view.pageDefs.GeneradorArchivosPageDef"/>
     <page id="Andes2_view_editVacacionesPageDef" path="Andes2.view.pageDefs.editVacacionesPageDef"/>
     <page id="Andes2_view_EditarDatosPageDef" path="Andes2.view.pageDefs.EditarDatosPageDef"/>
+    <page id="Andes2_view_editCapacitacionesPageDef" path="Andes2.view.pageDefs.editCapacitacionesPageDef"/>
+    <page id="Andes2_view_editCapacityHoraPageDef" path="Andes2.view.pageDefs.editCapacityHoraPageDef"/>
+    <page id="Andes2_view_editGruposPageDef" path="Andes2.view.pageDefs.editGruposPageDef"/>
+    <page id="Andes2_view_editEmpleadosPageDef" path="Andes2.view.pageDefs.editEmpleadosPageDef"/>
+    <page id="Andes2_view_editRegimenDeTrabajoPageDef" path="Andes2.view.pageDefs.editRegimenDeTrabajoPageDef"/>
+    <page id="Andes2_view_editCargosPageDef" path="Andes2.view.pageDefs.editCargosPageDef"/>
+    <page id="Andes2_view_editTurnosPageDef" path="Andes2.view.pageDefs.editTurnosPageDef"/>
+    <page id="Andes2_view_editListaSkillsPageDef" path="Andes2.view.pageDefs.editListaSkillsPageDef"/>
+    <page id="Andes2_view_editCapacityTurnoPageDef" path="Andes2.view.pageDefs.editCapacityTurnoPageDef"/>
+    <page id="Andes2_view_editTurnosFijadosPageDef" path="Andes2.view.pageDefs.editTurnosFijadosPageDef"/>
+    <page id="Andes2_view_editTurnosProhibidosPageDef" path="Andes2.view.pageDefs.editTurnosProhibidosPageDef"/>
+    <page id="Andes2_view_editCoasignacionPageDef" path="Andes2.view.pageDefs.editCoasignacionPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="andes2DataControl" Package="Andes2.model"

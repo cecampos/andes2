@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:h="http://java.sun.com/jsf/html">
     <af:document title="EditarDatos.jsf" id="d1">
         <af:form id="f1">
             <af:pageTemplate viewId="/templateDef1.jsf" id="pt1">
@@ -16,8 +17,22 @@
                                                     valueChangeListener="#{editBean.prueba}">
                                     <af:selectItem label="Vacaciones" value="Vacaciones" id="si1"/>
                                     <af:selectItem label="Capacitaciones" id="si2" value="Capacitaciones"/>
+                                    <af:selectItem label="Capacity por Hora" id="si3" value="CapacityHora"/>
+                                    <af:selectItem label="Capacity por Turno" id="si4" value="CapacityTurno"/>
+                                    <af:selectItem label="Grupos" id="si5" value="Grupos"/>
+                                    <af:selectItem label="Cargos" id="si6" value="Cargos"/>
+                                    <af:selectItem label="Lista Skills" id="si7" value="ListaSkills"/>
+                                    <af:selectItem label="Turnos" id="si8" value="Turnos"/>
+                                    <af:selectItem label="Requerimiento Skills" id="si9" value="RequerimientoSkills"/>
+                                    <af:selectItem label="Empleados" id="si10" value="Empleados"/>
+                                    <af:selectItem label="Cargos" id="si11" value="Cargos"/>
+                                    <af:selectItem label="Regimen de Trabajo" id="si12" value="RegimenDeTrabajo"/>
+                                    <af:selectItem label="Co-Asignaciones" id="si13" value="CoAsignacion"/>
                                 </af:selectOneChoice>
-                                <af:region value="#{bindings.editViews1.regionModel}" id="r1"/>
+                                <af:panelGroupLayout id="pgl1" inlineStyle="width:inherit;">
+                                    <af:region value="#{bindings.editViews1.regionModel}" id="r1"
+                                               inlineStyle="width:inherit;"/>
+                                </af:panelGroupLayout>
                                 <af:outputText id="ot1"
                                                partialTriggers="soc1" binding="#{editBean.selectedOption}"/>
                                 <af:goButton text="Paso Anterior" id="gb2" destination="/faces/FileUpload.jsf"/>

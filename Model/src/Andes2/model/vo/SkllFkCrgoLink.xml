@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SkllFkCrgoLink"
+  Version="11.1.2.64.36"
+  EntityAssociation="Andes2.model.vo.SkllFkCrgoAssoc">
+  <ViewLinkDefEnd
+    Name="CargosView"
+    Cardinality="1"
+    Source="true"
+    Owner="Andes2.model.vo.CargosView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CargosView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="Andes2.model.vo.CargosView.CrgoId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ListaSkillEditView"
+    Cardinality="-1"
+    Owner="Andes2.model.vo.ListaSkillEditView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ListaSkillEditView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="Andes2.model.vo.ListaSkillEditView.CrgoId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editGruposPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="GruposEOView1" RangeSize="25" DataControl="dataSourceDataControl" id="GruposEOView1Iterator"/>
+    <searchRegion Binds="GruposEOView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="GruposEOView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="GruposEOView1Iterator" id="GruposEOView1">
+      <nodeDefinition DefName="Andes2.model.vo.GruposEOView" Name="GruposEOView10">
+        <AttrNames>
+          <Item Value="GrpoNombre"/>
+          <Item Value="GrpoLider"/>
+          <Item Value="GrpoFechaInicio"/>
+          <Item Value="GrpoFechaTermino"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

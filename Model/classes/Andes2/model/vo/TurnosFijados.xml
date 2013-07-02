@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TurnosFijados"
+  Version="11.1.2.64.36"
+  DBObjectType="TABLE"
+  DBObjectName="DEV.FIJAR_ASIGNACION"
+  AliasName="TurnosFijados"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="Andes2.model.vo.TurnosFijadosImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="EmplRut"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="EMPL_RUT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEV.FIJAR_ASIGNACION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TurnNombre"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TURN_NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEV.FIJAR_ASIGNACION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FjagDia"
+    IsNotNull="true"
+    ColumnName="FJAG_DIA"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="DEV.FIJAR_ASIGNACION"/>
+  <Attribute
+    Name="FjarVersion"
+    ColumnName="FJAR_VERSION"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="DEV.FIJAR_ASIGNACION"/>
+  <Attribute
+    Name="RowID"
+    IsUpdateable="false"
+    ColumnName="ROWID"
+    SQLType="ROWID"
+    Type="oracle.jbo.domain.RowID"
+    ColumnType="ROWID"
+    PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="EmpleadosEdit"
+    Association="Andes2.model.vo.FjarFkEmplAssoc"
+    AssociationEnd="Andes2.model.vo.FjarFkEmplAssoc.EmpleadosEdit"
+    AssociationOtherEnd="Andes2.model.vo.FjarFkEmplAssoc.TurnosFijados"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="TurnosEdit"
+    Association="Andes2.model.vo.FjagFkTurnAssoc"
+    AssociationEnd="Andes2.model.vo.FjagFkTurnAssoc.TurnosEdit"
+    AssociationOtherEnd="Andes2.model.vo.FjagFkTurnAssoc.TurnosFijados"
+    Type="Andes2.model.vo.TurnosEditImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="FjagFkTurn">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TURNOS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FJAG_FK_TURN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="Andes2.model.vo.TurnosFijados.TurnNombre"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FjarFkEmpl">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMPL_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FJAR_FK_EMPL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="Andes2.model.vo.TurnosFijados.EmplRut"/>
+    </AttrArray>
+  </Key>
+</Entity>

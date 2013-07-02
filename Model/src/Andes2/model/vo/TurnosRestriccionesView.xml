@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TurnosRestriccionesView"
+  Version="11.1.2.64.36"
+  SelectList="TurnosRestricciones.EMPL_RUT, 
+       TurnosRestricciones.TURN_NOMBRE, 
+       TurnosRestricciones.RTAG_DIA, 
+       TurnosRestricciones.RTAG_VERSION, 
+       TurnosRestricciones.ROWID"
+  FromList="DEV.RESTRICCION_ASIGNACION TurnosRestricciones"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="TurnosRestricciones"
+    Entity="Andes2.model.vo.TurnosRestricciones"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="TurnosRestricciones"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="TurnNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TurnNombre"
+    EntityUsage="TurnosRestricciones"
+    AliasName="TURN_NOMBRE"/>
+  <ViewAttribute
+    Name="RtagDia"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RtagDia"
+    EntityUsage="TurnosRestricciones"
+    AliasName="RTAG_DIA"/>
+  <ViewAttribute
+    Name="RtagVersion"
+    PrecisionRule="true"
+    EntityAttrName="RtagVersion"
+    EntityUsage="TurnosRestricciones"
+    AliasName="RTAG_VERSION"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="TurnosRestricciones"
+    AliasName="ROWID"/>
+</ViewObject>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RegimenDeTrabajoView"
+  Version="11.1.2.64.36"
+  SelectList="RegimenDeTrabajo.RGTR_SEQ_CDG, 
+       RegimenDeTrabajo.RGTR_NOMBRE, 
+       RegimenDeTrabajo.RGTR_DIAS_TRABAJADOS, 
+       RegimenDeTrabajo.RGTR_DIAS_DESCANSADOS, 
+       RegimenDeTrabajo.RGTR_MAX_NOCHES, 
+       RegimenDeTrabajo.RGTR_LIBRES_POST_SALIENTES, 
+       RegimenDeTrabajo.RGTR_FINES_SEMANA_LIBRES, 
+       RegimenDeTrabajo.RGTR_DOMINGOS_LIBRES"
+  FromList="DEV.REGIMEN_TRABAJO RegimenDeTrabajo"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="RegimenDeTrabajo"
+    Entity="Andes2.model.vo.RegimenDeTrabajo"/>
+  <ViewAttribute
+    Name="RgtrSeqCdg"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RgtrSeqCdg"
+    EntityUsage="RegimenDeTrabajo"
+    AliasName="RGTR_SEQ_CDG"/>
+  <ViewAttribute
+    Name="RgtrNombre"
+    PrecisionRule="true"
+    EntityAttrName="RgtrNombre"
+    EntityUsage="RegimenDeTrabajo"
+    AliasName="RGTR_NOMBRE"/>
+  <ViewAttribute
+    Name="RgtrDiasTrabajados"
+    PrecisionRule="true"
+    EntityAttrName="RgtrDiasTrabajados"
+    EntityUsage="RegimenDeTrabajo"
+    AliasName="RGTR_DIAS_TRABAJADOS"/>
+  <ViewAttribute
+    Name="RgtrDiasDescansados"
+    PrecisionRule="true"
+    EntityAttrName="RgtrDiasDescansados"
+    EntityUsage="RegimenDeTrabajo"
+    AliasName="RGTR_DIAS_DESCANSADOS"/>
+  <ViewAttribute
+    Name="RgtrMaxNoches"
+    PrecisionRule="true"
+    EntityAttrName="RgtrMaxNoches"
+    EntityUsage="RegimenDeTrabajo"
+    AliasName="RGTR_MAX_NOCHES"/>
+  <ViewAttribute
+    Name="RgtrLibresPostSalientes"
+    PrecisionRule="true"
+    EntityAttrName="RgtrLibresPostSalientes"
+    EntityUsage="RegimenDeTrabajo"
+    AliasName="RGTR_LIBRES_POST_SALIENTES"/>
+  <ViewAttribute
+    Name="RgtrFinesSemanaLibres"
+    PrecisionRule="true"
+    EntityAttrName="RgtrFinesSemanaLibres"
+    EntityUsage="RegimenDeTrabajo"
+    AliasName="RGTR_FINES_SEMANA_LIBRES"/>
+  <ViewAttribute
+    Name="RgtrDomingosLibres"
+    PrecisionRule="true"
+    EntityAttrName="RgtrDomingosLibres"
+    EntityUsage="RegimenDeTrabajo"
+    AliasName="RGTR_DOMINGOS_LIBRES"/>
+</ViewObject>
