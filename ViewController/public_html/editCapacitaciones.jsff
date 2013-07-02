@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.Capacitaciones1.collectionModel}" var="row" rows="#{bindings.Capacitaciones1.rangeSize}"
+            emptyText="#{bindings.Capacitaciones1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.Capacitaciones1.rangeSize}" rowBandingInterval="0" id="t1">
+    <af:column sortProperty="#{bindings.Capacitaciones1.hints.Rut.name}" sortable="false"
+               headerText="#{bindings.Capacitaciones1.hints.Rut.label}" id="c1">
+      <af:inputText value="#{row.bindings.Rut.inputValue}" label="#{bindings.Capacitaciones1.hints.Rut.label}"
+                    required="#{bindings.Capacitaciones1.hints.Rut.mandatory}"
+                    columns="#{bindings.Capacitaciones1.hints.Rut.displayWidth}"
+                    maximumLength="#{bindings.Capacitaciones1.hints.Rut.precision}"
+                    shortDesc="#{bindings.Capacitaciones1.hints.Rut.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.Rut.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.Capacitaciones1.hints.Dia.name}" sortable="false"
+               headerText="#{bindings.Capacitaciones1.hints.Dia.label}" id="c2">
+      <af:inputText value="#{row.bindings.Dia.inputValue}" label="#{bindings.Capacitaciones1.hints.Dia.label}"
+                    required="#{bindings.Capacitaciones1.hints.Dia.mandatory}"
+                    columns="#{bindings.Capacitaciones1.hints.Dia.displayWidth}"
+                    maximumLength="#{bindings.Capacitaciones1.hints.Dia.precision}"
+                    shortDesc="#{bindings.Capacitaciones1.hints.Dia.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.Dia.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.Capacitaciones1.hints.Turno.name}" sortable="false"
+               headerText="#{bindings.Capacitaciones1.hints.Turno.label}" id="c3">
+      <af:inputText value="#{row.bindings.Turno.inputValue}" label="#{bindings.Capacitaciones1.hints.Turno.label}"
+                    required="#{bindings.Capacitaciones1.hints.Turno.mandatory}"
+                    columns="#{bindings.Capacitaciones1.hints.Turno.displayWidth}"
+                    maximumLength="#{bindings.Capacitaciones1.hints.Turno.precision}"
+                    shortDesc="#{bindings.Capacitaciones1.hints.Turno.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.Turno.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

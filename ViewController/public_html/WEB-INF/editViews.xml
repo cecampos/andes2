@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="editViews">
-    <default-activity>methodCall1</default-activity>
+    <default-activity>router1</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <data-control-scope>
+      <isolated/>
+    </data-control-scope>
+    <input-parameter-definition id="__12">
+      <name>selectedTableEditView</name>
+      <value>#{pageFlowScope.EditarBean.getSelectedTable}</value>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name>EditarBean</managed-bean-name>
+      <managed-bean-class>Andes2.view.managedBeans.EditarBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+      <managed-property id="__5">
+        <property-name>selectedTable</property-name>
+        <value>#{EditarBean.selectedTable}</value>
+      </managed-property>
+    </managed-bean>
     <view id="editVacaciones">
       <page>/editVacaciones.jsff</page>
     </view>
-    <method-call id="methodCall1">
-      <method>#{EditarBean.getSelectedTable}</method>
-      <outcome>
-        <to-string/>
-      </outcome>
-    </method-call>
-    <control-flow-rule id="__1">
-      <from-activity-id>methodCall1</from-activity-id>
-      <control-flow-case id="__2">
+    <view id="editCargos"></view>
+    <view id="editCapacitaciones"></view>
+    <view id="editEmpleados"></view>
+    <view id="editCapacity"></view>
+    <view id="editCapacityHora"></view>
+    <view id="editDemandaSkill"></view>
+    <view id="editCoAsignacion"></view>
+    <router id="router1">
+      <case id="__6">
+        <expression>#{pageFlowScope.EditarBean.selectedTable == "Vacaciones"}</expression>
+        <outcome>vacaciones</outcome>
+      </case>
+    </router>
+    <control-flow-rule id="__10">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>vacaciones</from-outcome>
         <to-activity-id>editVacaciones</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

@@ -14,7 +14,7 @@
                                 <af:selectOneChoice label="Tablas" id="soc1" binding="#{EditarBean.asdf}">
                                     <af:selectItem label="Vacaciones" value="Vacaciones" id="si1"/>
                                 </af:selectOneChoice>
-                                <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"/>
+                                <af:region value="#{bindings.editViews1.regionModel}" id="r1"/>
                                 <af:goButton text="Paso Anterior" id="gb2" destination="/faces/FileUpload.jsf"/>
                                 <af:goButton text="Siguiente Paso" id="gb1" destination="/faces/RevisarDatos.jsf"/>
                             </af:panelGroupLayout>
