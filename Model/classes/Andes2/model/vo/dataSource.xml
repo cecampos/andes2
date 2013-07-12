@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="dataSource"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   ClearCacheOnRollback="true">
   <ViewUsage
     Name="RosterView1"
@@ -40,12 +40,36 @@
     Name="RestriccionAsignacion1"
     ViewObjectName="Andes2.model.vo.RestriccionAsignacion"/>
   <ViewUsage
-    Name="DatosSkills1"
-    ViewObjectName="Andes2.model.vo.DatosSkills"/>
+    Name="Capacitaciones2Edit"
+    ViewObjectName="Andes2.model.vo.Capacitaciones"/>
   <ViewUsage
-    Name="CargoList1"
-    ViewObjectName="Andes2.model.vo.CargoList"/>
+    Name="GruposEOView1"
+    ViewObjectName="Andes2.model.vo.GruposEOView"/>
+  <ViewUsage
+    Name="RegimenDeTrabajoView1"
+    ViewObjectName="Andes2.model.vo.RegimenDeTrabajoView"/>
   <ViewUsage
     Name="CargosView1"
     ViewObjectName="Andes2.model.vo.CargosView"/>
+  <ViewUsage
+    Name="TurnosEditView1"
+    ViewObjectName="Andes2.model.vo.TurnosEditView"/>
+  <ViewUsage
+    Name="ListaSkillEditView1"
+    ViewObjectName="Andes2.model.vo.ListaSkillEditView"/>
+  <ViewUsage
+    Name="TurnosFijadosView1"
+    ViewObjectName="Andes2.model.vo.TurnosFijadosView"/>
+  <ViewUsage
+    Name="TurnosRestriccionesView1"
+    ViewObjectName="Andes2.model.vo.TurnosRestriccionesView"/>
+  <ViewUsage
+    Name="CoAsignacionEditView1"
+    ViewObjectName="Andes2.model.vo.CoAsignacionEditView"/>
+  <ViewUsage
+    Name="ViewObj1"
+    ViewObjectName="Andes2.model.vo.ViewObj"/>
+  <ViewUsage
+    Name="ViewObj2_1"
+    ViewObjectName="Andes2.model.vo.ViewObj2"/>
 </AppModule>

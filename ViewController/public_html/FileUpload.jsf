@@ -14,7 +14,7 @@
                                 <af:panelGroupLayout id="pgl5" layout="horizontal" styleClass="AFStretchWidth">
                                     <af:outputText value="Seleccione Archivos a cargar en el sistema" id="ot10"
                                                    inlineStyle="font-size:14px; font-style:normal; font-weight:bolder; margin:10px;"/>
-                                    <af:outputText value="Mes: 05/2013" id="ot11"
+                                    <af:outputText value="Mes: 08/2013" id="ot11"
                                                    inlineStyle="text-align:right; color:MenuText; font-weight:bolder; font-size:12px;"/>
                                 </af:panelGroupLayout>
                                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="275"
@@ -41,9 +41,9 @@
                                                                                   simple="true"/>
                                                         <af:outputText id="ot1"
                                                                        inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                                       partialTriggers="grupos"
+                                                                       partialTriggers="coasignacion"
                                                                        binding="#{FilUpdBean.grupoOT}"/>
-                                                        <af:inputFile label="Grupos" id="grupos" autoSubmit="true"
+                                                        <af:inputFile label="Coasignación" id="coasignacion" autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
                                                                       labelStyle="width: 80px; font-size: small;"/>

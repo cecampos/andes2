@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="EmpladosSkill"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="EMPLADOS_SKILL"
   AliasName="EmpladosSkill"
@@ -54,6 +54,19 @@
     ColumnType="ROWID"
     TableName="EMPLADOS_SKILL"
     PrimaryKey="true"/>
+  <Attribute
+    Name="SkllId"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="SKLL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EMPLADOS_SKILL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Empleados"
     Association="Andes2.model.EmsklFkEmplAssoc"

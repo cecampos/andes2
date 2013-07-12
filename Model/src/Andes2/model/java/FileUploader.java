@@ -52,8 +52,10 @@ public class FileUploader {
                 uploadSkills(reader);
             else if(fileCase.equals("demandaSkills"))
                 uploadDemandaSkills(reader,(String)dataPair[1]);
-            else if(fileCase.equals("grupos"))
+            else if(fileCase.equals("coasignacion"))
                 uploadGrupos(reader);
+            else if(fileCase.equals("capacityTurno"))
+                uploadCapacityTurno(reader,(String)dataPair[1]);
                 
 
 
@@ -116,11 +118,12 @@ public class FileUploader {
                 insertSQL = insertSQL+" incoming."+colNames[i];
                 }
             insertSQL = insertSQL+")";
-            
+            System.out.println(insertSQL);
             PreparedStatement st = null;
             try {
                 st = con.prepareStatement(insertSQL);
             } catch (SQLException e) {
+                System.err.println("Error en metodo prepareInsertUpdate");
                 e.printStackTrace();
             }
             return st;
@@ -156,9 +159,14 @@ public class FileUploader {
 			SQL.execute();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-                        System.out.println(e);
-		}
+			//e.printStackTrace();
+                        //System.out.println(e);
+                        String error="Error en Carga de archivos, informacion:";
+                        for(int i=0; i<colTypes.length;i++){
+                                error+=dataRow[i]+";";
+                        }
+                        System.err.println(error);
+            }
 
 	}
 
@@ -182,7 +190,7 @@ public class FileUploader {
         try {
             while ((actualLine = reader.readLine()) != null)   {
                 //Saltarse Lineas de comentarios:
-                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
                         continue;
                 String[] rowTokens = actualLine.split(";");
                 String[] dataRow = {rowTokens[0],rowTokens[2]};
@@ -220,7 +228,7 @@ public class FileUploader {
         try {
             while ((actualLine = reader.readLine()) != null)   {
                 //Saltarse Lineas de comentarios:
-                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
                         continue;
                 separator = new StringTokenizer(actualLine,";");
                 dataRow = new String[5];
@@ -288,10 +296,10 @@ public class FileUploader {
         try {
             while ((actualLine = reader.readLine()) != null)   {
                 //Saltarse Lineas de comentarios:
-                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
                         continue;
                 separator = new StringTokenizer(actualLine,";");
-                dataRow = new String[5];
+                dataRow = new String[colNames.length];
                 for(int i=0;i<dataRow.length;i++){
                     try{
                         dataRow[i] = separator.nextToken();
@@ -301,7 +309,7 @@ public class FileUploader {
                         dataRow[i] = "";
                     }
                 }
-                dataRow[4] = "0";
+                dataRow[colNames.length -1] = "0";
                 saveRecord(SQL,colTypes,dataRow);
             }
         }
@@ -324,12 +332,6 @@ public class FileUploader {
     
     private void uploadSkills(BufferedReader reader){
         /*TODO: Carga en empleados skills,
-         * */
-        
-        
-        }
-    
-    private void uploadGrupos(BufferedReader reader){
         /*TODO : De este archivo sale CoAsignacion y Grupos
          * Avergiaur como realizarlo :S
          * */
@@ -338,8 +340,8 @@ public class FileUploader {
         
 
         
-        String tableName="coasignacion";
-        String[] colNames ={"EMPL_RUT","GRPO_NOMBRE","COAG_FECHA","COAG_VERSION"};
+        String tableName="empleados_skill";
+        String[] colNames ={"EMPL_RUT","SKLL_ID","SKLL_FECHA","SKLL_VERSION"};
         String[] colTypes = {"String","String","Date","int"};
         
         PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
@@ -347,7 +349,7 @@ public class FileUploader {
         try {
             while ((actualLine = reader.readLine()) != null)   {
                 //Saltarse Lineas de comentarios:
-                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
                         continue;
                 //System.out.println(actualLine);
                 separator = new StringTokenizer(actualLine,";");
@@ -375,7 +377,63 @@ public class FileUploader {
         }
         try {
                 reader.close();
-                newUpldFileRecord("vacaciones");
+                newUpldFileRecord("skills");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }   
+                
+        
+        }
+    
+    private void uploadGrupos(BufferedReader reader){
+        /*TODO : De este archivo sale CoAsignacion y Grupos
+         * Avergiaur como realizarlo :S
+         * */
+        String actualLine;
+        StringTokenizer separator = null;
+        
+
+        
+        String tableName="coasignacion";
+        String[] colNames ={"EMPL_RUT","GRPO_NOMBRE","COAG_FECHA","COAG_VERSION"};
+        String[] colTypes = {"String","String","Date","int"};
+        
+        PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
+                        continue;
+                //System.out.println(actualLine);
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[4];
+                for(int i=0;i<2;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                SimpleDateFormat formatAux = new SimpleDateFormat("dd/MM/yyyy");
+                dataRow[2]=formatAux.format(Calendar.getInstance().getTime());
+                dataRow[3]="0"; 
+                    
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("coasignacion");
                 //con.close();
         } catch (Exception e) {
                 // TODO Auto-generated catch block
@@ -411,7 +469,7 @@ public class FileUploader {
         try {
             while ((actualLine = reader.readLine()) != null)   {
                 //Saltarse Lineas de comentarios:
-                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
                         continue;
                 separator = new StringTokenizer(actualLine,";");
                 dataRow = new String[5];
@@ -459,11 +517,12 @@ public class FileUploader {
          * */
         
         PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
+        
         String[] dataRow = null;
         try {
             while ((actualLine = reader.readLine()) != null)   {
                 //Saltarse Lineas de comentarios:
-                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
                         continue;
                 System.out.println(actualLine);
                 separator = new StringTokenizer(actualLine,";");
@@ -509,7 +568,7 @@ public class FileUploader {
         try {
             while ((actualLine = reader.readLine()) != null)   {
                 //Saltarse Lineas de comentarios:
-                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("﻿#"))
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
                         continue;
                 separator = new StringTokenizer(actualLine,";");
                 dataRow = new String[separator.countTokens()];
@@ -528,7 +587,7 @@ public class FileUploader {
         }
         catch (Exception e) {
             // TODO Auto-generated catch block
-            System.out.println("Error leyendo el archivo de input");
+            System.out.println("Error leyendo el archivo de input en Capacitacion");
             e.printStackTrace();
         }
         try {
@@ -541,6 +600,55 @@ public class FileUploader {
         }   
     }
 
+    private void uploadCapacityTurno(BufferedReader reader,String mes){
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="capacity_turno";
+        String[] colNames ={"CRGO_ID","TURN_NOMBRE","CAPT_FECHA","CAPT_REQUERIMIENTO","CAPT_VERSION"};
+        String[] colTypes = {"String","String","Date","int","int"};
+        
+        /*TODO: Borrar todos los registros de la base de datos de este mes*/
+        deleteAllFromMonth(tableName,"CAPT_FECHA",mes);
+        
+        
+        PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
+
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[colNames.length];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                dataRow[colNames.length -1] = "0";
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("capacity_turno");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+        
+    }    
     private void newUpldFileRecord(String fileName) {
         //Inserta en la tabla archivos subidos un nuevo registro.
         String tableName="archivos_subidos";

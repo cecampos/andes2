@@ -30,6 +30,7 @@
                                     <af:selectItem label="Co-Asignaciones" id="si13" value="CoAsignacion"/>
                                     <af:selectItem label="Turnos Prohibidos" id="si14" value="TurnosProhibidos"/>
                                     <af:selectItem label="Turnos Fijados" id="si15" value="TurnosFijados"/>
+                                    <af:selectItem label="Skill de Empleados" id="si16" value="SkillEmpleados"/>
                                 </af:selectOneChoice>
                                 <af:region value="#{bindings.editViews1.regionModel}" id="r1"
                                            inlineStyle="width:auto; height:400px;"/>

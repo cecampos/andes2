@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="Andes2.model.andes2">
-      <AppModuleConfig name="13EE74D4371" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DBconnection="java:comp/env/jdbc/devDS" IsLazyLoadingTrue="true" JDBCName="dev" jbo.project="Andes2.model.Model" BC4JConfigName="andes2Local" DeployPlatform="LOCAL" ApplicationName="Andes2.model.andes2">
-         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="OracleApps"/>
+      <AppModuleConfig name="13FD323FFC3" DBconnection="java:comp/env/jdbc/devDS" ApplicationName="Andes2.model.andes2" DeployPlatform="LOCAL" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="dev" BC4JConfigName="andes2Local" jbo.project="Andes2.model.Model">
+         <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps" jbo.SQLBuilder="Oracle"/>
          <Security AppModuleJndiName="Andes2.model.andes2"/>
          <Tester FullProxyInterfaceName="Andes2.model.common.andes2"/>
          <Custom LastUsedConfiguration="andes2Local" JDBCDataSource="java:comp/env/jdbc/devDS"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
    <AppModuleConfigBag ApplicationName="Andes2.model.vo.dataSource">
-      <AppModuleConfig name="13FA0FFED96" DBconnection="java:comp/env/jdbc/devDS" ApplicationName="Andes2.model.vo.dataSource" DeployPlatform="LOCAL" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="dev" BC4JConfigName="dataSourceLocal" jbo.project="Andes2.model.Model">
+      <AppModuleConfig name="13FD44E4897" DBconnection="java:comp/env/jdbc/devDS" ApplicationName="Andes2.model.vo.dataSource" DeployPlatform="LOCAL" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="dev" BC4JConfigName="dataSourceLocal" jbo.project="Andes2.model.Model">
          <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps" jbo.SQLBuilder="Oracle"/>
          <Security AppModuleJndiName="Andes2.model.vo.dataSource"/>
          <Tester FullProxyInterfaceName="Andes2.model.vo.common.dataSource"/>

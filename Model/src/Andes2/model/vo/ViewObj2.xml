@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ViewObj2"
+  Version="11.1.2.64.36"
+  SelectList="EmpladosSkill.EMPL_RUT, 
+       EmpladosSkill.ROWID, 
+       Empleados.EMPL_NOMBRE, 
+       Empleados.EMPL_RUT AS EMPL_RUT1, 
+       EmpladosSkill.SKLL_ID"
+  FromList="EMPLADOS_SKILL EmpladosSkill, EMPLEADOS Empleados"
+  Where="EmpladosSkill.EMPL_RUT = Empleados.EMPL_RUT"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  ComponentClass="Andes2.model.vo.ViewObj2Impl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.ViewObj2_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="EmpladosSkill"
+    Entity="Andes2.model.EmpladosSkill"/>
+  <EntityUsage
+    Name="Empleados"
+    Entity="Andes2.model.Empleados"
+    Association="Andes2.model.EmsklFkEmplAssoc"
+    AssociationEnd="Andes2.model.EmsklFkEmplAssoc.Empleados"
+    SourceUsage="Andes2.model.vo.ViewObj2.EmpladosSkill"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Andes2.model.EmpladosSkill.EmplRut"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Andes2.model.Empleados.EmplRut"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="EmpladosSkill"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="EmpladosSkill"
+    AliasName="ROWID"/>
+  <ViewAttribute
+    Name="EmplNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplNombre"
+    EntityUsage="Empleados"
+    AliasName="EMPL_NOMBRE"/>
+  <ViewAttribute
+    Name="EmplRut1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="Empleados"
+    AliasName="EMPL_RUT1"/>
+  <ViewAttribute
+    Name="SkllId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkllId"
+    EntityUsage="EmpladosSkill"
+    AliasName="SKLL_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Rowid"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

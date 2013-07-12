@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ViewObj"
+  Version="11.1.2.64.36"
+  SelectList="Empleados.EMPL_RUT, 
+       Empleados.EMPL_NOMBRE, 
+       ContratoEmpleados.CRGO_ID AS CRGO_ID1, 
+       Cargo.CRGO_NOMBRE, 
+       ContratoEmpleados.ROWID AS ROWID1, 
+       Cargo.CRGO_ID"
+  FromList="EMPLEADOS Empleados, CONTRATO_EMPLEADOS ContratoEmpleados, CARGO Cargo"
+  Where="(Empleados.EMPL_RUT = ContratoEmpleados.EMPL_RUT) AND (ContratoEmpleados.CRGO_ID = Cargo.CRGO_ID)"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  ComponentClass="Andes2.model.vo.ViewObjImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.ViewObj_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="Empleados"
+    Entity="Andes2.model.Empleados"/>
+  <EntityUsage
+    Name="ContratoEmpleados"
+    Entity="Andes2.model.ContratoEmpleados"
+    Association="Andes2.model.CntrFkEmplAssoc"
+    AssociationEnd="Andes2.model.CntrFkEmplAssoc.ContratoEmpleados"
+    SourceUsage="Andes2.model.vo.ViewObj.Empleados"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Andes2.model.Empleados.EmplRut"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Andes2.model.ContratoEmpleados.EmplRut"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Cargo"
+    Entity="Andes2.model.Cargo"
+    Association="Andes2.model.CntrFkCrgoAssoc"
+    AssociationEnd="Andes2.model.CntrFkCrgoAssoc.Cargo"
+    SourceUsage="Andes2.model.vo.ViewObj.ContratoEmpleados"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="Andes2.model.ContratoEmpleados.CrgoId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="Andes2.model.Cargo.CrgoId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="Empleados"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="EmplNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplNombre"
+    EntityUsage="Empleados"
+    AliasName="EMPL_NOMBRE"/>
+  <ViewAttribute
+    Name="CrgoId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="ContratoEmpleados"
+    AliasName="CRGO_ID1"/>
+  <ViewAttribute
+    Name="CrgoNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoNombre"
+    EntityUsage="Cargo"
+    AliasName="CRGO_NOMBRE"/>
+  <ViewAttribute
+    Name="Rowid1"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="ContratoEmpleados"
+    AliasName="ROWID1"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="Cargo"
+    AliasName="CRGO_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="EmplRut"/>
+    <Item Value="CrgoId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

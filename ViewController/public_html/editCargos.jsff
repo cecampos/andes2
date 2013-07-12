@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
+  <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" disabled="#{!bindings.Commit.enabled}"
+                    id="cb1"/>
   <af:table value="#{bindings.CargosView1.collectionModel}" var="row" rows="#{bindings.CargosView1.rangeSize}"
             emptyText="#{bindings.CargosView1.viewable ? 'No data to display.' : 'Access Denied.'}"
             fetchSize="#{bindings.CargosView1.rangeSize}" rowBandingInterval="0"

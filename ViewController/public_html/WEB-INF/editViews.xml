@@ -81,6 +81,10 @@
         <expression>#{editBean.selected == 'CapacitySkills'}</expression>
         <outcome>CapacitySkills</outcome>
       </case>
+      <case id="__23">
+        <expression>#{editBean.selected == 'SkillEmpleados'}</expression>
+        <outcome>SkillEmpleados</outcome>
+      </case>
       <default-outcome>default</default-outcome>
     </router>
     <view id="Default">
@@ -128,6 +132,9 @@
     </view>
     <view id="editCapacitySkills">
       <page>/editCapacitySkills.jsff</page>
+    </view>
+    <view id="editSkillEmpleados">
+      <page>/editSkillEmpleados.jsff</page>
     </view>
     <control-flow-rule id="__1">
       <from-activity-id>methodCall1</from-activity-id>
@@ -196,6 +203,10 @@
       <control-flow-case id="__37">
         <from-outcome>CapacitySkills</from-outcome>
         <to-activity-id>editCapacitySkills</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>SkillEmpleados</from-outcome>
+        <to-activity-id>editSkillEmpleados</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
