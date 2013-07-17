@@ -32,12 +32,12 @@
                                     <af:selectItem label="Turnos Fijados" id="si15" value="TurnosFijados"/>
                                     <af:selectItem label="Skill de Empleados" id="si16" value="SkillEmpleados"/>
                                 </af:selectOneChoice>
+                                <af:goButton text="Paso Anterior" id="gb2" destination="/faces/FileUpload.jsf"/>
+                                <af:goButton text="Siguiente Paso" id="gb1" destination="/faces/RevisarDatos.jsf"/>
                                 <af:region value="#{bindings.editViews1.regionModel}" id="r1"
                                            inlineStyle="width:auto; height:400px;"/>
                                 <af:outputText id="ot1"
                                                partialTriggers="soc1" binding="#{editBean.selectedOption}"/>
-                                <af:goButton text="Paso Anterior" id="gb2" destination="/faces/FileUpload.jsf"/>
-                                <af:goButton text="Siguiente Paso" id="gb1" destination="/faces/RevisarDatos.jsf"/>
                             </af:panelGroupLayout>
                         </af:showDetailItem>
                         <af:showDetailItem text="Revisar Datos" id="sdi5" disabled="true"/>

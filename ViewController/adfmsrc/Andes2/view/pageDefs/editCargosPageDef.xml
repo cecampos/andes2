@@ -4,7 +4,8 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="CargosView1" RangeSize="25" DataControl="dataSourceDataControl" id="CargosView1Iterator"/>
+    <iterator Binds="CargosView1" RangeSize="25" DataControl="dataSourceDataControl" id="CargosView1Iterator"
+              ChangeEventPolicy="ppr"/>
     <searchRegion Binds="CargosView1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="CargosView1Query"/>
   </executables>
@@ -18,5 +19,22 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="dataSourceDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="dataSourceDataControl"/>
+    <attributeValues IterBinding="CargosView1Iterator" id="CrgoId">
+      <AttrNames>
+        <Item Value="CrgoId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CargosView1Iterator" id="CrgoNombre">
+      <AttrNames>
+        <Item Value="CrgoNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CargosView1Iterator" id="CrgoMetaCargo">
+      <AttrNames>
+        <Item Value="CrgoMetaCargo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
