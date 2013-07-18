@@ -10,7 +10,7 @@
   </executables>
   <bindings>
     <tree IterBinding="Requerimientos1Iterator" id="Requerimientos1">
-      <nodeDefinition DefName="Andes2.model.vo.Requerimientos" Name="Requerimientos10">
+      <nodeDefinition DefName="Andes2.model.vo.CapacityTurno" Name="Requerimientos10">
         <AttrNames>
           <Item Value="Dia"/>
           <Item Value="Turno"/>

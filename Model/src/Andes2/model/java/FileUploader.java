@@ -56,6 +56,8 @@ public class FileUploader {
                 uploadGrupos(reader);
             else if(fileCase.equals("capacityTurno"))
                 uploadCapacityTurno(reader,(String)dataPair[1]);
+            else if(fileCase.equals("turnosFijos"))
+                uploadTurnosFijos(reader,(String)dataPair[1]);
                 
 
 
@@ -609,11 +611,63 @@ public class FileUploader {
         String actualLine;
         StringTokenizer separator = null;
         String tableName="capacity_turno";
-        String[] colNames ={"CRGO_ID","TURN_NOMBRE","CAPT_FECHA","CAPT_REQUERIMIENTO","CAPT_VERSION"};
-        String[] colTypes = {"String","String","Date","int","int"};
-        
+        //String[] colNames ={"CRGO_ID","TURN_NOMBRE","CAPT_FECHA","CAPT_REQUERIMIENTO","CAPT_VERSION"};
+        //String[] colTypes = {"String","String","Date","int","int"};
+        String[] colNames ={"CAPT_FECHA", "CRGO_ID","TURN_NOMBRE","CAPT_REQUERIMIENTO","CAPT_COBERTURA_MINIMA","CAPT_VERSION"};
+        String[] colTypes = {"Date","String","String","int","int","int"};
+                
         /*TODO: Borrar todos los registros de la base de datos de este mes*/
         deleteAllFromMonth(tableName,"CAPT_FECHA",mes);
+        
+        
+        PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
+
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[colNames.length];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                dataRow[colNames.length -2] = "0";
+                dataRow[colNames.length -1] = "0";
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("capacityTurno");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+        
+    }    
+    private void uploadTurnosFijos(BufferedReader reader,String mes){
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="fijar_asignacion";
+        String[] colNames ={"EMPL_RUT","FJAR_FECHA_INICIO","FJAR_FECHA_TERMINO","TURN_NOMBRE","FJAR_VERSION"};
+        String[] colTypes = {"String","Date","Date","String","int"};
+                
+        /*TODO: Borrar todos los registros de la base de datos de este mes*/
+        deleteAllFromMonth(tableName,"FJAR_FECHA_INICIO",mes);
         
         
         PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
@@ -646,7 +700,7 @@ public class FileUploader {
         }
         try {
                 reader.close();
-                newUpldFileRecord("capacity_turno");
+                newUpldFileRecord("turnosFijos");
                 //con.close();
         } catch (Exception e) {
                 // TODO Auto-generated catch block
@@ -654,6 +708,7 @@ public class FileUploader {
         }           
         
     }    
+    
     private void newUpldFileRecord(String fileName) {
         //Inserta en la tabla archivos subidos un nuevo registro.
         String tableName="archivos_subidos";

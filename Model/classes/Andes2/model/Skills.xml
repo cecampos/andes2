@@ -63,6 +63,13 @@
     AssociationOtherEnd="Andes2.model.SkllFkCrgoAssoc.Skills"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="EmpleadosSkill"
+    Association="Andes2.model.EmskFkSkllAssoc"
+    AssociationEnd="Andes2.model.EmskFkSkllAssoc.EmpleadosSkill"
+    AssociationOtherEnd="Andes2.model.EmskFkSkllAssoc.Skills"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SkllPk"
     PrimaryKey="true">
