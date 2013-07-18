@@ -19,5 +19,25 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="ListaSkillEditView1Iterator" id="SkllId">
+      <AttrNames>
+        <Item Value="SkllId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ListaSkillEditView1Iterator" id="CrgoId">
+      <AttrNames>
+        <Item Value="CrgoId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ListaSkillEditView1Iterator" id="SkllNombre">
+      <AttrNames>
+        <Item Value="SkllNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="dataSourceDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="dataSourceDataControl"/>
+    <action IterBinding="ListaSkillEditView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="ListaSkillEditView1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
   </bindings>
 </pageDefinition>

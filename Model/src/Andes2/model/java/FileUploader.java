@@ -176,8 +176,8 @@ public class FileUploader {
         String actualLine;
         StringTokenizer separator = null;
         String tableName="empleados";
-        String[] colNames ={"EMPL_RUT","EMPL_NOMBRE"};
-        String[] colTypes = {"String","String"};
+        String[] colNames ={"EMPL_RUT","EMPL_NOMBRE", "EMPL_BP"};
+        String[] colTypes = {"String","String","String"};
         
         PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
         
@@ -186,16 +186,17 @@ public class FileUploader {
         String[] colNames2 = {"EMPL_RUT","RGTR_SEQ_CDG","CRGO_ID","CNTR_MES","CNTR_VERSION"};
         String[] colTypes2 = {"String","int","String","date","int"};
         PreparedStatement SQL2 = prepareInsertUpdate(con,colNames2,table2);
-
+        //formato archivo de entrada
+        //RUT;BP;CARGO;NOMBRE;RGTR
         try {
             while ((actualLine = reader.readLine()) != null)   {
                 //Saltarse Lineas de comentarios:
                 if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
                         continue;
                 String[] rowTokens = actualLine.split(";");
-                String[] dataRow = {rowTokens[0],rowTokens[2]};
+                String[] dataRow = {rowTokens[0],rowTokens[3], rowTokens[1]};
                 String month = new SimpleDateFormat("dd/MM/yyyy").format(Calendar.getInstance().getTime());
-                String[] dataRow2 = {rowTokens[0],rowTokens[3],rowTokens[1],month,"0"};
+                String[] dataRow2 = {rowTokens[0],rowTokens[4],rowTokens[2],month,"0"};
                 saveRecord(SQL,colTypes,dataRow);
                 saveRecord(SQL2,colTypes2,dataRow2);
             }
@@ -283,8 +284,11 @@ public class FileUploader {
         String actualLine;
         StringTokenizer separator = null;
         String tableName="demanda_skill";
-        String[] colNames ={"SKLL_ID","TURN_NOMBRE","DDSK_FECHA","DDSK_REQUERIMIENTO","DDSK_VERSION"};
-        String[] colTypes = {"String","String","Date","int","int"};
+        //String[] colNames ={"SKLL_ID","TURN_NOMBRE","DDSK_FECHA","DDSK_REQUERIMIENTO","DDSK_VERSION"};
+        //String[] colTypes = {"String","String","Date","int","int"};
+        String[] colNames ={"DDSK_FECHA","TURN_NOMBRE","SKLL_ID","DDSK_REQUERIMIENTO","DDSK_VERSION"};
+        String[] colTypes = {"Date","String","String","int","int"};
+        
         
         /*TODO: Borrar todos los registros de la base de datos de este mes*/
         deleteAllFromMonth(tableName,"DDSK_FECHA",mes);
@@ -341,7 +345,7 @@ public class FileUploader {
 
         
         String tableName="empleados_skill";
-        String[] colNames ={"EMPL_RUT","SKLL_ID","SKLL_FECHA","SKLL_VERSION"};
+        String[] colNames ={"EMPL_RUT","SKLL_ID","EMSK_FECHA","EMSK_VERSION"};
         String[] colTypes = {"String","String","Date","int"};
         
         PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
@@ -354,6 +358,7 @@ public class FileUploader {
                 //System.out.println(actualLine);
                 separator = new StringTokenizer(actualLine,";");
                 dataRow = new String[4];
+                
                 for(int i=0;i<2;i++){
                     try{
                         dataRow[i] = separator.nextToken();

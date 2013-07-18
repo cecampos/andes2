@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Empleados"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="EMPLEADOS"
   AliasName="Empleados"
@@ -26,7 +26,6 @@
   </Attribute>
   <Attribute
     Name="EmplNombre"
-    IsNotNull="true"
     Precision="60"
     ColumnName="EMPL_NOMBRE"
     SQLType="VARCHAR"
@@ -37,6 +36,15 @@
       <Attr Name="_DisplaySize" Value="60"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="EmplBp"
+    IsNotNull="true"
+    ColumnName="EMPL_BP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EMPLEADOS"
+    Precision="60"/>
   <AccessorAttribute
     Name="Vacaciones"
     Association="Andes2.model.VccnFkEmplAssoc"

@@ -4,7 +4,7 @@
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="RtagAsignacionFkTurnAssoc"
-  Version="11.1.2.62.76">
+  Version="11.1.2.64.36">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
@@ -16,7 +16,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="Turnos"/>
-      <Attr Name="_foreignKey" Value="Andes2.model.Turnos.TurnPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
@@ -31,7 +30,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="RestriccionAsignacion"/>
-      <Attr Name="_foreignKey" Value="Andes2.model.RestriccionAsignacion.RtagAsignacionFkTurn"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

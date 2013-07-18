@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="RegimenTrabajo"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="REGIMEN_TRABAJO"
   AliasName="RegimenTrabajo"
@@ -50,6 +50,25 @@
   <Attribute
     Name="RgtrFinesSemanaLibres"
     ColumnName="RGTR_FINES_SEMANA_LIBRES"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="REGIMEN_TRABAJO"/>
+  <Attribute
+    Name="RgtrNombre"
+    Precision="20"
+    ColumnName="RGTR_NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="REGIMEN_TRABAJO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RgtrDomingosLibres"
+    ColumnName="RGTR_DOMINGOS_LIBRES"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"

@@ -39,7 +39,7 @@
                                                         <af:selectBooleanCheckbox rendered="false" text="Grupos"
                                                                                   label="Label 1" id="sbc2"
                                                                                   simple="true"/>
-                                                        <af:outputText id="ot1"
+                                                        <af:outputText id="grupoOT"
                                                                        inlineStyle="text-align:right; font-weight:bold; padding:10px;"
                                                                        partialTriggers="coasignacion"
                                                                        binding="#{FilUpdBean.grupoOT}"/>

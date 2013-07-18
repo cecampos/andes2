@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Skills"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="SKILLS"
   AliasName="Skills"
@@ -63,20 +63,15 @@
     AssociationOtherEnd="Andes2.model.SkllFkCrgoAssoc.Skills"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="EmpladosSkill"
-    Association="Andes2.model.EmskFkSkllAssoc"
-    AssociationEnd="Andes2.model.EmskFkSkllAssoc.EmpladosSkill"
-    AssociationOtherEnd="Andes2.model.EmskFkSkllAssoc.Skills"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
   <Key
     Name="SkllPk"
     PrimaryKey="true">
     <DesignTime>
       <Attr Name="_DBObjectName" Value="SKLL_PK"/>
     </DesignTime>
-    <AttrArray Name="Attributes"/>
+    <AttrArray Name="Attributes">
+      <Item Value="Andes2.model.Skills.SkllId"/>
+    </AttrArray>
   </Key>
   <Key
     Name="SkllFkCrgo">

@@ -25,12 +25,12 @@
   </Attribute>
   <Attribute
     Name="SkllSeqCdg"
-    IsNotNull="true"
-    ColumnName="SKLL_SEQ_CDG"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="EMPLADOS_SKILL"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="SkllFecha"
     ColumnName="SKLL_FECHA"
@@ -74,33 +74,4 @@
     AssociationOtherEnd="Andes2.model.EmsklFkEmplAssoc.EmpladosSkill"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="Skills"
-    Association="Andes2.model.EmskFkSkllAssoc"
-    AssociationEnd="Andes2.model.EmskFkSkllAssoc.Skills"
-    AssociationOtherEnd="Andes2.model.EmskFkSkllAssoc.EmpladosSkill"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
-  <Key
-    Name="EmskFkSkll">
-    <DesignTime>
-      <Attr Name="_referencedKey" Value="SKLL_PK"/>
-      <Attr Name="_isForeign" Value="true"/>
-      <Attr Name="_DBObjectName" Value="EMSK_FK_SKLL"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.EmpladosSkill.SkllSeqCdg"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="EmsklFkEmpl">
-    <DesignTime>
-      <Attr Name="_referencedKey" Value="EMPL_PK"/>
-      <Attr Name="_isForeign" Value="true"/>
-      <Attr Name="_DBObjectName" Value="EMSKL_FK_EMPL"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.EmpladosSkill.EmplRut"/>
-    </AttrArray>
-  </Key>
 </Entity>

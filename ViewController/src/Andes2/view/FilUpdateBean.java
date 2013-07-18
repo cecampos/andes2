@@ -91,7 +91,7 @@ public class FilUpdateBean {
         //nombreArchivo_MM_YYYY
         for(int i=0; i<datosArchivos.length;i++){
             datosArchivos[i] = tokenizador.nextToken();    
-            //System.out.println(i+":"+datosArchivos[i]);
+            System.out.println(i+":"+datosArchivos[i]);
         }
                 
         

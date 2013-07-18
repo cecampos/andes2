@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="CapacityTurno"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="CAPACITY_TURNO"
   AliasName="CapacityTurno"
@@ -25,12 +25,12 @@
   </Attribute>
   <Attribute
     Name="TurnSeqCdg"
-    IsNotNull="true"
-    ColumnName="TURN_SEQ_CDG"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="CAPACITY_TURNO"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="CaptFecha"
     IsNotNull="true"
@@ -49,12 +49,12 @@
     TableName="CAPACITY_TURNO"/>
   <Attribute
     Name="CaptMes"
-    IsNotNull="true"
-    ColumnName="CAPT_MES"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
-    TableName="CAPACITY_TURNO"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="CaptVersion"
     ColumnName="CAPT_VERSION"
@@ -71,6 +71,26 @@
     ColumnType="ROWID"
     TableName="CAPACITY_TURNO"
     PrimaryKey="true"/>
+  <Attribute
+    Name="TurnNombre"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="TURN_NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CAPACITY_TURNO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CaptCoberturaMinima"
+    ColumnName="CAPT_COBERTURA_MINIMA"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="CAPACITY_TURNO"/>
   <AccessorAttribute
     Name="Cargo"
     Association="Andes2.model.CptnFkCrgoAssoc"
@@ -86,6 +106,17 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
+    Name="CaptFkTurn">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="TURNOS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CAPT_FK_TURN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="Andes2.model.CapacityTurno.TurnNombre"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="CptnFkCrgo">
     <DesignTime>
       <Attr Name="_referencedKey" Value="CRGO_PK"/>
@@ -94,17 +125,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="Andes2.model.CapacityTurno.CrgoId"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="CptnFkTurn">
-    <DesignTime>
-      <Attr Name="_referencedKey" Value="TURN_PK"/>
-      <Attr Name="_isForeign" Value="true"/>
-      <Attr Name="_DBObjectName" Value="CPTN_FK_TURN"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.CapacityTurno.TurnSeqCdg"/>
     </AttrArray>
   </Key>
 </Entity>
