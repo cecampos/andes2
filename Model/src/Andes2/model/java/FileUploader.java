@@ -15,6 +15,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Time;
+
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import java.util.Calendar;
@@ -52,12 +55,14 @@ public class FileUploader {
                 uploadSkills(reader);
             else if(fileCase.equals("demandaSkills"))
                 uploadDemandaSkills(reader,(String)dataPair[1]);
-            else if(fileCase.equals("coasignacion"))
+            else if(fileCase.equals("grupo"))
                 uploadGrupos(reader);
             else if(fileCase.equals("capacityTurno"))
                 uploadCapacityTurno(reader,(String)dataPair[1]);
             else if(fileCase.equals("turnosFijos"))
-                uploadTurnosFijos(reader,(String)dataPair[1]);
+                uploadTurnosFijos(reader,(String)dataPair[1], (String)dataPair[2]);
+            else if(fileCase.equals("turnosNoPermitidos"))
+                uploadTurnosProhibidos(reader,(String)dataPair[1], (String)dataPair[2]);
                 
 
 
@@ -659,15 +664,16 @@ public class FileUploader {
         }           
         
     }    
-    private void uploadTurnosFijos(BufferedReader reader,String mes){
+    private void uploadTurnosFijos(BufferedReader reader,String mes, String anno){
         String actualLine;
         StringTokenizer separator = null;
         String tableName="fijar_asignacion";
-        String[] colNames ={"EMPL_RUT","FJAR_FECHA_INICIO","FJAR_FECHA_TERMINO","TURN_NOMBRE","FJAR_VERSION"};
-        String[] colTypes = {"String","Date","Date","String","int"};
+        String[] colNames ={"EMPL_RUT","FJAR_FECHA_INICIO","FJAR_FECHA_TERMINO","TURN_NOMBRE","FJAR_VERSION","FJAR_MES"};
+        String[] colTypes = {"String","Date","Date","String","int","Date"};
                 
         /*TODO: Borrar todos los registros de la base de datos de este mes*/
-        deleteAllFromMonth(tableName,"FJAR_FECHA_INICIO",mes);
+        
+        deleteAllFromMonth(tableName,"FJAR_MES",mes);
         
         
         PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
@@ -689,7 +695,20 @@ public class FileUploader {
                         dataRow[i] = "";
                     }
                 }
-                dataRow[colNames.length -1] = "0";
+                dataRow[colNames.length -2] = "0";
+                
+                String fecha = "01/"+mes+"/"+anno;
+                java.util.Date fechadate = null;
+                
+                try{
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    fechadate = format.parse(fecha);
+                }
+                catch(Exception e){
+                        System.err.println("Error en el parseo de la fecha");
+                        }
+                dataRow[colNames.length -1]= fecha;
+              
                 saveRecord(SQL,colTypes,dataRow);
             }
         }
@@ -708,7 +727,61 @@ public class FileUploader {
         }           
         
     }    
-    
+    private void uploadTurnosProhibidos(BufferedReader reader,String mes, String anno){
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="restriccion_asignacion";
+        String[] colNames ={"EMPL_RUT","RTAG_INICIO","RTAG_TERMINO","RTAG_APERTURA","RTAG_TARDE","RTAG_NOCHE","RTAG_LUNES","RTAG_MARTES","RTAG_MIERCOLES","RTAG_JUEVES","RTAG_VIERNES","RTAG_SABADO","RTAG_DOMINGO","RTAG_TODOS","RTAG_VERSION","RTAG_MES"};
+        String[] colTypes = {"String","Date","Date","int","int","int","int","int","int","int","int","int","int","int","int","Date"};
+                
+        /*TODO: Borrar todos los registros de la base de datos de este mes*/
+        
+        deleteAllFromMonth(tableName,"RTAG_MES",mes);
+        
+        
+        PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
+
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[colNames.length];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                dataRow[colNames.length -2] = "0";
+                
+                String fecha = "01/"+mes+"/"+anno;
+          
+                dataRow[colNames.length -1]= fecha;
+              
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("turnosNoPermitidos");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+        
+    }    
     private void newUpldFileRecord(String fileName) {
         //Inserta en la tabla archivos subidos un nuevo registro.
         String tableName="archivos_subidos";

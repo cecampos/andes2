@@ -53,7 +53,7 @@ public class FilUpdateBean {
         
         /*En el hash guardamos par (inputStream,mes), este ultimo se usa en algunas consultas para 
         eliminar datos */
-        Object[] dataPair = new Object[2];
+        Object[] dataPair = new Object[3];
         
         
         try {
@@ -64,7 +64,9 @@ public class FilUpdateBean {
         }
         String fileName = aux.getFilename();
         String month = fileName.substring(fileName.indexOf("_")+1, fileName.indexOf("_")+3);
+        String anno = fileName.substring(fileName.indexOf("_")+4, fileName.indexOf("_")+8);
         dataPair[1] = month;
+        dataPair[2] = anno;
         
         filesMap.put(event.getComponent().getId(), dataPair);
         
@@ -152,7 +154,7 @@ public class FilUpdateBean {
         return (RichOutputText)outputMap.get("skillsOT");
     }
     public void setGrupoOT(RichOutputText grupoOT) {
-        outputMap.put("gruposOT", grupoOT);
+        outputMap.put("grupoOT", grupoOT);
     }
 
     public RichOutputText getGrupoOT() {
