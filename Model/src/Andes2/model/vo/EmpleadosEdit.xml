@@ -26,9 +26,21 @@
   </Attribute>
   <Attribute
     Name="EmplNombre"
-    IsNotNull="true"
     Precision="60"
     ColumnName="EMPL_NOMBRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEV.EMPLEADOS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmplBp"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="EMPL_BP"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"

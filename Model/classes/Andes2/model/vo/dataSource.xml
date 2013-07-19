@@ -28,9 +28,6 @@
     Name="RequerimientoSkills1"
     ViewObjectName="Andes2.model.vo.RequerimientoSkills"/>
   <ViewUsage
-    Name="Requerimientos1"
-    ViewObjectName="Andes2.model.vo.Requerimientos"/>
-  <ViewUsage
     Name="Turnos2"
     ViewObjectName="Andes2.model.vo.Turnos"/>
   <ViewUsage
@@ -72,4 +69,10 @@
   <ViewUsage
     Name="ViewObj2_1"
     ViewObjectName="Andes2.model.vo.ViewObj2"/>
+  <ViewUsage
+    Name="CapacityTurno1"
+    ViewObjectName="Andes2.model.vo.CapacityTurno"/>
+  <ViewUsage
+    Name="EmpleadosEditView1"
+    ViewObjectName="Andes2.model.vo.EmpleadosEditView"/>
 </AppModule>

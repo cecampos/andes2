@@ -68,6 +68,136 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
         }
         ,
+        RtagInicio {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagInicio();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagInicio((Timestamp)value);
+            }
+        }
+        ,
+        RtagTermino {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagTermino();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagTermino((Timestamp)value);
+            }
+        }
+        ,
+        RtagApertura {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagApertura();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagApertura((String)value);
+            }
+        }
+        ,
+        RtagTarde {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagTarde();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagTarde((String)value);
+            }
+        }
+        ,
+        RtagNoche {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagNoche();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagNoche((String)value);
+            }
+        }
+        ,
+        RtagLunes {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagLunes();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagLunes((String)value);
+            }
+        }
+        ,
+        RtagMartes {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagMartes();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagMartes((String)value);
+            }
+        }
+        ,
+        RtagMiercoles {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagMiercoles();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagMiercoles((String)value);
+            }
+        }
+        ,
+        RtagJueves {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagJueves();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagJueves((String)value);
+            }
+        }
+        ,
+        RtagViernes {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagViernes();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagViernes((String)value);
+            }
+        }
+        ,
+        RtagSabado {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagSabado();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagSabado((String)value);
+            }
+        }
+        ,
+        RtagDomingo {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagDomingo();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagDomingo((String)value);
+            }
+        }
+        ,
+        RtagTodos {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagTodos();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagTodos((String)value);
+            }
+        }
+        ,
         TurnosEdit {
             public Object get(TurnosRestriccionesImpl obj) {
                 return obj.getTurnosEdit();
@@ -121,6 +251,19 @@ public class TurnosRestriccionesImpl extends EntityImpl {
     public static final int RTAGDIA = AttributesEnum.RtagDia.index();
     public static final int RTAGVERSION = AttributesEnum.RtagVersion.index();
     public static final int ROWID = AttributesEnum.RowID.index();
+    public static final int RTAGINICIO = AttributesEnum.RtagInicio.index();
+    public static final int RTAGTERMINO = AttributesEnum.RtagTermino.index();
+    public static final int RTAGAPERTURA = AttributesEnum.RtagApertura.index();
+    public static final int RTAGTARDE = AttributesEnum.RtagTarde.index();
+    public static final int RTAGNOCHE = AttributesEnum.RtagNoche.index();
+    public static final int RTAGLUNES = AttributesEnum.RtagLunes.index();
+    public static final int RTAGMARTES = AttributesEnum.RtagMartes.index();
+    public static final int RTAGMIERCOLES = AttributesEnum.RtagMiercoles.index();
+    public static final int RTAGJUEVES = AttributesEnum.RtagJueves.index();
+    public static final int RTAGVIERNES = AttributesEnum.RtagViernes.index();
+    public static final int RTAGSABADO = AttributesEnum.RtagSabado.index();
+    public static final int RTAGDOMINGO = AttributesEnum.RtagDomingo.index();
+    public static final int RTAGTODOS = AttributesEnum.RtagTodos.index();
     public static final int TURNOSEDIT = AttributesEnum.TurnosEdit.index();
     public static final int EMPLEADOSEDIT = AttributesEnum.EmpleadosEdit.index();
 
@@ -208,6 +351,214 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      */
     public RowID getRowID() {
         return (RowID)getAttributeInternal(ROWID);
+    }
+
+    /**
+     * Gets the attribute value for RtagInicio, using the alias name RtagInicio.
+     * @return the value of RtagInicio
+     */
+    public Timestamp getRtagInicio() {
+        return (Timestamp)getAttributeInternal(RTAGINICIO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagInicio.
+     * @param value value to set the RtagInicio
+     */
+    public void setRtagInicio(Timestamp value) {
+        setAttributeInternal(RTAGINICIO, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagTermino, using the alias name RtagTermino.
+     * @return the value of RtagTermino
+     */
+    public Timestamp getRtagTermino() {
+        return (Timestamp)getAttributeInternal(RTAGTERMINO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagTermino.
+     * @param value value to set the RtagTermino
+     */
+    public void setRtagTermino(Timestamp value) {
+        setAttributeInternal(RTAGTERMINO, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagApertura, using the alias name RtagApertura.
+     * @return the value of RtagApertura
+     */
+    public String getRtagApertura() {
+        return (String)getAttributeInternal(RTAGAPERTURA);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagApertura.
+     * @param value value to set the RtagApertura
+     */
+    public void setRtagApertura(String value) {
+        setAttributeInternal(RTAGAPERTURA, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagTarde, using the alias name RtagTarde.
+     * @return the value of RtagTarde
+     */
+    public String getRtagTarde() {
+        return (String)getAttributeInternal(RTAGTARDE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagTarde.
+     * @param value value to set the RtagTarde
+     */
+    public void setRtagTarde(String value) {
+        setAttributeInternal(RTAGTARDE, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagNoche, using the alias name RtagNoche.
+     * @return the value of RtagNoche
+     */
+    public String getRtagNoche() {
+        return (String)getAttributeInternal(RTAGNOCHE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagNoche.
+     * @param value value to set the RtagNoche
+     */
+    public void setRtagNoche(String value) {
+        setAttributeInternal(RTAGNOCHE, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagLunes, using the alias name RtagLunes.
+     * @return the value of RtagLunes
+     */
+    public String getRtagLunes() {
+        return (String)getAttributeInternal(RTAGLUNES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagLunes.
+     * @param value value to set the RtagLunes
+     */
+    public void setRtagLunes(String value) {
+        setAttributeInternal(RTAGLUNES, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagMartes, using the alias name RtagMartes.
+     * @return the value of RtagMartes
+     */
+    public String getRtagMartes() {
+        return (String)getAttributeInternal(RTAGMARTES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagMartes.
+     * @param value value to set the RtagMartes
+     */
+    public void setRtagMartes(String value) {
+        setAttributeInternal(RTAGMARTES, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagMiercoles, using the alias name RtagMiercoles.
+     * @return the value of RtagMiercoles
+     */
+    public String getRtagMiercoles() {
+        return (String)getAttributeInternal(RTAGMIERCOLES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagMiercoles.
+     * @param value value to set the RtagMiercoles
+     */
+    public void setRtagMiercoles(String value) {
+        setAttributeInternal(RTAGMIERCOLES, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagJueves, using the alias name RtagJueves.
+     * @return the value of RtagJueves
+     */
+    public String getRtagJueves() {
+        return (String)getAttributeInternal(RTAGJUEVES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagJueves.
+     * @param value value to set the RtagJueves
+     */
+    public void setRtagJueves(String value) {
+        setAttributeInternal(RTAGJUEVES, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagViernes, using the alias name RtagViernes.
+     * @return the value of RtagViernes
+     */
+    public String getRtagViernes() {
+        return (String)getAttributeInternal(RTAGVIERNES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagViernes.
+     * @param value value to set the RtagViernes
+     */
+    public void setRtagViernes(String value) {
+        setAttributeInternal(RTAGVIERNES, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagSabado, using the alias name RtagSabado.
+     * @return the value of RtagSabado
+     */
+    public String getRtagSabado() {
+        return (String)getAttributeInternal(RTAGSABADO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagSabado.
+     * @param value value to set the RtagSabado
+     */
+    public void setRtagSabado(String value) {
+        setAttributeInternal(RTAGSABADO, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagDomingo, using the alias name RtagDomingo.
+     * @return the value of RtagDomingo
+     */
+    public String getRtagDomingo() {
+        return (String)getAttributeInternal(RTAGDOMINGO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagDomingo.
+     * @param value value to set the RtagDomingo
+     */
+    public void setRtagDomingo(String value) {
+        setAttributeInternal(RTAGDOMINGO, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagTodos, using the alias name RtagTodos.
+     * @return the value of RtagTodos
+     */
+    public String getRtagTodos() {
+        return (String)getAttributeInternal(RTAGTODOS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagTodos.
+     * @param value value to set the RtagTodos
+     */
+    public void setRtagTodos(String value) {
+        setAttributeInternal(RTAGTODOS, value);
     }
 
     /**

@@ -4,13 +4,13 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="FijarAsignacionView"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   SelectList="FijarAsignacion.EMPL_RUT, 
-       FijarAsignacion.FJAG_DIA, 
-       FijarAsignacion.TURN_SEQ_CDG, 
-       FijarAsignacion.FJAG_MES, 
+       FijarAsignacion.FJAR_FECHA_INICIO, 
+       FijarAsignacion.FJAR_FECHA_TERMINO, 
        FijarAsignacion.FJAR_VERSION, 
-       FijarAsignacion.ROWID"
+       FijarAsignacion.ROWID, 
+       FijarAsignacion.TURN_NOMBRE"
   FromList="FIJAR_ASIGNACION FijarAsignacion"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -27,26 +27,17 @@
     EntityUsage="FijarAsignacion"
     AliasName="EMPL_RUT"/>
   <ViewAttribute
-    Name="FjagDia"
-    IsNotNull="true"
+    Name="FjarFechaInicio"
     PrecisionRule="true"
-    EntityAttrName="FjagDia"
+    EntityAttrName="FjarFechaInicio"
     EntityUsage="FijarAsignacion"
-    AliasName="FJAG_DIA"/>
+    AliasName="FJAR_FECHA_INICIO"/>
   <ViewAttribute
-    Name="TurnSeqCdg"
-    IsNotNull="true"
+    Name="FjarFechaTermino"
     PrecisionRule="true"
-    EntityAttrName="TurnSeqCdg"
+    EntityAttrName="FjarFechaTermino"
     EntityUsage="FijarAsignacion"
-    AliasName="TURN_SEQ_CDG"/>
-  <ViewAttribute
-    Name="FjagMes"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="FjagMes"
-    EntityUsage="FijarAsignacion"
-    AliasName="FJAG_MES"/>
+    AliasName="FJAR_FECHA_TERMINO"/>
   <ViewAttribute
     Name="FjarVersion"
     PrecisionRule="true"
@@ -60,4 +51,11 @@
     EntityAttrName="Rowid"
     EntityUsage="FijarAsignacion"
     AliasName="ROWID"/>
+  <ViewAttribute
+    Name="TurnNombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TurnNombre"
+    EntityUsage="FijarAsignacion"
+    AliasName="TURN_NOMBRE"/>
 </ViewObject>

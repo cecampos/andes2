@@ -1,4 +1,127 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelSplitter id="ps1" inlineStyle="width:inherit; height:inherit;">
+    <f:facet name="first">
+      <af:table value="#{bindings.Requerimientos1.collectionModel}" var="row"
+                rows="#{bindings.Requerimientos1.rangeSize}"
+                emptyText="#{bindings.Requerimientos1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.Requerimientos1.rangeSize}" rowBandingInterval="0"
+                filterModel="#{bindings.Requerimientos1Query.queryDescriptor}"
+                queryListener="#{bindings.Requerimientos1Query.processQuery}" filterVisible="true" varStatus="vs"
+                selectedRowKeys="#{bindings.Requerimientos1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.Requerimientos1.collectionModel.makeCurrent}" rowSelection="single"
+                id="t1" partialTriggers="::cb3">
+        <af:column sortProperty="#{bindings.Requerimientos1.hints.CaptFecha.name}" filterable="true" sortable="true"
+                   headerText="Dia" id="c1">
+          <f:facet name="filter">
+            <af:inputDate value="#{vs.filterCriteria.CaptFecha}" id="id1">
+              <af:convertDateTime pattern="#{bindings.Requerimientos1.hints.CaptFecha.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:inputDate value="#{row.bindings.CaptFecha.inputValue}"
+                        label="#{bindings.Requerimientos1.hints.CaptFecha.label}"
+                        required="#{bindings.Requerimientos1.hints.CaptFecha.mandatory}"
+                        columns="#{bindings.Requerimientos1.hints.CaptFecha.displayWidth}"
+                        shortDesc="#{bindings.Requerimientos1.hints.CaptFecha.tooltip}" id="id2">
+            <f:validator binding="#{row.bindings.CaptFecha.validator}"/>
+            <af:convertDateTime pattern="#{bindings.Requerimientos1.hints.CaptFecha.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column sortProperty="#{bindings.Requerimientos1.hints.CrgoId.name}" filterable="true" sortable="true"
+                   headerText="Cargo" id="c2">
+          <af:inputText value="#{row.bindings.CrgoId.inputValue}" label="#{bindings.Requerimientos1.hints.CrgoId.label}"
+                        required="#{bindings.Requerimientos1.hints.CrgoId.mandatory}"
+                        columns="#{bindings.Requerimientos1.hints.CrgoId.displayWidth}"
+                        maximumLength="#{bindings.Requerimientos1.hints.CrgoId.precision}"
+                        shortDesc="#{bindings.Requerimientos1.hints.CrgoId.tooltip}" id="it1">
+            <f:validator binding="#{row.bindings.CrgoId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.Requerimientos1.hints.TurnNombre.name}" filterable="true" sortable="true"
+                   headerText="Turno" id="c3">
+          <af:inputText value="#{row.bindings.TurnNombre.inputValue}"
+                        label="#{bindings.Requerimientos1.hints.TurnNombre.label}"
+                        required="#{bindings.Requerimientos1.hints.TurnNombre.mandatory}"
+                        columns="#{bindings.Requerimientos1.hints.TurnNombre.displayWidth}"
+                        maximumLength="#{bindings.Requerimientos1.hints.TurnNombre.precision}"
+                        shortDesc="#{bindings.Requerimientos1.hints.TurnNombre.tooltip}" id="it2">
+            <f:validator binding="#{row.bindings.TurnNombre.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.Requerimientos1.hints.CaptRequerimiento.name}" filterable="true"
+                   sortable="true" headerText="Demanda" id="c4">
+          <af:inputText value="#{row.bindings.CaptRequerimiento.inputValue}"
+                        label="#{bindings.Requerimientos1.hints.CaptRequerimiento.label}"
+                        required="#{bindings.Requerimientos1.hints.CaptRequerimiento.mandatory}"
+                        columns="#{bindings.Requerimientos1.hints.CaptRequerimiento.displayWidth}"
+                        maximumLength="#{bindings.Requerimientos1.hints.CaptRequerimiento.precision}"
+                        shortDesc="#{bindings.Requerimientos1.hints.CaptRequerimiento.tooltip}" id="it3">
+            <f:validator binding="#{row.bindings.CaptRequerimiento.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.Requerimientos1.hints.CaptCoberturaMinima.name}" filterable="true"
+                   sortable="true" headerText="Cobertura Minima" id="c5">
+          <af:inputText value="#{row.bindings.CaptCoberturaMinima.inputValue}"
+                        label="#{bindings.Requerimientos1.hints.CaptCoberturaMinima.label}"
+                        required="#{bindings.Requerimientos1.hints.CaptCoberturaMinima.mandatory}"
+                        columns="#{bindings.Requerimientos1.hints.CaptCoberturaMinima.displayWidth}"
+                        maximumLength="#{bindings.Requerimientos1.hints.CaptCoberturaMinima.precision}"
+                        shortDesc="#{bindings.Requerimientos1.hints.CaptCoberturaMinima.tooltip}" id="it4">
+            <f:validator binding="#{row.bindings.CaptCoberturaMinima.validator}"/>
+          </af:inputText>
+        </af:column>
+      </af:table>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelGroupLayout layout="scroll" id="pgl1">
+        <af:panelFormLayout id="pfl1">
+          <af:inputDate value="#{bindings.CaptFecha.inputValue}" label="Dia"
+                        required="#{bindings.CaptFecha.hints.mandatory}"
+                        columns="#{bindings.CaptFecha.hints.displayWidth}"
+                        shortDesc="#{bindings.CaptFecha.hints.tooltip}" id="id3">
+            <f:validator binding="#{bindings.CaptFecha.validator}"/>
+            <af:convertDateTime pattern="#{bindings.CaptFecha.format}"/>
+          </af:inputDate>
+          <af:inputText value="#{bindings.CrgoId.inputValue}" label="Cargo"
+                        required="#{bindings.CrgoId.hints.mandatory}" columns="#{bindings.CrgoId.hints.displayWidth}"
+                        maximumLength="#{bindings.CrgoId.hints.precision}" shortDesc="#{bindings.CrgoId.hints.tooltip}"
+                        id="it5">
+            <f:validator binding="#{bindings.CrgoId.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.TurnNombre.inputValue}" label="Turno"
+                        required="#{bindings.TurnNombre.hints.mandatory}"
+                        columns="#{bindings.TurnNombre.hints.displayWidth}"
+                        maximumLength="#{bindings.TurnNombre.hints.precision}"
+                        shortDesc="#{bindings.TurnNombre.hints.tooltip}" id="it6">
+            <f:validator binding="#{bindings.TurnNombre.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.CaptRequerimiento.inputValue}" label="Demanda"
+                        required="#{bindings.CaptRequerimiento.hints.mandatory}"
+                        columns="#{bindings.CaptRequerimiento.hints.displayWidth}"
+                        maximumLength="#{bindings.CaptRequerimiento.hints.precision}"
+                        shortDesc="#{bindings.CaptRequerimiento.hints.tooltip}" id="it7">
+            <f:validator binding="#{bindings.CaptRequerimiento.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.CaptCoberturaMinima.inputValue}" label="Cobertura Minima"
+                        required="#{bindings.CaptCoberturaMinima.hints.mandatory}"
+                        columns="#{bindings.CaptCoberturaMinima.hints.displayWidth}"
+                        maximumLength="#{bindings.CaptCoberturaMinima.hints.precision}"
+                        shortDesc="#{bindings.CaptCoberturaMinima.hints.tooltip}" id="it8">
+            <f:validator binding="#{bindings.CaptCoberturaMinima.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+        <af:commandButton actionListener="#{bindings.Create.execute}" text="Create"
+                          disabled="#{!bindings.Create.enabled}" id="cb3" partialTriggers="pfl1"/>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelSplitter>
+  <h:panelGroup id="pg1">
+    <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" disabled="#{!bindings.Commit.enabled}"
+                      id="cb1" partialTriggers="t1 pgl1"/>
+    <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                      disabled="#{!bindings.Rollback.enabled}" immediate="true" id="cb2" partialTriggers="t1 pgl1">
+      <af:resetActionListener/>
+    </af:commandButton>
+  </h:panelGroup>
 </ui:composition>

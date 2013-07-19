@@ -43,12 +43,12 @@
   </Attribute>
   <Attribute
     Name="RtagDia"
-    IsNotNull="true"
-    ColumnName="RTAG_DIA"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
-    TableName="DEV.RESTRICCION_ASIGNACION"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="RtagVersion"
     ColumnName="RTAG_VERSION"
@@ -64,6 +64,175 @@
     Type="oracle.jbo.domain.RowID"
     ColumnType="ROWID"
     PrimaryKey="true"/>
+  <Attribute
+    Name="RtagInicio"
+    IsNotNull="true"
+    ColumnName="RTAG_INICIO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="DEV.RESTRICCION_ASIGNACION"/>
+  <Attribute
+    Name="RtagTermino"
+    ColumnName="RTAG_TERMINO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="DEV.RESTRICCION_ASIGNACION"/>
+  <Attribute
+    Name="RtagApertura"
+    Precision="1"
+    ColumnName="RTAG_APERTURA"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagTarde"
+    Precision="1"
+    ColumnName="RTAG_TARDE"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagNoche"
+    Precision="1"
+    ColumnName="RTAG_NOCHE"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagLunes"
+    Precision="1"
+    ColumnName="RTAG_LUNES"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagMartes"
+    Precision="1"
+    ColumnName="RTAG_MARTES"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagMiercoles"
+    Precision="1"
+    ColumnName="RTAG_MIERCOLES"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagJueves"
+    Precision="1"
+    ColumnName="RTAG_JUEVES"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagViernes"
+    Precision="1"
+    ColumnName="RTAG_VIERNES"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagSabado"
+    Precision="1"
+    ColumnName="RTAG_SABADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagDomingo"
+    Precision="1"
+    ColumnName="RTAG_DOMINGO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagTodos"
+    Precision="1"
+    ColumnName="RTAG_TODOS"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DEV.RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="TurnosEdit"
     Association="Andes2.model.vo.RtagFkTurnAssoc"

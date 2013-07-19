@@ -24,30 +24,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="FjagDia"
-    IsNotNull="true"
-    ColumnName="FJAG_DIA"
-    SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
-    TableName="FIJAR_ASIGNACION"/>
-  <Attribute
-    Name="TurnSeqCdg"
-    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="$none$"
-    IsQueriable="false"
-    IsPersistent="false"/>
-  <Attribute
-    Name="FjagMes"
-    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
-    SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
-    ColumnType="$none$"
-    IsQueriable="false"
-    IsPersistent="false"/>
-  <Attribute
     Name="FjarVersion"
     ColumnName="FJAR_VERSION"
     SQLType="NUMERIC"
@@ -76,6 +52,20 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="FjarFechaInicio"
+    ColumnName="FJAR_FECHA_INICIO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="FIJAR_ASIGNACION"/>
+  <Attribute
+    Name="FjarFechaTermino"
+    ColumnName="FJAR_FECHA_TERMINO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="FIJAR_ASIGNACION"/>
   <AccessorAttribute
     Name="Empleados"
     Association="Andes2.model.FjarFkEmplAssoc"

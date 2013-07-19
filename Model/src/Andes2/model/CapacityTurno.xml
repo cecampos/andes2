@@ -24,14 +24,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="TurnSeqCdg"
-    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="$none$"
-    IsQueriable="false"
-    IsPersistent="false"/>
-  <Attribute
     Name="CaptFecha"
     IsNotNull="true"
     ColumnName="CAPT_FECHA"
@@ -47,14 +39,6 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="CAPACITY_TURNO"/>
-  <Attribute
-    Name="CaptMes"
-    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
-    SQLType="DATE"
-    Type="oracle.jbo.domain.Timestamp"
-    ColumnType="$none$"
-    IsQueriable="false"
-    IsPersistent="false"/>
   <Attribute
     Name="CaptVersion"
     ColumnName="CAPT_VERSION"

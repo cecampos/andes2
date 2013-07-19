@@ -23,13 +23,13 @@
   <ViewLinkDefEnd
     Name="EmpladosSkillView"
     Cardinality="-1"
-    Owner="Andes2.model.EmpladosSkillView">
+    Owner="Andes2.model.EmpleadosSkillView">
     <DesignTime>
       <Attr Name="_finderName" Value="EmpladosSkillView"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.EmpladosSkillView.EmplRut"/>
+      <Item Value="Andes2.model.EmpleadosSkillView.EmplRut"/>
     </AttrArray>
   </ViewLinkDefEnd>
 </ViewLink>

@@ -4,9 +4,10 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="EmpleadosView"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   SelectList="Empleados.EMPL_RUT, 
-       Empleados.EMPL_NOMBRE"
+       Empleados.EMPL_NOMBRE, 
+       Empleados.EMPL_BP"
   FromList="EMPLEADOS Empleados"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -29,6 +30,13 @@
     EntityAttrName="EmplNombre"
     EntityUsage="Empleados"
     AliasName="EMPL_NOMBRE"/>
+  <ViewAttribute
+    Name="EmplBp"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplBp"
+    EntityUsage="Empleados"
+    AliasName="EMPL_BP"/>
   <ViewLinkAccessor
     Name="VacacionesView"
     ViewLink="Andes2.model.VccnFkEmplLink"

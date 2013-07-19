@@ -68,6 +68,26 @@ public class TurnosFijadosImpl extends EntityImpl {
             }
         }
         ,
+        FjarFechaInicio {
+            public Object get(TurnosFijadosImpl obj) {
+                return obj.getFjarFechaInicio();
+            }
+
+            public void put(TurnosFijadosImpl obj, Object value) {
+                obj.setFjarFechaInicio((Timestamp)value);
+            }
+        }
+        ,
+        FjarFechaTermino {
+            public Object get(TurnosFijadosImpl obj) {
+                return obj.getFjarFechaTermino();
+            }
+
+            public void put(TurnosFijadosImpl obj, Object value) {
+                obj.setFjarFechaTermino((Timestamp)value);
+            }
+        }
+        ,
         EmpleadosEdit {
             public Object get(TurnosFijadosImpl obj) {
                 return obj.getEmpleadosEdit();
@@ -121,6 +141,8 @@ public class TurnosFijadosImpl extends EntityImpl {
     public static final int FJAGDIA = AttributesEnum.FjagDia.index();
     public static final int FJARVERSION = AttributesEnum.FjarVersion.index();
     public static final int ROWID = AttributesEnum.RowID.index();
+    public static final int FJARFECHAINICIO = AttributesEnum.FjarFechaInicio.index();
+    public static final int FJARFECHATERMINO = AttributesEnum.FjarFechaTermino.index();
     public static final int EMPLEADOSEDIT = AttributesEnum.EmpleadosEdit.index();
     public static final int TURNOSEDIT = AttributesEnum.TurnosEdit.index();
 
@@ -208,6 +230,38 @@ public class TurnosFijadosImpl extends EntityImpl {
      */
     public RowID getRowID() {
         return (RowID)getAttributeInternal(ROWID);
+    }
+
+    /**
+     * Gets the attribute value for FjarFechaInicio, using the alias name FjarFechaInicio.
+     * @return the value of FjarFechaInicio
+     */
+    public Timestamp getFjarFechaInicio() {
+        return (Timestamp)getAttributeInternal(FJARFECHAINICIO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FjarFechaInicio.
+     * @param value value to set the FjarFechaInicio
+     */
+    public void setFjarFechaInicio(Timestamp value) {
+        setAttributeInternal(FJARFECHAINICIO, value);
+    }
+
+    /**
+     * Gets the attribute value for FjarFechaTermino, using the alias name FjarFechaTermino.
+     * @return the value of FjarFechaTermino
+     */
+    public Timestamp getFjarFechaTermino() {
+        return (Timestamp)getAttributeInternal(FJARFECHATERMINO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FjarFechaTermino.
+     * @param value value to set the FjarFechaTermino
+     */
+    public void setFjarFechaTermino(Timestamp value) {
+        setAttributeInternal(FJARFECHATERMINO, value);
     }
 
     /**
