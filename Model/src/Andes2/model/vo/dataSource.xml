@@ -75,4 +75,13 @@
   <ViewUsage
     Name="EmpleadosEditView1"
     ViewObjectName="Andes2.model.vo.EmpleadosEditView"/>
+  <ViewUsage
+    Name="EmpleadosSkills1"
+    ViewObjectName="Andes2.model.vo.EmpleadosSkills"/>
+  <ViewUsage
+    Name="ArchivoCapacityTurnos1"
+    ViewObjectName="Andes2.model.vo.ArchivoCapacityTurnos"/>
+  <ViewUsage
+    Name="ArchivoEmpleadosSkill1"
+    ViewObjectName="Andes2.model.vo.ArchivoEmpleadosSkill"/>
 </AppModule>

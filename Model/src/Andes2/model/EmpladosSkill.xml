@@ -87,7 +87,6 @@
   <Key
     Name="EmsklFkEmpl">
     <DesignTime>
-      <Attr Name="_referencedKey" Value="EMPL_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="EMSKL_FK_EMPL"/>
     </DesignTime>

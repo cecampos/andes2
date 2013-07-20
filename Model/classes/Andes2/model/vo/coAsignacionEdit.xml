@@ -64,6 +64,13 @@
     Type="oracle.jbo.domain.RowID"
     ColumnType="ROWID"
     PrimaryKey="true"/>
+  <Attribute
+    Name="CoagMes"
+    ColumnName="COAG_MES"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="DEV.COASIGNACION"/>
   <AccessorAttribute
     Name="EmpleadosEdit"
     Association="Andes2.model.vo.CoasFkEmplAssoc"
@@ -92,7 +99,6 @@
   <Key
     Name="CoasFkEmpl">
     <DesignTime>
-      <Attr Name="_referencedKey" Value="EMPL_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="COAS_FK_EMPL"/>
     </DesignTime>

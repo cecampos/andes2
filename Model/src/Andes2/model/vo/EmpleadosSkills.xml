@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpleadosSkills"
+  Version="11.1.2.64.36"
+  SelectList="EmpladosSkill.EMPL_RUT, 
+       EmpladosSkill.SKLL_ID, 
+       EmpladosSkill.ROWID"
+  FromList="EMPLEADOS_SKILL EmpladosSkill"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.EmpleadosSkills_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="elCargo"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="EmpladosSkill"
+    Entity="Andes2.model.EmpladosSkill"/>
+  <ViewAttribute
+    Name="EmplRut"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmplRut"
+    EntityUsage="EmpladosSkill"
+    AliasName="EMPL_RUT"/>
+  <ViewAttribute
+    Name="SkllId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkllId"
+    EntityUsage="EmpladosSkill"
+    AliasName="SKLL_ID"/>
+  <ViewAttribute
+    Name="Rowid"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="Rowid"
+    EntityUsage="EmpladosSkill"
+    AliasName="ROWID"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

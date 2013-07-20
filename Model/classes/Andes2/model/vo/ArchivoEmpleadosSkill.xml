@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ArchivoEmpleadosSkill"
+  Version="11.1.2.64.36"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.ArchivoEmpleadosSkill_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="elCargo"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT EMPLEADOS_SKILL.EMPL_RUT, 
+       EMPLEADOS_SKILL.SKLL_ID
+FROM EMPLEADOS_SKILL
+INNER JOIN CONTRATO_EMPLEADOS ON CONTRATO_EMPLEADOS.empl_rut= EMPLEADOS_SKILL.empl_rut
+WHERE CONTRATO_EMPLEADOS.crgo_id= :elCargo]]></SQLQuery>
+  <ViewAttribute
+    Name="EmplRut"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="EMPL_RUT"
+    Expression="EMPL_RUT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkllId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SKLL_ID"
+    Expression="SKLL_ID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -16,7 +16,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="TurnosEdit"/>
-      <Attr Name="_foreignKey" Value="Andes2.model.vo.TurnosEdit.TurnosPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
@@ -31,7 +30,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="TurnosRestricciones"/>
-      <Attr Name="_foreignKey" Value="Andes2.model.vo.TurnosRestricciones.RtagFkTurn"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

@@ -78,6 +78,13 @@
     Type="oracle.jbo.domain.Timestamp"
     ColumnType="DATE"
     TableName="DEV.FIJAR_ASIGNACION"/>
+  <Attribute
+    Name="FjarMes"
+    ColumnName="FJAR_MES"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="DEV.FIJAR_ASIGNACION"/>
   <AccessorAttribute
     Name="EmpleadosEdit"
     Association="Andes2.model.vo.FjarFkEmplAssoc"
@@ -106,7 +113,6 @@
   <Key
     Name="FjarFkEmpl">
     <DesignTime>
-      <Attr Name="_referencedKey" Value="EMPL_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FJAR_FK_EMPL"/>
     </DesignTime>

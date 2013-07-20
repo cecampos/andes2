@@ -31,13 +31,27 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="DEV.EMPLEADOS">
+    TableName="DEV.EMPLEADOS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="60"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="EmplBp"
+    Precision="60"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmplBp1"
     IsNotNull="true"
     Precision="60"
     ColumnName="EMPL_BP"

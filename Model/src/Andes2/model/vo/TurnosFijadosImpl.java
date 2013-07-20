@@ -88,6 +88,16 @@ public class TurnosFijadosImpl extends EntityImpl {
             }
         }
         ,
+        FjarMes {
+            public Object get(TurnosFijadosImpl obj) {
+                return obj.getFjarMes();
+            }
+
+            public void put(TurnosFijadosImpl obj, Object value) {
+                obj.setFjarMes((Timestamp)value);
+            }
+        }
+        ,
         EmpleadosEdit {
             public Object get(TurnosFijadosImpl obj) {
                 return obj.getEmpleadosEdit();
@@ -143,6 +153,7 @@ public class TurnosFijadosImpl extends EntityImpl {
     public static final int ROWID = AttributesEnum.RowID.index();
     public static final int FJARFECHAINICIO = AttributesEnum.FjarFechaInicio.index();
     public static final int FJARFECHATERMINO = AttributesEnum.FjarFechaTermino.index();
+    public static final int FJARMES = AttributesEnum.FjarMes.index();
     public static final int EMPLEADOSEDIT = AttributesEnum.EmpleadosEdit.index();
     public static final int TURNOSEDIT = AttributesEnum.TurnosEdit.index();
 
@@ -262,6 +273,22 @@ public class TurnosFijadosImpl extends EntityImpl {
      */
     public void setFjarFechaTermino(Timestamp value) {
         setAttributeInternal(FJARFECHATERMINO, value);
+    }
+
+    /**
+     * Gets the attribute value for FjarMes, using the alias name FjarMes.
+     * @return the value of FjarMes
+     */
+    public Timestamp getFjarMes() {
+        return (Timestamp)getAttributeInternal(FJARMES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for FjarMes.
+     * @param value value to set the FjarMes
+     */
+    public void setFjarMes(Timestamp value) {
+        setAttributeInternal(FJARMES, value);
     }
 
     /**

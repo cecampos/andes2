@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Vacaciones"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="VACACIONES"
   AliasName="Vacaciones"
@@ -48,6 +48,13 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="VACACIONES"/>
+  <Attribute
+    Name="VccnMes"
+    ColumnName="VCCN_MES"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="VACACIONES"/>
   <AccessorAttribute
     Name="Empleados"
     Association="Andes2.model.VccnFkEmplAssoc"
@@ -68,7 +75,6 @@
   <Key
     Name="VccnFkEmpl">
     <DesignTime>
-      <Attr Name="_referencedKey" Value="EMPL_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="VCCN_FK_EMPL"/>
     </DesignTime>

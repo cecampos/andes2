@@ -59,17 +59,29 @@ public class fileGeneratorBean {
         BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+".csv")); 
         
         for(Row row:input){
-            Object[] rowValues = row.getAttributeValues();
+            Object[] rowValues;
+            rowValues = row.getAttributeValues();
             StringBuffer line = new StringBuffer();
             line.append(rowValues[0]);
             for(int i=1; i< rowValues.length;i++){
-                line.append(";"+rowValues[i]);
-                }
+                //formato de archivo de entrada al modelo
+                //pedido con ',' para separar campos
+                line.append(","+rowValues[i]);
+            }
             writer.write(line.toString()+"\n");
         }   
         writer.close();
         }
-    
+    public void formatoMes(){
+        //por implementar
+        //transforma un periodo de tiempo dado a secuencia de dias
+        //ejemplo: 01/07/2013 - 03/07/2013
+        // 1 - linea
+        // 2 - linea
+        // 3 - linea
+        }
+
+
     public void generateFile(String fileName) throws IOException {
         //Prepara la informacion que sera guardada en un .csv, filtra los resultados de un iterador si corresponde
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();

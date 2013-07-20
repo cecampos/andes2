@@ -16,7 +16,7 @@
       <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
     <view id="editVacaciones">
-      <page>/editVacaciones.jsff</page>
+      <page>/Fragmets_Edit/editVacaciones.jsff</page>
     </view>
     <method-call id="methodCall1">
       <method>#{editBean.getSelected}</method>
@@ -95,46 +95,46 @@
       </input-page-parameter>
     </view>
     <view id="editCapacitaciones">
-      <page>/editCapacitaciones.jsff</page>
+      <page>/Fragmets_Edit/editCapacitaciones.jsff</page>
     </view>
     <view id="editCapacityHora">
-      <page>/editCapacityHora.jsff</page>
+      <page>/Fragmets_Edit/editCapacityHora.jsff</page>
     </view>
     <view id="editRegimenDeTrabajo">
-      <page>/editRegimenDeTrabajo.jsff</page>
+      <page>/Fragmets_Edit/editRegimenDeTrabajo.jsff</page>
     </view>
     <view id="editCargos">
-      <page>/editCargos.jsff</page>
+      <page>/Fragmets_Edit/editCargos.jsff</page>
     </view>
     <view id="editGrupos">
-      <page>/editGrupos.jsff</page>
+      <page>/Fragmets_Edit/editGrupos.jsff</page>
     </view>
     <view id="editListaSkills">
-      <page>/editListaSkills.jsff</page>
+      <page>/Fragmets_Edit/editListaSkills.jsff</page>
     </view>
     <view id="editTurnos">
-      <page>/editTurnos.jsff</page>
+      <page>/Fragmets_Edit/editTurnos.jsff</page>
     </view>
     <view id="editEmpleados">
-      <page>/editEmpleados.jsff</page>
+      <page>/Fragmets_Edit/editEmpleados.jsff</page>
     </view>
     <view id="editCapacityTurno">
-      <page>/editCapacityTurno.jsff</page>
+      <page>/Fragmets_Edit/editCapacityTurno.jsff</page>
     </view>
     <view id="editCoasignacion">
-      <page>/editCoasignacion.jsff</page>
+      <page>/Fragmets_Edit/editCoasignacion.jsff</page>
     </view>
     <view id="editTurnosProhibidos">
-      <page>/editTurnosProhibidos.jsff</page>
+      <page>/Fragmets_Edit/editTurnosProhibidos.jsff</page>
     </view>
     <view id="editTurnosFijados">
-      <page>/editTurnosFijados.jsff</page>
+      <page>/Fragmets_Edit/editTurnosFijados.jsff</page>
     </view>
     <view id="editCapacitySkills">
-      <page>/editCapacitySkills.jsff</page>
+      <page>/Fragmets_Edit/editCapacitySkills.jsff</page>
     </view>
     <view id="editSkillEmpleados">
-      <page>/editSkillEmpleados.jsff</page>
+      <page>/Fragmets_Edit/editSkillEmpleados.jsff</page>
     </view>
     <control-flow-rule id="__1">
       <from-activity-id>methodCall1</from-activity-id>

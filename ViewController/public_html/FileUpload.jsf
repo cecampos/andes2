@@ -8,7 +8,9 @@
                 <f:facet name="content">
                     <af:group id="g1">
                         <af:panelTabbed id="pt2">
-                            <af:showDetailItem text="Menu Inicial" id="sdi2" disclosed="false" disabled="true"/>
+                            <af:showDetailItem text="Menu Inicial" id="sdi2" disclosed="false" disabled="true">
+                                e
+                            </af:showDetailItem>
                             <af:showDetailItem text="Carga de Datos" id="sdi1"
                                                inlineStyle="margin:10px 0px 0px 0px;" immediate="true">
                                 <af:panelGroupLayout id="pgl5" layout="horizontal" styleClass="AFStretchWidth">

@@ -94,7 +94,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagApertura((String)value);
+                obj.setRtagApertura((BigDecimal)value);
             }
         }
         ,
@@ -104,7 +104,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagTarde((String)value);
+                obj.setRtagTarde((BigDecimal)value);
             }
         }
         ,
@@ -114,7 +114,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagNoche((String)value);
+                obj.setRtagNoche((BigDecimal)value);
             }
         }
         ,
@@ -124,7 +124,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagLunes((String)value);
+                obj.setRtagLunes((BigDecimal)value);
             }
         }
         ,
@@ -134,7 +134,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagMartes((String)value);
+                obj.setRtagMartes((BigDecimal)value);
             }
         }
         ,
@@ -144,7 +144,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagMiercoles((String)value);
+                obj.setRtagMiercoles((BigDecimal)value);
             }
         }
         ,
@@ -154,7 +154,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagJueves((String)value);
+                obj.setRtagJueves((BigDecimal)value);
             }
         }
         ,
@@ -164,7 +164,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagViernes((String)value);
+                obj.setRtagViernes((BigDecimal)value);
             }
         }
         ,
@@ -174,7 +174,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagSabado((String)value);
+                obj.setRtagSabado((BigDecimal)value);
             }
         }
         ,
@@ -184,7 +184,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagDomingo((String)value);
+                obj.setRtagDomingo((BigDecimal)value);
             }
         }
         ,
@@ -194,7 +194,17 @@ public class TurnosRestriccionesImpl extends EntityImpl {
             }
 
             public void put(TurnosRestriccionesImpl obj, Object value) {
-                obj.setRtagTodos((String)value);
+                obj.setRtagTodos((BigDecimal)value);
+            }
+        }
+        ,
+        RtagMes {
+            public Object get(TurnosRestriccionesImpl obj) {
+                return obj.getRtagMes();
+            }
+
+            public void put(TurnosRestriccionesImpl obj, Object value) {
+                obj.setRtagMes((Timestamp)value);
             }
         }
         ,
@@ -264,6 +274,7 @@ public class TurnosRestriccionesImpl extends EntityImpl {
     public static final int RTAGSABADO = AttributesEnum.RtagSabado.index();
     public static final int RTAGDOMINGO = AttributesEnum.RtagDomingo.index();
     public static final int RTAGTODOS = AttributesEnum.RtagTodos.index();
+    public static final int RTAGMES = AttributesEnum.RtagMes.index();
     public static final int TURNOSEDIT = AttributesEnum.TurnosEdit.index();
     public static final int EMPLEADOSEDIT = AttributesEnum.EmpleadosEdit.index();
 
@@ -389,15 +400,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagApertura, using the alias name RtagApertura.
      * @return the value of RtagApertura
      */
-    public String getRtagApertura() {
-        return (String)getAttributeInternal(RTAGAPERTURA);
+    public BigDecimal getRtagApertura() {
+        return (BigDecimal)getAttributeInternal(RTAGAPERTURA);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagApertura.
      * @param value value to set the RtagApertura
      */
-    public void setRtagApertura(String value) {
+    public void setRtagApertura(BigDecimal value) {
         setAttributeInternal(RTAGAPERTURA, value);
     }
 
@@ -405,15 +416,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagTarde, using the alias name RtagTarde.
      * @return the value of RtagTarde
      */
-    public String getRtagTarde() {
-        return (String)getAttributeInternal(RTAGTARDE);
+    public BigDecimal getRtagTarde() {
+        return (BigDecimal)getAttributeInternal(RTAGTARDE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagTarde.
      * @param value value to set the RtagTarde
      */
-    public void setRtagTarde(String value) {
+    public void setRtagTarde(BigDecimal value) {
         setAttributeInternal(RTAGTARDE, value);
     }
 
@@ -421,15 +432,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagNoche, using the alias name RtagNoche.
      * @return the value of RtagNoche
      */
-    public String getRtagNoche() {
-        return (String)getAttributeInternal(RTAGNOCHE);
+    public BigDecimal getRtagNoche() {
+        return (BigDecimal)getAttributeInternal(RTAGNOCHE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagNoche.
      * @param value value to set the RtagNoche
      */
-    public void setRtagNoche(String value) {
+    public void setRtagNoche(BigDecimal value) {
         setAttributeInternal(RTAGNOCHE, value);
     }
 
@@ -437,15 +448,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagLunes, using the alias name RtagLunes.
      * @return the value of RtagLunes
      */
-    public String getRtagLunes() {
-        return (String)getAttributeInternal(RTAGLUNES);
+    public BigDecimal getRtagLunes() {
+        return (BigDecimal)getAttributeInternal(RTAGLUNES);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagLunes.
      * @param value value to set the RtagLunes
      */
-    public void setRtagLunes(String value) {
+    public void setRtagLunes(BigDecimal value) {
         setAttributeInternal(RTAGLUNES, value);
     }
 
@@ -453,15 +464,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagMartes, using the alias name RtagMartes.
      * @return the value of RtagMartes
      */
-    public String getRtagMartes() {
-        return (String)getAttributeInternal(RTAGMARTES);
+    public BigDecimal getRtagMartes() {
+        return (BigDecimal)getAttributeInternal(RTAGMARTES);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagMartes.
      * @param value value to set the RtagMartes
      */
-    public void setRtagMartes(String value) {
+    public void setRtagMartes(BigDecimal value) {
         setAttributeInternal(RTAGMARTES, value);
     }
 
@@ -469,15 +480,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagMiercoles, using the alias name RtagMiercoles.
      * @return the value of RtagMiercoles
      */
-    public String getRtagMiercoles() {
-        return (String)getAttributeInternal(RTAGMIERCOLES);
+    public BigDecimal getRtagMiercoles() {
+        return (BigDecimal)getAttributeInternal(RTAGMIERCOLES);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagMiercoles.
      * @param value value to set the RtagMiercoles
      */
-    public void setRtagMiercoles(String value) {
+    public void setRtagMiercoles(BigDecimal value) {
         setAttributeInternal(RTAGMIERCOLES, value);
     }
 
@@ -485,15 +496,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagJueves, using the alias name RtagJueves.
      * @return the value of RtagJueves
      */
-    public String getRtagJueves() {
-        return (String)getAttributeInternal(RTAGJUEVES);
+    public BigDecimal getRtagJueves() {
+        return (BigDecimal)getAttributeInternal(RTAGJUEVES);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagJueves.
      * @param value value to set the RtagJueves
      */
-    public void setRtagJueves(String value) {
+    public void setRtagJueves(BigDecimal value) {
         setAttributeInternal(RTAGJUEVES, value);
     }
 
@@ -501,15 +512,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagViernes, using the alias name RtagViernes.
      * @return the value of RtagViernes
      */
-    public String getRtagViernes() {
-        return (String)getAttributeInternal(RTAGVIERNES);
+    public BigDecimal getRtagViernes() {
+        return (BigDecimal)getAttributeInternal(RTAGVIERNES);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagViernes.
      * @param value value to set the RtagViernes
      */
-    public void setRtagViernes(String value) {
+    public void setRtagViernes(BigDecimal value) {
         setAttributeInternal(RTAGVIERNES, value);
     }
 
@@ -517,15 +528,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagSabado, using the alias name RtagSabado.
      * @return the value of RtagSabado
      */
-    public String getRtagSabado() {
-        return (String)getAttributeInternal(RTAGSABADO);
+    public BigDecimal getRtagSabado() {
+        return (BigDecimal)getAttributeInternal(RTAGSABADO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagSabado.
      * @param value value to set the RtagSabado
      */
-    public void setRtagSabado(String value) {
+    public void setRtagSabado(BigDecimal value) {
         setAttributeInternal(RTAGSABADO, value);
     }
 
@@ -533,15 +544,15 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagDomingo, using the alias name RtagDomingo.
      * @return the value of RtagDomingo
      */
-    public String getRtagDomingo() {
-        return (String)getAttributeInternal(RTAGDOMINGO);
+    public BigDecimal getRtagDomingo() {
+        return (BigDecimal)getAttributeInternal(RTAGDOMINGO);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagDomingo.
      * @param value value to set the RtagDomingo
      */
-    public void setRtagDomingo(String value) {
+    public void setRtagDomingo(BigDecimal value) {
         setAttributeInternal(RTAGDOMINGO, value);
     }
 
@@ -549,16 +560,32 @@ public class TurnosRestriccionesImpl extends EntityImpl {
      * Gets the attribute value for RtagTodos, using the alias name RtagTodos.
      * @return the value of RtagTodos
      */
-    public String getRtagTodos() {
-        return (String)getAttributeInternal(RTAGTODOS);
+    public BigDecimal getRtagTodos() {
+        return (BigDecimal)getAttributeInternal(RTAGTODOS);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for RtagTodos.
      * @param value value to set the RtagTodos
      */
-    public void setRtagTodos(String value) {
+    public void setRtagTodos(BigDecimal value) {
         setAttributeInternal(RTAGTODOS, value);
+    }
+
+    /**
+     * Gets the attribute value for RtagMes, using the alias name RtagMes.
+     * @return the value of RtagMes
+     */
+    public Timestamp getRtagMes() {
+        return (Timestamp)getAttributeInternal(RTAGMES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RtagMes.
+     * @param value value to set the RtagMes
+     */
+    public void setRtagMes(Timestamp value) {
+        setAttributeInternal(RTAGMES, value);
     }
 
     /**

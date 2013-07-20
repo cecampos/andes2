@@ -68,6 +68,16 @@ public class coAsignacionEditImpl extends EntityImpl {
             }
         }
         ,
+        CoagMes {
+            public Object get(coAsignacionEditImpl obj) {
+                return obj.getCoagMes();
+            }
+
+            public void put(coAsignacionEditImpl obj, Object value) {
+                obj.setCoagMes((Timestamp)value);
+            }
+        }
+        ,
         EmpleadosEdit {
             public Object get(coAsignacionEditImpl obj) {
                 return obj.getEmpleadosEdit();
@@ -121,6 +131,7 @@ public class coAsignacionEditImpl extends EntityImpl {
     public static final int COAGFECHA = AttributesEnum.CoagFecha.index();
     public static final int COAGVERSION = AttributesEnum.CoagVersion.index();
     public static final int ROWID = AttributesEnum.RowID.index();
+    public static final int COAGMES = AttributesEnum.CoagMes.index();
     public static final int EMPLEADOSEDIT = AttributesEnum.EmpleadosEdit.index();
     public static final int GRUPOSEO = AttributesEnum.GruposEO.index();
 
@@ -208,6 +219,22 @@ public class coAsignacionEditImpl extends EntityImpl {
      */
     public RowID getRowID() {
         return (RowID)getAttributeInternal(ROWID);
+    }
+
+    /**
+     * Gets the attribute value for CoagMes, using the alias name CoagMes.
+     * @return the value of CoagMes
+     */
+    public Timestamp getCoagMes() {
+        return (Timestamp)getAttributeInternal(COAGMES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CoagMes.
+     * @param value value to set the CoagMes
+     */
+    public void setCoagMes(Timestamp value) {
+        setAttributeInternal(COAGMES, value);
     }
 
     /**
