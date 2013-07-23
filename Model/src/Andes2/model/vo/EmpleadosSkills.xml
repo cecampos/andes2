@@ -3,18 +3,26 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="EmpladosSkillView"
-  Version="11.1.2.62.76"
+  Name="EmpleadosSkills"
+  Version="11.1.2.64.36"
   SelectList="EmpladosSkill.EMPL_RUT, 
-       EmpladosSkill.SKLL_SEQ_CDG, 
-       EmpladosSkill.SKLL_FECHA, 
-       EmpladosSkill.SKILL_VERSION, 
+       EmpladosSkill.SKLL_ID, 
        EmpladosSkill.ROWID"
-  FromList="EMPLADOS_SKILL EmpladosSkill"
+  FromList="EMPLEADOS_SKILL EmpladosSkill"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
   UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.EmpleadosSkills_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="elCargo"
+    Kind="where"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="EmpladosSkill"
     Entity="Andes2.model.EmpladosSkill"/>
@@ -26,24 +34,12 @@
     EntityUsage="EmpladosSkill"
     AliasName="EMPL_RUT"/>
   <ViewAttribute
-    Name="SkllSeqCdg"
+    Name="SkllId"
     IsNotNull="true"
     PrecisionRule="true"
-    EntityAttrName="SkllSeqCdg"
+    EntityAttrName="SkllId"
     EntityUsage="EmpladosSkill"
-    AliasName="SKLL_SEQ_CDG"/>
-  <ViewAttribute
-    Name="SkllFecha"
-    PrecisionRule="true"
-    EntityAttrName="SkllFecha"
-    EntityUsage="EmpladosSkill"
-    AliasName="SKLL_FECHA"/>
-  <ViewAttribute
-    Name="SkillVersion"
-    PrecisionRule="true"
-    EntityAttrName="SkillVersion"
-    EntityUsage="EmpladosSkill"
-    AliasName="SKILL_VERSION"/>
+    AliasName="SKLL_ID"/>
   <ViewAttribute
     Name="Rowid"
     IsUpdateable="false"
@@ -51,4 +47,8 @@
     EntityAttrName="Rowid"
     EntityUsage="EmpladosSkill"
     AliasName="ROWID"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

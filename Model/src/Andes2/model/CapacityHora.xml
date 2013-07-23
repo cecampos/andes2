@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="CapacityHora"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="CAPACITY_HORA"
   AliasName="CapacityHora"
@@ -27,18 +27,19 @@
     Name="CaphFecha"
     IsNotNull="true"
     ColumnName="CAPH_FECHA"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
     TableName="CAPACITY_HORA"/>
   <Attribute
     Name="CaphHora"
     IsNotNull="true"
     ColumnName="CAPH_HORA"
-    SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="CAPACITY_HORA"/>
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CAPACITY_HORA"
+    Precision="10"/>
   <Attribute
     Name="CaphRequerimiento"
     IsNotNull="true"
@@ -49,12 +50,12 @@
     TableName="CAPACITY_HORA"/>
   <Attribute
     Name="CaphMes"
-    IsNotNull="true"
-    ColumnName="CAPH_MES"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
-    TableName="CAPACITY_HORA"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="CaphVersion"
     ColumnName="CAPH_VERSION"

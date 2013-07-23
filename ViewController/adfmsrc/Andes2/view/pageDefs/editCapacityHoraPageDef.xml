@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editCapacityHoraPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Requerimientos1" RangeSize="25" DataControl="dataSourceDataControl" id="Requerimientos1Iterator"/>
+    <searchRegion Binds="Requerimientos1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="Requerimientos1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Requerimientos1Iterator" id="Requerimientos1">
+      <nodeDefinition DefName="Andes2.model.vo.CapacityTurno" Name="Requerimientos10">
+        <AttrNames>
+          <Item Value="CaptFecha"/>
+          <Item Value="CrgoId"/>
+          <Item Value="TurnNombre"/>
+          <Item Value="CaptRequerimiento"/>
+          <Item Value="CaptCoberturaMinima"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Requerimientos1Iterator" id="CaptFecha">
+      <AttrNames>
+        <Item Value="CaptFecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Requerimientos1Iterator" id="CrgoId">
+      <AttrNames>
+        <Item Value="CrgoId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Requerimientos1Iterator" id="TurnNombre">
+      <AttrNames>
+        <Item Value="TurnNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Requerimientos1Iterator" id="CaptRequerimiento">
+      <AttrNames>
+        <Item Value="CaptRequerimiento"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Requerimientos1Iterator" id="CaptCoberturaMinima">
+      <AttrNames>
+        <Item Value="CaptCoberturaMinima"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="dataSourceDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="dataSourceDataControl"/>
+    <action IterBinding="Requerimientos1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+  </bindings>
+</pageDefinition>

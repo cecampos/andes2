@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Capacitaciones"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
@@ -27,6 +27,9 @@ FROM capacitaciones, turnos,contrato_empleados
 WHERE cast(substr(capacitaciones.capt_hora_inicio,0,2) AS int) >= cast(substr(turnos.turn_hora_ingreso,0,2) as int)
 AND cast(substr(capacitaciones.capt_hora_termino,0,2) AS int) <= cast(substr(turnos.turn_hora_salida,0,2) as int)
 AND contrato_empleados.empl_rut = capacitaciones.empl_rut and contrato_empleados.crgo_id = :elCargo]]></SQLQuery>
+  <EntityUsage
+    Name="Capacitaciones"
+    Entity="Andes2.model.Capacitaciones"/>
   <ViewAttribute
     Name="Rut"
     IsUpdateable="false"
@@ -67,6 +70,39 @@ AND contrato_empleados.empl_rut = capacitaciones.empl_rut and contrato_empleados
       <Attr Name="_DisplaySize" Value="4"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CaptId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptId"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_ID"/>
+  <ViewAttribute
+    Name="CaptHoraInicio"
+    PrecisionRule="true"
+    EntityAttrName="CaptHoraInicio"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_HORA_INICIO"/>
+  <ViewAttribute
+    Name="CaptHoraTermino"
+    PrecisionRule="true"
+    EntityAttrName="CaptHoraTermino"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_HORA_TERMINO"/>
+  <ViewAttribute
+    Name="CaptFechaInicio"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptFechaInicio"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_FECHA_INICIO"/>
+  <ViewAttribute
+    Name="CaptFechaTermino"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CaptFechaTermino"
+    EntityUsage="Capacitaciones"
+    AliasName="CAPT_FECHA_TERMINO"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="Andes2.model.ModelBundle"/>

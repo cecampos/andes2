@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Grupos"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="GRUPOS"
   AliasName="Grupos"
@@ -12,13 +12,12 @@
   UseGlueCode="false">
   <Attribute
     Name="GrpoSeqCdg"
-    IsNotNull="true"
-    ColumnName="GRPO_SEQ_CDG"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="GRUPOS"
-    PrimaryKey="true"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="GrpoNombre"
     Precision="40"
@@ -26,7 +25,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="GRUPOS">
+    TableName="GRUPOS"
+    IsNotNull="true"
+    PrimaryKey="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
@@ -37,13 +38,40 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
     ColumnType="DATE"
-    TableName="GRUPOS"/>
+    TableName="GRUPOS"
+    IsNotNull="true"/>
   <Attribute
     Name="GrpoFechaTermino"
     ColumnName="GRPO_FECHA_TERMINO"
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
     ColumnType="DATE"
+    TableName="GRUPOS"/>
+  <Attribute
+    Name="GrpoLider"
+    Precision="20"
+    ColumnName="GRPO_LIDER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GRUPOS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GrpoMes"
+    ColumnName="GRPO_MES"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="GRUPOS"/>
+  <Attribute
+    Name="GrpoVersion"
+    ColumnName="GRPO_VERSION"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
     TableName="GRUPOS"/>
   <AccessorAttribute
     Name="Coasignacion"
@@ -59,7 +87,7 @@
       <Attr Name="_DBObjectName" Value="GRPO_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.Grupos.GrpoSeqCdg"/>
+      <Item Value="Andes2.model.Grupos.GrpoNombre"/>
     </AttrArray>
   </Key>
 </Entity>

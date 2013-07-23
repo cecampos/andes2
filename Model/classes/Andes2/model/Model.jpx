@@ -4,7 +4,7 @@
 <JboProject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Model"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   SeparateXMLFiles="true"
   PackageName="Andes2.model">
   <DesignTime>
@@ -33,6 +33,9 @@
     <DesignTime>
       <Attr Name="_AM" Value="true"/>
       <Attr Name="_VO" Value="true"/>
+      <Attr Name="_EO" Value="true"/>
+      <Attr Name="_AS" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
 </JboProject>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.GruposEOView1.collectionModel}" var="row" rows="#{bindings.GruposEOView1.rangeSize}"
+            emptyText="#{bindings.GruposEOView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.GruposEOView1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.GruposEOView1Query.queryDescriptor}"
+            queryListener="#{bindings.GruposEOView1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.GruposEOView1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.GruposEOView1.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+            inlineStyle="width:inherit; height:inherit;">
+    <af:column sortProperty="#{bindings.GruposEOView1.hints.GrpoNombre.name}" filterable="true" sortable="true"
+               headerText="Nombre" id="c1">
+      <af:inputText value="#{row.bindings.GrpoNombre.inputValue}"
+                    label="#{bindings.GruposEOView1.hints.GrpoNombre.label}"
+                    required="#{bindings.GruposEOView1.hints.GrpoNombre.mandatory}"
+                    columns="#{bindings.GruposEOView1.hints.GrpoNombre.displayWidth}"
+                    maximumLength="#{bindings.GruposEOView1.hints.GrpoNombre.precision}"
+                    shortDesc="#{bindings.GruposEOView1.hints.GrpoNombre.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.GrpoNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.GruposEOView1.hints.GrpoLider.name}" filterable="true" sortable="true"
+               headerText="Lider" id="c2">
+      <af:inputText value="#{row.bindings.GrpoLider.inputValue}" label="#{bindings.GruposEOView1.hints.GrpoLider.label}"
+                    required="#{bindings.GruposEOView1.hints.GrpoLider.mandatory}"
+                    columns="#{bindings.GruposEOView1.hints.GrpoLider.displayWidth}"
+                    maximumLength="#{bindings.GruposEOView1.hints.GrpoLider.precision}"
+                    shortDesc="#{bindings.GruposEOView1.hints.GrpoLider.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.GrpoLider.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.GruposEOView1.hints.GrpoFechaInicio.name}" filterable="true" sortable="true"
+               headerText="Fecha Inicio" id="c3">
+      <f:facet name="filter">
+        <af:inputDate value="#{vs.filterCriteria.GrpoFechaInicio}" id="id1">
+          <af:convertDateTime pattern="#{bindings.GruposEOView1.hints.GrpoFechaInicio.format}"/>
+        </af:inputDate>
+      </f:facet>
+      <af:inputDate value="#{row.bindings.GrpoFechaInicio.inputValue}"
+                    label="#{bindings.GruposEOView1.hints.GrpoFechaInicio.label}"
+                    required="#{bindings.GruposEOView1.hints.GrpoFechaInicio.mandatory}"
+                    columns="#{bindings.GruposEOView1.hints.GrpoFechaInicio.displayWidth}"
+                    shortDesc="#{bindings.GruposEOView1.hints.GrpoFechaInicio.tooltip}" id="id2">
+        <f:validator binding="#{row.bindings.GrpoFechaInicio.validator}"/>
+        <af:convertDateTime pattern="#{bindings.GruposEOView1.hints.GrpoFechaInicio.format}"/>
+      </af:inputDate>
+    </af:column>
+    <af:column sortProperty="#{bindings.GruposEOView1.hints.GrpoFechaTermino.name}" filterable="true" sortable="true"
+               headerText="Fecha Terminos" id="c4">
+      <f:facet name="filter">
+        <af:inputDate value="#{vs.filterCriteria.GrpoFechaTermino}" id="id3">
+          <af:convertDateTime pattern="#{bindings.GruposEOView1.hints.GrpoFechaTermino.format}"/>
+        </af:inputDate>
+      </f:facet>
+      <af:inputDate value="#{row.bindings.GrpoFechaTermino.inputValue}"
+                    label="#{bindings.GruposEOView1.hints.GrpoFechaTermino.label}"
+                    required="#{bindings.GruposEOView1.hints.GrpoFechaTermino.mandatory}"
+                    columns="#{bindings.GruposEOView1.hints.GrpoFechaTermino.displayWidth}"
+                    shortDesc="#{bindings.GruposEOView1.hints.GrpoFechaTermino.tooltip}" id="id4">
+        <f:validator binding="#{row.bindings.GrpoFechaTermino.validator}"/>
+        <af:convertDateTime pattern="#{bindings.GruposEOView1.hints.GrpoFechaTermino.format}"/>
+      </af:inputDate>
+    </af:column>
+  </af:table>
+</ui:composition>

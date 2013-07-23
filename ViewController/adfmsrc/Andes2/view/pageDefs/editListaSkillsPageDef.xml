@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editListaSkillsPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ListaSkillEditView1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="ListaSkillEditView1Iterator"/>
+    <searchRegion Binds="ListaSkillEditView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ListaSkillEditView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ListaSkillEditView1Iterator" id="ListaSkillEditView1">
+      <nodeDefinition DefName="Andes2.model.vo.ListaSkillEditView" Name="ListaSkillEditView10">
+        <AttrNames>
+          <Item Value="SkllId"/>
+          <Item Value="CrgoId"/>
+          <Item Value="SkllNombre"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ListaSkillEditView1Iterator" id="SkllId">
+      <AttrNames>
+        <Item Value="SkllId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ListaSkillEditView1Iterator" id="CrgoId">
+      <AttrNames>
+        <Item Value="CrgoId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ListaSkillEditView1Iterator" id="SkllNombre">
+      <AttrNames>
+        <Item Value="SkllNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="dataSourceDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="dataSourceDataControl"/>
+    <action IterBinding="ListaSkillEditView1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="ListaSkillEditView1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"/>
+  </bindings>
+</pageDefinition>

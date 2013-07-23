@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="RestriccionAsignacion"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="RESTRICCION_ASIGNACION"
   AliasName="RestriccionAsignacion"
@@ -25,28 +25,28 @@
   </Attribute>
   <Attribute
     Name="RtagDia"
-    IsNotNull="true"
-    ColumnName="RTAG_DIA"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
-    TableName="RESTRICCION_ASIGNACION"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="TurnSeqCdg"
-    IsNotNull="true"
-    ColumnName="TURN_SEQ_CDG"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    TableName="RESTRICCION_ASIGNACION"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="RtagMes"
-    IsNotNull="true"
-    ColumnName="RTAG_MES"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
-    TableName="RESTRICCION_ASIGNACION"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="RtagVersion"
     ColumnName="RTAG_VERSION"
@@ -63,6 +63,184 @@
     ColumnType="ROWID"
     TableName="RESTRICCION_ASIGNACION"
     PrimaryKey="true"/>
+  <Attribute
+    Name="TurnNombre"
+    Precision="20"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagInicio"
+    IsNotNull="true"
+    ColumnName="RTAG_INICIO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="RESTRICCION_ASIGNACION"/>
+  <Attribute
+    Name="RtagTermino"
+    ColumnName="RTAG_TERMINO"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="RESTRICCION_ASIGNACION"/>
+  <Attribute
+    Name="RtagApertura"
+    ColumnName="RTAG_APERTURA"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagTarde"
+    ColumnName="RTAG_TARDE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagNoche"
+    ColumnName="RTAG_NOCHE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagLunes"
+    ColumnName="RTAG_LUNES"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagMartes"
+    ColumnName="RTAG_MARTES"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagMiercoles"
+    ColumnName="RTAG_MIERCOLES"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagJueves"
+    ColumnName="RTAG_JUEVES"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagViernes"
+    ColumnName="RTAG_VIERNES"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagSabado"
+    ColumnName="RTAG_SABADO"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagDomingo"
+    ColumnName="RTAG_DOMINGO"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagTodos"
+    ColumnName="RTAG_TODOS"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="RESTRICCION_ASIGNACION"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RtagMes1"
+    ColumnName="RTAG_MES"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="DATE"
+    TableName="RESTRICCION_ASIGNACION"/>
   <AccessorAttribute
     Name="Empleados"
     Association="Andes2.model.RtagFkEmplAssoc"
@@ -78,20 +256,8 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
-    Name="RtagAsignacionFkTurn">
-    <DesignTime>
-      <Attr Name="_referencedKey" Value="TURN_PK"/>
-      <Attr Name="_isForeign" Value="true"/>
-      <Attr Name="_DBObjectName" Value="RTAG_ASIGNACION_FK_TURN"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.RestriccionAsignacion.TurnSeqCdg"/>
-    </AttrArray>
-  </Key>
-  <Key
     Name="RtagFkEmpl">
     <DesignTime>
-      <Attr Name="_referencedKey" Value="EMPL_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="RTAG_FK_EMPL"/>
     </DesignTime>

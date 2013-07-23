@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editRegimenDeTrabajoPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RegimenDeTrabajoView1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="RegimenDeTrabajoView1Iterator"/>
+    <searchRegion Binds="RegimenDeTrabajoView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="RegimenDeTrabajoView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RegimenDeTrabajoView1Iterator" id="RegimenDeTrabajoView1">
+      <nodeDefinition DefName="Andes2.model.vo.RegimenDeTrabajoView" Name="RegimenDeTrabajoView10">
+        <AttrNames>
+          <Item Value="RgtrNombre"/>
+          <Item Value="RgtrDiasTrabajados"/>
+          <Item Value="RgtrDiasDescansados"/>
+          <Item Value="RgtrMaxNoches"/>
+          <Item Value="RgtrLibresPostSalientes"/>
+          <Item Value="RgtrFinesSemanaLibres"/>
+          <Item Value="RgtrDomingosLibres"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

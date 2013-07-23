@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Turnos"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="TURNOS"
   AliasName="Turnos"
@@ -17,8 +17,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="TURNOS"
-    PrimaryKey="true"/>
+    TableName="TURNOS"/>
   <Attribute
     Name="TurnNombre"
     Precision="20"
@@ -26,14 +25,16 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="TURNOS">
+    TableName="TURNOS"
+    IsNotNull="true"
+    PrimaryKey="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="TurnTipo"
-    Precision="1"
+    Precision="4"
     ColumnName="TURN_TIPO"
     SQLType="VARCHAR"
     Type="java.lang.String"
@@ -89,13 +90,13 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
-    Name="TurnPk"
+    Name="TurnosPk"
     PrimaryKey="true">
     <DesignTime>
-      <Attr Name="_DBObjectName" Value="TURN_PK"/>
+      <Attr Name="_DBObjectName" Value="TURNOS_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.Turnos.TurnSeqCdg"/>
+      <Item Value="Andes2.model.Turnos.TurnNombre"/>
     </AttrArray>
   </Key>
 </Entity>

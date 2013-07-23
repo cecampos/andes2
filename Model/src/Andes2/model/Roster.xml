@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Roster"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="TABLE"
   DBObjectName="DEV.ROSTER"
   AliasName="Roster"
@@ -419,6 +419,13 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="Empleados"
+    Association="Andes2.model.RostFkEmplAssoc"
+    AssociationEnd="Andes2.model.RostFkEmplAssoc.Empleados"
+    AssociationOtherEnd="Andes2.model.RostFkEmplAssoc.Roster"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="RostPk"
     PrimaryKey="true">
@@ -432,7 +439,6 @@
   <Key
     Name="RostFkEmpl">
     <DesignTime>
-      <Attr Name="_referencedKey" Value="EMPL_PK"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="ROST_FK_EMPL"/>
     </DesignTime>

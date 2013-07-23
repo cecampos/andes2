@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="RestriccionAsignacion"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
@@ -22,50 +22,267 @@
     Name="elCargo"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT rasig.EMPL_RUT rut, extract (day from rtag_dia) dia, rasig.turn_nombre turno
-FROM restriccion_asignacion rasig,contrato_empleados cempl
-WHERE rasig.empl_rut = cempl.empl_rut AND
-cempl.crgo_id = :elCargo]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT RESTRICCION_ASIGNACION.EMPL_RUT,
+  extract(day from RESTRICCION_ASIGNACION.RTAG_INICIO) dia_inicio,
+  extract(month from RESTRICCION_ASIGNACION.RTAG_INICIO) mes_inicio,
+  extract(year from RESTRICCION_ASIGNACION.RTAG_INICIO) annio_inicio,
+  extract(day from RESTRICCION_ASIGNACION.RTAG_TERMINO) dia_termino,
+  extract(month from RESTRICCION_ASIGNACION.RTAG_TERMINO) mes_termino,
+  extract(year from RESTRICCION_ASIGNACION.RTAG_TERMINO) annio_termino,
+  extract(day from (last_day(RESTRICCION_ASIGNACION.RTAG_MES))) dia_mes,
+  extract(month from RESTRICCION_ASIGNACION.RTAG_MES) mes_mes,
+  extract(year from RESTRICCION_ASIGNACION.RTAG_MES) annio_mes,
+   RESTRICCION_ASIGNACION.RTAG_TODOS,
+  RESTRICCION_ASIGNACION.RTAG_LUNES,
+  RESTRICCION_ASIGNACION.RTAG_MARTES,
+  RESTRICCION_ASIGNACION.RTAG_MIERCOLES,
+  RESTRICCION_ASIGNACION.RTAG_JUEVES,
+  RESTRICCION_ASIGNACION.RTAG_VIERNES,
+  RESTRICCION_ASIGNACION.RTAG_SABADO,
+  RESTRICCION_ASIGNACION.RTAG_DOMINGO,
+  RESTRICCION_ASIGNACION.RTAG_APERTURA,
+  RESTRICCION_ASIGNACION.RTAG_TARDE,
+  RESTRICCION_ASIGNACION.RTAG_NOCHE
+FROM RESTRICCION_ASIGNACION
+INNER JOIN CONTRATO_EMPLEADOS ON CONTRATO_EMPLEADOS.EMPL_RUT=RESTRICCION_ASIGNACION.EMPL_RUT
+WHERE CONTRATO_EMPLEADOS.crgo_id=:elCargo OR RESTRICCION_ASIGNACION.EMPL_RUT=RESTRICCION_ASIGNACION.EMPL_RUT]]></SQLQuery>
   <ViewAttribute
-    Name="Rut"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="RUT"
-    Expression="RUT"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="20"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Dia"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    AliasName="DIA"
-    Expression="DIA"
-    SQLType="NUMERIC"/>
-  <ViewAttribute
-    Name="Turno"
+    Name="EmplRut"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="20"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="TURNO"
-    Expression="TURNO"
+    AliasName="EMPL_RUT"
+    Expression="EMPL_RUT"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="DiaInicio"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="DIA_INICIO"
+    Expression="DIA_INICIO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="MesInicio"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="MES_INICIO"
+    Expression="MES_INICIO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="AnnioInicio"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ANNIO_INICIO"
+    Expression="ANNIO_INICIO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="DiaTermino"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="DIA_TERMINO"
+    Expression="DIA_TERMINO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="MesTermino"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="MES_TERMINO"
+    Expression="MES_TERMINO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="AnnioTermino"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ANNIO_TERMINO"
+    Expression="ANNIO_TERMINO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="DiaMes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="DIA_MES"
+    Expression="DIA_MES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="MesMes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="MES_MES"
+    Expression="MES_MES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="AnnioMes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ANNIO_MES"
+    Expression="ANNIO_MES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagTodos"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_TODOS"
+    Expression="RTAG_TODOS"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagLunes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_LUNES"
+    Expression="RTAG_LUNES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagMartes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_MARTES"
+    Expression="RTAG_MARTES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagMiercoles"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_MIERCOLES"
+    Expression="RTAG_MIERCOLES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagJueves"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_JUEVES"
+    Expression="RTAG_JUEVES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagViernes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_VIERNES"
+    Expression="RTAG_VIERNES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagSabado"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_SABADO"
+    Expression="RTAG_SABADO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagDomingo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_DOMINGO"
+    Expression="RTAG_DOMINGO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagApertura"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_APERTURA"
+    Expression="RTAG_APERTURA"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagTarde"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_TARDE"
+    Expression="RTAG_TARDE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RtagNoche"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="RTAG_NOCHE"
+    Expression="RTAG_NOCHE"
+    SQLType="NUMERIC"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="Andes2.model.ModelBundle"/>

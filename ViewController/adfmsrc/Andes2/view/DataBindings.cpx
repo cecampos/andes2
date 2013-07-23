@@ -20,8 +20,22 @@
     <page path="/vacaciones.jsf" usageId="Andes2_view_vacacionesPageDef"/>
     <page path="/capacitaciones.jsf" usageId="Andes2_view_capacitacionesPageDef"/>
     <page path="/GeneradorArchivos.jsf" usageId="Andes2_view_GeneradorArchivosPageDef"/>
-    <page path="/editVacaciones.jsff" usageId="Andes2_view_editVacacionesPageDef"/>
+    <page path="/Fragmets_Edit/editVacaciones.jsff" usageId="Andes2_view_editVacacionesPageDef"/>
     <page path="/EditarDatos.jsf" usageId="Andes2_view_EditarDatosPageDef"/>
+    <page path="/Fragmets_Edit/editCapacitaciones.jsff" usageId="Andes2_view_editCapacitacionesPageDef"/>
+    <page path="/Fragmets_Edit/editCapacityHora.jsff" usageId="Andes2_view_editCapacityHoraPageDef"/>
+    <page path="/Fragmets_Edit/editGrupos.jsff" usageId="Andes2_view_editGruposPageDef"/>
+    <page path="/Fragmets_Edit/editEmpleados.jsff" usageId="Andes2_view_editEmpleadosPageDef"/>
+    <page path="/Fragmets_Edit/editRegimenDeTrabajo.jsff" usageId="Andes2_view_editRegimenDeTrabajoPageDef"/>
+    <page path="/Fragmets_Edit/editCargos.jsff" usageId="Andes2_view_editCargosPageDef"/>
+    <page path="/Fragmets_Edit/editTurnos.jsff" usageId="Andes2_view_editTurnosPageDef"/>
+    <page path="/Fragmets_Edit/editListaSkills.jsff" usageId="Andes2_view_editListaSkillsPageDef"/>
+    <page path="/Fragmets_Edit/editCapacityTurno.jsff" usageId="Andes2_view_editCapacityTurnoPageDef"/>
+    <page path="/Fragmets_Edit/editTurnosFijados.jsff" usageId="Andes2_view_editTurnosFijadosPageDef"/>
+    <page path="/Fragmets_Edit/editTurnosProhibidos.jsff" usageId="Andes2_view_editTurnosProhibidosPageDef"/>
+    <page path="/Fragmets_Edit/editCoasignacion.jsff" usageId="Andes2_view_editCoasignacionPageDef"/>
+    <page path="/Fragmets_Edit/editCapacitySkills.jsff" usageId="Andes2_view_editCapacitySkillsPageDef"/>
+    <page path="/Fragmets_Edit/editSkillEmpleados.jsff" usageId="Andes2_view_editSkillEmpleadosPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="Andes2_view_CargaArchivosPageDef" path="Andes2.view.pageDefs.CargaArchivosPageDef"/>
@@ -39,6 +53,20 @@
     <page id="Andes2_view_GeneradorArchivosPageDef" path="Andes2.view.pageDefs.GeneradorArchivosPageDef"/>
     <page id="Andes2_view_editVacacionesPageDef" path="Andes2.view.pageDefs.editVacacionesPageDef"/>
     <page id="Andes2_view_EditarDatosPageDef" path="Andes2.view.pageDefs.EditarDatosPageDef"/>
+    <page id="Andes2_view_editCapacitacionesPageDef" path="Andes2.view.pageDefs.editCapacitacionesPageDef"/>
+    <page id="Andes2_view_editCapacityHoraPageDef" path="Andes2.view.pageDefs.editCapacityHoraPageDef"/>
+    <page id="Andes2_view_editGruposPageDef" path="Andes2.view.pageDefs.editGruposPageDef"/>
+    <page id="Andes2_view_editEmpleadosPageDef" path="Andes2.view.pageDefs.editEmpleadosPageDef"/>
+    <page id="Andes2_view_editRegimenDeTrabajoPageDef" path="Andes2.view.pageDefs.editRegimenDeTrabajoPageDef"/>
+    <page id="Andes2_view_editCargosPageDef" path="Andes2.view.pageDefs.editCargosPageDef"/>
+    <page id="Andes2_view_editTurnosPageDef" path="Andes2.view.pageDefs.editTurnosPageDef"/>
+    <page id="Andes2_view_editListaSkillsPageDef" path="Andes2.view.pageDefs.editListaSkillsPageDef"/>
+    <page id="Andes2_view_editCapacityTurnoPageDef" path="Andes2.view.pageDefs.editCapacityTurnoPageDef"/>
+    <page id="Andes2_view_editTurnosFijadosPageDef" path="Andes2.view.pageDefs.editTurnosFijadosPageDef"/>
+    <page id="Andes2_view_editTurnosProhibidosPageDef" path="Andes2.view.pageDefs.editTurnosProhibidosPageDef"/>
+    <page id="Andes2_view_editCoasignacionPageDef" path="Andes2.view.pageDefs.editCoasignacionPageDef"/>
+    <page id="Andes2_view_editCapacitySkillsPageDef" path="Andes2.view.pageDefs.editCapacitySkillsPageDef"/>
+    <page id="Andes2_view_editSkillEmpleadosPageDef" path="Andes2.view.pageDefs.editSkillEmpleadosPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="andes2DataControl" Package="Andes2.model"

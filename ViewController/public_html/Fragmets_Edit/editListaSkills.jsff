@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelSplitter id="ps1" inlineStyle="width:inherit; height:inherit;">
+    <f:facet name="first">
+      <af:table value="#{bindings.ListaSkillEditView1.collectionModel}" var="row"
+                rows="#{bindings.ListaSkillEditView1.rangeSize}"
+                emptyText="#{bindings.ListaSkillEditView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.ListaSkillEditView1.rangeSize}" rowBandingInterval="0"
+                filterModel="#{bindings.ListaSkillEditView1Query.queryDescriptor}"
+                queryListener="#{bindings.ListaSkillEditView1Query.processQuery}" filterVisible="true" varStatus="vs"
+                selectedRowKeys="#{bindings.ListaSkillEditView1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.ListaSkillEditView1.collectionModel.makeCurrent}" rowSelection="single"
+                id="t1" partialTriggers="::cb3 ::cb4">
+        <af:column sortProperty="#{bindings.ListaSkillEditView1.hints.SkllId.name}" filterable="true" sortable="true"
+                   headerText="ID Skil" id="c1">
+          <af:inputText value="#{row.bindings.SkllId.inputValue}"
+                        label="#{bindings.ListaSkillEditView1.hints.SkllId.label}"
+                        required="#{bindings.ListaSkillEditView1.hints.SkllId.mandatory}"
+                        columns="#{bindings.ListaSkillEditView1.hints.SkllId.displayWidth}"
+                        maximumLength="#{bindings.ListaSkillEditView1.hints.SkllId.precision}"
+                        shortDesc="#{bindings.ListaSkillEditView1.hints.SkllId.tooltip}" id="it1">
+            <f:validator binding="#{row.bindings.SkllId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ListaSkillEditView1.hints.CrgoId.name}" filterable="true" sortable="true"
+                   headerText="ID Cargo" id="c2">
+          <af:inputText value="#{row.bindings.CrgoId.inputValue}"
+                        label="#{bindings.ListaSkillEditView1.hints.CrgoId.label}"
+                        required="#{bindings.ListaSkillEditView1.hints.CrgoId.mandatory}"
+                        columns="#{bindings.ListaSkillEditView1.hints.CrgoId.displayWidth}"
+                        maximumLength="#{bindings.ListaSkillEditView1.hints.CrgoId.precision}"
+                        shortDesc="#{bindings.ListaSkillEditView1.hints.CrgoId.tooltip}" id="it2">
+            <f:validator binding="#{row.bindings.CrgoId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ListaSkillEditView1.hints.SkllNombre.name}" filterable="true"
+                   sortable="true" headerText="Nombre Skill" id="c3">
+          <af:inputText value="#{row.bindings.SkllNombre.inputValue}"
+                        label="#{bindings.ListaSkillEditView1.hints.SkllNombre.label}"
+                        required="#{bindings.ListaSkillEditView1.hints.SkllNombre.mandatory}"
+                        columns="#{bindings.ListaSkillEditView1.hints.SkllNombre.displayWidth}"
+                        maximumLength="#{bindings.ListaSkillEditView1.hints.SkllNombre.precision}"
+                        shortDesc="#{bindings.ListaSkillEditView1.hints.SkllNombre.tooltip}" id="it3">
+            <f:validator binding="#{row.bindings.SkllNombre.validator}"/>
+          </af:inputText>
+        </af:column>
+      </af:table>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelFormLayout id="pfl1">
+        <af:inputText value="#{bindings.SkllId.inputValue}" label="#{bindings.SkllId.hints.label}"
+                      required="#{bindings.SkllId.hints.mandatory}" columns="#{bindings.SkllId.hints.displayWidth}"
+                      maximumLength="#{bindings.SkllId.hints.precision}" shortDesc="#{bindings.SkllId.hints.tooltip}"
+                      id="it4">
+          <f:validator binding="#{bindings.SkllId.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.CrgoId.inputValue}" label="#{bindings.CrgoId.hints.label}"
+                      required="#{bindings.CrgoId.hints.mandatory}" columns="#{bindings.CrgoId.hints.displayWidth}"
+                      maximumLength="#{bindings.CrgoId.hints.precision}" shortDesc="#{bindings.CrgoId.hints.tooltip}"
+                      id="it5">
+          <f:validator binding="#{bindings.CrgoId.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.SkllNombre.inputValue}" label="#{bindings.SkllNombre.hints.label}"
+                      required="#{bindings.SkllNombre.hints.mandatory}"
+                      columns="#{bindings.SkllNombre.hints.displayWidth}"
+                      maximumLength="#{bindings.SkllNombre.hints.precision}"
+                      shortDesc="#{bindings.SkllNombre.hints.tooltip}" id="it6">
+          <f:validator binding="#{bindings.SkllNombre.validator}"/>
+        </af:inputText>
+        <f:facet name="footer">
+          <af:group id="g1">
+            <af:commandButton text="Create" disabled="#{!bindings.Create.enabled}" id="cb3"
+                              actionListener="#{bindings.Create.execute}" partialTriggers="pfl1"/>
+            <af:commandButton actionListener="#{bindings.CreateWithParams.execute}" text="CreateWithParams"
+                              disabled="#{!bindings.CreateWithParams.enabled}" id="cb4" partialTriggers="pfl1"/>
+          </af:group>
+        </f:facet>
+      </af:panelFormLayout>
+    </f:facet>
+  </af:panelSplitter>
+  <h:panelGroup id="pg1">
+    <af:commandButton actionListener="#{bindings.Commit.execute}" text="Confirmar" disabled="#{!bindings.Commit.enabled}"
+                      id="cb1" partialTriggers="t1 pfl1"/>
+    <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Cancelar"
+                      disabled="#{!bindings.Rollback.enabled}" immediate="true" id="cb2" partialTriggers="t1 pfl1">
+      <af:resetActionListener/>
+    </af:commandButton>
+  </h:panelGroup>
+</ui:composition>

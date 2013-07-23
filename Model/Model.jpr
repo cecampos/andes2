@@ -152,6 +152,15 @@
       <value n="j2eeWebAppName" v="Andes2-Model-webapp"/>
       <value n="j2eeWebContextRoot" v="Andes2-Model-context-root"/>
    </hash>
+   <hash n="oracle.jdeveloper.runner.RunConfigurations">
+      <hash n="runConfigurationDefinitions">
+         <hash n="Default">
+            <value n="custom" v="false"/>
+            <value n="name" v="Default"/>
+            <url n="targetURL" path="../ViewController/public_html/FileUpload.jsf"/>
+         </hash>
+      </hash>
+   </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
          <hash>

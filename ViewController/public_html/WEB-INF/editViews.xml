@@ -1,48 +1,212 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="editViews">
-    <default-activity>router1</default-activity>
-    <transaction>
-      <new-transaction/>
-    </transaction>
+    <default-activity>methodCall1</default-activity>
     <data-control-scope>
-      <isolated/>
+      <shared/>
     </data-control-scope>
-    <input-parameter-definition id="__12">
-      <name>selectedTableEditView</name>
-      <value>#{pageFlowScope.EditarBean.getSelectedTable}</value>
-      <required/>
+    <input-parameter-definition id="__9">
+      <name>inputParameter1</name>
+      <value>#{editBean.selected}</value>
+      <class>java.lang.String</class>
     </input-parameter-definition>
-    <managed-bean id="__3">
-      <managed-bean-name>EditarBean</managed-bean-name>
-      <managed-bean-class>Andes2.view.managedBeans.EditarBean</managed-bean-class>
-      <managed-bean-scope>pageFlow</managed-bean-scope>
-      <managed-property id="__5">
-        <property-name>selectedTable</property-name>
-        <value>#{EditarBean.selectedTable}</value>
-      </managed-property>
+    <managed-bean id="__8">
+      <managed-bean-name>editBean</managed-bean-name>
+      <managed-bean-class>Andes2.view.managedBeans.EditBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
     <view id="editVacaciones">
-      <page>/editVacaciones.jsff</page>
+      <page>/Fragmets_Edit/editVacaciones.jsff</page>
     </view>
-    <view id="editCargos"></view>
-    <view id="editCapacitaciones"></view>
-    <view id="editEmpleados"></view>
-    <view id="editCapacity"></view>
-    <view id="editCapacityHora"></view>
-    <view id="editDemandaSkill"></view>
-    <view id="editCoAsignacion"></view>
+    <method-call id="methodCall1">
+      <method>#{editBean.getSelected}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
     <router id="router1">
-      <case id="__6">
-        <expression>#{pageFlowScope.EditarBean.selectedTable == "Vacaciones"}</expression>
-        <outcome>vacaciones</outcome>
+      <case id="__7">
+        <expression>#{editBean.selected == 'Vacaciones'}</expression>
+        <outcome>Vacaciones</outcome>
       </case>
+      <case id="__11">
+        <expression>#{editBean.selected == 'Capacitaciones'}</expression>
+        <outcome>Capacitaciones</outcome>
+      </case>
+      <case id="__13">
+        <expression>#{editBean.selected == 'CapacityHora'}</expression>
+        <outcome>CapacityHora</outcome>
+      </case>
+      <case id="__19">
+        <expression>#{editBean.selected == 'RegimenDeTrabajo'}</expression>
+        <outcome>RegimenDeTrabajo</outcome>
+      </case>
+      <case id="__20">
+        <expression>#{editBean.selected == 'Turnos'}</expression>
+        <outcome>Turnos</outcome>
+      </case>
+      <case id="__21">
+        <expression>#{editBean.selected == 'Grupos'}</expression>
+        <outcome>Grupos</outcome>
+      </case>
+      <case id="__22">
+        <expression>#{editBean.selected == 'ListaSkills'}</expression>
+        <outcome>ListaSkills</outcome>
+      </case>
+      <case id="__25">
+        <expression>#{editBean.selected == 'Empleados'}</expression>
+        <outcome>Empleados</outcome>
+      </case>
+      <case id="__27">
+        <expression>#{editBean.selected == 'Cargos'}</expression>
+        <outcome>Cargos</outcome>
+      </case>
+      <case id="__29">
+        <expression>#{editBean.selected == 'CapacityTurno'}</expression>
+        <outcome>CapacityTurno</outcome>
+      </case>
+      <case id="__34">
+        <expression>#{editBean.selected == 'CoAsignacion'}</expression>
+        <outcome>coAsignacion</outcome>
+      </case>
+      <case id="__35">
+        <expression>#{editBean.selected == 'TurnosProhibidos'}</expression>
+        <outcome>turnosProhibidos</outcome>
+      </case>
+      <case id="__36">
+        <expression>#{editBean.selected == 'TurnosFijados'}</expression>
+        <outcome>turnosFijados</outcome>
+      </case>
+      <case id="__38">
+        <expression>#{editBean.selected == 'CapacitySkills'}</expression>
+        <outcome>CapacitySkills</outcome>
+      </case>
+      <case id="__23">
+        <expression>#{editBean.selected == 'SkillEmpleados'}</expression>
+        <outcome>SkillEmpleados</outcome>
+      </case>
+      <default-outcome>default</default-outcome>
     </router>
-    <control-flow-rule id="__10">
+    <view id="Default">
+      <page>/otroCaso.jsff</page>
+      <input-page-parameter id="__10">
+        <from-value>#{pageFlowScope.inputParameter1}</from-value>
+        <to-value>#{pageFlowScope.inputParameter1}</to-value>
+      </input-page-parameter>
+    </view>
+    <view id="editCapacitaciones">
+      <page>/Fragmets_Edit/editCapacitaciones.jsff</page>
+    </view>
+    <view id="editCapacityHora">
+      <page>/Fragmets_Edit/editCapacityHora.jsff</page>
+    </view>
+    <view id="editRegimenDeTrabajo">
+      <page>/Fragmets_Edit/editRegimenDeTrabajo.jsff</page>
+    </view>
+    <view id="editCargos">
+      <page>/Fragmets_Edit/editCargos.jsff</page>
+    </view>
+    <view id="editGrupos">
+      <page>/Fragmets_Edit/editGrupos.jsff</page>
+    </view>
+    <view id="editListaSkills">
+      <page>/Fragmets_Edit/editListaSkills.jsff</page>
+    </view>
+    <view id="editTurnos">
+      <page>/Fragmets_Edit/editTurnos.jsff</page>
+    </view>
+    <view id="editEmpleados">
+      <page>/Fragmets_Edit/editEmpleados.jsff</page>
+    </view>
+    <view id="editCapacityTurno">
+      <page>/Fragmets_Edit/editCapacityTurno.jsff</page>
+    </view>
+    <view id="editCoasignacion">
+      <page>/Fragmets_Edit/editCoasignacion.jsff</page>
+    </view>
+    <view id="editTurnosProhibidos">
+      <page>/Fragmets_Edit/editTurnosProhibidos.jsff</page>
+    </view>
+    <view id="editTurnosFijados">
+      <page>/Fragmets_Edit/editTurnosFijados.jsff</page>
+    </view>
+    <view id="editCapacitySkills">
+      <page>/Fragmets_Edit/editCapacitySkills.jsff</page>
+    </view>
+    <view id="editSkillEmpleados">
+      <page>/Fragmets_Edit/editSkillEmpleados.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>methodCall1</from-activity-id>
+      <control-flow-case id="__3">
+        <to-activity-id>router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
       <from-activity-id>router1</from-activity-id>
-      <control-flow-case id="__11">
-        <from-outcome>vacaciones</from-outcome>
+      <control-flow-case id="__5">
+        <from-outcome>Vacaciones</from-outcome>
         <to-activity-id>editVacaciones</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>default</from-outcome>
+        <to-activity-id>Default</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__2">
+        <from-outcome>Capacitaciones</from-outcome>
+        <to-activity-id>editCapacitaciones</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>CapacityHora</from-outcome>
+        <to-activity-id>editCapacityHora</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>RegimenDeTrabajo</from-outcome>
+        <to-activity-id>editRegimenDeTrabajo</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>Turnos</from-outcome>
+        <to-activity-id>editTurnos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>ListaSkills</from-outcome>
+        <to-activity-id>editListaSkills</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome>Grupos</from-outcome>
+        <to-activity-id>editGrupos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome>Empleados</from-outcome>
+        <to-activity-id>editEmpleados</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__26">
+        <from-outcome>Cargos</from-outcome>
+        <to-activity-id>editCargos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__28">
+        <from-outcome>CapacityTurno</from-outcome>
+        <to-activity-id>editCapacityTurno</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome>coAsignacion</from-outcome>
+        <to-activity-id>editCoasignacion</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__31">
+        <from-outcome>turnosProhibidos</from-outcome>
+        <to-activity-id>editTurnosProhibidos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>turnosFijados</from-outcome>
+        <to-activity-id>editTurnosFijados</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__37">
+        <from-outcome>CapacitySkills</from-outcome>
+        <to-activity-id>editCapacitySkills</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>SkillEmpleados</from-outcome>
+        <to-activity-id>editSkillEmpleados</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

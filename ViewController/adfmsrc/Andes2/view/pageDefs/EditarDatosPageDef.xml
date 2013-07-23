@@ -4,8 +4,13 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="editViews1" taskFlowId="/WEB-INF/editViews.xml#editViews" activation="deferred"
-              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="editViews1" taskFlowId="/WEB-INF/editViews.xml#editViews"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              RefreshCondition="#{editBean.selected != '  '}">
+      <parameters>
+        <parameter id="inputParameter1" value="#{editBean.selected}"/>
+      </parameters>
+    </taskFlow>
   </executables>
   <bindings/>
 </pageDefinition>

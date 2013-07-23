@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editTurnosProhibidosPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TurnosRestriccionesView1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="TurnosRestriccionesView1Iterator"/>
+    <searchRegion Binds="TurnosRestriccionesView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TurnosRestriccionesView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TurnosRestriccionesView1Iterator" id="TurnosRestriccionesView1">
+      <nodeDefinition DefName="Andes2.model.vo.TurnosRestriccionesView" Name="TurnosRestriccionesView10">
+        <AttrNames>
+          <Item Value="EmplRut"/>
+          <Item Value="TurnNombre"/>
+          <Item Value="RtagDia"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

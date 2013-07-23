@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" disabled="#{!bindings.Commit.enabled}"
+                    id="cb1"/>
+  <af:table value="#{bindings.ViewObj1.collectionModel}" var="row" rows="#{bindings.ViewObj1.rangeSize}"
+            emptyText="#{bindings.ViewObj1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.ViewObj1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.ViewObj1Query.queryDescriptor}"
+            queryListener="#{bindings.ViewObj1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.ViewObj1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.ViewObj1.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+            inlineStyle="width:inherit; height:inherit;">
+    <af:column sortProperty="#{bindings.ViewObj1.hints.EmplRut.name}" filterable="true" sortable="true" headerText="Rut"
+               id="c1" width="115">
+      <af:inputText value="#{row.bindings.EmplRut.inputValue}" label="#{bindings.ViewObj1.hints.EmplRut.label}"
+                    required="#{bindings.ViewObj1.hints.EmplRut.mandatory}"
+                    columns="#{bindings.ViewObj1.hints.EmplRut.displayWidth}"
+                    maximumLength="#{bindings.ViewObj1.hints.EmplRut.precision}"
+                    shortDesc="#{bindings.ViewObj1.hints.EmplRut.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.EmplRut.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ViewObj1.hints.EmplNombre.name}" filterable="true" sortable="true"
+               headerText="Nombre" id="c2" width="218">
+      <af:inputText value="#{row.bindings.EmplNombre.inputValue}" label="#{bindings.ViewObj1.hints.EmplNombre.label}"
+                    required="#{bindings.ViewObj1.hints.EmplNombre.mandatory}"
+                    columns="#{bindings.ViewObj1.hints.EmplNombre.displayWidth}"
+                    maximumLength="#{bindings.ViewObj1.hints.EmplNombre.precision}"
+                    shortDesc="#{bindings.ViewObj1.hints.EmplNombre.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.EmplNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ViewObj1.hints.CrgoNombre.name}" filterable="true" sortable="true"
+               headerText="Cargo" id="c3" width="118">
+      <af:inputText value="#{row.bindings.CrgoNombre.inputValue}" label="#{bindings.ViewObj1.hints.CrgoNombre.label}"
+                    required="#{bindings.ViewObj1.hints.CrgoNombre.mandatory}"
+                    columns="#{bindings.ViewObj1.hints.CrgoNombre.displayWidth}"
+                    maximumLength="#{bindings.ViewObj1.hints.CrgoNombre.precision}"
+                    shortDesc="#{bindings.ViewObj1.hints.CrgoNombre.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.CrgoNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ViewObj1.hints.CrgoId.name}" filterable="true" sortable="true"
+               headerText="CargoID" id="c4" width="68">
+      <af:inputText value="#{row.bindings.CrgoId.inputValue}" label="#{bindings.ViewObj1.hints.CrgoId.label}"
+                    required="#{bindings.ViewObj1.hints.CrgoId.mandatory}"
+                    columns="#{bindings.ViewObj1.hints.CrgoId.displayWidth}"
+                    maximumLength="#{bindings.ViewObj1.hints.CrgoId.precision}"
+                    shortDesc="#{bindings.ViewObj1.hints.CrgoId.tooltip}" id="it4">
+        <f:validator binding="#{row.bindings.CrgoId.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

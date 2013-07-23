@@ -8,13 +8,15 @@
                 <f:facet name="content">
                     <af:group id="g1">
                         <af:panelTabbed id="pt2">
-                            <af:showDetailItem text="Menu Inicial" id="sdi2" disclosed="false" disabled="true"/>
+                            <af:showDetailItem text="Menu Inicial" id="sdi2" disclosed="false" disabled="true">
+                                e
+                            </af:showDetailItem>
                             <af:showDetailItem text="Carga de Datos" id="sdi1"
                                                inlineStyle="margin:10px 0px 0px 0px;" immediate="true">
                                 <af:panelGroupLayout id="pgl5" layout="horizontal" styleClass="AFStretchWidth">
                                     <af:outputText value="Seleccione Archivos a cargar en el sistema" id="ot10"
                                                    inlineStyle="font-size:14px; font-style:normal; font-weight:bolder; margin:10px;"/>
-                                    <af:outputText value="Mes: 05/2013" id="ot11"
+                                    <af:outputText value="Mes: 08/2013" id="ot11"
                                                    inlineStyle="text-align:right; color:MenuText; font-weight:bolder; font-size:12px;"/>
                                 </af:panelGroupLayout>
                                 <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="275"
@@ -39,11 +41,11 @@
                                                         <af:selectBooleanCheckbox rendered="false" text="Grupos"
                                                                                   label="Label 1" id="sbc2"
                                                                                   simple="true"/>
-                                                        <af:outputText id="ot1"
+                                                        <af:outputText id="grupoOT"
                                                                        inlineStyle="text-align:right; font-weight:bold; padding:10px;"
-                                                                       partialTriggers="grupos"
-                                                                       binding="#{FilUpdBean.grupoOT}"/>
-                                                        <af:inputFile label="Grupos" id="grupos" autoSubmit="true"
+                                                                       binding="#{FilUpdBean.grupoOT}"
+                                                                       partialTriggers="grupo"/>
+                                                        <af:inputFile label="grupo" id="grupo" autoSubmit="true"
                                                                       valueChangeListener="#{FilUpdBean.FileChange}"
                                                                       validator="#{FilUpdBean.FileValidator}"
                                                                       labelStyle="width: 80px; font-size: small;"/>

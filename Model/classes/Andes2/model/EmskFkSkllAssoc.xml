@@ -4,7 +4,7 @@
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="EmskFkSkllAssoc"
-  Version="11.1.2.62.76">
+  Version="11.1.2.64.36">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
@@ -21,21 +21,21 @@
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.Skills.SkllSeqCdg"/>
+      <Item Value="Andes2.model.Skills.SkllId"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
-    Name="EmpladosSkill"
+    Name="EmpleadosSkill"
     Cardinality="-1"
     Owner="Andes2.model.EmpladosSkill">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="EmpladosSkill"/>
+      <Attr Name="_finderName" Value="EmpleadosSkill"/>
       <Attr Name="_foreignKey" Value="Andes2.model.EmpladosSkill.EmskFkSkll"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.EmpladosSkill.SkllSeqCdg"/>
+      <Item Value="Andes2.model.EmpladosSkill.SkllId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

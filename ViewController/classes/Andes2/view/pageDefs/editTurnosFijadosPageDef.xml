@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editTurnosFijadosPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TurnosFijadosView1" RangeSize="25" DataControl="dataSourceDataControl"
+              id="TurnosFijadosView1Iterator"/>
+    <searchRegion Binds="TurnosFijadosView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TurnosFijadosView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TurnosFijadosView1Iterator" id="TurnosFijadosView1">
+      <nodeDefinition DefName="Andes2.model.vo.TurnosFijadosView" Name="TurnosFijadosView10">
+        <AttrNames>
+          <Item Value="EmplRut"/>
+          <Item Value="TurnNombre"/>
+          <Item Value="FjagDia"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

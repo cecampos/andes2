@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.RegimenDeTrabajoView1.collectionModel}" var="row"
+            rows="#{bindings.RegimenDeTrabajoView1.rangeSize}"
+            emptyText="#{bindings.RegimenDeTrabajoView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.RegimenDeTrabajoView1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.RegimenDeTrabajoView1Query.queryDescriptor}"
+            queryListener="#{bindings.RegimenDeTrabajoView1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.RegimenDeTrabajoView1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.RegimenDeTrabajoView1.collectionModel.makeCurrent}" rowSelection="single"
+            id="t1" inlineStyle="width:inherit; height:inherit;">
+    <af:column sortProperty="#{bindings.RegimenDeTrabajoView1.hints.RgtrNombre.name}" filterable="true" sortable="true"
+               headerText="Nombre" id="c1">
+      <af:inputText value="#{row.bindings.RgtrNombre.inputValue}"
+                    label="#{bindings.RegimenDeTrabajoView1.hints.RgtrNombre.label}"
+                    required="#{bindings.RegimenDeTrabajoView1.hints.RgtrNombre.mandatory}"
+                    columns="#{bindings.RegimenDeTrabajoView1.hints.RgtrNombre.displayWidth}"
+                    maximumLength="#{bindings.RegimenDeTrabajoView1.hints.RgtrNombre.precision}"
+                    shortDesc="#{bindings.RegimenDeTrabajoView1.hints.RgtrNombre.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.RgtrNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasTrabajados.name}" filterable="true"
+               sortable="true" headerText="Dias Trabajados" id="c2">
+      <af:inputText value="#{row.bindings.RgtrDiasTrabajados.inputValue}"
+                    label="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasTrabajados.label}"
+                    required="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasTrabajados.mandatory}"
+                    columns="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasTrabajados.displayWidth}"
+                    maximumLength="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasTrabajados.precision}"
+                    shortDesc="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasTrabajados.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.RgtrDiasTrabajados.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasDescansados.name}" filterable="true"
+               sortable="true" headerText="Dias Descansados" id="c3">
+      <af:inputText value="#{row.bindings.RgtrDiasDescansados.inputValue}"
+                    label="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasDescansados.label}"
+                    required="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasDescansados.mandatory}"
+                    columns="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasDescansados.displayWidth}"
+                    maximumLength="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasDescansados.precision}"
+                    shortDesc="#{bindings.RegimenDeTrabajoView1.hints.RgtrDiasDescansados.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.RgtrDiasDescansados.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RegimenDeTrabajoView1.hints.RgtrMaxNoches.name}" filterable="true"
+               sortable="true" headerText="Max Noches" id="c4">
+      <af:inputText value="#{row.bindings.RgtrMaxNoches.inputValue}"
+                    label="#{bindings.RegimenDeTrabajoView1.hints.RgtrMaxNoches.label}"
+                    required="#{bindings.RegimenDeTrabajoView1.hints.RgtrMaxNoches.mandatory}"
+                    columns="#{bindings.RegimenDeTrabajoView1.hints.RgtrMaxNoches.displayWidth}"
+                    maximumLength="#{bindings.RegimenDeTrabajoView1.hints.RgtrMaxNoches.precision}"
+                    shortDesc="#{bindings.RegimenDeTrabajoView1.hints.RgtrMaxNoches.tooltip}" id="it4">
+        <f:validator binding="#{row.bindings.RgtrMaxNoches.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RegimenDeTrabajoView1.hints.RgtrLibresPostSalientes.name}" filterable="true"
+               sortable="true" headerText="Libres Post Saliente"
+               id="c5">
+      <af:inputText value="#{row.bindings.RgtrLibresPostSalientes.inputValue}"
+                    label="#{bindings.RegimenDeTrabajoView1.hints.RgtrLibresPostSalientes.label}"
+                    required="#{bindings.RegimenDeTrabajoView1.hints.RgtrLibresPostSalientes.mandatory}"
+                    columns="#{bindings.RegimenDeTrabajoView1.hints.RgtrLibresPostSalientes.displayWidth}"
+                    maximumLength="#{bindings.RegimenDeTrabajoView1.hints.RgtrLibresPostSalientes.precision}"
+                    shortDesc="#{bindings.RegimenDeTrabajoView1.hints.RgtrLibresPostSalientes.tooltip}" id="it5">
+        <f:validator binding="#{row.bindings.RgtrLibresPostSalientes.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RegimenDeTrabajoView1.hints.RgtrFinesSemanaLibres.name}" filterable="true"
+               sortable="true" headerText="Fines de Semana L" id="c6">
+      <af:inputText value="#{row.bindings.RgtrFinesSemanaLibres.inputValue}"
+                    label="#{bindings.RegimenDeTrabajoView1.hints.RgtrFinesSemanaLibres.label}"
+                    required="#{bindings.RegimenDeTrabajoView1.hints.RgtrFinesSemanaLibres.mandatory}"
+                    columns="#{bindings.RegimenDeTrabajoView1.hints.RgtrFinesSemanaLibres.displayWidth}"
+                    maximumLength="#{bindings.RegimenDeTrabajoView1.hints.RgtrFinesSemanaLibres.precision}"
+                    shortDesc="#{bindings.RegimenDeTrabajoView1.hints.RgtrFinesSemanaLibres.tooltip}" id="it6">
+        <f:validator binding="#{row.bindings.RgtrFinesSemanaLibres.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.RegimenDeTrabajoView1.hints.RgtrDomingosLibres.name}" filterable="true"
+               sortable="true" headerText="Domingos Libres" id="c7">
+      <af:inputText value="#{row.bindings.RgtrDomingosLibres.inputValue}"
+                    label="#{bindings.RegimenDeTrabajoView1.hints.RgtrDomingosLibres.label}"
+                    required="#{bindings.RegimenDeTrabajoView1.hints.RgtrDomingosLibres.mandatory}"
+                    columns="#{bindings.RegimenDeTrabajoView1.hints.RgtrDomingosLibres.displayWidth}"
+                    maximumLength="#{bindings.RegimenDeTrabajoView1.hints.RgtrDomingosLibres.precision}"
+                    shortDesc="#{bindings.RegimenDeTrabajoView1.hints.RgtrDomingosLibres.tooltip}" id="it7">
+        <f:validator binding="#{row.bindings.RgtrDomingosLibres.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

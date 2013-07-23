@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DemandaSkill"
-  Version="11.1.2.62.76"
+  Version="11.1.2.64.36"
   DBObjectType="table"
   DBObjectName="DEMANDA_SKILL"
   AliasName="DemandaSkill"
@@ -22,11 +22,10 @@
     Name="DdskRequerimiento"
     IsNotNull="true"
     ColumnName="DDSK_REQUERIMIENTO"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    TableName="DEMANDA_SKILL"
-    Precision="255"/>
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="DEMANDA_SKILL"/>
   <Attribute
     Name="DdskVersion"
     ColumnName="DDSK_VERSION"
@@ -83,7 +82,9 @@
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="DDSK_FK_SKLL"/>
     </DesignTime>
-    <AttrArray Name="Attributes"/>
+    <AttrArray Name="Attributes">
+      <Item Value="Andes2.model.DemandaSkill.SkllId"/>
+    </AttrArray>
   </Key>
   <Key
     Name="TurnFkDdsk">

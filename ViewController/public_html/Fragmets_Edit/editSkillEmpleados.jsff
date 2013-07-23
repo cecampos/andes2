@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.ViewObj2_1.collectionModel}" var="row" rows="#{bindings.ViewObj2_1.rangeSize}"
+            emptyText="#{bindings.ViewObj2_1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.ViewObj2_1.rangeSize}" rowBandingInterval="0"
+            filterModel="#{bindings.ViewObj2_1Query.queryDescriptor}"
+            queryListener="#{bindings.ViewObj2_1Query.processQuery}" filterVisible="true" varStatus="vs"
+            selectedRowKeys="#{bindings.ViewObj2_1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.ViewObj2_1.collectionModel.makeCurrent}" rowSelection="single" id="t1">
+    <af:column sortProperty="#{bindings.ViewObj2_1.hints.EmplRut.name}" filterable="true" sortable="true"
+               headerText="#{bindings.ViewObj2_1.hints.EmplRut.label}" id="c1">
+      <af:inputText value="#{row.bindings.EmplRut.inputValue}" label="#{bindings.ViewObj2_1.hints.EmplRut.label}"
+                    required="#{bindings.ViewObj2_1.hints.EmplRut.mandatory}"
+                    columns="#{bindings.ViewObj2_1.hints.EmplRut.displayWidth}"
+                    maximumLength="#{bindings.ViewObj2_1.hints.EmplRut.precision}"
+                    shortDesc="#{bindings.ViewObj2_1.hints.EmplRut.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.EmplRut.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ViewObj2_1.hints.Rowid.name}" filterable="true" sortable="true"
+               headerText="#{bindings.ViewObj2_1.hints.Rowid.label}" id="c2">
+      <af:inputText value="#{row.bindings.Rowid.inputValue}" label="#{bindings.ViewObj2_1.hints.Rowid.label}"
+                    required="#{bindings.ViewObj2_1.hints.Rowid.mandatory}"
+                    columns="#{bindings.ViewObj2_1.hints.Rowid.displayWidth}"
+                    maximumLength="#{bindings.ViewObj2_1.hints.Rowid.precision}"
+                    shortDesc="#{bindings.ViewObj2_1.hints.Rowid.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.Rowid.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ViewObj2_1.hints.EmplNombre.name}" filterable="true" sortable="true"
+               headerText="#{bindings.ViewObj2_1.hints.EmplNombre.label}" id="c3">
+      <af:inputText value="#{row.bindings.EmplNombre.inputValue}" label="#{bindings.ViewObj2_1.hints.EmplNombre.label}"
+                    required="#{bindings.ViewObj2_1.hints.EmplNombre.mandatory}"
+                    columns="#{bindings.ViewObj2_1.hints.EmplNombre.displayWidth}"
+                    maximumLength="#{bindings.ViewObj2_1.hints.EmplNombre.precision}"
+                    shortDesc="#{bindings.ViewObj2_1.hints.EmplNombre.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.EmplNombre.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ViewObj2_1.hints.EmplRut1.name}" filterable="true" sortable="true"
+               headerText="#{bindings.ViewObj2_1.hints.EmplRut1.label}" id="c4">
+      <af:inputText value="#{row.bindings.EmplRut1.inputValue}" label="#{bindings.ViewObj2_1.hints.EmplRut1.label}"
+                    required="#{bindings.ViewObj2_1.hints.EmplRut1.mandatory}"
+                    columns="#{bindings.ViewObj2_1.hints.EmplRut1.displayWidth}"
+                    maximumLength="#{bindings.ViewObj2_1.hints.EmplRut1.precision}"
+                    shortDesc="#{bindings.ViewObj2_1.hints.EmplRut1.tooltip}" id="it4">
+        <f:validator binding="#{row.bindings.EmplRut1.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.ViewObj2_1.hints.SkllId.name}" filterable="true" sortable="true"
+               headerText="#{bindings.ViewObj2_1.hints.SkllId.label}" id="c5">
+      <af:inputText value="#{row.bindings.SkllId.inputValue}" label="#{bindings.ViewObj2_1.hints.SkllId.label}"
+                    required="#{bindings.ViewObj2_1.hints.SkllId.mandatory}"
+                    columns="#{bindings.ViewObj2_1.hints.SkllId.displayWidth}"
+                    maximumLength="#{bindings.ViewObj2_1.hints.SkllId.precision}"
+                    shortDesc="#{bindings.ViewObj2_1.hints.SkllId.tooltip}" id="it5">
+        <f:validator binding="#{row.bindings.SkllId.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

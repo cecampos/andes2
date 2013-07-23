@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="editTurnosPageDef"
+                Package="Andes2.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TurnosEditView1" RangeSize="25" DataControl="dataSourceDataControl" id="TurnosEditView1Iterator"/>
+    <searchRegion Binds="TurnosEditView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TurnosEditView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TurnosEditView1Iterator" id="TurnosEditView1">
+      <nodeDefinition DefName="Andes2.model.vo.TurnosEditView" Name="TurnosEditView10">
+        <AttrNames>
+          <Item Value="TurnSeqCdg"/>
+          <Item Value="TurnNombre"/>
+          <Item Value="TurnTipo"/>
+          <Item Value="TurnHoraIngreso"/>
+          <Item Value="TurnHoraSalida"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="TurnosEditView1Iterator" id="TurnSeqCdg">
+      <AttrNames>
+        <Item Value="TurnSeqCdg"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TurnosEditView1Iterator" id="TurnNombre">
+      <AttrNames>
+        <Item Value="TurnNombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TurnosEditView1Iterator" id="TurnTipo">
+      <AttrNames>
+        <Item Value="TurnTipo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TurnosEditView1Iterator" id="TurnHoraIngreso">
+      <AttrNames>
+        <Item Value="TurnHoraIngreso"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TurnosEditView1Iterator" id="TurnHoraSalida">
+      <AttrNames>
+        <Item Value="TurnHoraSalida"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="dataSourceDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="dataSourceDataControl"/>
+  </bindings>
+</pageDefinition>

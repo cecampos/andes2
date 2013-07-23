@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:table value="#{bindings.CapacitacionesFullView1.collectionModel}" var="row"
+              rows="#{bindings.CapacitacionesFullView1.rangeSize}"
+              emptyText="#{bindings.CapacitacionesFullView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.CapacitacionesFullView1.rangeSize}" rowBandingInterval="0"
+              filterModel="#{bindings.CapacitacionesFullView1Query.queryDescriptor}"
+              queryListener="#{bindings.CapacitacionesFullView1Query.processQuery}" filterVisible="true" varStatus="vs"
+              selectedRowKeys="#{bindings.CapacitacionesFullView1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.CapacitacionesFullView1.collectionModel.makeCurrent}" rowSelection="single"
+              id="t1" inlineStyle="width:inherit; height:inherit;">
+        <af:column sortProperty="#{bindings.CapacitacionesFullView1.hints.EmplRut.name}" filterable="true"
+                   sortable="true" headerText="Rut" id="c1" inlineStyle="height:inherit; width:inherit;">
+            <af:inputText value="#{row.bindings.EmplRut.inputValue}"
+                          label="#{bindings.CapacitacionesFullView1.hints.EmplRut.label}"
+                          required="#{bindings.CapacitacionesFullView1.hints.EmplRut.mandatory}"
+                          columns="#{bindings.CapacitacionesFullView1.hints.EmplRut.displayWidth}"
+                          maximumLength="#{bindings.CapacitacionesFullView1.hints.EmplRut.precision}"
+                          shortDesc="#{bindings.CapacitacionesFullView1.hints.EmplRut.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.EmplRut.validator}"/>
+            </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CapacitacionesFullView1.hints.EmplNombre.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.CapacitacionesFullView1.hints.EmplNombre.label}" id="c2">
+            <af:inputText value="#{row.bindings.EmplNombre.inputValue}"
+                          label="#{bindings.CapacitacionesFullView1.hints.EmplNombre.label}"
+                          required="#{bindings.CapacitacionesFullView1.hints.EmplNombre.mandatory}"
+                          columns="#{bindings.CapacitacionesFullView1.hints.EmplNombre.displayWidth}"
+                          maximumLength="#{bindings.CapacitacionesFullView1.hints.EmplNombre.precision}"
+                          shortDesc="#{bindings.CapacitacionesFullView1.hints.EmplNombre.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.EmplNombre.validator}"/>
+            </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CapacitacionesFullView1.hints.CrgoNombre.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.CapacitacionesFullView1.hints.CrgoNombre.label}" id="c3">
+            <af:inputText value="#{row.bindings.CrgoNombre.inputValue}"
+                          label="#{bindings.CapacitacionesFullView1.hints.CrgoNombre.label}"
+                          required="#{bindings.CapacitacionesFullView1.hints.CrgoNombre.mandatory}"
+                          columns="#{bindings.CapacitacionesFullView1.hints.CrgoNombre.displayWidth}"
+                          maximumLength="#{bindings.CapacitacionesFullView1.hints.CrgoNombre.precision}"
+                          shortDesc="#{bindings.CapacitacionesFullView1.hints.CrgoNombre.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.CrgoNombre.validator}"/>
+            </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CapacitacionesFullView1.hints.CaptFechaInicio.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.CapacitacionesFullView1.hints.CaptFechaInicio.label}" id="c4">
+            <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.CaptFechaInicio}" id="id1">
+                    <af:convertDateTime pattern="#{bindings.CapacitacionesFullView1.hints.CaptFechaInicio.format}"/>
+                </af:inputDate>
+            </f:facet>
+            <af:inputDate value="#{row.bindings.CaptFechaInicio.inputValue}"
+                          label="#{bindings.CapacitacionesFullView1.hints.CaptFechaInicio.label}"
+                          required="#{bindings.CapacitacionesFullView1.hints.CaptFechaInicio.mandatory}"
+                          columns="#{bindings.CapacitacionesFullView1.hints.CaptFechaInicio.displayWidth}"
+                          shortDesc="#{bindings.CapacitacionesFullView1.hints.CaptFechaInicio.tooltip}" id="id2">
+                <f:validator binding="#{row.bindings.CaptFechaInicio.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CapacitacionesFullView1.hints.CaptFechaInicio.format}"/>
+            </af:inputDate>
+        </af:column>
+        <af:column sortProperty="#{bindings.CapacitacionesFullView1.hints.CaptFechaTermino.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.CapacitacionesFullView1.hints.CaptFechaTermino.label}"
+                   id="c5">
+            <f:facet name="filter">
+                <af:inputDate value="#{vs.filterCriteria.CaptFechaTermino}" id="id3">
+                    <af:convertDateTime pattern="#{bindings.CapacitacionesFullView1.hints.CaptFechaTermino.format}"/>
+                </af:inputDate>
+            </f:facet>
+            <af:inputDate value="#{row.bindings.CaptFechaTermino.inputValue}"
+                          label="#{bindings.CapacitacionesFullView1.hints.CaptFechaTermino.label}"
+                          required="#{bindings.CapacitacionesFullView1.hints.CaptFechaTermino.mandatory}"
+                          columns="#{bindings.CapacitacionesFullView1.hints.CaptFechaTermino.displayWidth}"
+                          shortDesc="#{bindings.CapacitacionesFullView1.hints.CaptFechaTermino.tooltip}" id="id4">
+                <f:validator binding="#{row.bindings.CaptFechaTermino.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CapacitacionesFullView1.hints.CaptFechaTermino.format}"/>
+            </af:inputDate>
+        </af:column>
+        <af:column sortProperty="#{bindings.CapacitacionesFullView1.hints.CaptHoraInicio.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.CapacitacionesFullView1.hints.CaptHoraInicio.label}" id="c6">
+            <af:inputText value="#{row.bindings.CaptHoraInicio.inputValue}"
+                          label="#{bindings.CapacitacionesFullView1.hints.CaptHoraInicio.label}"
+                          required="#{bindings.CapacitacionesFullView1.hints.CaptHoraInicio.mandatory}"
+                          columns="#{bindings.CapacitacionesFullView1.hints.CaptHoraInicio.displayWidth}"
+                          maximumLength="#{bindings.CapacitacionesFullView1.hints.CaptHoraInicio.precision}"
+                          shortDesc="#{bindings.CapacitacionesFullView1.hints.CaptHoraInicio.tooltip}" id="it4">
+                <f:validator binding="#{row.bindings.CaptHoraInicio.validator}"/>
+            </af:inputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.CapacitacionesFullView1.hints.CaptHoraTermino.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.CapacitacionesFullView1.hints.CaptHoraTermino.label}" id="c7">
+            <af:inputText value="#{row.bindings.CaptHoraTermino.inputValue}"
+                          label="#{bindings.CapacitacionesFullView1.hints.CaptHoraTermino.label}"
+                          required="#{bindings.CapacitacionesFullView1.hints.CaptHoraTermino.mandatory}"
+                          columns="#{bindings.CapacitacionesFullView1.hints.CaptHoraTermino.displayWidth}"
+                          maximumLength="#{bindings.CapacitacionesFullView1.hints.CaptHoraTermino.precision}"
+                          shortDesc="#{bindings.CapacitacionesFullView1.hints.CaptHoraTermino.tooltip}" id="it5">
+                <f:validator binding="#{row.bindings.CaptHoraTermino.validator}"/>
+            </af:inputText>
+        </af:column>
+    </af:table>
+</ui:composition>

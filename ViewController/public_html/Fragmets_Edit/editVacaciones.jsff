@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.Vacaciones1.collectionModel}" var="row" rows="#{bindings.Vacaciones1.rangeSize}"
+            emptyText="#{bindings.Vacaciones1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.Vacaciones1.rangeSize}" rowBandingInterval="0" id="t1"
+            inlineStyle="width:inherit; height:inherit;">
+    <af:column sortProperty="#{bindings.Vacaciones1.hints.EmplRut.name}" sortable="false" headerText="Rut" id="c1"
+               width="105">
+      <af:inputText value="#{row.bindings.EmplRut.inputValue}" label="#{bindings.Vacaciones1.hints.EmplRut.label}"
+                    required="#{bindings.Vacaciones1.hints.EmplRut.mandatory}"
+                    columns="#{bindings.Vacaciones1.hints.EmplRut.displayWidth}"
+                    maximumLength="#{bindings.Vacaciones1.hints.EmplRut.precision}"
+                    shortDesc="#{bindings.Vacaciones1.hints.EmplRut.tooltip}" id="it1">
+        <f:validator binding="#{row.bindings.EmplRut.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnFechaInicio.name}" sortable="false"
+               headerText="Fecha Inicio" id="c2" width="105">
+      <af:inputDate value="#{row.bindings.VccnFechaInicio.inputValue}"
+                    label="#{bindings.Vacaciones1.hints.VccnFechaInicio.label}"
+                    required="#{bindings.Vacaciones1.hints.VccnFechaInicio.mandatory}"
+                    columns="#{bindings.Vacaciones1.hints.VccnFechaInicio.displayWidth}"
+                    shortDesc="#{bindings.Vacaciones1.hints.VccnFechaInicio.tooltip}" id="id1">
+        <f:validator binding="#{row.bindings.VccnFechaInicio.validator}"/>
+        <af:convertDateTime pattern="#{bindings.Vacaciones1.hints.VccnFechaInicio.format}"/>
+      </af:inputDate>
+    </af:column>
+    <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnFechaTermino.name}" sortable="false"
+               headerText="Fecha Termino" id="c3" width="105">
+      <af:inputDate value="#{row.bindings.VccnFechaTermino.inputValue}"
+                    label="#{bindings.Vacaciones1.hints.VccnFechaTermino.label}"
+                    required="#{bindings.Vacaciones1.hints.VccnFechaTermino.mandatory}"
+                    columns="#{bindings.Vacaciones1.hints.VccnFechaTermino.displayWidth}"
+                    shortDesc="#{bindings.Vacaciones1.hints.VccnFechaTermino.tooltip}" id="id2">
+        <f:validator binding="#{row.bindings.VccnFechaTermino.validator}"/>
+        <af:convertDateTime pattern="#{bindings.Vacaciones1.hints.VccnFechaTermino.format}"/>
+      </af:inputDate>
+    </af:column>
+    <af:column sortProperty="#{bindings.Vacaciones1.hints.VccnId.name}" sortable="false" headerText="ID Vacacion"
+               id="c4" width="106">
+      <af:inputText value="#{row.bindings.VccnId.inputValue}" label="#{bindings.Vacaciones1.hints.VccnId.label}"
+                    required="#{bindings.Vacaciones1.hints.VccnId.mandatory}"
+                    columns="#{bindings.Vacaciones1.hints.VccnId.displayWidth}"
+                    maximumLength="#{bindings.Vacaciones1.hints.VccnId.precision}"
+                    shortDesc="#{bindings.Vacaciones1.hints.VccnId.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.VccnId.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</ui:composition>

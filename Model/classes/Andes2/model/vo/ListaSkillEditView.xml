@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ListaSkillEditView"
+  Version="11.1.2.64.36"
+  SelectList="ListaSkillEdit.SKLL_ID, 
+       ListaSkillEdit.CRGO_ID, 
+       ListaSkillEdit.SKLL_NOMBRE"
+  FromList="DEV.SKILLS ListaSkillEdit"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="ListaSkillEdit"
+    Entity="Andes2.model.vo.ListaSkillEdit"/>
+  <ViewAttribute
+    Name="SkllId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkllId"
+    EntityUsage="ListaSkillEdit"
+    AliasName="SKLL_ID"/>
+  <ViewAttribute
+    Name="CrgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CrgoId"
+    EntityUsage="ListaSkillEdit"
+    AliasName="CRGO_ID"/>
+  <ViewAttribute
+    Name="SkllNombre"
+    PrecisionRule="true"
+    EntityAttrName="SkllNombre"
+    EntityUsage="ListaSkillEdit"
+    AliasName="SKLL_NOMBRE"/>
+</ViewObject>
