@@ -84,4 +84,7 @@
   <ViewUsage
     Name="ArchivoEmpleadosSkill1"
     ViewObjectName="Andes2.model.vo.ArchivoEmpleadosSkill"/>
+  <ViewUsage
+    Name="ArchivoCapacitaciones1"
+    ViewObjectName="Andes2.model.vo.ArchivoCapacitaciones"/>
 </AppModule>

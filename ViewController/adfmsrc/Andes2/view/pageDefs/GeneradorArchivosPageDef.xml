@@ -9,7 +9,8 @@
     <iterator id="TurnosIterator" Binds="Turnos2" DataControl="dataSourceDataControl" RangeSize="-1"/>
     <iterator id="RequerimientosIterator" Binds="ArchivoCapacityTurnos1" DataControl="dataSourceDataControl"
               RangeSize="-1"/>
-    <iterator id="CapacitacionesIterator" Binds="Capacitaciones1" DataControl="dataSourceDataControl" RangeSize="-1"/>
+    <iterator id="CapacitacionesIterator" Binds="ArchivoCapacitaciones1" DataControl="dataSourceDataControl"
+              RangeSize="25"/>
     <iterator id="RestriccionAsignacionIterator" Binds="RestriccionAsignacion1" DataControl="dataSourceDataControl"
               RangeSize="-1"/>
     <iterator id="DatosSkillsIterator" Binds="ArchivoEmpleadosSkill1" DataControl="dataSourceDataControl" RangeSize="25"/>
