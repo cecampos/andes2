@@ -76,6 +76,11 @@ public class fileGeneratorBean {
                 newLine=formatoMes(newLine);
                 writer.write(newLine);
             }
+            else if(fileName.equals("Capacitaciones")){
+                String newLine=line.toString();
+                newLine=formatoMesCapacitaciones(newLine);
+                writer.write(newLine);
+            }
             else{
                 writer.write(line.toString()+"\n");
             }
@@ -131,7 +136,7 @@ public class fileGeneratorBean {
         c_termino.set(Integer.parseInt(rowTokens[6]),Integer.parseInt(rowTokens[5])-1,Integer.parseInt(rowTokens[4]));
     
         GregorianCalendar c_aux = new GregorianCalendar();
-        c_aux.set(Integer.parseInt(rowTokens[3]), Integer.parseInt(rowTokens[2]), Integer.parseInt(rowTokens[1]));
+        c_aux.set(Integer.parseInt(rowTokens[3]), Integer.parseInt(rowTokens[2])-1, Integer.parseInt(rowTokens[1]));
         
         while (c_aux.before(c_termino) && c_aux.before(c_actual)){
                                                                      
@@ -254,7 +259,60 @@ public class fileGeneratorBean {
             }        
             return aux;
     }
+    
+    public String queTurnoEs(int hora){
+        String resultado="";
+        //A:3
+        //T:11
+        //N:19
+        if(hora>=19){
+            return "N";
+        }
+        if(hora>=11){
+            return "T";
+        }
+        return "A";
+    }
 
+    public String formatoMesCapacitaciones(String input){
+        //por implementar
+        //transforma un periodo de tiempo dado a secuencia de dias
+        //[0-9]EMPL_RUT,DIA_INICIO,MES_INICIO,ANNIO_INICIO,DIA_TERMINO,MES_TERMINO,ANNIO_TERMINO,DIA_MES,MES_MES,ANNIO_MES
+        //[10-11]CAPT_HORA_INICIO,CAPT_HORA_TERMINO 
+        String aux="";
+        String[] rowTokens = input.split(",");
+        String[] horaCompleta= rowTokens[10].split(":");
+        int HORA = Integer.parseInt(horaCompleta[0]);
+       
+        GregorianCalendar c_actual= new GregorianCalendar();
+        c_actual.set(Integer.parseInt(rowTokens[9]),Integer.parseInt(rowTokens[8])-1,Integer.parseInt(rowTokens[7]));
+ 
+        GregorianCalendar c_inicio = new GregorianCalendar();
+        c_inicio.set(Integer.parseInt(rowTokens[3]), Integer.parseInt(rowTokens[2])-1, Integer.parseInt(rowTokens[1]));
+        
+        GregorianCalendar c_termino = new GregorianCalendar();
+        c_termino.set(Integer.parseInt(rowTokens[6]),Integer.parseInt(rowTokens[5])-1,Integer.parseInt(rowTokens[4]));
+        
+        GregorianCalendar c_aux = new GregorianCalendar();
+        c_aux.set(Integer.parseInt(rowTokens[3]), Integer.parseInt(rowTokens[2])-1, Integer.parseInt(rowTokens[1]));
+        
+        String turno= queTurnoEs(HORA);
+        
+        while ( (c_aux.before(c_termino) || (c_aux.compareTo(c_termino)==0))&& c_aux.before(c_actual)){
+                                                                     
+            if (c_aux.get(Calendar.MONTH) != c_actual.get(Calendar.MONTH)) {
+                                                               
+                c_aux.add(Calendar.DAY_OF_MONTH, 1);
+                continue;
+            }
+            else {//estoy en el periodo
+                    aux+=rowTokens[0]+","+c_aux.get(Calendar.DAY_OF_MONTH)+","+turno+"\n";
+
+                }                                
+                c_aux.add(Calendar.DAY_OF_MONTH, 1);                        
+        }         
+        return aux;
+    }
 
     public void generateFile(String fileName) throws IOException {
         //Prepara la informacion que sera guardada en un .csv, filtra los resultados de un iterador si corresponde

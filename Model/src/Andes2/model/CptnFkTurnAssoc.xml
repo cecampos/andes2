@@ -20,7 +20,7 @@
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.Turnos.TurnSeqCdg"/>
+      <Item Value="Andes2.model.Turnos.TurnNombre"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -33,7 +33,7 @@
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.CapacityTurno.TurnSeqCdg"/>
+      <Item Value="Andes2.model.CapacityTurno.TurnNombre"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

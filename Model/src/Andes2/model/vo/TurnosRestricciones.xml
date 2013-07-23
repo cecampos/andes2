@@ -248,6 +248,7 @@
     <DesignTime>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="RTAG_FK_EMPL"/>
+      <Attr Name="_referencedKey" Value="EMPL_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="Andes2.model.vo.TurnosRestricciones.EmplRut"/>

@@ -31,8 +31,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="DEV.EMPLEADOS"
-    IsNotNull="true">
+    TableName="DEV.EMPLEADOS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="60"/>
     </DesignTime>

@@ -33,7 +33,7 @@ public class FileUploader {
         Connection con;
 	public FileUploader(){
             DbManager dbMan = new DbManager();
-            con = dbMan.getDb("dev", "dev", "orcl");
+            con = dbMan.getDb("dev", "dev", "xe");
             }
 
         
@@ -42,26 +42,26 @@ public class FileUploader {
         
             InputStreamReader aux = new InputStreamReader((InputStream)dataPair[0]);
             BufferedReader reader = new BufferedReader(aux);
-            
+            fileCase = fileCase.toLowerCase();
             //Router, cada archivo tiene su propio metodo que lo carga en la BD
             if(fileCase.equals("empleados")){
                 uploadEmpleado(reader);
                 }
             else if(fileCase.equals("vacaciones"))
-                uploadVacacion(reader);
+                uploadVacacion(reader,(String)dataPair[1], (String)dataPair[2]);
             else if(fileCase.equals("capacitaciones"))
-                uploadCapacitacion(reader);
+                uploadCapacitacion(reader,(String)dataPair[1], (String)dataPair[2]);
             else if(fileCase.equals("skills"))
                 uploadSkills(reader);
-            else if(fileCase.equals("demandaSkills"))
+            else if(fileCase.equals("demandaskills"))
                 uploadDemandaSkills(reader,(String)dataPair[1]);
             else if(fileCase.equals("grupo"))
-                uploadGrupos(reader);
-            else if(fileCase.equals("capacityTurno"))
+                uploadGrupos(reader,(String)dataPair[1], (String)dataPair[2]);
+            else if(fileCase.equals("capacityturno"))
                 uploadCapacityTurno(reader,(String)dataPair[1]);
-            else if(fileCase.equals("turnosFijos"))
+            else if(fileCase.equals("turnosfijos"))
                 uploadTurnosFijos(reader,(String)dataPair[1], (String)dataPair[2]);
-            else if(fileCase.equals("turnosNoPermitidos"))
+            else if(fileCase.equals("turnosnopermitidos"))
                 uploadTurnosProhibidos(reader,(String)dataPair[1], (String)dataPair[2]);
                 
 
@@ -159,6 +159,7 @@ public class FileUploader {
 					java.sql.Date sqlDate = new java.sql.Date(aux.getTime());
 					SQL.setDate(i+1, sqlDate);
 				}
+                                                           
                                 else{
 			            SQL.setString(i+1, dataRow[i]);
                                 }
@@ -409,8 +410,8 @@ public class FileUploader {
 
         
         String tableName="coasignacion";
-        String[] colNames ={"EMPL_RUT","GRPO_NOMBRE","COAG_FECHA","COAG_VERSION"};
-        String[] colTypes = {"String","String","Date","int"};
+        String[] colNames ={"EMPL_RUT","GRPO_NOMBRE","COAG_FECHA","COAG_VERSION","COAG_MES"};
+        String[] colTypes = {"String","String","Date","int","Date"};
         
         PreparedStatement SQL = prepareInsertUpdate(con,colNames,tableName);
         String[] dataRow = null;
@@ -434,6 +435,7 @@ public class FileUploader {
                 SimpleDateFormat formatAux = new SimpleDateFormat("dd/MM/yyyy");
                 dataRow[2]=formatAux.format(Calendar.getInstance().getTime());
                 dataRow[3]="0"; 
+                
                     
                 saveRecord(SQL,colTypes,dataRow);
             }
@@ -454,7 +456,61 @@ public class FileUploader {
                 
         
         }
-    
+    private void uploadGrupos(BufferedReader reader,String mes, String anno){
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="coasignacion";
+        String[] colNames ={"EMPL_RUT","GRPO_NOMBRE","COAG_VERSION","COAG_MES"};
+        String[] colTypes = {"String","String","int","Date"};          
+        /*TODO: Borrar todos los registros de la base de datos de este mes*/
+        
+        deleteAllFromMonth(tableName,"COAG_MES",mes);
+        
+        
+        PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
+
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[colNames.length];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                //dataRow[colNames.length -2] = "0";
+                
+                String fecha = "01/"+mes+"/"+anno;
+                java.util.Date fechadate = null;
+             
+                dataRow[colNames.length -1]= fecha;
+                dataRow[colNames.length -2]= "0";
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("grupos");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+        
+    }
     private void uploadTurnosNoPermitidos(BufferedReader reader){
         /*TODO : Archivo genera Restriccion asignacion, requiere 
          * logica compleja : iterador entre fechas, condicional
@@ -514,7 +570,9 @@ public class FileUploader {
                   
     }
 
+    
     private void uploadVacacion(BufferedReader reader) {
+        //ya no se usa, cambiado por el uploadVacacion (BufferedReader
         String actualLine;
         StringTokenizer separator = null;
         
@@ -566,8 +624,64 @@ public class FileUploader {
         }   
         
     }
+    private void uploadVacacion(BufferedReader reader,String mes, String anno){
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="vacaciones";
+        String[] colNames ={"VCCN_ID","EMPL_RUT","VCCN_FECHA_INICIO","VCCN_FECHA_TERMINO","VCCN_MES"};
+        String[] colTypes = {"int","String","Date","Date","Date"};
+                
+        /*TODO: Borrar todos los registros de la base de datos de este mes*/
+        
+        deleteAllFromMonth(tableName,"VCCN_MES",mes);
+        
+        
+        PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
 
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[colNames.length];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                //dataRow[colNames.length -2] = "0";
+                
+                String fecha = "01/"+mes+"/"+anno;
+                java.util.Date fechadate = null;
+                
+                dataRow[colNames.length -1]= fecha;
+              
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("vacaciones");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+        
+    }
     private void uploadCapacitacion(BufferedReader reader) {
+        //DEPRECATED: Ahora se usa la version sobrecargada
         String actualLine;
         StringTokenizer separator = null;
         String tableName="capacitaciones";
@@ -611,7 +725,62 @@ public class FileUploader {
                 e.printStackTrace();
         }   
     }
+    private void uploadCapacitacion(BufferedReader reader,String mes, String anno){
+        String actualLine;
+        StringTokenizer separator = null;
+        String tableName="capacitaciones";
+        String[] colNames ={"CAPT_ID","EMPL_RUT","CAPT_FECHA_INICIO","CAPT_FECHA_TERMINO","CAPT_HORA_INICIO","CAPT_HORA_TERMINO","CAPT_MES"};
+        String[] colTypes = {"int","String","Date","Date","String","String","Date"};
+                
+        /*TODO: Borrar todos los registros de la base de datos de este mes*/
+        
+        deleteAllFromMonth(tableName,"CAPT_MES",mes);
+        
+        
+        PreparedStatement SQL = prepareInsertSQL(con,colNames,tableName);
 
+        String[] dataRow = null;
+        try {
+            while ((actualLine = reader.readLine()) != null)   {
+                //Saltarse Lineas de comentarios:
+                if(actualLine.startsWith("#") || actualLine.startsWith(";") || actualLine.startsWith("?#"))
+                        continue;
+                separator = new StringTokenizer(actualLine,";");
+                dataRow = new String[colNames.length];
+                for(int i=0;i<dataRow.length;i++){
+                    try{
+                        dataRow[i] = separator.nextToken();
+                    }
+                    catch(Exception e){
+                        //NoSuchElementException => dato vacio
+                        dataRow[i] = "";
+                    }
+                }
+                //dataRow[colNames.length -2] = "0";
+                
+                String fecha = "01/"+mes+"/"+anno;
+                java.util.Date fechadate = null;
+             
+                dataRow[colNames.length -1]= fecha;
+              
+                saveRecord(SQL,colTypes,dataRow);
+            }
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("Error leyendo el archivo de input");
+            e.printStackTrace();
+        }
+        try {
+                reader.close();
+                newUpldFileRecord("capacitaciones");
+                //con.close();
+        } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }           
+        
+    }
     private void uploadCapacityTurno(BufferedReader reader,String mes){
         String actualLine;
         StringTokenizer separator = null;

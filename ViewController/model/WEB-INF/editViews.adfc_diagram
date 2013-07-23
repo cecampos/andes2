@@ -21,123 +21,17 @@
       <property
          name="x">111.0</property>
    </View>
-   <View
-      id="View5">
+   <MethodCall
+      id="MethodCall3">
       <property
-         name="activityId">editCargos</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>editCargos&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">89.49414</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">740.0</property>
-   </View>
-   <View
-      id="View6">
-      <property
-         name="activityId">editCapacitaciones</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>editCapacitaciones&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">89.19531</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">572.0</property>
-   </View>
-   <View
-      id="View7">
-      <property
-         name="activityId">editEmpleados</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>editEmpleados&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">363.89648</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">426.0</property>
-   </View>
-   <View
-      id="View8">
-      <property
-         name="activityId">editCapacity</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>editCapacity&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">208.59766</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">716.0</property>
-   </View>
-   <View
-      id="View9">
-      <property
-         name="activityId">editCapacityHora</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>editCapacityHora&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">212.59766</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">592.0</property>
-   </View>
-   <View
-      id="View10">
-      <property
-         name="activityId">editDemandaSkill</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>editDemandaSkill&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">214.59766</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">847.0</property>
-   </View>
-   <View
-      id="View11">
-      <property
-         name="activityId">editCoAsignacion</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>editCoAsignacion&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">224.89648</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">420.0</property>
-   </View>
-   <Router
-      id="Router12">
-      <property
-         name="activityId">router1</property>
+         name="activityId">methodCall1</property>
       <property
          name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>router1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>methodCall1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-
          name="y">59.844727</property>
       <property
          name="x">-411.0</property>
@@ -161,7 +55,7 @@
       from="MethodCall3"
       to="Router5">
       <property
-         name="fromOutcome">vacaciones</property>
+         name="fromOutcome">*</property>
       <property
          name="sdm:polyPoints">R50,-370.0,59.49414,-170.0,92.94238,L46</property>
    </ControlFlowCase>

@@ -4,9 +4,6 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-  </executables>
-  <bindings/>
-</pageDefinition>
     <iterator Binds="CapacitacionesFullView1" RangeSize="25" DataControl="dataSourceDataControl"
               id="CapacitacionesFullView1Iterator"/>
     <searchRegion Binds="CapacitacionesFullView1Iterator" Criteria=""

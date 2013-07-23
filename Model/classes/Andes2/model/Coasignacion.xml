@@ -55,12 +55,12 @@
   </Attribute>
   <Attribute
     Name="CoagFecha"
-    IsNotNull="true"
-    ColumnName="COAG_FECHA"
+    ColumnName="&quot;Synchronize:Fix_SQL&quot;"
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
-    ColumnType="DATE"
-    TableName="COASIGNACION"/>
+    ColumnType="$none$"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <Attribute
     Name="CoagVersion"
     ColumnName="COAG_VERSION"
@@ -105,6 +105,7 @@
     <DesignTime>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="COAS_FK_EMPL"/>
+      <Attr Name="_referencedKey" Value="EMPL_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="Andes2.model.Coasignacion.EmplRut"/>
