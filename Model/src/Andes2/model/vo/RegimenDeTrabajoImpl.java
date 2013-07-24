@@ -96,6 +96,26 @@ public class RegimenDeTrabajoImpl extends EntityImpl {
                 obj.setRgtrDomingosLibres((BigDecimal)value);
             }
         }
+        ,
+        RgtrLibresSeguidos {
+            public Object get(RegimenDeTrabajoImpl obj) {
+                return obj.getRgtrLibresSeguidos();
+            }
+
+            public void put(RegimenDeTrabajoImpl obj, Object value) {
+                obj.setRgtrLibresSeguidos((BigDecimal)value);
+            }
+        }
+        ,
+        RgtrMaxQuiebres {
+            public Object get(RegimenDeTrabajoImpl obj) {
+                return obj.getRgtrMaxQuiebres();
+            }
+
+            public void put(RegimenDeTrabajoImpl obj, Object value) {
+                obj.setRgtrMaxQuiebres((BigDecimal)value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -123,6 +143,7 @@ public class RegimenDeTrabajoImpl extends EntityImpl {
             return vals;
         }
     }
+
     public static final int RGTRSEQCDG = AttributesEnum.RgtrSeqCdg.index();
     public static final int RGTRNOMBRE = AttributesEnum.RgtrNombre.index();
     public static final int RGTRDIASTRABAJADOS = AttributesEnum.RgtrDiasTrabajados.index();
@@ -131,11 +152,20 @@ public class RegimenDeTrabajoImpl extends EntityImpl {
     public static final int RGTRLIBRESPOSTSALIENTES = AttributesEnum.RgtrLibresPostSalientes.index();
     public static final int RGTRFINESSEMANALIBRES = AttributesEnum.RgtrFinesSemanaLibres.index();
     public static final int RGTRDOMINGOSLIBRES = AttributesEnum.RgtrDomingosLibres.index();
+    public static final int RGTRLIBRESSEGUIDOS = AttributesEnum.RgtrLibresSeguidos.index();
+    public static final int RGTRMAXQUIEBRES = AttributesEnum.RgtrMaxQuiebres.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public RegimenDeTrabajoImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("Andes2.model.vo.RegimenDeTrabajo");
     }
 
     /**
@@ -267,6 +297,38 @@ public class RegimenDeTrabajoImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for RgtrLibresSeguidos, using the alias name RgtrLibresSeguidos.
+     * @return the value of RgtrLibresSeguidos
+     */
+    public BigDecimal getRgtrLibresSeguidos() {
+        return (BigDecimal)getAttributeInternal(RGTRLIBRESSEGUIDOS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RgtrLibresSeguidos.
+     * @param value value to set the RgtrLibresSeguidos
+     */
+    public void setRgtrLibresSeguidos(BigDecimal value) {
+        setAttributeInternal(RGTRLIBRESSEGUIDOS, value);
+    }
+
+    /**
+     * Gets the attribute value for RgtrMaxQuiebres, using the alias name RgtrMaxQuiebres.
+     * @return the value of RgtrMaxQuiebres
+     */
+    public BigDecimal getRgtrMaxQuiebres() {
+        return (BigDecimal)getAttributeInternal(RGTRMAXQUIEBRES);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RgtrMaxQuiebres.
+     * @param value value to set the RgtrMaxQuiebres
+     */
+    public void setRgtrMaxQuiebres(BigDecimal value) {
+        setAttributeInternal(RGTRMAXQUIEBRES, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -306,10 +368,5 @@ public class RegimenDeTrabajoImpl extends EntityImpl {
         return new Key(new Object[]{rgtrSeqCdg});
     }
 
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("Andes2.model.vo.RegimenDeTrabajo");
-    }
+
 }

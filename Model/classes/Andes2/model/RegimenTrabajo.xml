@@ -73,6 +73,20 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="REGIMEN_TRABAJO"/>
+  <Attribute
+    Name="RgtrLibresSeguidos"
+    ColumnName="RGTR_LIBRES_SEGUIDOS"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="REGIMEN_TRABAJO"/>
+  <Attribute
+    Name="RgtrMaxQuiebres"
+    ColumnName="RGTR_MAX_QUIEBRES"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="REGIMEN_TRABAJO"/>
   <AccessorAttribute
     Name="ContratoEmpleados"
     Association="Andes2.model.CntrFkRgtrAssoc"

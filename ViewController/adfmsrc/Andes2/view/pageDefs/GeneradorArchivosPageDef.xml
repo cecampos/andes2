@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator id="RequerimientoSkillsIterator" Binds="RequerimientoSkills1" DataControl="dataSourceDataControl"
+    <iterator id="RequerimientoSkillsIterator" Binds="ArchivoRequerimientoSkills1" DataControl="dataSourceDataControl"
               RangeSize="-1"/>
     <iterator id="TurnosIterator" Binds="Turnos2" DataControl="dataSourceDataControl" RangeSize="-1"/>
     <iterator id="RequerimientosIterator" Binds="ArchivoCapacityTurnos1" DataControl="dataSourceDataControl"
@@ -13,7 +13,13 @@
               RangeSize="25"/>
     <iterator id="RestriccionAsignacionIterator" Binds="RestriccionAsignacion1" DataControl="dataSourceDataControl"
               RangeSize="-1"/>
-    <iterator id="DatosSkillsIterator" Binds="ArchivoEmpleadosSkill1" DataControl="dataSourceDataControl" RangeSize="25"/>
+    <iterator id="DatosSkillsIterator" Binds="ArchivoEmpleadosSkill1" DataControl="dataSourceDataControl"
+              RangeSize="-1"/>
+    <iterator id="DiasYTurnosFijadosIterator" Binds="ArchivoDiasYTurnosFijados1" DataControl="dataSourceDataControl"
+              RangeSize="-1"/>
+    <iterator id="EmpleadosIterator" Binds="ArchivoEmpleados1" DataControl="dataSourceDataControl" RangeSize="-1"/>
+    <iterator id="RequerimientoExtendidoIterator" Binds="ArchivoRequerimientoExtendido1"
+              DataControl="dataSourceDataControl" RangeSize="-1"/>
   </executables>
   <bindings/>
 </pageDefinition>

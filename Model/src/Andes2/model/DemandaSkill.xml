@@ -86,15 +86,4 @@
       <Item Value="Andes2.model.DemandaSkill.SkllId"/>
     </AttrArray>
   </Key>
-  <Key
-    Name="TurnFkDdsk">
-    <DesignTime>
-      <Attr Name="_referencedKey" Value="TURNOS_PK"/>
-      <Attr Name="_isForeign" Value="true"/>
-      <Attr Name="_DBObjectName" Value="TURN_FK_DDSK"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="Andes2.model.DemandaSkill.TurnNombre"/>
-    </AttrArray>
-  </Key>
 </Entity>

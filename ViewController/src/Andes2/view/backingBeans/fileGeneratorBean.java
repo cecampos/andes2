@@ -71,7 +71,7 @@ public class fileGeneratorBean {
                 //pedido con ',' para separar campos
                 line.append(","+rowValues[i]);
             }
-            if(fileName.equals("RestriccionAsignacion")){
+            if(fileName.equals("DiasYTurnosProhibidos")){
                 String newLine=line.toString();
                 newLine=formatoMes(newLine);
                 writer.write(newLine);
@@ -79,6 +79,11 @@ public class fileGeneratorBean {
             else if(fileName.equals("Capacitaciones")){
                 String newLine=line.toString();
                 newLine=formatoMesCapacitaciones(newLine);
+                writer.write(newLine);
+            }
+            else if(fileName.equals("DiasYTurnosFijados")){
+                String newLine=line.toString();
+                newLine=formatoMesFijados(newLine);
                 writer.write(newLine);
             }
             else{
@@ -99,7 +104,7 @@ public class fileGeneratorBean {
         // 1 - linea
         // 2 - linea
         // 3 - linea
-        //RestriccionAsignacion "13277964-3,61,2013-08-01 00:00:00.0,1,0,0,0,0,0,0,0,0,1,0"
+        //DiasYTurnosProhibidos "13277964-3,61,2013-08-01 00:00:00.0,1,0,0,0,0,0,0,0,0,1,0"
         //RUT, dia, turno
         //[0-9]EMPL_RUT,DIA_INICIO,MES_INICIO,ANNIO_INICIO,DIA_TERMINO,MES_TERMINO,ANNIO_TERMINO,DIA_MES,MES_MES,ANNIO_MES,
         //[10-17]RTAG_TODOS,RTAG_LUNES,RTAG_MARTES,RTAG_MIERCOLES,RTAG_JUEVES,RTAG_VIERNES,RTAG_SABADO,RTAG_DOMINGO,
@@ -314,25 +319,67 @@ public class fileGeneratorBean {
         return aux;
     }
 
+    public String formatoMesFijados(String input){
+        //[0-9]EMPL_RUT,DIA_INICIO,MES_INICIO,ANNIO_INICIO,DIA_TERMINO,MES_TERMINO,ANNIO_TERMINO,DIA_MES,MES_MES,ANNIO_MES
+        //[10-11]TURN_TIPO,TURN_NOMBRE
+        String aux="";
+        String[] rowTokens = input.split(",");
+        String tipo_turno=rowTokens[10];
+        String nombre_turno=rowTokens[11];
+       
+        GregorianCalendar c_actual= new GregorianCalendar();
+        c_actual.set(Integer.parseInt(rowTokens[9]),Integer.parseInt(rowTokens[8])-1,Integer.parseInt(rowTokens[7]));
+        
+        GregorianCalendar c_inicio = new GregorianCalendar();
+        c_inicio.set(Integer.parseInt(rowTokens[3]), Integer.parseInt(rowTokens[2])-1, Integer.parseInt(rowTokens[1]));
+        
+        GregorianCalendar c_termino = new GregorianCalendar();
+        c_termino.set(Integer.parseInt(rowTokens[6]),Integer.parseInt(rowTokens[5])-1,Integer.parseInt(rowTokens[4]));
+        
+        GregorianCalendar c_aux = new GregorianCalendar();
+        c_aux.set(Integer.parseInt(rowTokens[3]), Integer.parseInt(rowTokens[2])-1, Integer.parseInt(rowTokens[1]));
+        
+        
+        
+        while ( (c_aux.before(c_termino) || (c_aux.compareTo(c_termino)==0))&& c_aux.before(c_actual)){
+                                                                     
+            if (c_aux.get(Calendar.MONTH) != c_actual.get(Calendar.MONTH)) {
+                                                               
+                c_aux.add(Calendar.DAY_OF_MONTH, 1);
+                continue;
+            }
+            else {//estoy en el periodo
+                    aux+=rowTokens[0]+","+c_aux.get(Calendar.DAY_OF_MONTH)+","+tipo_turno+","+nombre_turno+"\n";
+
+                }                                
+                c_aux.add(Calendar.DAY_OF_MONTH, 1);                        
+        }         
+        return aux;
+    }
+
     public void generateFile(String fileName) throws IOException {
         //Prepara la informacion que sera guardada en un .csv, filtra los resultados de un iterador si corresponde
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
-        DCIteratorBinding reqIterator = bindings.findIteratorBinding(fileName+"Iterator");
+        DCIteratorBinding reqIterator = null;
+        if(fileName.equals("DiasYTurnosProhibidos")){
+             reqIterator= bindings.findIteratorBinding("RestriccionAsignacion"+"Iterator");
+            }
+        else{
+             reqIterator = bindings.findIteratorBinding(fileName+"Iterator");
+            }
         
         //A futuro: para no tener el if feo de abajo:
         String[] needsCargo = {"RequerimientoSkills", "Requerimientos"};
         
         if(fileName.equals("RequerimientoSkills") || fileName.equals("Requerimientos") || fileName.equals("Capacitaciones")
-            || fileName.equals("RestriccionAsignacion") || fileName.equals("DatosSkills")){
+            || fileName.equals("DiasYTurnosProhibidos") || fileName.equals("DatosSkills") || fileName.equals("DiasYTurnosFijados")
+            || fileName.equals("Empleados") || fileName.equals("RequerimientoSkills") || fileName.equals("RequerimientoExtendido")){    
                 ViewObject vo = reqIterator.getViewObject();
                 vo.ensureVariableManager().setVariableValue("elCargo", cargo.getValue());
                 vo.executeQuery();    
             }
-        Row[] result = reqIterator.getAllRowsInRange();
-        
-        generateCSV(result,fileName);
-        
-        
+        Row[] result = reqIterator.getAllRowsInRange();   
+        generateCSV(result,fileName); 
     }
     
     public void generateZipFile(String[] filesNames, String output) throws FileNotFoundException, IOException {
@@ -365,8 +412,8 @@ public class fileGeneratorBean {
          * */
         
         //Generar archivos csv:
-        String[] filesNames = {"Turnos","RequerimientoSkills","Requerimientos","Capacitaciones","RestriccionAsignacion",
-                               "DatosSkills"};
+        String[] filesNames = {"Turnos","RequerimientoSkills","Requerimientos","Capacitaciones","DiasYTurnosProhibidos",
+                               "DatosSkills","DiasYTurnosFijados","Empleados","RequerimientoExtendido"};
         for(String file:filesNames)
             generateFile(file);
 

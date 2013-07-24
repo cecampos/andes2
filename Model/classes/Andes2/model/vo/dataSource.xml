@@ -87,4 +87,16 @@
   <ViewUsage
     Name="ArchivoCapacitaciones1"
     ViewObjectName="Andes2.model.vo.ArchivoCapacitaciones"/>
+  <ViewUsage
+    Name="ArchivoRequerimientoSkills1"
+    ViewObjectName="Andes2.model.vo.ArchivoRequerimientoSkills"/>
+  <ViewUsage
+    Name="ArchivoDiasYTurnosFijados1"
+    ViewObjectName="Andes2.model.vo.ArchivoDiasYTurnosFijados"/>
+  <ViewUsage
+    Name="ArchivoEmpleados1"
+    ViewObjectName="Andes2.model.vo.ArchivoEmpleados"/>
+  <ViewUsage
+    Name="ArchivoRequerimientoExtendido1"
+    ViewObjectName="Andes2.model.vo.ArchivoRequerimientoExtendido"/>
 </AppModule>

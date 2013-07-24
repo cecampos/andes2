@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ArchivoDiasYTurnosFijados"
+  Version="11.1.2.64.36"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="Andes2.model.vo.ArchivoDiasYTurnosFijados_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="elCargo"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT 
+  FIJAR_ASIGNACION.EMPL_RUT,
+  extract(day from FIJAR_ASIGNACION.FJAR_FECHA_INICIO) dia_inicio,
+  extract(month from FIJAR_ASIGNACION.FJAR_FECHA_INICIO) mes_inicio,
+  extract(year from FIJAR_ASIGNACION.FJAR_FECHA_INICIO) annio_inicio,
+  extract(day from FIJAR_ASIGNACION.FJAR_FECHA_TERMINO) dia_termino,
+  extract(month from FIJAR_ASIGNACION.FJAR_FECHA_TERMINO) mes_termino,
+  extract(year from FIJAR_ASIGNACION.FJAR_FECHA_TERMINO) annio_termino,
+  extract(day from (last_day(FIJAR_ASIGNACION.FJAR_MES))) dia_mes,
+  extract(month from FIJAR_ASIGNACION.FJAR_MES) mes_mes,
+  extract(year from FIJAR_ASIGNACION.FJAR_MES) annio_mes,
+  TURNOS.TURN_TIPO,
+  TURNOS.TURN_NOMBRE
+FROM FIJAR_ASIGNACION
+INNER JOIN TURNOS on TURNOS.turn_nombre=FIJAR_ASIGNACION.TURN_NOMBRE
+INNER JOIN CONTRATO_EMPLEADOS on CONTRATO_EMPLEADOS.empl_rut= FIJAR_ASIGNACION.empl_rut
+WHERE CONTRATO_EMPLEADOS.crgo_id=: elCargo OR 1=1]]></SQLQuery>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="Andes2.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
